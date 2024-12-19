@@ -7,7 +7,7 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import 'package:gradutionproject/features/on_boarding/presentation/view/title_on_boarding.dart';
+import 'package:gradutionproject/features/on_boarding/presentation/view/widgets/title_on_boarding.dart';
 import 'button_onboarding.dart';
 import 'image_on_boarding.dart';
 
@@ -47,13 +47,10 @@ class OnBoardingBody extends StatelessWidget {
             const SizedBox(
               height: 48,
             ),
-            ButtonOnboarding(),
+            const ButtonOnboarding(),
           ],
         ),
       ),
     );
   }
 }
-
-
-
