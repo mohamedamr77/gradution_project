@@ -39,7 +39,7 @@ class GText extends StatelessWidget {
       content,
       textAlign: textAlign ??
           (SharedFunctions.isArabicLocale() ? TextAlign.left : TextAlign.right),
-      textDirection: textDirection,
+      textDirection: textDirection ??   (SharedFunctions.isArabicLocale() ? TextDirection.ltr : TextDirection.rtl ),
       maxLines: maxLines,
       style: TextStyle(
         fontSize: getResponsiveFontSize(context: context, fontSize: fontSize),
@@ -47,6 +47,7 @@ class GText extends StatelessWidget {
         decoration: textDecoration,
         color: color,
         decorationColor: decorationColor,
+
         decorationThickness: decorationThickness,
         fontFamily: SharedFunctions.determineFontFamily(content),
         fontWeight: fontWeight,

@@ -1,6 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
+import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
+
+import 'core/navigation/navigation_manager.dart';
+import 'core/navigation/routes.dart';
 
 void main (){
   runApp(const MyApp());
@@ -16,8 +21,16 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         wd = constraints.maxWidth;
         ht = constraints.maxHeight;
-      return const MaterialApp(
-        debugShowCheckedModeBanner: false,
+      return  SafeArea(
+        child: MaterialApp(
+          theme: ThemeData(
+            scaffoldBackgroundColor: AppColors.lightGrayColor
+          ),
+          debugShowCheckedModeBanner: false,
+          navigatorKey: NavigationManager.navigationKey,
+          routes: AppRouter.routes,
+          initialRoute: OnBoardingScreen.id,
+        ),
       );
       },
 

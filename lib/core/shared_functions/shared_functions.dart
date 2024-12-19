@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_font_family.dart';
 
 import '../navigation/navigation_manager.dart';
 
@@ -50,11 +51,11 @@ class SharedFunctions {
 
   static String determineFontFamily(String content) {
     if (SharedFunctions.isArabicLocale() && !containsNumber(content)) {
-      return 'GE';
+      return AppFontFamily.cairoFontFamily;
     } else if (isNumeric(content)) {
-      return 'Monserat';
+      return AppFontFamily.cairoFontFamily;
     } else {
-      return 'Monserat';
+      return AppFontFamily.cairoFontFamily;
     }
   }
 

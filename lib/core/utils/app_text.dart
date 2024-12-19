@@ -14,6 +14,7 @@ class AppText {
   static const String enterPassword = "أدخل كلمة المرور";
   static const String confirmPassword = "تأكيد كلمة المرور";
   static const String createAccount = "انشاء حساب";
+  static const String continueText = "تخطي";
   static const String orRegisterUsing = "أو سجل بإستخدام";
   static const String alreadyHaveAccount = "هل لديك حساب بالفعل؟";
   static const String login = "تسجيل دخول";
