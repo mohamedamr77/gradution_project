@@ -1,0 +1,4 @@
+enum ToastColor{
+    red,
+    green,
+}
