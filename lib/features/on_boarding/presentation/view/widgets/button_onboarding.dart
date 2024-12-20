@@ -6,6 +6,9 @@ import 'package:gradutionproject/features/on_boarding/data/on_boarding_list.dart
 import 'package:gradutionproject/features/on_boarding/presentation/viewModel/on_boarding_state.dart';
 import 'package:gradutionproject/features/on_boarding/presentation/viewModel/on_boaring_cubit.dart';
 
+import '../../../../../core/navigation/navigation_manager.dart';
+import '../../../../auth/login/presentation/view/login_screen.dart';
+
 class ButtonOnboarding extends StatelessWidget {
   final int index;
   const ButtonOnboarding({super.key, required this.index});
@@ -25,7 +28,7 @@ class ButtonOnboarding extends StatelessWidget {
           },
           child: InkWell(
               onTap: () =>  index != onBoardingList.length-1?
-               cubit.nextPage() : cubit.previousPage(),
+               cubit.nextPage() : NavigationManager.replaceAll(LoginScreen.id),
               child: SvgPicture.asset(AppIcons.iconOnBoarding)),
           builder: (BuildContext context, value, Widget? child) {
             return Transform.scale(
