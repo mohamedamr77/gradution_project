@@ -15,12 +15,15 @@ class SmoothPageOnboarding extends StatelessWidget {
 
     return    Visibility(
       visible: index != onBoardingList.length-1,
-      child: SmoothPageIndicator(
-          controller: cubit.pageControllerPageView,  // PageController
-          count:  onBoardingList.length,
-          effect:  const SwapEffect(), // your preferred effect
-          onDotClicked: (index){
-          }
+      child: Align(
+        alignment: Alignment.center,
+        child: SmoothPageIndicator(
+            controller: cubit.pageControllerPageView,  // PageController
+            count:  onBoardingList.length,
+            effect:  const SwapEffect(), // your preferred effect
+            onDotClicked: (index){
+            }
+        ),
       ),
     );
   }

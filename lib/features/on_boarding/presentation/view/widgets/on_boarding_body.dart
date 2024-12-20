@@ -19,31 +19,31 @@ class OnBoardingBody extends StatelessWidget {
     return Center(
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 0.06.w),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            0.03.ph,
-            TopScreenOnboarding(index: index,),
-            const SizedBox(
-              height: 38,
-            ),
-              ImageOnBoarding(imagePath: onboardingModel.imagePath ,),
-            const SizedBox(
-              height: 38,
-            ),
-             TitleOnBoarding(title: onboardingModel.title,),
-            const SizedBox(
-              height: 48,
-            ),
-             ButtonOnboarding(index: index,),
-            const SizedBox(
-              height: 12,
-            ),
-            SmoothPageOnboarding(index: index,),
-            StartText(index: index,),
+        child: CustomScrollView(
+          slivers: [
+            SliverFillRemaining(
+              hasScrollBody: false,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  0.03.ph,
+                  TopScreenOnboarding(index: index,),
+                  const Spacer(flex: 1,),
+                  ImageOnBoarding(imagePath: onboardingModel.imagePath ,),
+                  const Spacer(flex: 1,),
+                  TitleOnBoarding(title: onboardingModel.title,),
+                  const Spacer(flex: 2,),
+                  ButtonOnboarding(index: index,),
+                  const Spacer(flex: 1,),
+                  SmoothPageOnboarding(index: index,),
+                  StartText(index: index,),
+                  const Spacer(flex: 3,)
 
+                ],
+              ),
+            )
           ],
-        ),
+        )
       ),
     );
   }

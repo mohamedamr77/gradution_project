@@ -25,8 +25,7 @@ class ButtonOnboarding extends StatelessWidget {
           },
           child: InkWell(
               onTap: () =>  index != onBoardingList.length-1?
-               cubit.nextPage() : cubit.previousPage()
-              ,
+               cubit.nextPage() : cubit.previousPage(),
               child: SvgPicture.asset(AppIcons.iconOnBoarding)),
           builder: (BuildContext context, value, Widget? child) {
             return Transform.scale(
