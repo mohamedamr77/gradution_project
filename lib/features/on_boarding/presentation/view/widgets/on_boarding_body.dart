@@ -35,7 +35,7 @@ class OnBoardingBody extends StatelessWidget {
             const SizedBox(
               height: 48,
             ),
-            const ButtonOnboarding(),
+             ButtonOnboarding(index: index,),
             const SizedBox(
               height: 12,
             ),

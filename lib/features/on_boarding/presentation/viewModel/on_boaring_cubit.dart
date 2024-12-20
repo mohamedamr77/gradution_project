@@ -30,4 +30,8 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     pageControllerPageView.previousPage(duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
   }
 
+  void  nextPage(){
+    pageControllerPageView.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
+  }
+
 }
