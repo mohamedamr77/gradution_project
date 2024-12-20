@@ -5,6 +5,7 @@ import 'package:gradutionproject/features/on_boarding/presentation/view/on_board
 
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
+import 'features/auth/login/presentation/view/login_screen.dart';
 
 void main (){
   runApp(const MyApp());
@@ -39,7 +40,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute: OnBoardingScreen.id,
+          initialRoute: LoginScreen.id,
         ),
       );
       },
