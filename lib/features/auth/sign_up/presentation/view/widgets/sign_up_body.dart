@@ -6,6 +6,7 @@ import '../../../../shared_widget_auth/name_screen_auth.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
 import 'email_field_sign_up.dart';
+import 'have_account_signup.dart';
 import 'name_field_sign_up.dart';
 import 'password_field_sign_up.dart';
 import 'phone_filed_sign_up.dart';
@@ -62,11 +63,7 @@ class SignUpBody extends StatelessWidget {
                   const SizedBox(
                     height: 16,
                   ),
-                  HaveOrNotAccountAuth(
-                    titleOnTap: AppText.login,
-                    titleWithoutTap: AppText.alreadyHaveAccount,
-                    onTap: () {},
-                  ),
+                  const HaveAccountSignup(),
                   const SizedBox(
                     height: 16,
                   ),
