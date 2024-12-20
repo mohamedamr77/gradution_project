@@ -57,7 +57,17 @@ class SignUpBody extends StatelessWidget {
                   SizedBox(height: 32,),
                   CreateAccountButton(),
                   SocialAuthSection(),
-                  SizedBox(height: 32,),
+                  SizedBox(height: 16,),
+                  Row(
+                    textDirection: TextDirection.rtl,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      GText(color: AppColors.primaryColor, content: AppText.alreadyHaveAccount, fontSize: 16 , fontWeight: FontWeight.w500,),
+                      SizedBox(width: 10,),
+                      GText(color: AppColors.primaryColor, content: AppText.login, fontSize: 16 , fontWeight: FontWeight.w900,)
+                    ],
+                  ),
+                  SizedBox(height: 16,),
                 ],
               ),
             ),
