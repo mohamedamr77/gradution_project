@@ -15,8 +15,8 @@ class ButtonOnboarding extends StatelessWidget {
       builder: (context, state) {
         return TweenAnimationBuilder(
           tween: cubit.reverseButtonOnBoarding ? Tween<double>(
-              begin: 1, end: 1.1) :
-          Tween<double>(begin: 1.1, end: 1),
+              begin: 1, end: 1.15) :
+          Tween<double>(begin: 1.15, end: 1),
           duration: const Duration(seconds: 1),
           onEnd: () {
             cubit.toggleReverseButton();
