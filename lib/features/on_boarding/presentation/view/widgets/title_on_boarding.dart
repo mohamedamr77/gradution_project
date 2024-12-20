@@ -10,7 +10,8 @@ import '../../../../../core/shared_widget/global_text.dart';
 import 'package:flutter/material.dart';
 
 class TitleOnBoarding extends StatefulWidget {
-  const TitleOnBoarding({super.key});
+  final String title;
+  const TitleOnBoarding({super.key, required this.title});
 
   @override
   _TitleOnBoardingState createState() => _TitleOnBoardingState();
@@ -27,7 +28,7 @@ class _TitleOnBoardingState extends State<TitleOnBoarding>
     super.initState();
 
     _controller = AnimationController(
-      duration: const Duration(seconds: 2),
+      duration: const Duration(seconds: 1),
       vsync: this,
     );
 
@@ -67,10 +68,10 @@ class _TitleOnBoardingState extends State<TitleOnBoarding>
           ),
         );
       },
-      child: const GText(
+      child:  GText(
         textDirection: TextDirection.rtl,
         color: AppColors.primaryColor,
-        content: AppText.sideEffectsInfo,
+        content: widget.title,
         fontSize: 22,
         fontWeight: FontWeight.w600,
         textAlign: TextAlign.center,
