@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-
+import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_cubit.dart';
+import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
 import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_text.dart';
@@ -11,16 +13,30 @@ class PasswordFieldSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return CustomTextField(
-      hintText: AppText.enterPassword,
-      prefix: Padding(
-          padding: const EdgeInsets.all(12),
-          child: SvgPicture.asset(AppIcons.passwordIcon)),
-      title: AppText.password,
-      suffixIcon: const Icon(
-        Icons.visibility_off,
-        color: AppColors.thirdColor,
-      ),
+    var cubit = BlocProvider.of<SignUpCubit>(context);
+    return BlocBuilder<SignUpCubit, SignUpState>(
+      builder: (context, state) {
+        return CustomTextField(
+            obscureText: cubit.visibilityPassword ? true : false,
+            hintText: AppText.enterPassword,
+            prefix: Padding(
+                padding: const EdgeInsets.all(12),
+                child: SvgPicture.asset(AppIcons.passwordIcon)),
+            title: AppText.password,
+            suffixIcon: IconButton(
+                onPressed: () {
+                  cubit.toggleVisibilityPassword();
+                },
+                icon: cubit.visibilityPassword
+                    ? const Icon(
+                        Icons.visibility_off,
+                        color: AppColors.thirdColor,
+                      )
+                    : const Icon(
+                        Icons.visibility,
+                        color: AppColors.thirdColor,
+                      )));
+      },
     );
   }
 }
