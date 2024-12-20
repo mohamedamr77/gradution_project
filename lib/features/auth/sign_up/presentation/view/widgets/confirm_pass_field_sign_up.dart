@@ -18,9 +18,7 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
       builder: (context, state) {
         return CustomTextField(
             hintText: AppText.enterPassword,
-            prefix: Padding(
-                padding: const EdgeInsets.all(12),
-                child: SvgPicture.asset(AppIcons.passwordIcon)),
+            prefix: prefixIcon(),
             title: AppText.confirmPassword,
             obscureText: cubit.visibilityPassword? true :false,
             suffixIcon: IconButton(
@@ -28,15 +26,29 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
                   cubit.toggleVisibilityConfirmPassword();
                 },
                 icon: cubit.visibilityConfirmPassword
-                    ? const Icon(
-                        Icons.visibility_off,
-                        color: AppColors.thirdColor,
-                      )
-                    : const Icon(
-                        Icons.visibility,
-                        color: AppColors.thirdColor,
-                      )));
+                    ? visibilityOffIcon()
+                    : visibilityIcon(),
+            ));
       },
     );
+  }
+
+  Widget visibilityIcon(){
+    return const Icon(
+      Icons.visibility,
+      color: AppColors.thirdColor,
+    );
+  }
+  Widget visibilityOffIcon(){
+   return const Icon(
+     Icons.visibility_off,
+     color: AppColors.thirdColor,
+   );
+  }
+
+  Widget prefixIcon(){
+    return Padding(
+        padding: const EdgeInsets.all(12),
+        child: SvgPicture.asset(AppIcons.passwordIcon));
   }
 }
