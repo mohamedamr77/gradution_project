@@ -15,10 +15,10 @@ class SignUpBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Center(
-        child:CustomScrollView(
+        child: CustomScrollView(
           slivers: [
             SliverFillRemaining(
               hasScrollBody: false,
@@ -27,7 +27,9 @@ class SignUpBody extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const NameScreenAuth(title:AppText.createNewAccount,),
+                  const NameScreenAuth(
+                    title: AppText.createNewAccount,
+                  ),
                   const SizedBox(
                     height: 32,
                   ),
@@ -48,12 +50,26 @@ class SignUpBody extends StatelessWidget {
                     height: 16,
                   ),
                   const ConfirmPassFieldSignUp(),
-                  const SizedBox(height: 32,),
+                  const SizedBox(
+                    height: 32,
+                  ),
                   const CreateAccountButton(),
-                  SocialAuthSection(onTapFaceBooK: () {  }, onTapGoogle: () {  }, onTapApple: () {  },),
-                  const SizedBox(height: 16,),
-                  HaveOrNotAccountAuth(titleOnTap: AppText.login, titleWithoutTap: AppText.alreadyHaveAccount, onTap: () {  },),
-                  const SizedBox(height: 16,),
+                  SocialAuthSection(
+                    onTapFaceBooK: () {},
+                    onTapGoogle: () {},
+                    onTapApple: () {},
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
+                  HaveOrNotAccountAuth(
+                    titleOnTap: AppText.login,
+                    titleWithoutTap: AppText.alreadyHaveAccount,
+                    onTap: () {},
+                  ),
+                  const SizedBox(
+                    height: 16,
+                  ),
                 ],
               ),
             ),

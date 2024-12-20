@@ -9,7 +9,7 @@ class NameScreenAuth extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  GText(
+    return GText(
       color: AppColors.primaryColor,
       content: title,
       fontSize: 20,

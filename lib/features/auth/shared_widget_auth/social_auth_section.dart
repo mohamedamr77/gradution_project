@@ -8,26 +8,51 @@ import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 class SocialAuthSection extends StatelessWidget {
- final void Function() onTapFaceBooK;
- final  void Function() onTapGoogle;
+  final void Function() onTapFaceBooK;
+  final void Function() onTapGoogle;
   final void Function() onTapApple;
-  const SocialAuthSection({super.key, required this.onTapFaceBooK, required this.onTapGoogle, required this.onTapApple});
+  const SocialAuthSection(
+      {super.key,
+      required this.onTapFaceBooK,
+      required this.onTapGoogle,
+      required this.onTapApple});
 
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const SizedBox(height: 16,),
-        const GText(color: AppColors.primaryColor, content: AppText.orRegisterUsing, fontSize: 16, fontWeight: FontWeight.w500),
-        const SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
+        const GText(
+            color: AppColors.primaryColor,
+            content: AppText.orRegisterUsing,
+            fontSize: 16,
+            fontWeight: FontWeight.w500),
+        const SizedBox(
+          height: 16,
+        ),
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SocialContainerItem(onTap: onTapFaceBooK, iconPath: AppIcons.facebookIcon,),
-            const SizedBox(width: 16,),
-            SocialContainerItem(onTap: onTapApple, iconPath: AppIcons.appleIcon,),
-            const SizedBox(width: 16,),
-            SocialContainerItem(onTap: onTapGoogle, iconPath: AppImages.google,),
+            SocialContainerItem(
+              onTap: onTapFaceBooK,
+              iconPath: AppIcons.facebookIcon,
+            ),
+            const SizedBox(
+              width: 16,
+            ),
+            SocialContainerItem(
+              onTap: onTapApple,
+              iconPath: AppIcons.appleIcon,
+            ),
+            const SizedBox(
+              width: 16,
+            ),
+            SocialContainerItem(
+              onTap: onTapGoogle,
+              iconPath: AppImages.google,
+            ),
           ],
         )
       ],
@@ -35,11 +60,11 @@ class SocialAuthSection extends StatelessWidget {
   }
 }
 
-
 class SocialContainerItem extends StatelessWidget {
- final void Function() onTap;
- final String iconPath;
-  const SocialContainerItem({super.key, required this.onTap, required this.iconPath});
+  final void Function() onTap;
+  final String iconPath;
+  const SocialContainerItem(
+      {super.key, required this.onTap, required this.iconPath});
 
   @override
   Widget build(BuildContext context) {
@@ -54,14 +79,10 @@ class SocialContainerItem extends StatelessWidget {
             border: Border.all(
               color: AppColors.thirdColor,
               width: 1,
-
-            )
-        ),
-        child:
-        iconPath.contains("svg")?
-        SvgPicture.asset(iconPath) :
-        Image.asset(iconPath)
-        ,
+            )),
+        child: iconPath.contains("svg")
+            ? SvgPicture.asset(iconPath)
+            : Image.asset(iconPath),
       ),
     );
   }

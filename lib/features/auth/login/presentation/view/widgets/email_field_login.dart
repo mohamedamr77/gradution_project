@@ -4,17 +4,18 @@ import '../../../../../../core/shared_widget/custom_text_form_field.dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_text.dart';
 
-class NameFieldSignUp extends StatelessWidget {
-  const NameFieldSignUp({super.key});
+class EmailFieldLogin extends StatelessWidget {
+  const EmailFieldLogin({super.key});
 
   @override
   Widget build(BuildContext context) {
     return const CustomTextField(
-        hintText: AppText.enterYourName,
-        prefix: Icon(
-          Icons.person,
-          color: AppColors.thirdColor,
-        ),
-        title: AppText.name);
+      title: AppText.emailAddress,
+      prefix: Icon(
+        Icons.email,
+        color: AppColors.thirdColor,
+      ),
+      hintText: AppText.enterEmailAddress,
+    );
   }
 }
