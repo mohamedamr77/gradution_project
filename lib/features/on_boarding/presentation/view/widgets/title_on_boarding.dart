@@ -1,13 +1,8 @@
-import 'package:animated_text_kit/animated_text_kit.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_font_family.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
-import 'package:gradutionproject/core/utils/font_size_responsize.dart';
 
 import '../../../../../core/shared_widget/global_text.dart';
 
-import 'package:flutter/material.dart';
 
 class TitleOnBoarding extends StatefulWidget {
   final String title;
