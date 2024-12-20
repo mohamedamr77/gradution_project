@@ -19,6 +19,7 @@ class AppImages {
  static const String vaccine2Test = "assets/images/vaccine2_test.png";
  static const String vaccine3Test = "assets/images/vaccine3_test.png";
  static const String vaccine4Test = "assets/images/vaccine4_test.png";
+ static const String google = "assets/images/goole_png.png";
 }
 
 
