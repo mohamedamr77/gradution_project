@@ -8,7 +8,10 @@ import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 class SocialAuthSection extends StatelessWidget {
-  const SocialAuthSection({super.key});
+ final void Function() onTapFaceBooK;
+ final  void Function() onTapGoogle;
+  final void Function() onTapApple;
+  const SocialAuthSection({super.key, required this.onTapFaceBooK, required this.onTapGoogle, required this.onTapApple});
 
   @override
   Widget build(BuildContext context) {
@@ -20,11 +23,11 @@ class SocialAuthSection extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SocialContainerItem(onTap: () {  }, iconPath: AppIcons.facebookIcon,),
+            SocialContainerItem(onTap: onTapFaceBooK, iconPath: AppIcons.facebookIcon,),
             const SizedBox(width: 16,),
-            SocialContainerItem(onTap: () {  }, iconPath: AppIcons.appleIcon,),
+            SocialContainerItem(onTap: onTapApple, iconPath: AppIcons.appleIcon,),
             const SizedBox(width: 16,),
-            SocialContainerItem(onTap: () {  }, iconPath: AppImages.google,),
+            SocialContainerItem(onTap: onTapGoogle, iconPath: AppImages.google,),
           ],
         )
       ],

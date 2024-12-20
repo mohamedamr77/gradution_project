@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/core/shared_widget/global_text.dart';
-import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
-import 'package:gradutionproject/features/auth/sign_up/presentation/view/widgets/social_auth_section.dart';
+import 'package:gradutionproject/features/auth/shared_widget_auth/social_auth_section.dart';
+import '../../../../shared_widget_auth/have_or_not_account_auth.dart';
 import '../../../../shared_widget_auth/name_screen_auth.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
@@ -16,8 +15,8 @@ class SignUpBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+    return   Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Center(
         child:CustomScrollView(
           slivers: [
@@ -25,44 +24,36 @@ class SignUpBody extends StatelessWidget {
               hasScrollBody: false,
               child: Column(
                 children: [
-                  SizedBox(
+                  const SizedBox(
                     height: 10,
                   ),
-                  NameScreenAuth(title:AppText.createNewAccount,),
-                  SizedBox(
+                  const NameScreenAuth(title:AppText.createNewAccount,),
+                  const SizedBox(
                     height: 32,
                   ),
-                  NameFieldSignUp(),
-                  SizedBox(
+                  const NameFieldSignUp(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  PhoneFiledSignUp(),
-                  SizedBox(
+                  const PhoneFiledSignUp(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  EmailFieldSignUp(),
-                  SizedBox(
+                  const EmailFieldSignUp(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  PasswordFieldSignUp(),
-                  SizedBox(
+                  const PasswordFieldSignUp(),
+                  const SizedBox(
                     height: 16,
                   ),
-                  ConfirmPassFieldSignUp(),
-                  SizedBox(height: 32,),
-                  CreateAccountButton(),
-                  SocialAuthSection(),
-                  SizedBox(height: 16,),
-                  Row(
-                    textDirection: TextDirection.rtl,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      GText(color: AppColors.primaryColor, content: AppText.alreadyHaveAccount, fontSize: 16 , fontWeight: FontWeight.w500,),
-                      SizedBox(width: 10,),
-                      GText(color: AppColors.primaryColor, content: AppText.login, fontSize: 16 , fontWeight: FontWeight.w900,)
-                    ],
-                  ),
-                  SizedBox(height: 16,),
+                  const ConfirmPassFieldSignUp(),
+                  const SizedBox(height: 32,),
+                  const CreateAccountButton(),
+                  SocialAuthSection(onTapFaceBooK: () {  }, onTapGoogle: () {  }, onTapApple: () {  },),
+                  const SizedBox(height: 16,),
+                  HaveOrNotAccountAuth(titleOnTap: AppText.login, titleWithoutTap: AppText.alreadyHaveAccount, onTap: () {  },),
+                  const SizedBox(height: 16,),
                 ],
               ),
             ),
