@@ -27,20 +27,29 @@ class OnBoardingBody extends StatelessWidget {
       child: Padding(
         padding: EdgeInsets.symmetric(horizontal: 0.06.w),
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             0.03.ph,
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                IconButton(
-                  onPressed: () {},
-                  icon: const Icon(Icons.arrow_back_ios,
-                      color: AppColors.primaryColor, size: 24),
+                Visibility(
+                  visible:index > 0,
+                  child:  InkWell(
+                    onTap: () {
+                      BlocProvider.of<OnBoardingCubit>(context).previousPage();
+                    },
+                    child: const Icon(Icons.arrow_back_ios,
+                        color: AppColors.primaryColor, size: 24),
+                  ),
                 ),
-                const GText(
-                    color: AppColors.primaryColor,
-                    content: AppText.continueText,
-                    fontSize: 18),
+                Visibility(
+                  visible: index != onBoardingList.length-1,
+                  child: const GText(
+                      color: AppColors.primaryColor,
+                      content: AppText.continueText,
+                      fontSize: 18),
+                ),
               ],
             ),
             const SizedBox(
@@ -58,13 +67,31 @@ class OnBoardingBody extends StatelessWidget {
             const SizedBox(
               height: 12,
             ),
-            SmoothPageIndicator(
-                controller: BlocProvider.of<OnBoardingCubit>(context).pageControllerPageView,  // PageController
-                count:  onBoardingList.length,
-                effect:  const SwapEffect(), // your preferred effect
-                onDotClicked: (index){
-                }
-            )
+            Visibility(
+              visible: index != onBoardingList.length-1,
+              child: SmoothPageIndicator(
+                  controller: BlocProvider.of<OnBoardingCubit>(context).pageControllerPageView,  // PageController
+                  count:  onBoardingList.length,
+                  effect:  const SwapEffect(), // your preferred effect
+                  onDotClicked: (index){
+                  }
+              ),
+            ),
+            Visibility(
+              visible: index == onBoardingList.length-1,
+              child: const Padding(
+                padding: EdgeInsets.only(top: 18),
+                child: GText(
+                  textDirection: TextDirection.rtl,
+                  color: AppColors.primaryColor,
+                  content: AppText.readyToStart,
+                  fontSize: 22,
+                  fontWeight: FontWeight.w600,
+                  textAlign: TextAlign.center,
+                ),
+              ),
+            ),
+
           ],
         ),
       ),

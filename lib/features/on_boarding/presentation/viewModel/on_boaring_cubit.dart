@@ -26,4 +26,8 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     emit(OnBoardingButtonAnimationState());
   }
 
+  void  previousPage(){
+    pageControllerPageView.previousPage(duration: Duration(milliseconds: 500), curve: Curves.easeOut);
+  }
+
 }
