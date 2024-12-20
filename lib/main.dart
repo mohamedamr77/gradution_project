@@ -1,5 +1,3 @@
-import 'package:device_preview/device_preview.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';

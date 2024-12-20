@@ -7,6 +7,7 @@ class CustomElevatedButton extends StatelessWidget {
   final Color btnColor;
   final double? width;
   final double? height;
+  final double? borderRadius;
   final BorderSide? borderSide;
 
   const CustomElevatedButton(
@@ -16,7 +17,7 @@ class CustomElevatedButton extends StatelessWidget {
       required this.btnColor,
       this.width,
       this.height,
-      this.borderSide});
+      this.borderSide, this.borderRadius});
 
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class CustomElevatedButton extends StatelessWidget {
         backgroundColor: btnColor,
         elevation: 0,
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(0.01.w),
+          borderRadius: BorderRadius.circular(borderRadius ??0.02.w),
           side: borderSide ?? BorderSide.none,
         ),
       ),

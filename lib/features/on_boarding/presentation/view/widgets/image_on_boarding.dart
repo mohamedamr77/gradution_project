@@ -22,7 +22,7 @@ class _ImageOnBoardingState extends State<ImageOnBoarding> with SingleTickerProv
   @override
   void initState(){
      super.initState();
-     _controller =  AnimationController(vsync: this,duration: Duration(seconds: 1));
+     _controller =  AnimationController(vsync: this,duration: const Duration(seconds: 1));
       _opacityAnimation = Tween<double>(
         begin: 0.4,
         end: 1,

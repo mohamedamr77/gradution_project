@@ -13,8 +13,8 @@ class StartText extends StatelessWidget {
   Widget build(BuildContext context) {
     return   Visibility(
       visible: index == onBoardingList.length-1,
-      child: Padding(
-        padding: const EdgeInsets.only(top: 18),
+      child: const Padding(
+        padding: EdgeInsets.only(top: 18),
         child: GText(
           textDirection: TextDirection.rtl,
           color: AppColors.primaryColor,
