@@ -3,6 +3,7 @@ import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/view/widgets/social_auth_section.dart';
+import '../../../../shared_widget_auth/name_screen_auth.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
 import 'email_field_sign_up.dart';
@@ -15,7 +16,7 @@ class SignUpBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return  const Padding(
       padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Center(
         child:CustomScrollView(
@@ -27,13 +28,7 @@ class SignUpBody extends StatelessWidget {
                   SizedBox(
                     height: 10,
                   ),
-                  GText(
-                    color: AppColors.primaryColor,
-                    content: AppText.createNewAccount,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w700,
-                    textAlign: TextAlign.center,
-                  ),
+                  NameScreenAuth(title:AppText.createNewAccount,),
                   SizedBox(
                     height: 32,
                   ),
