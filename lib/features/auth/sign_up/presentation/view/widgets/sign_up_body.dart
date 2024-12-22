@@ -58,7 +58,7 @@ class SignUpBody extends StatelessWidget {
                     const SizedBox(
                       height: 32,
                     ),
-                    const CreateAccountButton(),
+                     CreateAccountButton(formKey: formKey,),
                     SocialAuthSection(
                       onTapFaceBooK: () {},
                       onTapGoogle: () {},

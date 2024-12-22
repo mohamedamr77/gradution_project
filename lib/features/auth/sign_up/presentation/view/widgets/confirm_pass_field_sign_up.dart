@@ -26,7 +26,9 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
                 icon: cubit.visibilityConfirmPassword
                     ? AppIcons.visibilityOffIcon
                     : AppIcons.visibilityIcon,
-            ));
+            ),
+
+        );
       },
     );
   }
