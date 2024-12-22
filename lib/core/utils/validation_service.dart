@@ -29,8 +29,20 @@ class Validators {
     if (value.length < 8) {
       return 'كلمة المرور يجب أن تكون 8 أحرف على الأقل';
     }
-    if (!RegExp(r'^(?=.*[\u0621-\u064Aa-zA-Z])(?=.*\d)[\u0621-\u064A\u0660-\u0669a-zA-Z\d@$!%*?&]+$').hasMatch(value)) {
+    if (!RegExp(r'^(?=.*[\u0621-\u064Aa-zA-Z])(?=.*\d)[\u0621-\u064A\u0660-\u0669a-zA-Z\d@$!%*?&]+$')
+        .hasMatch(value)) {
       return 'كلمة المرور يجب أن تحتوي على حرف واحد (عربي أو إنجليزي) ورقم واحد على الأقل';
+    }
+    return null; // لا يوجد خطأ
+  }
+
+  /// التحقق من تأكيد كلمة المرور
+  static String? validateConfirmPassword(String? password, String? confirmPassword) {
+    if (confirmPassword == null || confirmPassword.isEmpty) {
+      return 'تأكيد كلمة المرور مطلوب';
+    }
+    if (password != confirmPassword) {
+      return 'كلمة المرور وتأكيد كلمة المرور غير متطابقتين';
     }
     return null; // لا يوجد خطأ
   }

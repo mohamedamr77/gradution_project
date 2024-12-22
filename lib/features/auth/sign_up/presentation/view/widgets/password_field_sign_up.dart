@@ -31,7 +31,9 @@ class PasswordFieldSignUp extends StatelessWidget {
              validator: (value) {
                return Validators.validatePassword(value);
              },
-
+            onChanged: (v){
+              cubit.password =v;
+            },
         );
       },
     );

@@ -7,6 +7,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   bool visibilityPassword = true;
   bool visibilityConfirmPassword = true;
 
+  String? name;
+  String? email;
+  String? password;
+  String? phoneNumber;
+
   toggleVisibilityPassword(){
     visibilityPassword = !visibilityPassword;
     emit(VisibilityPasswordChange());
