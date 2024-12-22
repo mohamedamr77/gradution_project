@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../../../auth/sign_up/presentation/view/sign_up_screen.dart';
@@ -31,11 +32,7 @@ class TopScreenOnboarding extends StatelessWidget {
       visible: index > 0,
       child: InkWell(
         onTap: cubit.previousPage,
-        child: const Icon(
-          Icons.arrow_back_ios,
-          color: AppColors.primaryColor,
-          size: 24,
-        ),
+        child: AppIcons.navigateIcon,
       ),
     );
   }

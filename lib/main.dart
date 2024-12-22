@@ -5,6 +5,7 @@ import 'package:gradutionproject/features/on_boarding/presentation/view/on_board
 
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
+import 'features/forget_password/presentation/view/forget_pass_screen.dart';
 
 void main (){
   runApp(const MyApp());
@@ -34,12 +35,17 @@ class MyApp extends StatelessWidget {
       return  SafeArea(
         child: MaterialApp(
           theme: ThemeData(
+            appBarTheme: AppBarTheme(
+              elevation: 0,
+              backgroundColor:  AppColors.lightGrayColor,
+
+            ),
             scaffoldBackgroundColor: AppColors.lightGrayColor
           ),
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:OnBoardingScreen.id,
+          initialRoute:ForgetPassScreen.id,
         ),
       );
       },

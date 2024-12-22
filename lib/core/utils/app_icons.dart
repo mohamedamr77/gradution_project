@@ -33,6 +33,12 @@ class AppIcons{
     color: AppColors.thirdColor,
   );
 
+  static const Icon navigateIcon=   Icon(
+    Icons.arrow_back_ios,
+    color: AppColors.primaryColor,
+    size: 24,
+  );
+
   static  Widget passwordIcon = Padding(
       padding:  const EdgeInsets.all(12),
       child: SvgPicture.asset("assets/icon/password_icon2.svg"));
