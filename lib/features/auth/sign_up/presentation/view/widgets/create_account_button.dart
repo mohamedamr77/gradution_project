@@ -25,6 +25,7 @@ class CreateAccountButton extends StatelessWidget {
         child: const GText(
             color: AppColors.lightGrayColor,
             content: AppText.createAccount,
-            fontSize: 16));
+            fontSize: 16
+        ));
   }
 }
