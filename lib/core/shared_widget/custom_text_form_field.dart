@@ -73,7 +73,7 @@ class CustomTextField extends StatelessWidget {
             maxLines: maxLine,
             minLines: minLine,
             onTapOutside: (e) {
-              FocusManager.instance.primaryFocus?.unfocus();
+              // FocusManager.instance.primaryFocus?.unfocus();
             },
             style: TextStyle(
               // color: AppColor.kPrimaryColor,

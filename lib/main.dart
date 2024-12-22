@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/view/sign_up_screen.dart';
+import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
 
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
@@ -40,7 +41,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute: SignUpScreen.id,
+          initialRoute:OnBoardingScreen.id,
         ),
       );
       },
