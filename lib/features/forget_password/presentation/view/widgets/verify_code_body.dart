@@ -6,23 +6,68 @@ import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 
-class VerifyCodeBody extends StatelessWidget {
+import 'otp_text_form_field.dart';
+
+class VerifyCodeBody extends StatefulWidget {
   const VerifyCodeBody({super.key});
 
   @override
-  Widget build(BuildContext context) {
-    return  Column(
-      children: [
-          const SizedBox(height: 64,),
-         const NameScreen(title: AppText.passwordResetCode),
-         const SizedBox(height: 40,),
-         const ImageForgetPassword(imagePath: AppImages.confirmOtpScreen),
-         const SizedBox(height: 40,),
-         CustomElevatedButton(onPress: (){}, titleButton: AppText.confirm),
-         const SizedBox(height: 20,),
-        TextWithActionRow(titleOnTap: AppText.resendCode, titleWithoutTap: AppText.notHaveCode, onTap: () {
+  State<VerifyCodeBody> createState() => _VerifyCodeBodyState();
+}
 
-          },)
+class _VerifyCodeBodyState extends State<VerifyCodeBody> {
+  TextEditingController? numberOneController;
+  TextEditingController? numberTwoController;
+  TextEditingController? numberThreeController;
+  TextEditingController? numberFourController;
+
+  @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+    numberOneController?.dispose();
+    numberTwoController?.dispose();
+    numberThreeController?.dispose();
+    numberFourController?.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          hasScrollBody: false,
+          child: Column(
+            children: [
+              Spacer(
+                flex: 2,
+              ),
+              const NameScreen(title: AppText.passwordResetCode),
+              const Spacer(),
+              const ImageForgetPassword(imagePath: AppImages.confirmOtpScreen),
+              const Spacer(),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                children: [
+                  OTPTextFormField(controller: numberOneController),
+                  OTPTextFormField(controller: numberTwoController),
+                  OTPTextFormField(controller: numberThreeController),
+                  OTPTextFormField(controller: numberFourController),
+                ],
+              ),
+              const Spacer(),
+              CustomElevatedButton(
+                  onPress: () {}, titleButton: AppText.confirm),
+              const Spacer(),
+              TextWithActionRow(
+                titleOnTap: AppText.resendCode,
+                titleWithoutTap: AppText.notHaveCode,
+                onTap: () {},
+              ),
+              const Spacer(flex: 3,),
+            ],
+          ),
+        )
       ],
     );
   }
