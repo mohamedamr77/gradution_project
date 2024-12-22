@@ -3,7 +3,7 @@ import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/widgets/password_field_login.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/widgets/social_auth_login.dart';
 import '../../../../../../core/utils/app_text.dart';
-import '../../../../shared_widget_auth/name_screen_auth.dart';
+import '../../../../../../core/shared_widget/name_screen.dart';
 import 'email_field_login.dart';
 import 'forget_password_login.dart';
 import 'login_button.dart';

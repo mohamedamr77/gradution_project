@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/auth/shared_widget_auth/social_auth_section.dart';
-import '../../../../shared_widget_auth/name_screen_auth.dart';
+import '../../../../../../core/shared_widget/name_screen.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
 import 'email_field_sign_up.dart';
