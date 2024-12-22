@@ -13,7 +13,7 @@ class ForgetPassScreen extends StatelessWidget {
       appBar: AppBar(
         leading:  AppIcons.navigateIcon,
       ),
-      body:ForgetPassBody(),
+      body:const ForgetPassBody(),
     );
   }
 }

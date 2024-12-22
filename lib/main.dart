@@ -35,7 +35,7 @@ class MyApp extends StatelessWidget {
       return  SafeArea(
         child: MaterialApp(
           theme: ThemeData(
-            appBarTheme: AppBarTheme(
+            appBarTheme: const AppBarTheme(
               elevation: 0,
               backgroundColor:  AppColors.lightGrayColor,
 
@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:ForgetPassScreen.id,
+          initialRoute:OnBoardingScreen.id,
         ),
       );
       },

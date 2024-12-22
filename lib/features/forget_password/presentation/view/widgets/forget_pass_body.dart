@@ -5,9 +5,8 @@ import 'package:gradutionproject/core/shared_widget/name_screen.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
-import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 
-import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_icons.dart';
 
 class ForgetPassBody extends StatelessWidget {
@@ -27,12 +26,7 @@ class ForgetPassBody extends StatelessWidget {
                  const Spacer(),
                   const NameScreen(title: AppText.forgotPassword),
                   const Spacer(),
-                  Image.asset(
-                    AppImages.forgetPasswordScreen,
-                    fit: BoxFit.fitWidth,
-                    width: double.infinity,
-                    height: 0.33.h,
-                  ),
+                   const ImageForgetPassword(imagePath: AppImages.forgetPasswordScreen),
                   const Spacer(),
                   const CustomTextField(
                     hintText: AppText.enterPhoneNumber,
@@ -43,11 +37,8 @@ class ForgetPassBody extends StatelessWidget {
                   CustomElevatedButton(
                       onPress: () {},
                       btnColor: AppColors.primaryColor,
-                      child: const GText(
-                          color: AppColors.lightGrayColor,
-                          content: AppText.next,
-                          fontSize: 16
-                      )),
+                      titleButton: AppText.next,
+                  ),
                   const Spacer(flex: 3,)
                 ],
               ),
