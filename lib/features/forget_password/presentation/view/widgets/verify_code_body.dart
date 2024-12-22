@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/name_screen.dart';
 import 'package:gradutionproject/core/shared_widget/text_with_action_row%20.dart';
@@ -6,6 +7,7 @@ import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 
+import '../change_pass_screen.dart';
 import 'otp_text_form_field.dart';
 
 class VerifyCodeBody extends StatefulWidget {
@@ -57,7 +59,9 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
               ),
               const Spacer(),
               CustomElevatedButton(
-                  onPress: () {}, titleButton: AppText.confirm),
+                  onPress: () {
+                    NavigationManager.push(ChangePasswordScreen.id);
+                  }, titleButton: AppText.confirm),
               const Spacer(),
               TextWithActionRow(
                 titleOnTap: AppText.resendCode,
