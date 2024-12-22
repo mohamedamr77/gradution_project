@@ -10,7 +10,7 @@ class ImageForgetPassword extends StatelessWidget {
   Widget build(BuildContext context) {
     return      Image.asset(
       imagePath,
-      fit: BoxFit.fitWidth,
+      fit: BoxFit.contain,
       width: double.infinity,
       height: 0.33.h,
     );

@@ -9,11 +9,8 @@ class ForgetPassScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
-      appBar: AppBar(
-        leading:  AppIcons.navigateIcon,
-      ),
-      body:const ForgetPassBody(),
+    return  const Scaffold(
+      body:ForgetPassBody(),
     );
   }
 }
