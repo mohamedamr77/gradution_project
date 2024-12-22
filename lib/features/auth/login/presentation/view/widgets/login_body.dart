@@ -26,7 +26,7 @@ class LoginBody extends StatelessWidget {
                   const SizedBox(
                     height: 10,
                   ),
-                  const NameScreenAuth(
+                  const NameScreen(
                     title: AppText.login,
                   ),
                   SizedBox(

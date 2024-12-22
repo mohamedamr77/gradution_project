@@ -3,9 +3,9 @@ import 'package:flutter/material.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
 
-class NameScreenAuth extends StatelessWidget {
+class NameScreen extends StatelessWidget {
   final String title;
-  const NameScreenAuth({super.key, required this.title});
+  const NameScreen({super.key, required this.title});
 
   @override
   Widget build(BuildContext context) {
