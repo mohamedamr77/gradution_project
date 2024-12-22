@@ -17,44 +17,44 @@ class ForgetPassBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      child: Center(
-        child: Column(
-          children: [
-            const SizedBox(
-              height: 30,
+      child: CustomScrollView(
+        slivers: [
+          SliverFillRemaining(
+            hasScrollBody: false,
+            child:  Center(
+              child: Column(
+                children: [
+                 const Spacer(),
+                  const NameScreen(title: AppText.forgotPassword),
+                  const Spacer(),
+                  Image.asset(
+                    AppImages.forgetPasswordScreen,
+                    fit: BoxFit.fitWidth,
+                    width: double.infinity,
+                    height: 0.33.h,
+                  ),
+                  const Spacer(),
+                  const CustomTextField(
+                    hintText: AppText.enterPhoneNumber,
+                    prefix: AppIcons.phoneIcon,
+                    title: AppText.phoneNumber,
+                  ),
+                  const Spacer(),
+                  CustomElevatedButton(
+                      onPress: () {},
+                      btnColor: AppColors.primaryColor,
+                      child: const GText(
+                          color: AppColors.lightGrayColor,
+                          content: AppText.next,
+                          fontSize: 16
+                      )),
+                  const Spacer(flex: 3,)
+                ],
+              ),
             ),
-            const NameScreen(title: AppText.forgotPassword),
-            const SizedBox(
-              height: 30,
-            ),
-            Image.asset(
-              AppImages.forgetPasswordScreen,
-              fit: BoxFit.fitWidth,
-              width: double.infinity,
-              height: 0.33.h,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            const CustomTextField(
-              hintText: AppText.enterPhoneNumber,
-              prefix: AppIcons.phoneIcon,
-              title: AppText.phoneNumber,
-            ),
-            const SizedBox(
-              height: 30,
-            ),
-            CustomElevatedButton(
-                onPress: () {},
-                child: const GText(
-                    color: AppColors.lightGrayColor,
-                    content: AppText.next,
-                    fontSize: 16
-                ),
-                btnColor: AppColors.primaryColor)
-          ],
-        ),
-      ),
+          )
+        ],
+      )
     );
   }
 }
