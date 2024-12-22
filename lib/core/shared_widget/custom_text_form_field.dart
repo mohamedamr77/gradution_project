@@ -61,6 +61,7 @@ class CustomTextField extends StatelessWidget {
           ),
           const SizedBox(height: 12,),
           TextFormField(
+
             textDirection: (SharedFunctions.isArabicLocale() ? TextDirection.ltr : TextDirection.rtl ),
             onSaved: onSaved,
             controller: controller,
