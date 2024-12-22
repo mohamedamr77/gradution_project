@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
+import 'package:gradutionproject/core/utils/validation_service.dart';
 
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_text.dart';
 
 class EmailFieldSignUp extends StatelessWidget {
@@ -9,12 +10,13 @@ class EmailFieldSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomTextField(
+    return  CustomTextField(
         hintText: AppText.enterEmailAddress,
-        prefix: Icon(
-          Icons.email,
-          color: AppColors.thirdColor,
-        ),
-        title: AppText.emailAddress);
+        prefix: AppIcons.nameIcon,
+        title: AppText.emailAddress,
+       validator: (value){
+         return  Validators.validateEmail(value);
+       },
+    );
   }
 }

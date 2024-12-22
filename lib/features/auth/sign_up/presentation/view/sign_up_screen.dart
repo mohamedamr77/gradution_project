@@ -13,7 +13,7 @@ class SignUpScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => SignUpCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         body: SignUpBody(),
       ),
     );

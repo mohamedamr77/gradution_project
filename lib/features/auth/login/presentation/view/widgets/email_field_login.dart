@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
 
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_text.dart';
 
 class EmailFieldLogin extends StatelessWidget {
@@ -9,12 +9,9 @@ class EmailFieldLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomTextField(
+    return  const CustomTextField(
       title: AppText.emailAddress,
-      prefix: Icon(
-        Icons.email,
-        color: AppColors.thirdColor,
-      ),
+      prefix: AppIcons.emailIcon,
       hintText: AppText.enterEmailAddress,
     );
   }

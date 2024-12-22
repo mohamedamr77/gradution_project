@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
 
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_text.dart';
 
 class PhoneFiledSignUp extends StatelessWidget {
@@ -9,12 +9,9 @@ class PhoneFiledSignUp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const CustomTextField(
+    return  const CustomTextField(
         hintText: AppText.enterPhoneNumber,
-        prefix: Icon(
-          Icons.phone,
-          color: AppColors.thirdColor,
-        ),
+        prefix: AppIcons.phoneIcon,
         title: AppText.phoneNumber);
   }
 }

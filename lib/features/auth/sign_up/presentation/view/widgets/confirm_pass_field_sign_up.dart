@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_text.dart';
 import '../../viewModel/sign_up_cubit.dart';
@@ -18,7 +16,7 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
       builder: (context, state) {
         return CustomTextField(
             hintText: AppText.enterPassword,
-            prefix: prefixIcon(),
+            prefix: AppIcons.passwordIcon,
             title: AppText.confirmPassword,
             obscureText: cubit.visibilityPassword? true :false,
             suffixIcon: IconButton(
@@ -26,29 +24,12 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
                   cubit.toggleVisibilityConfirmPassword();
                 },
                 icon: cubit.visibilityConfirmPassword
-                    ? visibilityOffIcon()
-                    : visibilityIcon(),
+                    ? AppIcons.visibilityOffIcon
+                    : AppIcons.visibilityIcon,
             ));
       },
     );
   }
 
-  Widget visibilityIcon(){
-    return const Icon(
-      Icons.visibility,
-      color: AppColors.thirdColor,
-    );
-  }
-  Widget visibilityOffIcon(){
-   return const Icon(
-     Icons.visibility_off,
-     color: AppColors.thirdColor,
-   );
-  }
 
-  Widget prefixIcon(){
-    return Padding(
-        padding: const EdgeInsets.all(12),
-        child: SvgPicture.asset(AppIcons.passwordIcon));
-  }
 }
