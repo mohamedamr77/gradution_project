@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-import '../../../core/shared_widget/global_text.dart';
-import '../../../core/utils/app_colors.dart';
+import 'global_text.dart';
+import '../utils/app_colors.dart';
 
-class HaveOrNotAccountAuth extends StatelessWidget {
+class TextWithActionRow  extends StatelessWidget {
   final String titleOnTap;
   final String titleWithoutTap;
   final void Function() onTap;
-  const HaveOrNotAccountAuth(
+  const TextWithActionRow (
       {super.key,
       required this.titleOnTap,
       required this.titleWithoutTap,

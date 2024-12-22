@@ -21,7 +21,7 @@ class AppText {
   static const String forgotPassword = "هل نسيت كلمة المرور؟";
   static const String noAccountYet = "ليس لديك حساب؟";
 
-  static const String resendCode = "عادة الإرسال";
+  static const String resendCode = "إعادة الإرسال";
   static const String next = "التالي";
   static const String passwordResetCode = "كود تأكيد كلمه المرور";
   static const String changePassword = "تغيير كلمه المرور";
@@ -73,6 +73,7 @@ class AppText {
   static const String postVaccineTips = '''1. راقب الآثار الجانبية: تحقق من وجود أي أعراض مثل احمرار أو تورم في مكان الحقن، حمى خفيفة، أو بكاء مستمر.
 2. استخدم الكمادات الباردة: ضع كمادات باردة على موضع الحقن لتخفيف عرض المزيد....''';
   static const String sideEffects = "الاعراض الجانبيه";
+  static const String notHaveCode = "لم تحصل على كود؟ ";
   static const String commonSideEffects = "الأعراض الجانبية الشائعة";
   static const String commonSideEffectsDetails = "1. احمرار أو تورم في موضع الحقن: يحدث غالبًا ويختفي خلال يوم أو يومين. 2. ألم خفيف في موضع الحقن: قد يشعر الطفل بألم عند قراءه المزيد......";
   static const String rareSideEffects = "1. طفح جلدي: يظهر أحيانًا بعد التطعيمات الفيروسية الحية (مثل الحصبة). 2. تورم الغدد الليمفاوية: قد يحدث بشكل طفيف ويزول بعد قراءه المزيد......";

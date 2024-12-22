@@ -4,7 +4,7 @@ import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import '../../../../../../core/utils/app_text.dart';
-import '../../../../shared_widget_auth/have_or_not_account_auth.dart';
+import '../../../../../../core/shared_widget/text_with_action_row .dart';
 import '../../viewModel/sign_up_cubit.dart';
 
 class HaveAccountSignup extends StatelessWidget {
@@ -15,7 +15,7 @@ class HaveAccountSignup extends StatelessWidget {
     var cubit = BlocProvider.of<SignUpCubit>(context);
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
-        return HaveOrNotAccountAuth(
+        return TextWithActionRow (
           titleOnTap: AppText.login,
           titleWithoutTap: AppText.alreadyHaveAccount,
           onTap: () {
