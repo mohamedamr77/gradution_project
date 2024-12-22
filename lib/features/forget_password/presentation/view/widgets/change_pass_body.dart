@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view/change_pass_done_screen.dart';
 
 import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/shared_widget/custom_elevated_btn.dart';
@@ -55,6 +56,7 @@ class ChangePassBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: CustomElevatedButton(
               onPress: () {
+                NavigationManager.push(ChangePassDoneScreen.id);
               },
               btnColor: AppColors.primaryColor,
               titleButton: AppText.change,
