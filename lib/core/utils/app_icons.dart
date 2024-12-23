@@ -13,6 +13,10 @@ class AppIcons{
   static const String iconOnBoarding = "assets/icon/icon_on_boarding.svg";
   static const String emojiIcon = "assets/icon/emoji.svg";
   static  Icon cameraIcon = Icon(Icons.photo_camera_outlined,size: 0.08.w,color: AppColors.blackColor,);
+  static const  Icon dateIcon =   Icon(
+    Icons.date_range,
+    color: AppColors.thirdColor,
+  );
 
 
 
