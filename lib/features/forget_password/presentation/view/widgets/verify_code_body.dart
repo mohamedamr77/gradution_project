@@ -41,7 +41,7 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
           hasScrollBody: false,
           child: Column(
             children: [
-              Spacer(
+              const Spacer(
                 flex: 2,
               ),
               const NameScreen(title: AppText.passwordResetCode),

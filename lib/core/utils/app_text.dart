@@ -26,7 +26,7 @@ class AppText {
   static const String passwordResetCode = "كود تأكيد كلمه المرور";
   static const String changePassword = "تغيير كلمه المرور";
   static const String passwordChanged = "تم تغيير كلمه المرور";
-  static const String welcomeMessage = "أهلاً بك كل ما تحتاجينه لصحة طفلك في مكان واحد";
+  static const String welcomeMessage = "أهلاً بك كل ما تحتاجينه لصحة طفلك \n في مكان واحد";
   static const String addChildPhoto = "أضف صورة طفلك";
   static const String registerChildData = "هيا لنسجل بيانات طفلك!";
   static const String birthDate = "تاريخ الميلاد";

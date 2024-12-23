@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import 'app_colors.dart';
 
@@ -10,6 +11,9 @@ class AppIcons{
   static const String injectionIcon = "assets/icon/Injection.svg";
   static const String personIcon = "assets/icon/person_icon.svg";
   static const String iconOnBoarding = "assets/icon/icon_on_boarding.svg";
+  static const String emojiIcon = "assets/icon/emoji.svg";
+  static  Icon cameraIcon = Icon(Icons.photo_camera_outlined,size: 0.08.w,color: AppColors.blackColor,);
+
 
 
   static const Icon nameIcon=  Icon(

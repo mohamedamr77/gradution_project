@@ -22,7 +22,7 @@ class CustomTextField extends StatelessWidget {
     this.suffixIcon,
     required this.hintText,
     this.fillColor,
-    required this.prefix,
+    this.prefix,
     this.obscureText = false,
     this.keyboardType,
     this.controller,
@@ -31,7 +31,7 @@ class CustomTextField extends StatelessWidget {
   });
 
   final String hintText;
-  final Widget prefix;
+  final Widget? prefix;
   final TextInputType? keyboardType;
   final String? Function(String?)? validator;
   final Color? fillColor;
@@ -94,7 +94,7 @@ class CustomTextField extends StatelessWidget {
                   fontFamily: AppFontFamily.cairoFontFamily,
                 ),
                 border: border ?? const OutlineInputBorder(),
-                prefixIcon: prefix,
+                prefixIcon: prefix ,
                 suffixIcon: suffixIcon,
                 focusedBorder: focusBorder ??
                     const OutlineInputBorder(

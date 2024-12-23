@@ -1,15 +1,9 @@
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
-import 'package:gradutionproject/features/auth/sign_up/presentation/view/sign_up_screen.dart';
-import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
-import 'package:device_preview/device_preview.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/child_information/presentation/view/child_info_screen.dart';
-import 'features/forget_password/presentation/view/forget_pass_screen.dart';
-import 'features/forget_password/presentation/view/verify_code_screen.dart';
 
 void main (){
   runApp(const MyApp());
