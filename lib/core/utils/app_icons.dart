@@ -26,7 +26,7 @@ class AppIcons{
   );
   static const Icon visibilityIcon=  Icon(
     Icons.visibility,
-    color: AppColors.thirdColor,
+    color: AppColors.primaryColor,
   );
   static const Icon visibilityOffIcon=  Icon(
     Icons.visibility_off,
