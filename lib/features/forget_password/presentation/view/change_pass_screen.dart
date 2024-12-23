@@ -13,7 +13,7 @@ class ChangePasswordScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => ChangePassCubit(),
-      child: Scaffold(
+      child: const Scaffold(
         body: ChangePassBody(),
       ),
     );
