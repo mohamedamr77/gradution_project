@@ -8,6 +8,7 @@ import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/verify_code_screen.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view/widgets/forget_pass_form.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 
 import '../../../../../core/utils/app_icons.dart';
@@ -35,23 +36,7 @@ class ForgetPassBody extends StatelessWidget {
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
           const SliverToBoxAdapter(child: ImageForgetPassword(imagePath: AppImages.forgetPasswordScreen)),
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          const SliverToBoxAdapter(
-            child: CustomTextField(
-              hintText: AppText.enterPhoneNumber,
-              prefix: AppIcons.phoneIcon,
-              title: AppText.phoneNumber,
-            ),
-          ),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          SliverToBoxAdapter(
-            child: CustomElevatedButton(
-              onPress: () {
-                NavigationManager.push(VerifyCodeScreen.id);
-              },
-              btnColor: AppColors.primaryColor,
-              titleButton: AppText.next,
-            ),
-          ),
+           const ForgetPassForm(),
           SliverToBoxAdapter(child:  SizedBox(height: 0.1.h,)),
         ],
       )
