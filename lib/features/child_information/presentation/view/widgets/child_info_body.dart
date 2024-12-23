@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/text_top_screen_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/vaccines_field_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/weight_field_child_info.dart';
+import 'birth_date_section.dart';
 import 'diseas_field_child_info.dart';
 import 'gender_section.dart';
 import 'height_field_child_info.dart';
@@ -21,24 +23,31 @@ class ChildInfoBody extends StatelessWidget {
       child: Center(
           child: CustomScrollView(
         slivers: [
-          spaceBetweenWidget(),
+          spaceBetweenWidget(height: 8),
           const TextTopScreenChildInfo(),
           spaceBetweenWidget(),
           const SliverToBoxAdapter(child: ImageChildSection()),
-          spaceBetweenWidget(height: 32),
+          spaceBetweenWidget(height: 24),
           textCenterChildInfo(),
           spaceBetweenWidget(),
           const NameFieldChildInfo(),
           spaceBetweenWidget(),
-          const HeightFieldChildInfo(),
+          const BirthDateSection(),
           spaceBetweenWidget(),
-          const GenderSection(),
+          const HeightFieldChildInfo(),
           spaceBetweenWidget(),
           const WeightFieldChildInfo(),
           spaceBetweenWidget(),
-          const VaccinesFieldChildInfo(),
+          const GenderSection(),
           spaceBetweenWidget(),
           const DiseasesFieldChildInfo(),
+          spaceBetweenWidget(),
+          const VaccinesFieldChildInfo(),
+          spaceBetweenWidget(),
+          SliverToBoxAdapter(
+            child: CustomElevatedButton(onPress: () {  }, titleButton: AppText.register,),
+          ),
+          spaceBetweenWidget(),
         ],
       )),
     );
