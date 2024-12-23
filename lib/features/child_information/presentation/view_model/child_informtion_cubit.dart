@@ -1,9 +1,7 @@
 import 'dart:io';
-
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../../../core/shared_widget/toast_utils.dart';
 
 class ChildInformationCubit extends Cubit<ChildInformationState> {
@@ -16,7 +14,19 @@ class ChildInformationCubit extends Cubit<ChildInformationState> {
    String? diseases;
    String? vaccines;
 
+  DateTime dateTimeNow =DateTime.now();
+  DateTime? selectedDate;
 
+
+
+
+  updateSelectedDate(selectDate){
+    selectedDate = selectDate;
+    emit(ChangeDateState());
+  }
+  String convertDateString(DateTime date){
+    return date.toString().split(" ")[0];
+  }
   setPhoto(File photo) async {
     image = photo;
     emit(ChildImageChangeState());
