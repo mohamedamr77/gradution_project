@@ -11,21 +11,8 @@ import 'package:gradutionproject/features/child_information/presentation/view_mo
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_informtion_cubit.dart';
 import 'package:image_picker/image_picker.dart';
 
-class ImageChildSection extends StatefulWidget {
+class ImageChildSection extends StatelessWidget {
   const ImageChildSection({super.key});
-
-  @override
-  State<ImageChildSection> createState() => _ImageChildSectionState();
-}
-
-class _ImageChildSectionState extends State<ImageChildSection> {
-  XFile? myPhoto;
-  final ImagePicker picker = ImagePicker();
-
-  Future<XFile?> pickImage() async {
-    final XFile? image = await picker.pickImage(source: ImageSource.gallery);
-    return image;
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -39,16 +26,7 @@ class _ImageChildSectionState extends State<ImageChildSection> {
           children: [
             InkWell(
               onTap: (){
-                pickImage().then((value) {
-                  if (value != null) {
-                    File imageFile = File(value.path);
-                    cubit.setPhoto(imageFile);
-                  } else {
-                    // Show a toast if the user cancels the image selection
-
-                  }
-
-                });
+                cubit.pickImage();
               },
 
               child: CircleAvatar(
