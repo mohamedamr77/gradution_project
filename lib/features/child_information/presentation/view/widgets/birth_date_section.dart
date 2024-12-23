@@ -5,8 +5,22 @@ import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text.dart';
 
-class BirthDateSection extends StatelessWidget {
+class BirthDateSection extends StatefulWidget {
   const BirthDateSection({super.key});
+
+  @override
+  State<BirthDateSection> createState() => _BirthDateSectionState();
+}
+
+class _BirthDateSectionState extends State<BirthDateSection> {
+
+  DateTime dateTimeNow =DateTime.now();
+  DateTime? selectedDate;
+
+
+  String convertDateString(DateTime date){
+    return date.toString().split(" ")[0];
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -25,8 +39,39 @@ class BirthDateSection extends StatelessWidget {
             height: 12,
           ),
           GestureDetector(
-            onTap: () {
+            onTap: () async{
+            selectedDate = await   showDatePicker(
+                  context: context,
+              initialDate: selectedDate != null
+                  ? DateTime.parse(selectedDate.toString())
+                  : DateTime.now(),
+                  firstDate:dateTimeNow.subtract(const Duration(
+                      days: 365 *4
+                    )),
+                  lastDate: dateTimeNow,
+                 builder: (context, child) {
+                   return Theme(
+                       data: Theme.of(context).copyWith(
+                         colorScheme: const ColorScheme.light(
+                           primary: AppColors.primaryColor, // header background color
+                           onPrimary: AppColors.whiteColor, // header text color
+                           onSurface: AppColors.blackColor, // body text color
+                         ),
+                         textButtonTheme: TextButtonThemeData(
+                           style: TextButton.styleFrom(
+                             foregroundColor: AppColors.primaryColor, // button text color
+                           ),
+                         ),
+                       ),
+                       child: child!);
+                 },
 
+            );
+
+            setState(() {
+
+            });
+            print(selectedDate.toString());
             },
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 11),
@@ -37,21 +82,27 @@ class BirthDateSection extends StatelessWidget {
                   border: Border.all(
                     color: AppColors.thirdColor,
                   )),
-              child: const Row(
+              child:  Row(
                 textDirection: TextDirection.rtl,
                 children: [
-                  Icon(Icons.date_range,color: AppColors.thirdColor,),
+                  Icon(
+                    Icons.date_range,
+                    color: AppColors.thirdColor,
+                  ),
                   SizedBox(width: 8),
                   GText(
                     fontSize: 16,
                     color: AppColors.thirdColor,
-                    content: AppText.enterBirthDate,
+                    content:
+                    selectedDate == null ?
+                    AppText.enterBirthDate :
+                    convertDateString(selectedDate!)
+                    ,
                   )
                 ],
               ),
             ),
           )
-      
         ],
       ),
     );
