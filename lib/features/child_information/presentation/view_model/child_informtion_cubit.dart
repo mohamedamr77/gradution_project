@@ -14,7 +14,9 @@ class ChildInformationCubit extends Cubit<ChildInformationState> {
    String? diseases;
    String? vaccines;
 
-  DateTime dateTimeNow =DateTime.now();
+
+  DateTime firstDate =  DateTime.now().subtract(const Duration(days: 365 * 5));
+  DateTime lastDate =  DateTime.now();
   DateTime? selectedDate;
 
 

@@ -22,7 +22,7 @@ class ImageChildSection extends StatelessWidget {
       builder: (BuildContext context, ChildInformationState state) {
         return Column(
           children: [
-            InkWell(
+            GestureDetector(
               onTap: (){
                 cubit.pickImage();
               },
@@ -42,15 +42,18 @@ class ImageChildSection extends StatelessWidget {
             SizedBox(
               height: 0.02.h,
             ),
-             GText(
-              color: AppColors.grayBlackColor,
-              content:
-              cubit.image == null?
-              AppText.addChildPhoto :
-              AppText.editPhoto,
-              fontSize: 18,
-              fontWeight: FontWeight.w600,
-            ),
+             GestureDetector(
+               onTap: () =>  cubit.pickImage(),
+               child: GText(
+                color: AppColors.grayBlackColor,
+                content:
+                cubit.image == null?
+                AppText.addChildPhoto :
+                AppText.editPhoto,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+                           ),
+             ),
           ],
         );
     },

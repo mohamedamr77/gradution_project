@@ -72,15 +72,15 @@ class BirthDateSection extends StatelessWidget {
 
 Future<DateTime?> showDateChild({
   required BuildContext context,
-  required dynamic cubit,
+  required ChildInformationCubit cubit,
 }) async {
   return await showDatePicker(
     context: context,
     initialDate: cubit.selectedDate != null
         ? DateTime.parse(cubit.selectedDate.toString())
         : DateTime.now(),
-    firstDate: cubit.dateTimeNow.subtract(const Duration(days: 365 * 4)),
-    lastDate: cubit.dateTimeNow,
+    firstDate: cubit.firstDate,
+    lastDate: cubit.lastDate,
     builder: (BuildContext context, Widget? child) {
       return Theme(
         data: _buildDatePickerTheme(context),
