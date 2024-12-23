@@ -8,7 +8,14 @@ import '../../../../core/shared_widget/toast_utils.dart';
 
 class ChildInformationCubit extends Cubit<ChildInformationState> {
   ChildInformationCubit() : super(ChildInformationInitialState());
-  File? image;
+   File? image;
+   String? name;
+   String? height;
+   String? weight;
+   String? gender;
+   String? diseases;
+   String? vaccines;
+
 
   setPhoto(File photo) async {
     image = photo;
@@ -27,7 +34,5 @@ class ChildInformationCubit extends Cubit<ChildInformationState> {
       // Show a toast if the user cancels the image selection
 
     }
-
   }
-
 }

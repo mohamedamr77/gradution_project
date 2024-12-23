@@ -24,26 +24,31 @@ class BirthDateSection extends StatelessWidget {
           const SizedBox(
             height: 12,
           ),
-          Container(
-            padding: const EdgeInsets.symmetric(horizontal: 11),
-            width: double.infinity,
-            height: 0.07.h,
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(8),
-                border: Border.all(
-                  color: AppColors.thirdColor,
-                )),
-            child: const Row(
-              textDirection: TextDirection.rtl,
-              children: [
-                Icon(Icons.date_range,color: AppColors.thirdColor,),
-                SizedBox(width: 8),
-                GText(
-                  fontSize: 16,
-                  color: AppColors.thirdColor,
-                  content: AppText.enterBirthDate,
-                )
-              ],
+          GestureDetector(
+            onTap: () {
+
+            },
+            child: Container(
+              padding: const EdgeInsets.symmetric(horizontal: 11),
+              width: double.infinity,
+              height: 0.07.h,
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(8),
+                  border: Border.all(
+                    color: AppColors.thirdColor,
+                  )),
+              child: const Row(
+                textDirection: TextDirection.rtl,
+                children: [
+                  Icon(Icons.date_range,color: AppColors.thirdColor,),
+                  SizedBox(width: 8),
+                  GText(
+                    fontSize: 16,
+                    color: AppColors.thirdColor,
+                    content: AppText.enterBirthDate,
+                  )
+                ],
+              ),
             ),
           )
       
