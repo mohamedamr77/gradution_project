@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/utils/validation_service.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/change_pass_done_screen.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view/widgets/change_pass_form.dart';
 
 import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/shared_widget/custom_elevated_btn.dart';
@@ -17,6 +19,7 @@ class ChangePassBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: CustomScrollView(
@@ -35,33 +38,7 @@ class ChangePassBody extends StatelessWidget {
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
           const SliverToBoxAdapter(child: ImageForgetPassword(imagePath: AppImages.changePasswordScreen)),
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          SliverToBoxAdapter(
-            child: CustomTextField(
-              hintText: AppText.enterPassword,
-              prefix: AppIcons.passwordIcon,
-              title: AppText.password,
-              suffixIcon: AppIcons.visibilityOffIcon,
-            ),
-          ),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.02.h,)),
-          SliverToBoxAdapter(
-            child: CustomTextField(
-              hintText: AppText.enterPassword,
-              prefix: AppIcons.passwordIcon,
-              title: AppText.confirmPassword,
-              suffixIcon: AppIcons.visibilityOffIcon,
-            ),
-          ),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          SliverToBoxAdapter(
-            child: CustomElevatedButton(
-              onPress: () {
-                NavigationManager.push(ChangePassDoneScreen.id);
-              },
-              btnColor: AppColors.primaryColor,
-              titleButton: AppText.change,
-            ),
-          ),
+           const ChangePassForm(),
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
         ],
       ),
