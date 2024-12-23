@@ -1,16 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
-import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
-import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
 import 'package:gradutionproject/core/shared_widget/name_screen.dart';
-import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import 'package:gradutionproject/features/forget_password/presentation/view/verify_code_screen.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/forget_pass_form.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
-
 import '../../../../../core/utils/app_icons.dart';
 
 class ForgetPassBody extends StatelessWidget {
@@ -26,9 +21,11 @@ class ForgetPassBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding:  EdgeInsets.symmetric(horizontal: 0.03.w),
-              child: const Align(
+              child:   Align(
                   alignment: Alignment.centerLeft,
-                  child: AppIcons.navigateIcon),
+                  child: InkWell(
+                      onTap: () => NavigationManager.goBack(),
+                      child: AppIcons.navigateIcon)),
             ),
           ),
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),

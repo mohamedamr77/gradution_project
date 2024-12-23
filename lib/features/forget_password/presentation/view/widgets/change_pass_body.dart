@@ -28,9 +28,11 @@ class ChangePassBody extends StatelessWidget {
           SliverToBoxAdapter(
             child: Padding(
               padding:  EdgeInsets.symmetric(horizontal: 0.03.w),
-              child: const Align(
+              child:  Align(
                   alignment: Alignment.centerLeft,
-                  child: AppIcons.navigateIcon),
+                  child: InkWell(
+                      onTap: () => NavigationManager.goBack(),
+                      child: AppIcons.navigateIcon)),
             ),
           ),
           SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
