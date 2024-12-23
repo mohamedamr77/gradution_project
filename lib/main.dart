@@ -5,6 +5,7 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/child_information/presentation/view/child_info_screen.dart';
 import 'features/forget_password/presentation/view/forget_pass_screen.dart';
+import 'features/forget_password/presentation/view/verify_code_screen.dart';
 
 void main (){
   runApp(const MyApp());
@@ -44,7 +45,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:ForgetPassScreen.id,
+          initialRoute:VerifyCodeScreen.id,
         ),
       );
       },
