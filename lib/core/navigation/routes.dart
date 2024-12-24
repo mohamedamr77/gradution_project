@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import '../../features/auth/login/presentation/view/login_screen.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_screen.dart';
+import '../../features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import '../../features/child_information/presentation/view/child_info_screen.dart';
 import '../../features/forget_password/presentation/view/change_pass_done_screen.dart';
 import '../../features/forget_password/presentation/view/change_pass_screen.dart';
@@ -19,6 +20,7 @@ class AppRouter {
     ChangePasswordScreen.id: (context) => const ChangePasswordScreen(),
     ChangePassDoneScreen.id: (context) => const ChangePassDoneScreen(),
     ChildInfoScreen.id: (context) => const ChildInfoScreen(),
+    BottomNavBarScreen.id: (context) => const BottomNavBarScreen(),
 
   };
 }
