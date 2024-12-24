@@ -107,7 +107,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
                             width: isActive ? 50 : 0, // Circle appears only for active item
                             height: isActive ? 50 : 0,
                             decoration: BoxDecoration(
-                              color: isActive ? const Color(0xff4255BF) : Colors.transparent,
+                              color: isActive ?  AppColors.darkBlueAccent : Colors.transparent,
                               shape: BoxShape.circle,
                             ),
                           ),
