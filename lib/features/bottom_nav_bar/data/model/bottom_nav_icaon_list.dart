@@ -9,7 +9,7 @@ List<BottomNavIconWithLabel> bottomNavIconsList = [
   BottomNavIconWithLabel(
       label: 'الرئيسيه',
       iconSelected: SvgPicture.asset(AppIcons.homeIcon ,color: AppColors.skyBlueColor,),
-      iconUnSelected: SvgPicture.asset(AppIcons.homeIcon , color: AppColors.primaryColor,),
+      iconUnSelected: SvgPicture.asset(AppIcons.homeOutLineIcon , color: AppColors.primaryColor,),
   ),
   BottomNavIconWithLabel(
       label: 'الدكاتره',
