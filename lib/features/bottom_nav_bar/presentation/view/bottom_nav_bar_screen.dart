@@ -58,12 +58,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
         ),
       ),
       bottomNavigationBar: Container(
-         padding: EdgeInsets.only(top: 0.02.h , bottom: 0.01.h),
+         padding: EdgeInsets.only(top: 0.01.h),
         decoration:  const BoxDecoration(
           color: AppColors.skyBlueColor,
           borderRadius: BorderRadius.only(
-            topLeft: Radius.circular(30),
-            topRight: Radius.circular(30),
+            topLeft: Radius.circular(12),
+            topRight: Radius.circular(12),
           ),
         ),
         child:Theme(
@@ -89,8 +89,23 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
               navPages.length,
                   (index) => BottomNavigationBarItem(
                 icon: bottomNavIconsList[index].iconUnSelected,
-                activeIcon: bottomNavIconsList[index].iconSelected,
-                label: bottomNavIconsList[index].label,
+                activeIcon: Stack(
+                  clipBehavior: Clip.none,
+                  alignment: Alignment.center,
+                  children: [
+                     const Positioned(
+                       top: -40,
+                       child: CircleAvatar(
+                         radius: 25,
+                        backgroundColor: Color(0xff4255BF),
+                                           ),
+                     ),
+                    Transform.translate(
+                        offset: const Offset(0, -25),
+                    child: bottomNavIconsList[index].iconSelected),
+                  ],
+                ),
+                label: "",
               ),
             ),
           ),
