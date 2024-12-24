@@ -88,26 +88,49 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
             items: List.generate(
               navPages.length,
                   (index) => BottomNavigationBarItem(
-                icon: bottomNavIconsList[index].iconUnSelected,
-                activeIcon: Stack(
-                  clipBehavior: Clip.none,
-                  alignment: Alignment.center,
-                  children: [
-                     const Positioned(
-                       top: -40,
-                       child: CircleAvatar(
-                         radius: 25,
-                        backgroundColor: Color(0xff4255BF),
-                                           ),
-                     ),
-                    Transform.translate(
-                        offset: const Offset(0, -25),
-                    child: bottomNavIconsList[index].iconSelected),
-                  ],
+                icon: AnimatedBuilder(
+                  animation: Listenable.merge([controller!]),
+                  builder: (context, _) {
+                    // Check if the current item is selected
+                    final isActive = localIndex == index;
+
+                    return Stack(
+                      clipBehavior: Clip.none,
+                      alignment: Alignment.center,
+                      children: [
+                        AnimatedPositioned(
+                          duration: const Duration(milliseconds: 300),
+                          top: isActive ? -40 : 0, // Active item moves upward
+                          child: AnimatedContainer(
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                            width: isActive ? 50 : 0, // Circle appears only for active item
+                            height: isActive ? 50 : 0,
+                            decoration: BoxDecoration(
+                              color: isActive ? const Color(0xff4255BF) : Colors.transparent,
+                              shape: BoxShape.circle,
+                            ),
+                          ),
+                        ),
+                        AnimatedContainer(
+                          duration: const Duration(milliseconds: 300),
+                          transform: Matrix4.translationValues(
+                            0,
+                            isActive ? -25 : 0, // Icon moves upward when active
+                            0,
+                          ),
+                          child: isActive
+                              ? bottomNavIconsList[index].iconSelected
+                              : bottomNavIconsList[index].iconUnSelected,
+                        ),
+                      ],
+                    );
+                  },
                 ),
                 label: "",
               ),
             ),
+
           ),
         )
 

@@ -12,11 +12,11 @@ List<BottomNavIconWithLabel> bottomNavIconsList = [
       iconUnSelected: SvgPicture.asset(AppIcons.homeIcon , color: AppColors.primaryColor,),
   ),
   BottomNavIconWithLabel(
-      label: 'المفضله',
+      label: 'الدكاتره',
       iconSelected: SvgPicture.asset(AppIcons.doctorsIcon ,  color: AppColors.skyBlueColor,),
       iconUnSelected: SvgPicture.asset(AppIcons.doctorsIcon ,color: AppColors.primaryColor,),
   ),
-  BottomNavIconWithLabel( label: 'السله',
+  BottomNavIconWithLabel( label: 'التطعيمات',
     iconSelected: SvgPicture.asset(AppIcons.vaccineIcon , color: AppColors.skyBlueColor),
     iconUnSelected:  SvgPicture.asset(AppIcons.vaccineIcon ,color: AppColors.primaryColor,),
   ),
