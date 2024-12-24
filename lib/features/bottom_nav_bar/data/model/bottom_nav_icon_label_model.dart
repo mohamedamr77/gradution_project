@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 
 class BottomNavIconWithLabel {
-  final Icon iconSelected;
-  final Icon iconUnSelected;
+  final Widget iconSelected;
+  final Widget iconUnSelected;
   final String label;
   BottomNavIconWithLabel({
     required this.iconSelected,

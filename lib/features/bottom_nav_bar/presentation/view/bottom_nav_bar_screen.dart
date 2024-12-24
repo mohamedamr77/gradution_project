@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import '../../../account/presentation/view/account_screen.dart';
 import '../../../doctors/presentation/view/doctors_screen.dart';
@@ -58,8 +59,8 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
       ),
       bottomNavigationBar: Container(
          padding: EdgeInsets.only(top: 0.02.h , bottom: 0.01.h),
-        decoration: const BoxDecoration(
-          color: Color(0xff1A48BF),
+        decoration:  const BoxDecoration(
+          color: AppColors.skyBlueColor,
           borderRadius: BorderRadius.only(
             topLeft: Radius.circular(30),
             topRight: Radius.circular(30),

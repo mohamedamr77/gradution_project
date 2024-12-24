@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
 
 import '../../../../core/utils/app_colors.dart';
 import 'bottom_nav_icon_label_model.dart';
@@ -6,20 +8,20 @@ import 'bottom_nav_icon_label_model.dart';
 List<BottomNavIconWithLabel> bottomNavIconsList = [
   BottomNavIconWithLabel(
       label: 'الرئيسيه',
-      iconSelected: const Icon(Icons.home , color: AppColors.whiteColor, ),
-      iconUnSelected: const Icon(Icons.home_outlined ,  color: AppColors.whiteColor)
+      iconSelected: SvgPicture.asset(AppIcons.homeIcon ,color: AppColors.skyBlueColor,),
+      iconUnSelected: SvgPicture.asset(AppIcons.homeIcon , color: AppColors.primaryColor,),
   ),
   BottomNavIconWithLabel(
       label: 'المفضله',
-      iconSelected: const Icon(Icons.favorite,  color: AppColors.whiteColor),
-      iconUnSelected: const Icon(Icons.favorite_border,  color: AppColors.whiteColor)
+      iconSelected: SvgPicture.asset(AppIcons.doctorsIcon ,  color: AppColors.skyBlueColor,),
+      iconUnSelected: SvgPicture.asset(AppIcons.doctorsIcon ,color: AppColors.primaryColor,),
   ),
   BottomNavIconWithLabel( label: 'السله',
-    iconSelected: const Icon(Icons.shopping_basket ,  color: AppColors.whiteColor),
-    iconUnSelected:  const Icon(Icons.shopping_basket_outlined ,  color: AppColors.whiteColor),
+    iconSelected: SvgPicture.asset(AppIcons.vaccineIcon , color: AppColors.skyBlueColor),
+    iconUnSelected:  SvgPicture.asset(AppIcons.vaccineIcon ,color: AppColors.primaryColor,),
   ),
   BottomNavIconWithLabel(label: 'الاعدادت',
-    iconSelected: const Icon(Icons.settings , color: AppColors.whiteColor),
-    iconUnSelected:  const Icon(Icons.settings_outlined , color: AppColors.whiteColor),
+    iconSelected: SvgPicture.asset(AppIcons.accountIcon ,color: AppColors.skyBlueColor),
+    iconUnSelected:  SvgPicture.asset(AppIcons.accountIcon ,color: AppColors.primaryColor,),
   ),
 ];
