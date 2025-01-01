@@ -22,8 +22,16 @@ class PasswordFieldLogin extends StatelessWidget {
           hintText: AppText.enterPassword,
           onTap: cubit.visibilityPassword ==true ? cubit.handsUp :cubit.handsDown,
           suffixIcon: IconButton(
-            onPressed: () {
+            onPressed:
+            cubit.visibilityPassword
+                ?
+                () {
               cubit.togglePasswordVisibility();
+              cubit.handsDown();
+            } :
+            () {
+              cubit.togglePasswordVisibility();
+              cubit.handsUp();
             },
             icon: cubit.visibilityPassword
                 ? AppIcons.visibilityOffIcon
