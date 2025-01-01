@@ -25,6 +25,7 @@ class EmailFieldLogin extends StatelessWidget {
           title: AppText.emailAddress,
           prefix: AppIcons.emailIcon,
           hintText: AppText.enterEmailAddress,
+          controller: cubit.emailController,
         );
       },
     );

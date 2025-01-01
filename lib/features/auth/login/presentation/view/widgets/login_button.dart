@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/features/auth/login/presentation/viewModel/login_cubit.dart';
 
 import '../../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../../core/utils/app_colors.dart';
@@ -9,9 +11,12 @@ class LoginButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var cubit = BlocProvider.of<LoginCubit>(context);
     return CustomElevatedButton(
         borderRadius: 8,
-        onPress: () {},
+        onPress: () {
+          cubit.loginClick();
+        },
         btnColor: AppColors.primaryColor,
         titleButton: AppText.login,
     );

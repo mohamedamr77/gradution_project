@@ -38,7 +38,7 @@ class PasswordFieldLogin extends StatelessWidget {
                 : AppIcons.visibilityIcon,
           ),
           prefix: AppIcons.passwordIcon,
-
+          controller: cubit.passwordController,
         );
       },
     );
