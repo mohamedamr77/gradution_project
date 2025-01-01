@@ -8,7 +8,8 @@ import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_text.dart';
 
 class PasswordFieldLogin extends StatelessWidget {
-  const PasswordFieldLogin({super.key});
+  final void Function()? onTap;
+  const PasswordFieldLogin({super.key, this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -19,6 +20,7 @@ class PasswordFieldLogin extends StatelessWidget {
           obscureText: cubit.visibilityPassword ? true : false,
           title: AppText.password,
           hintText: AppText.enterPassword,
+          onTap: onTap,
           suffixIcon: IconButton(
             onPressed: () {
               cubit.toggleVisibilityPassword();

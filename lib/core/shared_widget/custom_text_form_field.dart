@@ -27,7 +27,7 @@ class CustomTextField extends StatelessWidget {
     this.keyboardType,
     this.controller,
     this.onSaved,
-    required this.title,
+    required this.title, this.onTap, this.onTapOutside,
   });
 
   final String hintText;
@@ -37,6 +37,7 @@ class CustomTextField extends StatelessWidget {
   final Color? fillColor;
   final int minLine;
   final int maxLine;
+  final void Function()? onTap;
   final void Function(String)? onChanged;
   final String? initialValue;
   final Widget? suffixIcon;
@@ -47,6 +48,7 @@ class CustomTextField extends StatelessWidget {
   final TextEditingController? controller;
   final void Function(String?)? onSaved;
   final String title;
+  final void Function(PointerDownEvent)? onTapOutside;
 
   @override
   Widget build(BuildContext context) {
@@ -61,7 +63,7 @@ class CustomTextField extends StatelessWidget {
           ),
           const SizedBox(height: 12,),
           TextFormField(
-
+            onTap: onTap,
             textDirection: (SharedFunctions.isArabicLocale() ? TextDirection.ltr : TextDirection.rtl ),
             onSaved: onSaved,
             controller: controller,
@@ -73,7 +75,7 @@ class CustomTextField extends StatelessWidget {
             keyboardType: keyboardType,
             maxLines: maxLine,
             minLines: minLine,
-            onTapOutside: (e) {
+            onTapOutside: onTapOutside ??(e) {
               // FocusManager.instance.primaryFocus?.unfocus();
             },
             style: TextStyle(
