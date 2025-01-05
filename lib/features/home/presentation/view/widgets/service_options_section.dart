@@ -7,25 +7,20 @@ import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/home/presentation/view/widgets/service_options_section.dart';
+import 'package:gradutionproject/features/home/presentation/view/widgets/service_tile_home.dart';
 import 'package:hive/hive.dart';
-
-import 'header_home_section.dart';
-
-class HomeBody extends StatelessWidget {
-  const HomeBody({super.key});
+class ServiceOptionsSection extends StatelessWidget {
+  const ServiceOptionsSection({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
-      padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 16),
-      child: Column(
-           children: [
-             HeaderHomeSection(),
-             SizedBox(height: 16,),
-             ServiceOptionsSection(),
-
-           ],
-      ),
+    return  Row(
+      children: [
+        ServiceTile(imagePath: AppIcons.chatIcon, title:  AppText.geminiAnswerPrompt,onTap: () {},),
+        const SizedBox(width: 16),
+        ServiceTile(imagePath: AppIcons.mapIcon, title: AppText.nearbyPharmacies,onTap: () {},),
+      ],
     );
   }
 }
+

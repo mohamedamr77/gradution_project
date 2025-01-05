@@ -8,6 +8,8 @@ class AppIcons{
   static const String appleIcon = "assets/icon/apple.svg";
   static const String accountIcon = "assets/icon/accountIcon.svg";
   static const String doctorsIcon = "assets/icon/doctorsIcon.svg";
+  static const String chatIcon = "assets/icon/chatIcon.svg";
+  static const String mapIcon = "assets/icon/mapIcon.svg";
   static const String homeIcon = "assets/icon/homeIcon.svg";
   static const String homeOutLineIcon = "assets/icon/home_out_line.svg";
   static const String  notificationIcon= "assets/icon/notificanIcon.svg";
