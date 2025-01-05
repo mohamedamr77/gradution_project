@@ -18,23 +18,24 @@ class HeaderHomeSection extends StatelessWidget {
           radius: 0.109.w,
           child: Image.asset(AppImages.lailaTest),
         ),
-        const SizedBox(width: 8,),
+        const SizedBox(
+          width: 8,
+        ),
         const FittedBox(
             fit: BoxFit.scaleDown,
-            child: GText(color: AppColors.primaryColor, content: AppText.welcomeLily, fontSize: 16, fontWeight: FontWeight.w600,)),
+            child: GText(
+              color: AppColors.primaryColor,
+              content: AppText.welcomeLily,
+              fontSize: 16,
+              fontWeight: FontWeight.w600,
+            )),
         const Spacer(),
         InkWell(
-            onTap: () {
-
-            },
-            child: SvgPicture.asset(AppIcons.notificationIcon)),
-        SizedBox(width: 0.09.w,),
-        InkWell(
-            onTap: () {
-
-            },
-            child: SvgPicture.asset(AppIcons.drawerIcon)),
-
+            onTap: () {}, child: SvgPicture.asset(AppIcons.notificationIcon)),
+        SizedBox(
+          width: 0.09.w,
+        ),
+        InkWell(onTap: () {}, child: SvgPicture.asset(AppIcons.drawerIcon)),
       ],
     );
   }

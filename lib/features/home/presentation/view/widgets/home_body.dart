@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/core/shared_widget/global_text.dart';
-import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/home/presentation/view/widgets/service_options_section.dart';
 import 'package:gradutionproject/features/home/presentation/view/widgets/time_lefts_section.dart';
 

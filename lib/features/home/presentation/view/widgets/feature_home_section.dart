@@ -16,29 +16,25 @@ class FeatureHomeSection extends StatelessWidget {
             FeatureHomeWidget(
               imagePath: AppImages.articleSideEffectHome,
               title: AppText.articlesSideEffects,
-              onTap: () {
-
-              },
+              onTap: () {},
             ),
             const SizedBox(),
             FeatureHomeWidget(
               imagePath: AppImages.adviceHomeImage,
               title: AppText.tipsBeforeAfterVaccination,
-              onTap: () {
-
-              },
+              onTap: () {},
             ),
           ],
         ),
-        const SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
         Row(
           children: [
             FeatureHomeWidget(
               imagePath: AppImages.articleGeneralImage,
               title: AppText.generalArticlesVaccinations,
-              onTap: () {
-
-              },
+              onTap: () {},
             ),
             const SizedBox(),
             const FeatureHomeWidget(
@@ -47,7 +43,9 @@ class FeatureHomeSection extends StatelessWidget {
             ),
           ],
         ),
-        const SizedBox(height: 16,),
+        const SizedBox(
+          height: 16,
+        ),
       ],
     );
   }

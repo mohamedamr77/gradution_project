@@ -7,7 +7,8 @@ class ServiceTile extends StatelessWidget {
   final String imagePath;
   final String title;
 
-  const ServiceTile({super.key, this.onTap, required this.imagePath, required this.title});
+  const ServiceTile(
+      {super.key, this.onTap, required this.imagePath, required this.title});
 
   @override
   Widget build(BuildContext context) {
@@ -19,7 +20,7 @@ class ServiceTile extends StatelessWidget {
           decoration: BoxDecoration(
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
-              color:const Color(0xff808080).withOpacity(0.9),
+              color: const Color(0xff808080).withOpacity(0.9),
             ),
           ),
           child: Row(
@@ -33,7 +34,6 @@ class ServiceTile extends StatelessWidget {
                     color: const Color(0xff808080),
                     content: title,
                     fontSize: 9,
-
                   ),
                 ),
               ),
