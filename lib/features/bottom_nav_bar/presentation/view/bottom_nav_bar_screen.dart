@@ -41,6 +41,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      drawer: const Drawer(),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: PageView.builder(

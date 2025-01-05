@@ -35,7 +35,13 @@ class HeaderHomeSection extends StatelessWidget {
         SizedBox(
           width: 0.09.w,
         ),
-        InkWell(onTap: () {}, child: SvgPicture.asset(AppIcons.drawerIcon)),
+        InkWell(
+            onTap: () {
+          Scaffold.of(context).openDrawer();
+        }, child: SizedBox(
+            width: 40,
+            height: 40,
+            child: SvgPicture.asset(AppIcons.drawerIcon,fit: BoxFit.scaleDown,),)),
       ],
     );
   }
