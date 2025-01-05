@@ -11,6 +11,10 @@ class AppImages {
  static const String forgetPasswordScreen = "assets/images/forget_password_screen.png";
  static const String lailaTest = "assets/images/laila_test.png";
  static const String notificationEmpty = "assets/images/notification_empty.png";
+ static const String adviceHomeImage = "assets/images/adviceHomeImage.png";
+ static const String articleGeneralImage = "assets/images/articalGeneralImage.png";
+ static const String articleSideEffectHome = "assets/images/articleSideEffectHome.png";
+ static const String databasePharmaceuticalImage = "assets/images/databasepharmaceuticalImage.png";
  static const String onboardingScreen1 = "assets/images/onboarding_screen1.png";
  static const String onboardingScreen2 = "assets/images/onboarding_screen2.png";
  static const String onboardingScreen3 = "assets/images/onboaridng_screen3.png";
