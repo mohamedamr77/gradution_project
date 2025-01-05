@@ -16,13 +16,20 @@ class HomeBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Padding(
+    return  Padding(
       padding: EdgeInsets.symmetric(horizontal: 16 , vertical: 16),
       child: Column(
            children: [
              HeaderHomeSection(),
              SizedBox(height: 16,),
              ServiceOptionsSection(),
+             SizedBox(height: 32,),
+             Align(
+               alignment: Alignment.centerRight,
+               child: GText(
+                 textAlign: TextAlign.right,
+                 color: AppColors.primaryColor, content: AppText.vaccinationTimeRemaining, fontSize: 16, fontWeight: FontWeight.w600,),
+             ),
 
            ],
       ),
