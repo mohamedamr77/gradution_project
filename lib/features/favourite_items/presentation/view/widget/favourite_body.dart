@@ -93,73 +93,81 @@ class FavouriteBody extends StatelessWidget {
                 SliverList.separated(
                   itemCount: 10,
                   itemBuilder: (context, index) {
-                    return Container(
-                      width: double.infinity,
-                      decoration: BoxDecoration(
-                        borderRadius: BorderRadius.circular(8),
-                        color: AppColors.secondaryColor,
-                      ),
-                      child: Padding(
-                        padding: const EdgeInsets.symmetric(
-                            horizontal: 8, vertical: 12),
-                        child: Row(
-                          textDirection: TextDirection.rtl,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Image(
-                              image: const AssetImage(AppImages.tuberVaccineTest),
-                              width: 0.28.w,
-                              height: 0.12.h,
-                              fit: BoxFit.fill,
-                            ),
-                            const SizedBox(
-                              width: 14,
-                            ),
-                             Column(
-                               mainAxisAlignment: MainAxisAlignment.start,
-                               crossAxisAlignment: CrossAxisAlignment.end,
+                    return Stack(
+                      children: [
+                        Container(
+                          width: double.infinity,
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(8),
+                            color: AppColors.secondaryColor,
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.symmetric(
+                                horizontal: 8, vertical: 12),
+                            child: Row(
+                              textDirection: TextDirection.rtl,
+                              mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                SizedBox(
-                                  width: 0.5.w,
-                                child: const GText(
-                                  color: AppColors.blackColor,
-                                  content:
-                                  AppText.sideEffectsTuberculosisVaccine,
-                                  fontSize: 16,
-                                  maxLines: 2,
-                                  overflow: TextOverflow.ellipsis,
-                                  fontWeight: FontWeight.w600,
+                                Image(
+                                  image: const AssetImage(AppImages.tuberVaccineTest),
+                                  width: 0.28.w,
+                                  height: 0.12.h,
+                                  fit: BoxFit.fill,
                                 ),
+                                const SizedBox(
+                                  width: 14,
                                 ),
-                                const SizedBox(height: 8,),
-                                SizedBox(
-                                  width: 0.5.w,
-                                child: const GText(
-                                  color: AppColors.primaryColor,
-                                  content:
-                                 "فعال بنسبة99%",
-                                  fontSize: 14,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  fontWeight: FontWeight.w400,
-                                ),
-                                ),
-                                const SizedBox(height: 4,),
-                                 const GText(
-                                  textAlign: TextAlign.right,
-                                  color: AppColors.grayColor1,
-                                  content:
-                                  "يتم اخده مره واحده",
-                                  fontSize: 14,
-                                  maxLines: 1,
-                                  overflow: TextOverflow.ellipsis,
-                                  fontWeight: FontWeight.w400,
-                                ),
+                                 Column(
+                                   mainAxisAlignment: MainAxisAlignment.start,
+                                   crossAxisAlignment: CrossAxisAlignment.end,
+                                  children: [
+                                    SizedBox(
+                                      width: 0.5.w,
+                                    child: const GText(
+                                      color: AppColors.blackColor,
+                                      content:
+                                      AppText.sideEffectsTuberculosisVaccine,
+                                      fontSize: 16,
+                                      maxLines: 2,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.w600,
+                                    ),
+                                    ),
+                                    const SizedBox(height: 8,),
+                                    SizedBox(
+                                      width: 0.5.w,
+                                    child: const GText(
+                                      color: AppColors.primaryColor,
+                                      content:
+                                     "فعال بنسبة99%",
+                                      fontSize: 14,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                    ),
+                                    const SizedBox(height: 4,),
+                                     const GText(
+                                      textAlign: TextAlign.right,
+                                      color: AppColors.grayColor1,
+                                      content:
+                                      "يتم اخده مره واحده",
+                                      fontSize: 14,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                      fontWeight: FontWeight.w400,
+                                    ),
+                                  ],
+                                )
                               ],
-                            )
-                          ],
+                            ),
+                          ),
                         ),
-                      ),
+                        IconButton(
+                          onPressed: () {},
+                          icon: const Icon(Icons.favorite,color: AppColors.primaryColor,),
+                        ),
+                      ],
                     );
                   },
                   separatorBuilder: (BuildContext context, int index) {
