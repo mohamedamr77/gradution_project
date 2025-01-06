@@ -12,7 +12,9 @@ class ReusableItemCard  extends StatelessWidget {
   final String subDescription;
   final  void Function() onPressedIconFavourite;
   final Function() onTapCard;
-  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard});
+  final bool isDoctor;
+  final double isRating;
+  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard,  this.isDoctor =false,  this.isRating =0});
 
   @override
   Widget build(BuildContext context) {
@@ -71,16 +73,31 @@ class ReusableItemCard  extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(height: 4,),
-                       GText(
-                        textAlign: TextAlign.right,
-                        color: AppColors.grayColor1,
-                        content:
-                        subDescription,
-                        fontSize: 14,
-                        maxLines: 1,
-                        overflow: TextOverflow.ellipsis,
-                        fontWeight: FontWeight.w400,
-                      )
+                       Visibility(
+                         visible: isDoctor ==false,
+                         child: GText(
+                          textAlign: TextAlign.right,
+                          color: AppColors.grayColor1,
+                          content:
+                          subDescription,
+                          fontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          fontWeight: FontWeight.w400,
+                                               ),
+                       ),
+                        Visibility(
+                          visible: isDoctor,
+                          child: Row(
+                            textDirection: TextDirection.rtl,
+                            children: [
+                              Icon(Icons.star, color: Color(0xffFFD90F),),
+                              SizedBox(width: 6,),
+                              GText(color: AppColors.blackColor, content: "$isRating", fontSize: 15)
+                            ],
+                          ),
+                        )
+
                     ],
                   )
                 ],
