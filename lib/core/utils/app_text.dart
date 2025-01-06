@@ -57,7 +57,7 @@ class AppText {
   static const String sideEffectsTuberculosisVaccine = "الاعراض الجانبيه لتطعيم الدرن";
   static const String effective99Percent = "فعال بنسبة99%";
   static const String singleDose = "يتم اخده مره واحده";
-  static const String knowMore = "معرفه المزيد";
+  static const String knowMore = "معرفه المزيد.....";
   static const String pediatricSpecialist = "اخصائيه اطفال ";
   static const String doctorName = "د/ مريم ناصر ";
   static const String rating = "4.2";

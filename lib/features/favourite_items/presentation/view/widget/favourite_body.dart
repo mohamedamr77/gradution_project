@@ -103,7 +103,7 @@ class FavouriteBody extends StatelessWidget {
                           ),
                           child: Padding(
                             padding: const EdgeInsets.symmetric(
-                                horizontal: 8, vertical: 12),
+                                horizontal: 8, vertical: 16),
                             child: Row(
                               textDirection: TextDirection.rtl,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -147,16 +147,16 @@ class FavouriteBody extends StatelessWidget {
                                     ),
                                     ),
                                     const SizedBox(height: 4,),
-                                     const GText(
-                                      textAlign: TextAlign.right,
-                                      color: AppColors.grayColor1,
-                                      content:
-                                      "يتم اخده مره واحده",
-                                      fontSize: 14,
-                                      maxLines: 1,
-                                      overflow: TextOverflow.ellipsis,
-                                      fontWeight: FontWeight.w400,
-                                    ),
+                                   const GText(
+                                     textAlign: TextAlign.right,
+                                     color: AppColors.grayColor1,
+                                     content:
+                                     "يتم اخده مره واحده",
+                                     fontSize: 14,
+                                     maxLines: 1,
+                                     overflow: TextOverflow.ellipsis,
+                                     fontWeight: FontWeight.w400,
+                                   )
                                   ],
                                 )
                               ],
@@ -167,6 +167,13 @@ class FavouriteBody extends StatelessWidget {
                           onPressed: () {},
                           icon: const Icon(Icons.favorite,color: AppColors.primaryColor,),
                         ),
+                        Positioned(
+                          bottom: -8,
+                          left: 8,
+                          child: TextButton(onPressed: () {
+
+                          }, child: GText(color: AppColors.primaryColor, content: AppText.knowMore, fontSize: 12)),
+                        )
                       ],
                     );
                   },
