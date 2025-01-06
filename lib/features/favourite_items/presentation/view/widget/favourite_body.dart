@@ -34,53 +34,18 @@ class FavouriteBody extends StatelessWidget {
                             Axis.horizontal, // Enable horizontal scrolling
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.center,
-                          children: List.generate(2, (index) {
+                          children: List.generate(
+                              2, (index) {
                             return Padding(
                               padding: const EdgeInsets.symmetric(
-                                  horizontal: 8), // Add padding between items
+                                  horizontal: 8),
                               child: GestureDetector(
                                   onTap: () {
                                     cubit.selectButton(index);
                                   },
                                   child: index == cubit.buttonSelected
-                                      ? Container(
-                                          width: 0.42.w,
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 12),
-                                          decoration: BoxDecoration(
-                                            color: AppColors.primaryColor,
-                                            borderRadius:
-                                                BorderRadius.circular(20),
-                                          ),
-                                          child: const Center(
-                                            child: GText(
-                                              color: AppColors.whiteColor,
-                                              content: AppText.doctors,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        )
-                                      : Container(
-                                          width: 0.42.w,
-                                          padding: const EdgeInsets.symmetric(
-                                              vertical: 12),
-                                          decoration: BoxDecoration(
-                                              color: AppColors.secondaryColor,
-                                              borderRadius:
-                                                  BorderRadius.circular(20),
-                                              border: Border.all(
-                                                  color:
-                                                      AppColors.primaryColor)),
-                                          child: const Center(
-                                            child: GText(
-                                              color: AppColors.primaryColor,
-                                              content: AppText.doctors,
-                                              fontSize: 18,
-                                              fontWeight: FontWeight.w500,
-                                            ),
-                                          ),
-                                        )),
+                                      ? activeButton(title: AppText.articles)
+                                      : inactiveButton(title: AppText.doctors)),
                             );
                           }),
                         )),
@@ -186,6 +151,50 @@ class FavouriteBody extends StatelessWidget {
               ],
             ));
       },
+    );
+  }
+
+  Widget activeButton({required String title}){
+    return Container(
+      width: 0.42.w,
+      padding: const EdgeInsets.symmetric(
+          vertical: 12),
+      decoration: BoxDecoration(
+        color: AppColors.primaryColor,
+        borderRadius:
+        BorderRadius.circular(20),
+      ),
+      child:  Center(
+        child: GText(
+          color: AppColors.whiteColor,
+          content: title,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
+    );
+  }
+  
+  Widget inactiveButton({required String title}){
+    return  Container(
+      width: 0.42.w,
+      padding: const EdgeInsets.symmetric(
+          vertical: 12),
+      decoration: BoxDecoration(
+          color: AppColors.secondaryColor,
+          borderRadius:
+          BorderRadius.circular(20),
+          border: Border.all(
+              color:
+              AppColors.primaryColor)),
+      child:  Center(
+        child: GText(
+          color: AppColors.primaryColor,
+          content: title,
+          fontSize: 18,
+          fontWeight: FontWeight.w500,
+        ),
+      ),
     );
   }
 }
