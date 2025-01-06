@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/drawer/presentation/view/widget/drawer_widget.dart';
 import '../../../account/presentation/view/account_screen.dart';
 import '../../../doctors/presentation/view/doctors_screen.dart';
 import '../../../home/presentation/view/home_screen.dart';
@@ -41,7 +42,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      drawer: const Drawer(),
+      drawer: DrawerWidget(),
       body: Directionality(
         textDirection: TextDirection.rtl,
         child: PageView.builder(
