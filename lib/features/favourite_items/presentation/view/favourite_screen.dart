@@ -14,7 +14,9 @@ class FavouriteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: AppText.favoriteItems, onBackPressed: () {  },),
+      appBar: CustomAppBar(title: AppText.favoriteItems, onBackPressed: () {
+        NavigationManager.goBack();
+      },),
       body: FavouriteBody(),
     );
   }
