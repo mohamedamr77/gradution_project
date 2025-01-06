@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
+import '../../../../favourite_items/presentation/view/favourite_screen.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -38,9 +40,12 @@ class DrawerWidget extends StatelessWidget {
             ],
           ) ),
           const SizedBox(height: 16,),
-          const Card(
+           Card(
             color: AppColors.lightGrayColor,
             child: ListTile(
+              onTap: () {
+                NavigationManager.push(FavouriteScreen.id);
+              },
               title: GText(color: AppColors.blackColor, content: AppText.favoriteItems, fontSize: 14),
               trailing: Icon(Icons.favorite,color: AppColors.primaryColor,),
             ),

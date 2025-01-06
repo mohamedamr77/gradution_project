@@ -4,6 +4,7 @@ import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
+import 'features/favourite_items/presentation/view/favourite_screen.dart';
 
 void main (){
   runApp(const MyApp());
@@ -43,7 +44,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:BottomNavBarScreen.id,
+          initialRoute:FavouriteScreen.id,
         ),
       );
       },
