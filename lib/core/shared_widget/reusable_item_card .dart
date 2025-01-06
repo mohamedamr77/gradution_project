@@ -1,0 +1,103 @@
+import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'global_text.dart';
+import '../utils/app_colors.dart';
+import '../utils/app_images.dart';
+import '../utils/app_text.dart';
+
+class ReusableItemCard  extends StatelessWidget {
+  final String imagePath;
+  final String title;
+  final String description;
+  final String subDescription;
+  final  void Function() onPressedIconFavourite;
+  final Function() onTapCard;
+  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: onTapCard,
+      child: Stack(
+        children: [
+          Container(
+            width: double.infinity,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(8),
+              color: AppColors.secondaryColor,
+            ),
+            child: Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
+              child: Row(
+                textDirection: TextDirection.rtl,
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  Image(
+                    image:  AssetImage(imagePath),
+                    width: 0.28.w,
+                    height: 0.12.h,
+                    fit: BoxFit.fill,
+                  ),
+                  const SizedBox(
+                    width: 14,
+                  ),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.end,
+                    children: [
+                      SizedBox(
+                        width: 0.5.w,
+                        child:  GText(
+                          color: AppColors.blackColor,
+                          content:
+                          title,
+                          fontSize: 16,
+                          maxLines: 2,
+                          overflow: TextOverflow.ellipsis,
+                          fontWeight: FontWeight.w600,
+                        ),
+                      ),
+                      const SizedBox(height: 8,),
+                      SizedBox(
+                        width: 0.5.w,
+                        child:  GText(
+                          color: AppColors.primaryColor,
+                          content:
+                           description,
+                          fontSize: 14,
+                          maxLines: 1,
+                          overflow: TextOverflow.ellipsis,
+                          fontWeight: FontWeight.w400,
+                        ),
+                      ),
+                      const SizedBox(height: 4,),
+                       GText(
+                        textAlign: TextAlign.right,
+                        color: AppColors.grayColor1,
+                        content:
+                        subDescription,
+                        fontSize: 14,
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        fontWeight: FontWeight.w400,
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          ),
+          IconButton(
+            onPressed: onPressedIconFavourite,
+            icon: const Icon(Icons.favorite,color: AppColors.primaryColor,),
+          ),
+          Positioned(
+            bottom: -8,
+            left: 8,
+            child: TextButton(onPressed: () {}, child: const GText(color: AppColors.primaryColor, content: AppText.knowMore, fontSize: 12)),
+          )
+        ],
+      ),
+    );
+  }
+}
