@@ -9,6 +9,7 @@ import '../../features/forget_password/presentation/view/change_pass_screen.dart
 import '../../features/forget_password/presentation/view/forget_pass_screen.dart';
 import '../../features/forget_password/presentation/view/verify_code_screen.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
+import '../../features/vaccination_tips/presentation/view/widgets/vaccination_tips_screen.dart';
 
 
 class AppRouter {
@@ -23,6 +24,7 @@ class AppRouter {
     ChildInfoScreen.id: (context) => const ChildInfoScreen(),
     BottomNavBarScreen.id: (context) => const BottomNavBarScreen(),
     FavouriteScreen.id: (context) => const FavouriteScreen(),
+    VaccinationTipsScreen.id: (context) => const VaccinationTipsScreen(),
 
   };
 }

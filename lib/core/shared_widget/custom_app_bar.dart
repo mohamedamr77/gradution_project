@@ -6,17 +6,19 @@ import 'global_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final List<Widget>? actions;
   final VoidCallback onBackPressed;
 
   const CustomAppBar({
     super.key,
     required this.title,
-    required this.onBackPressed,
+    required this.onBackPressed, this.actions,
   });
 
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      actions: actions,
       elevation: 0,
       centerTitle: true,
       leading: IconButton(
