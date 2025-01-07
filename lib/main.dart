@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
+import 'package:gradutionproject/features/language_app/presentation/view/language_screen.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/profile_setting/presentation/view/profile_setting_screen.dart';
@@ -42,7 +43,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: BottomNavBarScreen.id,
+            initialRoute: LanguageScreen.id,
           ),
         );
       },
