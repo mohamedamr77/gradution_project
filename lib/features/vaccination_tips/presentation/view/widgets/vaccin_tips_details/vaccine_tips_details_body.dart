@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/vaccination_tips/data/model/tips_before_vaccine_list.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccin_tips_details/custom_title_text.dart';
-
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/app_text.dart';
+import '../../../../data/model/tips_after_vaccine_list.dart';
 
 class VaccineTipsDetailsBody extends StatelessWidget {
   const VaccineTipsDetailsBody({super.key});
@@ -17,24 +18,75 @@ class VaccineTipsDetailsBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: CustomScrollView(
         slivers: [
-           SliverToBoxAdapter(
-             child: ReusableItemCard(
-               imagePath: AppImages.tuberVaccineTest,
-               title: AppText.rotavirusVaccine,
-               description: "فعال بنسبة99%",
-               subDescription: "يتم اخده مره واحده",
-               onPressedIconFavourite: () {},
-               onTapCard: () {},
-               isDetails: true,
-             ),
-           ),
-            SliverToBoxAdapter(
-              child: SizedBox(height: 24,),
+          SliverToBoxAdapter(
+            child: ReusableItemCard(
+              imagePath: AppImages.tuberVaccineTest,
+              title: AppText.rotavirusVaccine,
+              description: "فعال بنسبة99%",
+              subDescription: "يتم اخده مره واحده",
+              onPressedIconFavourite: () {},
+              onTapCard: () {},
+              isDetails: true,
             ),
-            SliverToBoxAdapter(
-              child: CustomTitleText(title:  AppText.beforeVaccination)
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24,
             ),
-
+          ),
+          const SliverToBoxAdapter(
+              child: CustomTitleText(title: AppText.beforeVaccination)),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverList.separated(
+            itemBuilder: (context, index) {
+              return Expanded(
+                  child: GText(
+                color: AppColors.mediumGrayColor,
+                content: "${index + 1} . ${tipsBeforeVaccineList[index]}",
+                fontSize: 14,
+                fontWeight: FontWeight.w400,
+              ));
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 16,
+              );
+            },
+            itemCount: tipsBeforeVaccineList.length,
+          ),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 24,
+            ),
+          ),
+          const SliverToBoxAdapter(
+              child: CustomTitleText(title: AppText.postVaccination)),
+          const SliverToBoxAdapter(
+            child: SizedBox(
+              height: 16,
+            ),
+          ),
+          SliverList.separated(
+            itemBuilder: (context, index) {
+              return Expanded(
+                  child: GText(
+                    color: AppColors.mediumGrayColor,
+                    content: "${index + 1} . ${tipsAfterVaccineList[index]}",
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ));
+            },
+            separatorBuilder: (context, index) {
+              return const SizedBox(
+                height: 16,
+              );
+            },
+            itemCount: tipsAfterVaccineList.length,
+          ),
         ],
       ),
     );
