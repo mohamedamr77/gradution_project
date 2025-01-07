@@ -3,6 +3,7 @@ class AppText {
   static const String sideEffectsInfo = "تعرفي على الآثار الجانبية وكيفية التعامل معها، مع نصائح مباشرة من المتخصصين.";
   static const String safeMedicines = "اطلعي على أدوية آمنة لتخفيف الآثار الجانبية بعد التطعيم";
   static const String readyToStart = "جاهزة للبدء!";
+  static const String   intermittentSideEffects = "الأعراض الجانبية النادرة";
   static const String editPhoto =   "تعديل صورة طفلك";
   static const String createNewAccount = "إنشاء حساب جديد";
   static const String name = "الإسم";
