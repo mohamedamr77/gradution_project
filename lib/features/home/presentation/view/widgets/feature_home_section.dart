@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccination_tips_screen.dart';
 
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
@@ -22,7 +24,9 @@ class FeatureHomeSection extends StatelessWidget {
             FeatureHomeWidget(
               imagePath: AppImages.adviceHomeImage,
               title: AppText.tipsBeforeAfterVaccination,
-              onTap: () {},
+              onTap: () {
+                NavigationManager.push(VaccinationTipsScreen.id);
+              },
             ),
           ],
         ),

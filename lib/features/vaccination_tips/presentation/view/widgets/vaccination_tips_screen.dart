@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_app_bar.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
@@ -26,7 +27,7 @@ class VaccinationTipsScreen extends StatelessWidget {
             )
           ],
           title: AppText.tipsBeforeAfterVaccination, onBackPressed: () {
-
+               NavigationManager.goBack();
         },),
         body: const VaccinationTipsBody(),
       ),

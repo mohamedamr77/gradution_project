@@ -15,10 +15,9 @@ class VaccinationTipsBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: const CustomScrollView(
         slivers: [
-          SliverToBoxAdapter(child: SizedBox(height: 16)),
           VaccinationTipsButton(),
            SliverToBoxAdapter(child: SizedBox(height: 16)),
-          VaccinationTipsListItem(),
+           VaccinationTipsListItem(),
         ],
       ),
     );
