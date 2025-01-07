@@ -20,6 +20,8 @@ class AppIcons {
   static const String homeOutLineIcon = "assets/icon/home_out_line.svg";
   static const String notificationIcon = "assets/icon/notificanIcon.svg";
   static const String drawerIcon = "assets/icon/drawerIcon.svg";
+  static const String checkBoxCorrect = "assets/icon/checkBoxCorrect.svg";
+  static const String checkBoxEmpty = "assets/icon/CheckBoxEmpty.svg";
   static const String pinIcon = "assets/icon/pinIcon.svg";
   static const String vaccineIcon = "assets/icon/vaccineIcon.svg";
   static const String facebookIcon = "assets/icon/facebook.svg";

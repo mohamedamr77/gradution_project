@@ -53,15 +53,20 @@ class VaccineTimesListItems extends StatelessWidget {
       title: "تطعيم الدرن",
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
+      onTapCheckBoxVaccineTimes: () {
+         debugPrint('Mohamed amr');
+      },
       onTapCard: () {
         NavigationManager.push(VaccineTimesDetailsScreen.id);
       },
+      isVaccineTimes: true,
+      isCheckBoxTrue: true,
     );
   }
 
   Widget basicButtonList() {
     return ReusableItemCard(
+      isVaccineTimes: true,
       key: const ValueKey<int>(0), // Assign a unique key for animation
       imagePath: AppImages.tuberVaccineTest,
       title: AppText.rotavirusVaccine,

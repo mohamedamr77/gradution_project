@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradutionproject/core/utils/app_icons.dart';
+import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
@@ -9,22 +12,30 @@ class ReusableItemCard extends StatelessWidget {
   final String title;
   final String description;
   final String subDescription;
-  final void Function() onPressedIconFavourite;
+  final void Function()? onPressedIconFavourite;
   final Function() onTapCard;
   final bool isDoctor;
   final bool isDetails;
   final double isRating;
+  final bool isVaccineTimes;
+  final bool isFavourite;
+  final bool isCheckBoxTrue;
+  final void Function()? onTapCheckBoxVaccineTimes;
   const ReusableItemCard(
       {super.key,
       required this.imagePath,
       required this.title,
       required this.description,
       required this.subDescription,
-      required this.onPressedIconFavourite,
+      this.onPressedIconFavourite,
       required this.onTapCard,
       this.isDoctor = false,
       this.isRating = 0,
-      this.isDetails = false});
+      this.isDetails = false,
+      this.isVaccineTimes = false,
+      this.onTapCheckBoxVaccineTimes,
+      this.isFavourite = false,
+      this.isCheckBoxTrue = false});
 
   @override
   Widget build(BuildContext context) {
@@ -87,14 +98,17 @@ class ReusableItemCard extends StatelessWidget {
                       ),
                       Visibility(
                         visible: isDoctor == false,
-                        child: GText(
-                          textAlign: TextAlign.right,
-                          color: AppColors.grayColor1,
-                          content: subDescription,
-                          fontSize: 14,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                          fontWeight: FontWeight.w400,
+                        child: SizedBox(
+                          width: 0.5.w,
+                          child: GText(
+                            textAlign: TextAlign.right,
+                            color: AppColors.grayColor1,
+                            content: subDescription,
+                            fontSize: 14,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                       ),
                       Visibility(
@@ -125,14 +139,37 @@ class ReusableItemCard extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
-            left: 8,
-            child: IconButton(
-              onPressed: onPressedIconFavourite,
-              icon: const Icon(
-                Icons.favorite,
-                color: AppColors.primaryColor,
+          Visibility(
+            visible: isVaccineTimes == false,
+            child: Positioned(
+              left: 8,
+              child: IconButton(
+                onPressed: onPressedIconFavourite,
+                icon:
+                isFavourite ?
+                const Icon(
+                  Icons.favorite,
+                  color: AppColors.primaryColor,
+                ) :
+                const Icon(
+                  Icons.favorite_border_outlined,
+                  color: AppColors.primaryColor,
+                ),
               ),
+            ),
+          ),
+          Visibility(
+            visible: isVaccineTimes,
+            child: Positioned(
+                left: 10,
+                top: 10,
+                child: InkWell(
+                    onTap: onTapCheckBoxVaccineTimes,
+                    child:
+                    isCheckBoxTrue?
+                    SvgPicture.asset(AppIcons.checkBoxCorrect)
+                 :
+                    SvgPicture.asset(AppIcons.checkBoxEmpty))
             ),
           ),
           Visibility(
