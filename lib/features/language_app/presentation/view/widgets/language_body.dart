@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
@@ -7,58 +8,38 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/language_app/presentation/viewModel/language_app_cubit.dart';
+import 'package:gradutionproject/features/language_app/presentation/viewModel/language_app_state.dart';
+
+import '../../../../../core/shared_widget/custom_continer_check.dart';
 
 class LanguageBody extends StatelessWidget {
   const LanguageBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        children: [
-          Spacer(flex: 3,),
-          Container(
-            width: 0.6.w,
-            padding:  EdgeInsets.symmetric(vertical: 0.015.h, horizontal: 0.02.w),
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              textDirection: TextDirection.rtl,
-              children: [
-                SvgPicture.asset(AppIcons.checkBoxCorrect,color: Colors.white,),
-               Spacer(),
-                GText(color: AppColors.whiteColor, content: AppText.arabicLanguage, fontSize: 18,fontWeight: FontWeight.w600,),
-                Spacer(),
-              ],
-            ),
+    LanguageAppCubit cubit = BlocProvider.of<LanguageAppCubit>(context);
+    return BlocBuilder<LanguageAppCubit, LanguageAppState>(
+      builder: (context, state) {
+        return Center(
+          child: Column(
+            children: [
+              const Spacer(flex: 3,),
+              CustomContainerCheck(
+                isCheck: cubit.isArabic, title: AppText.arabicLanguage,),
+              const Spacer(),
+              CustomContainerCheck(isCheck: cubit.isArabic == false,
+                title: AppText.englishLanguage,),
+              const Spacer(flex: 3,),
+              CustomElevatedButton(onPress: () {
+                cubit.isArabic = !cubit.isArabic;
+                cubit.changeLanguage(cubit.isArabic);
+              }, titleButton: AppText.change),
+              const Spacer(flex: 5,),
+            ],
           ),
-          Spacer(),
-          Container(
-            width: 0.6.w,
-            padding:  EdgeInsets.symmetric(vertical: 0.015.h, horizontal: 0.02.w),
-            decoration: BoxDecoration(
-              color: AppColors.primaryColor,
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Row(
-              textDirection: TextDirection.rtl,
-              children: [
-                SvgPicture.asset(AppIcons.checkBoxCorrect,color: Colors.white,),
-               Spacer(),
-                GText(color: AppColors.whiteColor, content: AppText.arabicLanguage, fontSize: 18,fontWeight: FontWeight.w600,),
-                Spacer(),
-              ],
-            ),
-          ),
-          Spacer(flex: 3,),
-          CustomElevatedButton(onPress: () {
-
-          }, titleButton: AppText.change),
-          Spacer(flex: 5,),
-        ],
-      ),
+        );
+      },
     );
   }
 }
