@@ -26,7 +26,17 @@ List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: AppText.notifications,
     imageLeadingPath: AppIcons.notificationIcon,
-    onTap: () {},
+    onTap: () {
+      BottomSheetHelper.customShowModelSheet(
+          title: AppText.deleteAllNotifications,
+          subTitle: AppText.deleteAllNotificationsConfirmation,
+          button: CustomRowButtons(
+            titleBlueButton: AppText.delete,
+            onTapBlueButton: () {},
+            titleWhiteButton: AppText.cancel,
+            onTapWhiteButton: () {},
+          ));
+    },
   ),
   AccountListTileModel(
     title: AppText.language,
