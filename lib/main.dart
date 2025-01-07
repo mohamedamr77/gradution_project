@@ -4,12 +4,7 @@ import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
-import 'features/medicines/presentation/view/medicines_deatils_screen.dart';
-import 'features/side_effects/presentation/view/side_effect_details_screen.dart';
-import 'features/side_effects/presentation/view/side_effect_screen.dart';
-import 'features/vaccination_tips/presentation/view/vaccine_tips_details_screen.dart';
-import 'features/vaccine_info/presentation/view/vaccine_info_details_screen.dart';
-import 'features/vaccine_info/presentation/view/vaccine_info_screen.dart';
+
 
 void main (){
   runApp(const MyApp());
@@ -57,3 +52,6 @@ class MyApp extends StatelessWidget {
     );
   }
 }
+/*
+ figma design : https://www.figma.com/design/czbVQjVTpoIqZykFmJbbEw/Graduation-project?node-id=0-1&t=JoLDrBqo2gQts2lD-1
+ */
