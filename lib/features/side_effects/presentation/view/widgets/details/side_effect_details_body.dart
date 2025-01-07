@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
+import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/global_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/app_text.dart';
 import '../../../../../vaccination_tips/data/model/tips_before_vaccine_list.dart';
-import '../../../../../vaccination_tips/presentation/view/widgets/vaccin_tips_details/custom_title_text.dart';
 
 class SideEffectDetailsBody extends StatelessWidget {
   const SideEffectDetailsBody({super.key});

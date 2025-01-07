@@ -14,6 +14,7 @@ import '../../features/side_effects/presentation/view/side_effect_details_screen
 import '../../features/side_effects/presentation/view/side_effect_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccination_tips_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccine_tips_details_screen.dart';
+import '../../features/vaccine_info/presentation/view/vaccine_info_details_screen.dart';
 import '../../features/vaccine_info/presentation/view/vaccine_info_screen.dart';
 
 
@@ -35,6 +36,7 @@ class AppRouter {
     MedicinesScreen.id: (context) => const MedicinesScreen(),
     VaccineTipsDetailsScreen.id: (context) => const VaccineTipsDetailsScreen(),
     SideEffectDetailsScreen.id: (context) => const SideEffectDetailsScreen(),
+    VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
 
   };
 }

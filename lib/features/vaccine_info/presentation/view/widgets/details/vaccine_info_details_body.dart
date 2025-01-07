@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/core/shared_widget/global_text.dart';
-import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import 'package:gradutionproject/features/vaccination_tips/data/model/tips_before_vaccine_list.dart';
+
 import '../../../../../../core/shared_widget/custom_title_text.dart';
+import '../../../../../../core/shared_widget/global_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
+import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/app_text.dart';
-import '../../../../data/model/tips_after_vaccine_list.dart';
 
-class VaccineTipsDetailsBody extends StatelessWidget {
-  const VaccineTipsDetailsBody({super.key});
+class VaccineInfoDetailsBody extends StatelessWidget {
+  const VaccineInfoDetailsBody({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -21,16 +21,15 @@ class VaccineTipsDetailsBody extends StatelessWidget {
           _buildSpacer(height: 24),
           _buildSectionTitle(AppText.beforeVaccination),
           _buildSpacer(height: 16),
-          _buildTipsList(tipsBeforeVaccineList),
+          _buildTipsDescription(AppText.loremIpsumExample1),
           _buildSpacer(height: 24),
           _buildSectionTitle(AppText.postVaccination),
           _buildSpacer(height: 16),
-          _buildTipsList(tipsAfterVaccineList),
+          _buildTipsDescription(AppText.loremIpsumExample1),
         ],
       ),
     );
   }
-
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
       child: ReusableItemCard(
@@ -59,20 +58,14 @@ class VaccineTipsDetailsBody extends StatelessWidget {
     );
   }
 
-  SliverList _buildTipsList(List<String> tipsList) {
-    return SliverList.separated(
-      itemBuilder: (context, index) {
-        return GText(
-          color: AppColors.mediumGrayColor,
-          content: "${index + 1} . ${tipsList[index]}",
-          fontSize: 14,
-          fontWeight: FontWeight.w400,
-        );
-      },
-      separatorBuilder: (context, index) {
-        return const SizedBox(height: 16);
-      },
-      itemCount: tipsList.length,
+   _buildTipsDescription( String description) {
+    return SliverToBoxAdapter(
+      child: GText(
+        color: AppColors.mediumGrayColor,
+        content: description,
+        fontSize: 14,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 }
