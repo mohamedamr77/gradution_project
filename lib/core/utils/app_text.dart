@@ -128,6 +128,7 @@ class AppText {
   static const String cancel = "إلغاء";
   static const String personalAccountSettings = "اعدادات الحساب الشخصي";
   static const String address = "العنوان";
+  static const String profile = "الحساب الشخصي";
   static const String editAccount = "تعديل الحساب";
   static const String deleteAccount = "حذف الحساب";
   static const String change = "تغيير";

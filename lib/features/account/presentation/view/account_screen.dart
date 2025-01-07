@@ -10,4 +10,5 @@ class AccountScreen extends StatelessWidget {
       body: AccountBody(),
     );
   }
+
 }
