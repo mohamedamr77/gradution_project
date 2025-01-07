@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_state.dart';
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../viewModel/medicines_cubit.dart';
+import '../medicines_deatils_screen.dart';
 
 class MedicinesListItems extends StatelessWidget {
   const MedicinesListItems({super.key});
@@ -51,7 +53,9 @@ class MedicinesListItems extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(MedicinesDetailsScreen.id);
+        },
     );
   }
   Widget additionalButtonList(){
@@ -62,7 +66,9 @@ class MedicinesListItems extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(MedicinesDetailsScreen.id);
+      },
     );
   }
 }
