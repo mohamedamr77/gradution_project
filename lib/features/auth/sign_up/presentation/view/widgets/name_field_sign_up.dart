@@ -24,7 +24,7 @@ class NameFieldSignUp extends StatelessWidget {
             return Validators.validateName(value);
           },
           onChanged: (v) {
-             cubit.name =v;
+            cubit.name = v;
           },
         );
       },

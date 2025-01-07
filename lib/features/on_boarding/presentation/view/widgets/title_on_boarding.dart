@@ -3,7 +3,6 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 
 import '../../../../../core/shared_widget/global_text.dart';
 
-
 class TitleOnBoarding extends StatefulWidget {
   final String title;
   const TitleOnBoarding({super.key, required this.title});
@@ -63,7 +62,7 @@ class _TitleOnBoardingState extends State<TitleOnBoarding>
           ),
         );
       },
-      child:  GText(
+      child: GText(
         textDirection: TextDirection.rtl,
         color: AppColors.primaryColor,
         content: widget.title,

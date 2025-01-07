@@ -1,3 +1,3 @@
-abstract class ChangePassState{}
+abstract class ChangePassState {}
 
-class ChangePassInitialState extends ChangePassState{}
+class ChangePassInitialState extends ChangePassState {}

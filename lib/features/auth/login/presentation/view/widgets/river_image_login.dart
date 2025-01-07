@@ -25,14 +25,14 @@ class _RiverImageLoginState extends State<RiverImageLogin> {
     return BlocBuilder<LoginCubit, LoginState>(
       builder: (context, state) {
         return Column(
-         children: [
-           if (cubit.artboard!=null)
-             SizedBox(
-               height: 0.25.h,
-               width: 300,
-               child: Rive(artboard: cubit.artboard!),
-             ),
-         ],
+          children: [
+            if (cubit.artboard != null)
+              SizedBox(
+                height: 0.25.h,
+                width: 300,
+                child: Rive(artboard: cubit.artboard!),
+              ),
+          ],
         );
       },
     );

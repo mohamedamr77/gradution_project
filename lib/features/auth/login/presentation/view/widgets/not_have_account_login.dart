@@ -9,7 +9,7 @@ class NotHaveAccountLogin extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return TextWithActionRow (
+    return TextWithActionRow(
         titleOnTap: AppText.createAccount,
         titleWithoutTap: AppText.noAccountYet,
         onTap: () {

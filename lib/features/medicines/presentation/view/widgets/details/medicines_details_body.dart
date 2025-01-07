@@ -59,7 +59,7 @@ class MedicinesDetailsBody extends StatelessWidget {
     );
   }
 
-  _buildTipsDescription( String description) {
+  _buildTipsDescription(String description) {
     return SliverToBoxAdapter(
       child: GText(
         color: AppColors.mediumGrayColor,

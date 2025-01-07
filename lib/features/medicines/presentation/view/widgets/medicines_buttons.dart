@@ -19,8 +19,7 @@ class MedicinesButtons extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  medicineButtonsList.length, (index) {
+              children: List.generate(medicineButtonsList.length, (index) {
                 return ButtonListHorizontal(
                   onTap: () => cubit.selectButton(index),
                   buttonNames: medicineButtonsList,

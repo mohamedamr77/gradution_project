@@ -20,7 +20,6 @@ import '../../features/vaccine_info/presentation/view/vaccine_info_details_scree
 import '../../features/vaccine_info/presentation/view/vaccine_info_screen.dart';
 import '../../features/vaccine_times/presentation/view/vaccine_times_deatils_screen.dart';
 
-
 class AppRouter {
   static Map<String, Widget Function(dynamic)> routes = {
     OnBoardingScreen.id: (context) => const OnBoardingScreen(),
@@ -42,7 +41,7 @@ class AppRouter {
     VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
     DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
-    VaccineTimesDetailsScreen.id: (context) => const VaccineTimesDetailsScreen(),
-
+    VaccineTimesDetailsScreen.id: (context) =>
+        const VaccineTimesDetailsScreen(),
   };
 }

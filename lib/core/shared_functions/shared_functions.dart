@@ -3,7 +3,6 @@ import 'package:gradutionproject/core/utils/app_font_family.dart';
 
 import '../navigation/navigation_manager.dart';
 
-
 class SharedFunctions {
   // static NetworkInfoImpl networkInfo = NetworkInfoImpl.getInstance();
 

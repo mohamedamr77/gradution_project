@@ -3,11 +3,11 @@ import 'package:flutter/material.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
 
-class TextWithActionRow  extends StatelessWidget {
+class TextWithActionRow extends StatelessWidget {
   final String titleOnTap;
   final String titleWithoutTap;
   final void Function() onTap;
-  const TextWithActionRow (
+  const TextWithActionRow(
       {super.key,
       required this.titleOnTap,
       required this.titleWithoutTap,

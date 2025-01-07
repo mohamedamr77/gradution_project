@@ -16,7 +16,10 @@ class DoctorsBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: HeaderBottomNavBarScreen()),
-          SliverToBoxAdapter(child: SizedBox(height: 32,)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 32,
+          )),
           DoctorsListWidget(),
         ],
       ),

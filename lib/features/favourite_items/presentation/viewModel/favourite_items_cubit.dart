@@ -3,9 +3,9 @@ import 'package:gradutionproject/features/favourite_items/presentation/viewModel
 
 class FavouriteItemsCubit extends Cubit<FavouriteItemsState> {
   FavouriteItemsCubit() : super(FavouriteItemsInitialState());
-   int buttonSelected = 0;
-   void selectButton(int index) {
+  int buttonSelected = 0;
+  void selectButton(int index) {
     buttonSelected = index;
     emit(ChangeButtonState());
-   }
+  }
 }

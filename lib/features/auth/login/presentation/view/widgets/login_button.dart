@@ -13,12 +13,12 @@ class LoginButton extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);
     return CustomElevatedButton(
-        borderRadius: 8,
-        onPress: () {
-          cubit.loginClick();
-        },
-        btnColor: AppColors.primaryColor,
-        titleButton: AppText.login,
+      borderRadius: 8,
+      onPress: () {
+        cubit.loginClick();
+      },
+      btnColor: AppColors.primaryColor,
+      titleButton: AppText.login,
     );
   }
 }

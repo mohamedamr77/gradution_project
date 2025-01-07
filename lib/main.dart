@@ -4,11 +4,8 @@ import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
-import 'features/doctors/presentation/view/doctor_details_screen.dart';
-import 'features/vaccine_times/presentation/view/vaccine_times_deatils_screen.dart';
 
-
-void main (){
+void main() {
   runApp(const MyApp());
 }
 /*
@@ -33,24 +30,21 @@ class MyApp extends StatelessWidget {
       builder: (BuildContext context, BoxConstraints constraints) {
         wd = constraints.maxWidth;
         ht = constraints.maxHeight;
-      return  SafeArea(
-        child: MaterialApp(
-          theme: ThemeData(
-            appBarTheme: const AppBarTheme(
-              elevation: 0,
-              backgroundColor:  AppColors.lightGrayColor,
-
-            ),
-            scaffoldBackgroundColor: AppColors.lightGrayColor
+        return SafeArea(
+          child: MaterialApp(
+            theme: ThemeData(
+                appBarTheme: const AppBarTheme(
+                  elevation: 0,
+                  backgroundColor: AppColors.lightGrayColor,
+                ),
+                scaffoldBackgroundColor: AppColors.lightGrayColor),
+            debugShowCheckedModeBanner: false,
+            navigatorKey: NavigationManager.navigationKey,
+            routes: AppRouter.routes,
+            initialRoute: BottomNavBarScreen.id,
           ),
-          debugShowCheckedModeBanner: false,
-          navigatorKey: NavigationManager.navigationKey,
-          routes: AppRouter.routes,
-          initialRoute:BottomNavBarScreen.id,
-        ),
-      );
+        );
       },
-
     );
   }
 }

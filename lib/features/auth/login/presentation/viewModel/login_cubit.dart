@@ -13,7 +13,8 @@ class LoginCubit extends Cubit<LoginState> {
   TextEditingController passwordController = TextEditingController();
 
   // Rive-related properties
-  final String riveUrl = "assets/river/animated_login_character witout back grround.riv";
+  final String riveUrl =
+      "assets/river/animated_login_character witout back grround.riv";
   SMITrigger? failTrigger, successTrigger;
   SMIBool? isHandUp, isChecking;
   SMINumber? lookNum;
@@ -111,7 +112,8 @@ class LoginCubit extends Cubit<LoginState> {
     isHandUp?.change(false);
     emit(CheckingLoginState());
 
-    if (emailController.text == "email" && passwordController.text == "password") {
+    if (emailController.text == "email" &&
+        passwordController.text == "password") {
       successTrigger?.fire();
       emit(LoginSuccessState());
     } else {

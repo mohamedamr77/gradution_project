@@ -18,8 +18,7 @@ class SideEffectsButton extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  sideEffectButtonList.length, (index) {
+              children: List.generate(sideEffectButtonList.length, (index) {
                 return ButtonListHorizontal(
                   onTap: () => cubit.selectButton(index),
                   buttonNames: sideEffectButtonList,

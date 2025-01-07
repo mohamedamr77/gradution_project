@@ -16,24 +16,24 @@ class PasswordFieldSignUp extends StatelessWidget {
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
         return CustomTextField(
-            obscureText: cubit.visibilityPassword ? true : false,
-            hintText: AppText.enterPassword,
-            prefix: AppIcons.passwordIcon,
-            title: AppText.password,
-            suffixIcon: IconButton(
-                onPressed: () {
-                  cubit.toggleVisibilityPassword();
-                },
-                icon: cubit.visibilityPassword
-                    ? AppIcons.visibilityOffIcon
-                    : AppIcons.visibilityIcon,
-            ),
-             validator: (value) {
-               return Validators.validatePassword(value);
-             },
-            onChanged: (v){
-              cubit.password =v;
+          obscureText: cubit.visibilityPassword ? true : false,
+          hintText: AppText.enterPassword,
+          prefix: AppIcons.passwordIcon,
+          title: AppText.password,
+          suffixIcon: IconButton(
+            onPressed: () {
+              cubit.toggleVisibilityPassword();
             },
+            icon: cubit.visibilityPassword
+                ? AppIcons.visibilityOffIcon
+                : AppIcons.visibilityIcon,
+          ),
+          validator: (value) {
+            return Validators.validatePassword(value);
+          },
+          onChanged: (v) {
+            cubit.password = v;
+          },
         );
       },
     );

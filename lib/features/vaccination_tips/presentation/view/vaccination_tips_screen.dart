@@ -26,9 +26,11 @@ class VaccinationTipsScreen extends StatelessWidget {
               child: SvgPicture.asset(AppIcons.search),
             )
           ],
-          title: AppText.tipsBeforeAfterVaccination, onBackPressed: () {
-               NavigationManager.goBack();
-        },),
+          title: AppText.tipsBeforeAfterVaccination,
+          onBackPressed: () {
+            NavigationManager.goBack();
+          },
+        ),
         body: const VaccinationTipsBody(),
       ),
     );

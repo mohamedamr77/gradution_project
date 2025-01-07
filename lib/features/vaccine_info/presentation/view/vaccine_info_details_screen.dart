@@ -13,9 +13,11 @@ class VaccineInfoDetailsScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: CustomAppBar(
-        title: AppText.generalArticlesVaccinations, onBackPressed: () {
-        NavigationManager.goBack();
-      },),
+        title: AppText.generalArticlesVaccinations,
+        onBackPressed: () {
+          NavigationManager.goBack();
+        },
+      ),
       body: const VaccineInfoDetailsBody(),
     );
   }

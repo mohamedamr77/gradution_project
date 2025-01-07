@@ -10,14 +10,19 @@ class ButtonListHorizontal extends StatelessWidget {
   final int index;
   final int buttonSelectedIndex;
 
-  const ButtonListHorizontal({super.key, this.onTap, required this.buttonNames, required this.index, required this.buttonSelectedIndex});
+  const ButtonListHorizontal(
+      {super.key,
+      this.onTap,
+      required this.buttonNames,
+      required this.index,
+      required this.buttonSelectedIndex});
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8),
       child: GestureDetector(
-        onTap:  onTap,
+        onTap: onTap,
         child: Container(
           width: 0.42.w,
           padding: const EdgeInsets.symmetric(vertical: 12),
@@ -33,7 +38,7 @@ class ButtonListHorizontal extends StatelessWidget {
               color: index == buttonSelectedIndex
                   ? AppColors.whiteColor
                   : AppColors.primaryColor,
-              content : buttonNames[index],
+              content: buttonNames[index],
               fontSize: 18,
               fontWeight: FontWeight.w500,
             ),

@@ -6,7 +6,7 @@ import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_text.dart';
 
 class MedicinesDetailsScreen extends StatelessWidget {
-  static String id ="MedicinesDetailsScreen";
+  static String id = "MedicinesDetailsScreen";
   const MedicinesDetailsScreen({super.key});
 
   @override
@@ -16,7 +16,8 @@ class MedicinesDetailsScreen extends StatelessWidget {
         title: AppText.recommendedMedications,
         onBackPressed: () {
           NavigationManager.goBack();
-        },),
+        },
+      ),
       body: const MedicinesDetailsBody(),
     );
   }

@@ -13,16 +13,16 @@ class PhoneFiledSignUp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<SignUpCubit>(context);
-    return   CustomTextField(
-        hintText: AppText.enterPhoneNumber,
-        prefix: AppIcons.phoneIcon,
-        title: AppText.phoneNumber,
-        validator: (value) {
+    return CustomTextField(
+      hintText: AppText.enterPhoneNumber,
+      prefix: AppIcons.phoneIcon,
+      title: AppText.phoneNumber,
+      validator: (value) {
         return Validators.validatePhoneNumber(value);
       },
-        onChanged: (value){
-          cubit.phoneNumber =value;
-        },
+      onChanged: (value) {
+        cubit.phoneNumber = value;
+      },
     );
   }
 }

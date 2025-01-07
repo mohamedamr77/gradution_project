@@ -14,16 +14,16 @@ class CreateAccountButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit =BlocProvider.of<SignUpCubit>(context);
+    var cubit = BlocProvider.of<SignUpCubit>(context);
     return CustomElevatedButton(
-        borderRadius: 8,
-        onPress: () {
-          if (formKey.currentState!.validate()) {
-            NavigationManager.push(ChildInfoScreen.id);
-          }
-        },
-        btnColor: AppColors.primaryColor,
-       titleButton:  AppText.createAccount,
+      borderRadius: 8,
+      onPress: () {
+        if (formKey.currentState!.validate()) {
+          NavigationManager.push(ChildInfoScreen.id);
+        }
+      },
+      btnColor: AppColors.primaryColor,
+      titleButton: AppText.createAccount,
     );
   }
 }

@@ -19,16 +19,17 @@ class ButtonOnboarding extends StatelessWidget {
     return BlocBuilder<OnBoardingCubit, OnBoardingState>(
       builder: (context, state) {
         return TweenAnimationBuilder(
-          tween: cubit.reverseButtonOnBoarding ? Tween<double>(
-              begin: 1, end: 1.15) :
-          Tween<double>(begin: 1.15, end: 1),
+          tween: cubit.reverseButtonOnBoarding
+              ? Tween<double>(begin: 1, end: 1.15)
+              : Tween<double>(begin: 1.15, end: 1),
           duration: const Duration(seconds: 1),
           onEnd: () {
             cubit.toggleReverseButton();
           },
           child: InkWell(
-              onTap: () =>  index != onBoardingList.length-1?
-               cubit.nextPage() : NavigationManager.replaceAll(SignUpScreen.id),
+              onTap: () => index != onBoardingList.length - 1
+                  ? cubit.nextPage()
+                  : NavigationManager.replaceAll(SignUpScreen.id),
               child: SvgPicture.asset(AppIcons.iconOnBoarding)),
           builder: (BuildContext context, value, Widget? child) {
             return Transform.scale(

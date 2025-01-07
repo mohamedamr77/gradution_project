@@ -18,7 +18,7 @@ class ChildInfoBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Center(
           child: CustomScrollView(
@@ -45,7 +45,10 @@ class ChildInfoBody extends StatelessWidget {
           const VaccinesFieldChildInfo(),
           spaceBetweenWidget(),
           SliverToBoxAdapter(
-            child: CustomElevatedButton(onPress: () {  }, titleButton: AppText.register,),
+            child: CustomElevatedButton(
+              onPress: () {},
+              titleButton: AppText.register,
+            ),
           ),
           spaceBetweenWidget(),
         ],
@@ -53,8 +56,9 @@ class ChildInfoBody extends StatelessWidget {
     );
   }
 
-  Widget spaceBetweenWidget({double? height, double? width}){
-    return SliverToBoxAdapter(child: SizedBox(height: height?? 16, width: width?? 0));
+  Widget spaceBetweenWidget({double? height, double? width}) {
+    return SliverToBoxAdapter(
+        child: SizedBox(height: height ?? 16, width: width ?? 0));
   }
 
   Widget textCenterChildInfo() {

@@ -14,22 +14,23 @@ class ImageOnBoarding extends StatefulWidget {
   State<ImageOnBoarding> createState() => _ImageOnBoardingState();
 }
 
-class _ImageOnBoardingState extends State<ImageOnBoarding> with SingleTickerProviderStateMixin{
-
+class _ImageOnBoardingState extends State<ImageOnBoarding>
+    with SingleTickerProviderStateMixin {
   late Animation<double> _opacityAnimation;
   late AnimationController _controller;
 
   @override
-  void initState(){
-     super.initState();
-     _controller =  AnimationController(vsync: this,duration: const Duration(seconds: 1));
-      _opacityAnimation = Tween<double>(
-        begin: 0.4,
-        end: 1,
-      ).animate(_controller);
-     _controller.forward();
-
+  void initState() {
+    super.initState();
+    _controller =
+        AnimationController(vsync: this, duration: const Duration(seconds: 1));
+    _opacityAnimation = Tween<double>(
+      begin: 0.4,
+      end: 1,
+    ).animate(_controller);
+    _controller.forward();
   }
+
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<OnBoardingCubit>(context);
@@ -41,10 +42,9 @@ class _ImageOnBoardingState extends State<ImageOnBoarding> with SingleTickerProv
             return Opacity(
               opacity: _controller.value,
               child: TweenAnimationBuilder(
-                tween:
-                cubit.reverseImageInBoarding ?
-                Tween<double>(begin: 0.95, end: 1) :
-                Tween<double>(begin: 1, end: 0.95),
+                tween: cubit.reverseImageInBoarding
+                    ? Tween<double>(begin: 0.95, end: 1)
+                    : Tween<double>(begin: 1, end: 0.95),
                 duration: const Duration(seconds: 1),
                 onEnd: () {
                   cubit.toggleReverseImage();
@@ -63,11 +63,9 @@ class _ImageOnBoardingState extends State<ImageOnBoarding> with SingleTickerProv
                     child: child,
                   );
                 },
-
               ),
             );
           },
-
         );
       },
     );

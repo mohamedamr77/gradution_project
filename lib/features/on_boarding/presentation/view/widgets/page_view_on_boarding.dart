@@ -10,8 +10,9 @@ class PageViewOnBoarding extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  PageView.builder(
-      controller: BlocProvider.of<OnBoardingCubit>(context).pageControllerPageView,
+    return PageView.builder(
+      controller:
+          BlocProvider.of<OnBoardingCubit>(context).pageControllerPageView,
       itemBuilder: (BuildContext context, int index) {
         return OnBoardingBody(
           index: index,

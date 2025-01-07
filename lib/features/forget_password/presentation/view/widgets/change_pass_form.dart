@@ -34,11 +34,13 @@ class ChangePassForm extends StatelessWidget {
               validator: (value) {
                 return Validators.validatePassword(value);
               },
-              onChanged: (value){
-                cubit.password =value;
+              onChanged: (value) {
+                cubit.password = value;
               },
             ),
-            SizedBox(height: 0.02.h,),
+            SizedBox(
+              height: 0.02.h,
+            ),
             CustomTextField(
               hintText: AppText.enterPassword,
               prefix: AppIcons.passwordIcon,
@@ -46,23 +48,24 @@ class ChangePassForm extends StatelessWidget {
               suffixIcon: AppIcons.visibilityOffIcon,
               validator: (value) {
                 return Validators.validateConfirmPassword(
-                 cubit.password , value
-                );
+                    cubit.password, value);
               },
-              onChanged: (value){
+              onChanged: (value) {
                 cubit.confirmPassword = value;
               },
             ),
-            SizedBox(height: 0.04.h,),
+            SizedBox(
+              height: 0.04.h,
+            ),
             CustomElevatedButton(
               onPress: () {
                 if (formKey.currentState!.validate()) {
-                  NavigationManager.push(ChangePassDoneScreen.id);                }
+                  NavigationManager.push(ChangePassDoneScreen.id);
+                }
               },
               btnColor: AppColors.primaryColor,
               titleButton: AppText.change,
             ),
-
           ],
         ),
       ),

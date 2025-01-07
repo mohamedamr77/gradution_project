@@ -31,8 +31,9 @@ class BirthDateSection extends StatelessWidget {
                 height: 12,
               ),
               GestureDetector(
-                onTap: ()  async{
-                  cubit.updateSelectedDate(await showDateChild(context: context, cubit: cubit));
+                onTap: () async {
+                  cubit.updateSelectedDate(
+                      await showDateChild(context: context, cubit: cubit));
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 11),
@@ -46,16 +47,14 @@ class BirthDateSection extends StatelessWidget {
                   child: Row(
                     textDirection: TextDirection.rtl,
                     children: [
-                     AppIcons.dateIcon,
+                      AppIcons.dateIcon,
                       const SizedBox(width: 8),
                       GText(
                         fontSize: 16,
                         color: AppColors.thirdColor,
-                        content:
-                        cubit.selectedDate == null ?
-                        AppText.enterBirthDate :
-                        cubit.convertDateString(cubit.selectedDate!)
-                        ,
+                        content: cubit.selectedDate == null
+                            ? AppText.enterBirthDate
+                            : cubit.convertDateString(cubit.selectedDate!),
                       )
                     ],
                   ),
@@ -67,7 +66,6 @@ class BirthDateSection extends StatelessWidget {
       },
     );
   }
-
 }
 
 Future<DateTime?> showDateChild({

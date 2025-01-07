@@ -11,7 +11,7 @@ class VaccineTimesButtons extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VaccineTimesCubit cubit =BlocProvider.of<VaccineTimesCubit>(context);
+    VaccineTimesCubit cubit = BlocProvider.of<VaccineTimesCubit>(context);
     return SliverToBoxAdapter(
       child: BlocBuilder<VaccineTimesCubit, VaccineTimesState>(
         builder: (context, state) {
@@ -19,8 +19,7 @@ class VaccineTimesButtons extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  vaccineTimesButtonNames.length, (index) {
+              children: List.generate(vaccineTimesButtonNames.length, (index) {
                 return ButtonListHorizontal(
                   onTap: () => cubit.selectButton(index),
                   buttonNames: vaccineTimesButtonNames,

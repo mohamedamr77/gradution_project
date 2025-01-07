@@ -12,15 +12,16 @@ class SignUpCubit extends Cubit<SignUpState> {
   String? password;
   String? phoneNumber;
 
-  toggleVisibilityPassword(){
+  toggleVisibilityPassword() {
     visibilityPassword = !visibilityPassword;
     emit(VisibilityPasswordChange());
   }
 
-  toggleVisibilityConfirmPassword(){
+  toggleVisibilityConfirmPassword() {
     visibilityConfirmPassword = !visibilityConfirmPassword;
     emit(VisibilityConfirmPasswordChange());
   }
+
   void resetState() {
     visibilityPassword = true;
     visibilityConfirmPassword = true;

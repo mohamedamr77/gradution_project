@@ -5,7 +5,6 @@ import 'change_pass_state.dart';
 class ChangePassCubit extends Cubit<ChangePassState> {
   ChangePassCubit() : super(ChangePassInitialState());
 
-   String? password;
-   String? confirmPassword;
-
+  String? password;
+  String? confirmPassword;
 }

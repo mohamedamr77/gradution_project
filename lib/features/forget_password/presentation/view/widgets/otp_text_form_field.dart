@@ -39,10 +39,7 @@ class OTPTextFormField extends StatelessWidget {
           // Other decoration properties...
           focusedBorder: OutlineInputBorder(
             borderRadius: BorderRadius.circular(0.03.w), // Set border radius
-            borderSide: BorderSide(
-                color: AppColors.thirdColor,
-                width: 0.003.w
-            ),
+            borderSide: BorderSide(color: AppColors.thirdColor, width: 0.003.w),
           ),
           enabledBorder: OutlineInputBorder(
               borderRadius: BorderRadius.circular(0.03.w),

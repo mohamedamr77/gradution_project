@@ -26,12 +26,13 @@ class OnBoardingCubit extends Cubit<OnBoardingState> {
     emit(OnBoardingButtonAnimationState());
   }
 
-  void  previousPage(){
-    pageControllerPageView.previousPage(duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
+  void previousPage() {
+    pageControllerPageView.previousPage(
+        duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
   }
 
-  void  nextPage(){
-    pageControllerPageView.nextPage(duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
+  void nextPage() {
+    pageControllerPageView.nextPage(
+        duration: const Duration(milliseconds: 500), curve: Curves.easeOut);
   }
-
 }

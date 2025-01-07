@@ -13,7 +13,7 @@ class AccountBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding:  const EdgeInsets.only(
+      padding: const EdgeInsets.only(
         top: 16,
         left: 16,
         right: 16,
@@ -39,37 +39,45 @@ class AccountBody extends StatelessWidget {
       ),
     );
   }
-  SliverToBoxAdapter _buildNameScreen({required String title}){
+
+  SliverToBoxAdapter _buildNameScreen({required String title}) {
     return SliverToBoxAdapter(
       child: Align(
           alignment: Alignment.center,
-          child: GText(color: AppColors.primaryColor, content: title, fontSize: 18)),
+          child: GText(
+              color: AppColors.primaryColor, content: title, fontSize: 18)),
     );
   }
-  SliverToBoxAdapter _buildImageUser({required String imagePath}){
+
+  SliverToBoxAdapter _buildImageUser({required String imagePath}) {
     return SliverToBoxAdapter(
-      child: Align(
-          alignment: Alignment.center,
-          child: CircleAvatar(
+        child: Align(
+      alignment: Alignment.center,
+      child: CircleAvatar(
         radius: 0.18.w,
         child: Image.asset(imagePath),
-    ),
-      ));
+      ),
+    ));
   }
-  SliverList _buildListOfItems(){
-    return SliverList.separated(itemBuilder: (context, index) {
-       return CustomListTile(
-         title: accountListTilesList[index].title,
-         onTap: accountListTilesList[index].onTap,
-         imagePath:  accountListTilesList[index].imageLeadingPath,
-         colorTitle: index == accountListTilesList.length-1 ?
-          AppColors.redColor : AppColors.darkGrayColor,
-       );
-    },
-      separatorBuilder: (BuildContext context, int index) {
-      return const SizedBox(height: 24,);
+
+  SliverList _buildListOfItems() {
+    return SliverList.separated(
+      itemBuilder: (context, index) {
+        return CustomListTile(
+          title: accountListTilesList[index].title,
+          onTap: accountListTilesList[index].onTap,
+          imagePath: accountListTilesList[index].imageLeadingPath,
+          colorTitle: index == accountListTilesList.length - 1
+              ? AppColors.redColor
+              : AppColors.darkGrayColor,
+        );
       },
-     itemCount: accountListTilesList.length,
+      separatorBuilder: (BuildContext context, int index) {
+        return const SizedBox(
+          height: 24,
+        );
+      },
+      itemCount: accountListTilesList.length,
     );
   }
 }

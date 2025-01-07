@@ -18,9 +18,15 @@ class VaccineTimesBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           SliverToBoxAdapter(child: HeaderBottomNavBarScreen()),
-          SliverToBoxAdapter(child: SizedBox(height: 16,)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 16,
+          )),
           VaccineTimesButtons(),
-          SliverToBoxAdapter(child: SizedBox(height: 16,)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 16,
+          )),
           VaccineTimesListItems(),
         ],
       ),

@@ -14,7 +14,7 @@ class ImageChildSection extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var cubit =BlocProvider.of<ChildInformationCubit>(context);
+    var cubit = BlocProvider.of<ChildInformationCubit>(context);
     return BlocConsumer<ChildInformationCubit, ChildInformationState>(
       listener: (context, state) {
         // TODO: implement listener
@@ -23,40 +23,36 @@ class ImageChildSection extends StatelessWidget {
         return Column(
           children: [
             GestureDetector(
-              onTap: (){
+              onTap: () {
                 cubit.pickImage();
               },
               child: CircleAvatar(
                 radius: 0.13.w,
                 backgroundColor: AppColors.grayColor,
-                child:
-                cubit.image == null
-                    ?
-                AppIcons.cameraIcon :
-                CircleAvatar(
-                    radius: 0.2.w,
-                    backgroundImage: FileImage(File(cubit.image!.path))),
-
+                child: cubit.image == null
+                    ? AppIcons.cameraIcon
+                    : CircleAvatar(
+                        radius: 0.2.w,
+                        backgroundImage: FileImage(File(cubit.image!.path))),
               ),
             ),
             SizedBox(
               height: 0.02.h,
             ),
-             GestureDetector(
-               onTap: () =>  cubit.pickImage(),
-               child: GText(
+            GestureDetector(
+              onTap: () => cubit.pickImage(),
+              child: GText(
                 color: AppColors.grayBlackColor,
-                content:
-                cubit.image == null?
-                AppText.addChildPhoto :
-                AppText.editPhoto,
+                content: cubit.image == null
+                    ? AppText.addChildPhoto
+                    : AppText.editPhoto,
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
-                           ),
-             ),
+              ),
+            ),
           ],
         );
-    },
+      },
     );
   }
 }

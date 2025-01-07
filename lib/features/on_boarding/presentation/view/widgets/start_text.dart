@@ -11,8 +11,8 @@ class StartText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   Visibility(
-      visible: index == onBoardingList.length-1,
+    return Visibility(
+      visible: index == onBoardingList.length - 1,
       child: const Padding(
         padding: EdgeInsets.only(top: 18),
         child: GText(

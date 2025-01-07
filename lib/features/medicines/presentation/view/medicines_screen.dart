@@ -28,7 +28,8 @@ class MedicinesScreen extends StatelessWidget {
           title: AppText.recommendedMedications,
           onBackPressed: () {
             NavigationManager.goBack();
-          },),
+          },
+        ),
         body: const MedicinesBody(),
       ),
     );

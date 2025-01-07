@@ -12,10 +12,13 @@ class DoctorDetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(title: AppText.doctorInfo, onBackPressed: () {
-        NavigationManager.goBack();
-      },),
+      appBar: CustomAppBar(
+        title: AppText.doctorInfo,
+        onBackPressed: () {
+          NavigationManager.goBack();
+        },
+      ),
       body: const DoctorDetailsBody(),
-     );
+    );
   }
 }

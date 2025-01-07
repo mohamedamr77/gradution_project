@@ -24,7 +24,8 @@ class ChangePassDoneBody extends StatelessWidget {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   SizedBox(height: 0.05.h),
-                  const ImageForgetPassword(imagePath: AppImages.changePassDone),
+                  const ImageForgetPassword(
+                      imagePath: AppImages.changePassDone),
                   SizedBox(height: 0.04.h),
                   const NameScreen(title: AppText.passwordChanged),
                   SizedBox(height: 0.04.h),
@@ -45,4 +46,3 @@ class ChangePassDoneBody extends StatelessWidget {
     );
   }
 }
-

@@ -26,13 +26,12 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
 
   bool isButtonEnabled = false;
 
-
   void checkFieldsFilled() {
     setState(() {
       isButtonEnabled = (numberOneController?.text.isNotEmpty ?? false) &&
           (numberTwoController?.text.isNotEmpty ?? false) &&
           (numberThreeController?.text.isNotEmpty ?? false) &&
-          (numberFourController?.text.isNotEmpty ?? false) ;
+          (numberFourController?.text.isNotEmpty ?? false);
     });
   }
 
@@ -88,13 +87,14 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
               ),
               const Spacer(),
               CustomElevatedButton(
-                  btnColor: isButtonEnabled == false? AppColors.thirdColor :AppColors.primaryColor ,
-                  onPress:
-                  isButtonEnabled?
-                      () {
-                    NavigationManager.push(ChangePasswordScreen.id);
-                  } :
-                      () {},
+                  btnColor: isButtonEnabled == false
+                      ? AppColors.thirdColor
+                      : AppColors.primaryColor,
+                  onPress: isButtonEnabled
+                      ? () {
+                          NavigationManager.push(ChangePasswordScreen.id);
+                        }
+                      : () {},
                   titleButton: AppText.confirm),
               const Spacer(),
               TextWithActionRow(
@@ -102,7 +102,9 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
                 titleWithoutTap: AppText.notHaveCode,
                 onTap: () {},
               ),
-              const Spacer(flex: 3,),
+              const Spacer(
+                flex: 3,
+              ),
             ],
           ),
         )

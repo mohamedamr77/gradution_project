@@ -9,16 +9,19 @@ class DoctorsListWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return   SliverList.separated(
+    return SliverList.separated(
       itemBuilder: (context, index) {
-      return listButtonDoctors();
-    },
+        return listButtonDoctors();
+      },
       separatorBuilder: (context, index) {
-        return const SizedBox(height: 16,);
+        return const SizedBox(
+          height: 16,
+        );
       },
       itemCount: 10,
     );
   }
+
   Widget listButtonDoctors() {
     return ReusableItemCard(
       imagePath: AppImages.doctorAmrTest,

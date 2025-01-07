@@ -1,6 +1,6 @@
 import '../../../../../core/utils/app_text.dart';
 
-List<String> medicineButtonsList=[
+List<String> medicineButtonsList = [
   AppText.basic,
   AppText.additional,
 ];

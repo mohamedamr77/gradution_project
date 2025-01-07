@@ -9,42 +9,62 @@ import 'button_onboarding.dart';
 import 'image_on_boarding.dart';
 
 class OnBoardingBody extends StatelessWidget {
-
   final OnboardingModel onboardingModel;
   final int index;
-  const OnBoardingBody({super.key, required this.onboardingModel, required this.index});
+  const OnBoardingBody(
+      {super.key, required this.onboardingModel, required this.index});
 
   @override
   Widget build(BuildContext context) {
     return Center(
       child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 0.06.w),
-        child: CustomScrollView(
-          slivers: [
-            SliverFillRemaining(
-              hasScrollBody: false,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  0.03.ph,
-                  TopScreenOnboarding(index: index,),
-                  const Spacer(flex: 1,),
-                  ImageOnBoarding(imagePath: onboardingModel.imagePath ,),
-                  const Spacer(flex: 1,),
-                  TitleOnBoarding(title: onboardingModel.title,),
-                  const Spacer(flex: 2,),
-                  ButtonOnboarding(index: index,),
-                  const Spacer(flex: 1,),
-                  SmoothPageOnboarding(index: index,),
-                  StartText(index: index,),
-                  const Spacer(flex: 3,)
-
-                ],
-              ),
-            )
-          ],
-        )
-      ),
+          padding: EdgeInsets.symmetric(horizontal: 0.06.w),
+          child: CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    0.03.ph,
+                    TopScreenOnboarding(
+                      index: index,
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    ImageOnBoarding(
+                      imagePath: onboardingModel.imagePath,
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    TitleOnBoarding(
+                      title: onboardingModel.title,
+                    ),
+                    const Spacer(
+                      flex: 2,
+                    ),
+                    ButtonOnboarding(
+                      index: index,
+                    ),
+                    const Spacer(
+                      flex: 1,
+                    ),
+                    SmoothPageOnboarding(
+                      index: index,
+                    ),
+                    StartText(
+                      index: index,
+                    ),
+                    const Spacer(
+                      flex: 3,
+                    )
+                  ],
+                ),
+              )
+            ],
+          )),
     );
   }
 }

@@ -37,6 +37,7 @@ class VaccineTimesDetailsBody extends StatelessWidget {
       ),
     );
   }
+
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
       child: ReusableItemCard(
@@ -65,11 +66,9 @@ class VaccineTimesDetailsBody extends StatelessWidget {
     );
   }
 
-
   SliverToBoxAdapter _buildSectionDescription(String title) {
     return SliverToBoxAdapter(
       child: CustomDescriptionText(title: title),
     );
   }
-
 }

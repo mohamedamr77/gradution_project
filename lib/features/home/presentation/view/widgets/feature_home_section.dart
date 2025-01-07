@@ -48,7 +48,7 @@ class FeatureHomeSection extends StatelessWidget {
               },
             ),
             const SizedBox(),
-             FeatureHomeWidget(
+            FeatureHomeWidget(
               imagePath: AppImages.databasePharmaceuticalImage,
               title: AppText.medicationDatabase,
               onTap: () {

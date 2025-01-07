@@ -13,7 +13,10 @@ class MedicinesBody extends StatelessWidget {
       child: const CustomScrollView(
         slivers: [
           MedicinesButtons(),
-          SliverToBoxAdapter(child: SizedBox(height: 16,)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 16,
+          )),
           MedicinesListItems(),
         ],
       ),

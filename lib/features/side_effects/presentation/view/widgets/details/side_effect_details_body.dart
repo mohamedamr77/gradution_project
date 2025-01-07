@@ -14,7 +14,7 @@ class SideEffectDetailsBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Padding(
+    return Padding(
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: CustomScrollView(
         slivers: [
@@ -34,6 +34,7 @@ class SideEffectDetailsBody extends StatelessWidget {
       ),
     );
   }
+
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
       child: ReusableItemCard(

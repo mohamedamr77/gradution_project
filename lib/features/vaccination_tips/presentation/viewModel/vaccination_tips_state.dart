@@ -1,5 +1,5 @@
-abstract class VaccinationTipsState{}
+abstract class VaccinationTipsState {}
 
-class VaccinationTipsInitialState extends VaccinationTipsState{}
+class VaccinationTipsInitialState extends VaccinationTipsState {}
 
-class ChangeButtonVaccinationTipsState extends VaccinationTipsState{}
+class ChangeButtonVaccinationTipsState extends VaccinationTipsState {}

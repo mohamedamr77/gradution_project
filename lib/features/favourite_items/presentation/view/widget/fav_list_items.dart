@@ -8,7 +8,6 @@ class FavListItems extends StatelessWidget {
   final FavouriteItemsCubit cubit;
   const FavListItems({super.key, required this.cubit});
 
-
   @override
   Widget build(BuildContext context) {
     return SliverList.separated(

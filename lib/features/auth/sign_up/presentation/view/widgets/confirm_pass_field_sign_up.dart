@@ -16,25 +16,23 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
         return CustomTextField(
-            hintText: AppText.enterPassword,
-            prefix: AppIcons.passwordIcon,
-            title: AppText.confirmPassword,
-            obscureText: cubit.visibilityPassword? true :false,
-            suffixIcon: IconButton(
-                onPressed: () {
-                  cubit.toggleVisibilityConfirmPassword();
-                },
-                icon: cubit.visibilityConfirmPassword
-                    ? AppIcons.visibilityOffIcon
-                    : AppIcons.visibilityIcon,
-            ),
-              validator: (value) {
-                return Validators.validateConfirmPassword(value, cubit.password);
-              },
+          hintText: AppText.enterPassword,
+          prefix: AppIcons.passwordIcon,
+          title: AppText.confirmPassword,
+          obscureText: cubit.visibilityPassword ? true : false,
+          suffixIcon: IconButton(
+            onPressed: () {
+              cubit.toggleVisibilityConfirmPassword();
+            },
+            icon: cubit.visibilityConfirmPassword
+                ? AppIcons.visibilityOffIcon
+                : AppIcons.visibilityIcon,
+          ),
+          validator: (value) {
+            return Validators.validateConfirmPassword(value, cubit.password);
+          },
         );
       },
     );
   }
-
-
 }

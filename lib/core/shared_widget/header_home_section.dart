@@ -37,11 +37,16 @@ class HeaderBottomNavBarScreen extends StatelessWidget {
         ),
         InkWell(
             onTap: () {
-          Scaffold.of(context).openDrawer();
-        }, child: SizedBox(
-            width: 40,
-            height: 40,
-            child: SvgPicture.asset(AppIcons.drawerIcon,fit: BoxFit.scaleDown,),)),
+              Scaffold.of(context).openDrawer();
+            },
+            child: SizedBox(
+              width: 40,
+              height: 40,
+              child: SvgPicture.asset(
+                AppIcons.drawerIcon,
+                fit: BoxFit.scaleDown,
+              ),
+            )),
       ],
     );
   }

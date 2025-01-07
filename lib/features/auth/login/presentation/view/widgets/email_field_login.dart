@@ -8,7 +8,9 @@ import '../../viewModel/login_cubit.dart';
 import '../../viewModel/login_state.dart';
 
 class EmailFieldLogin extends StatelessWidget {
-  const EmailFieldLogin({super.key,});
+  const EmailFieldLogin({
+    super.key,
+  });
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<LoginCubit>(context);

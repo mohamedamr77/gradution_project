@@ -9,7 +9,7 @@ class NameFieldChildInfo extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  const SliverToBoxAdapter(
+    return const SliverToBoxAdapter(
       child: CustomTextField(
           hintText: AppText.enterYourName,
           prefix: AppIcons.nameIcon,

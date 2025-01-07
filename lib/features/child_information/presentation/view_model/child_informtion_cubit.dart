@@ -6,37 +6,35 @@ import '../../../../core/shared_widget/toast_utils.dart';
 
 class ChildInformationCubit extends Cubit<ChildInformationState> {
   ChildInformationCubit() : super(ChildInformationInitialState());
-   File? image;
-   String? name;
-   String? height;
-   String? weight;
-   String? gender;
-   String? diseases;
-   String? vaccines;
+  File? image;
+  String? name;
+  String? height;
+  String? weight;
+  String? gender;
+  String? diseases;
+  String? vaccines;
 
-
-  DateTime firstDate =  DateTime.now().subtract(const Duration(days: 365 * 5));
-  DateTime lastDate =  DateTime.now();
+  DateTime firstDate = DateTime.now().subtract(const Duration(days: 365 * 5));
+  DateTime lastDate = DateTime.now();
   DateTime? selectedDate;
 
-
-
-
-  updateSelectedDate(selectDate){
+  updateSelectedDate(selectDate) {
     selectedDate = selectDate;
     emit(ChangeDateState());
   }
-  String convertDateString(DateTime date){
+
+  String convertDateString(DateTime date) {
     return date.toString().split(" ")[0];
   }
+
   setPhoto(File photo) async {
     image = photo;
     emit(ChildImageChangeState());
   }
 
-   ImagePicker picker = ImagePicker();
+  ImagePicker picker = ImagePicker();
 
-   pickImage() async {
+  pickImage() async {
     final XFile? image = await picker.pickImage(source: ImageSource.gallery);
     if (image != null) {
       File imageFile = File(image.path);
@@ -44,7 +42,6 @@ class ChildInformationCubit extends Cubit<ChildInformationState> {
     } else {
       ToastUtils.showToast(message: "لم يتم اختيار صوره");
       // Show a toast if the user cancels the image selection
-
     }
   }
 }

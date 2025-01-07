@@ -3,7 +3,6 @@ import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccin_tips_list_item.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccination_tips_button.dart';
 
-
 class VaccinationTipsBody extends StatelessWidget {
   const VaccinationTipsBody({super.key});
 
@@ -14,8 +13,8 @@ class VaccinationTipsBody extends StatelessWidget {
       child: const CustomScrollView(
         slivers: [
           VaccinationTipsButton(),
-           SliverToBoxAdapter(child: SizedBox(height: 16)),
-           VaccinationTipsListItem(),
+          SliverToBoxAdapter(child: SizedBox(height: 16)),
+          VaccinationTipsListItem(),
         ],
       ),
     );

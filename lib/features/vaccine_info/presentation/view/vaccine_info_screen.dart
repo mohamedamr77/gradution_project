@@ -26,9 +26,11 @@ class VaccineInfoScreen extends StatelessWidget {
               child: SvgPicture.asset(AppIcons.search),
             )
           ],
-          title: AppText.generalArticlesVaccinations, onBackPressed: () {
-          NavigationManager.goBack();
-        },),
+          title: AppText.generalArticlesVaccinations,
+          onBackPressed: () {
+            NavigationManager.goBack();
+          },
+        ),
         body: const VaccineInfoBody(),
       ),
     );

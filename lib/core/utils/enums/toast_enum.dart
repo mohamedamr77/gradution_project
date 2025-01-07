@@ -1,4 +1,4 @@
-enum ToastColor{
-    red,
-    green,
+enum ToastColor {
+  red,
+  green,
 }

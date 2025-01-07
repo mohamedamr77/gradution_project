@@ -7,7 +7,9 @@ import '../../../../../core/shared_widget/button_list_horizontal.dart';
 import '../../../data/model/button_vaccination_tips_list.dart';
 
 class VaccinationTipsButton extends StatelessWidget {
-  const VaccinationTipsButton({super.key,});
+  const VaccinationTipsButton({
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -19,8 +21,8 @@ class VaccinationTipsButton extends StatelessWidget {
             scrollDirection: Axis.horizontal,
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
-              children: List.generate(
-                  buttonVaccinationTipsTitles.length, (index) {
+              children:
+                  List.generate(buttonVaccinationTipsTitles.length, (index) {
                 return ButtonListHorizontal(
                   onTap: () => cubit.selectButton(index),
                   buttonNames: buttonVaccinationTipsTitles,

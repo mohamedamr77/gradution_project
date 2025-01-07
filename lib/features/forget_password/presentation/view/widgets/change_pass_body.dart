@@ -14,29 +14,46 @@ class ChangePassBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: CustomScrollView(
         slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 20,)),
+          const SliverToBoxAdapter(
+              child: SizedBox(
+            height: 20,
+          )),
           SliverToBoxAdapter(
             child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 0.03.w),
-              child:  Align(
+              padding: EdgeInsets.symmetric(horizontal: 0.03.w),
+              child: Align(
                   alignment: Alignment.centerLeft,
                   child: InkWell(
                       onTap: () => NavigationManager.goBack(),
                       child: AppIcons.navigateIcon)),
             ),
           ),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          const SliverToBoxAdapter(child: NameScreen(title: AppText.changePassword)),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          const SliverToBoxAdapter(child: ImageForgetPassword(imagePath: AppImages.changePasswordScreen)),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-           const ChangePassForm(),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 0.04.h,
+          )),
+          const SliverToBoxAdapter(
+              child: NameScreen(title: AppText.changePassword)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 0.04.h,
+          )),
+          const SliverToBoxAdapter(
+              child: ImageForgetPassword(
+                  imagePath: AppImages.changePasswordScreen)),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 0.04.h,
+          )),
+          const ChangePassForm(),
+          SliverToBoxAdapter(
+              child: SizedBox(
+            height: 0.04.h,
+          )),
         ],
       ),
     );

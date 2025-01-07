@@ -15,10 +15,10 @@ class DrawerWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Drawer(
       backgroundColor: AppColors.lightGrayColor,
-
       child: ListView(
         children: [
-          DrawerHeader(child: Row(
+          DrawerHeader(
+              child: Row(
             textDirection: TextDirection.rtl,
             children: [
               CircleAvatar(
@@ -37,16 +37,24 @@ class DrawerWidget extends StatelessWidget {
                     fontWeight: FontWeight.w600,
                   )),
             ],
-          ) ),
-          const SizedBox(height: 16,),
-           Card(
+          )),
+          const SizedBox(
+            height: 16,
+          ),
+          Card(
             color: AppColors.lightGrayColor,
             child: ListTile(
               onTap: () {
                 NavigationManager.push(FavouriteScreen.id);
               },
-              title: const GText(color: AppColors.blackColor, content: AppText.favoriteItems, fontSize: 14),
-              trailing: const Icon(Icons.favorite,color: AppColors.primaryColor,),
+              title: const GText(
+                  color: AppColors.blackColor,
+                  content: AppText.favoriteItems,
+                  fontSize: 14),
+              trailing: const Icon(
+                Icons.favorite,
+                color: AppColors.primaryColor,
+              ),
             ),
           ),
         ],

@@ -1,6 +1,7 @@
-abstract class ChildInformationState{}
+abstract class ChildInformationState {}
 
-class ChildInformationInitialState extends ChildInformationState{}
- class ChildImageChangeState extends ChildInformationState{}
+class ChildInformationInitialState extends ChildInformationState {}
 
-class ChangeDateState extends ChildInformationState{}
+class ChildImageChangeState extends ChildInformationState {}
+
+class ChangeDateState extends ChildInformationState {}

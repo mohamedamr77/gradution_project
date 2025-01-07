@@ -14,29 +14,46 @@ class ForgetPassBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      child: CustomScrollView(
-        slivers: [
-          const SliverToBoxAdapter(child: SizedBox(height: 20,)),
-          SliverToBoxAdapter(
-            child: Padding(
-              padding:  EdgeInsets.symmetric(horizontal: 0.03.w),
-              child:   Align(
-                  alignment: Alignment.centerLeft,
-                  child: InkWell(
-                      onTap: () => NavigationManager.goBack(),
-                      child: AppIcons.navigateIcon)),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: CustomScrollView(
+          slivers: [
+            const SliverToBoxAdapter(
+                child: SizedBox(
+              height: 20,
+            )),
+            SliverToBoxAdapter(
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 0.03.w),
+                child: Align(
+                    alignment: Alignment.centerLeft,
+                    child: InkWell(
+                        onTap: () => NavigationManager.goBack(),
+                        child: AppIcons.navigateIcon)),
+              ),
             ),
-          ),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          const SliverToBoxAdapter(child: NameScreen(title: AppText.forgotPassword)),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-          const SliverToBoxAdapter(child: ImageForgetPassword(imagePath: AppImages.forgetPasswordScreen)),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.04.h,)),
-           const ForgetPassForm(),
-          SliverToBoxAdapter(child:  SizedBox(height: 0.1.h,)),
-        ],
-      )
-    );
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 0.04.h,
+            )),
+            const SliverToBoxAdapter(
+                child: NameScreen(title: AppText.forgotPassword)),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 0.04.h,
+            )),
+            const SliverToBoxAdapter(
+                child: ImageForgetPassword(
+                    imagePath: AppImages.forgetPasswordScreen)),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 0.04.h,
+            )),
+            const ForgetPassForm(),
+            SliverToBoxAdapter(
+                child: SizedBox(
+              height: 0.1.h,
+            )),
+          ],
+        ));
   }
 }

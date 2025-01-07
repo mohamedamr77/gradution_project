@@ -1,4 +1,4 @@
-class OnboardingModel{
+class OnboardingModel {
   final String title;
   final String imagePath;
 

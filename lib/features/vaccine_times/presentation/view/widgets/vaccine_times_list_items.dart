@@ -14,19 +14,21 @@ class VaccineTimesListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    VaccineTimesCubit cubit =BlocProvider.of<VaccineTimesCubit>(context);
+    VaccineTimesCubit cubit = BlocProvider.of<VaccineTimesCubit>(context);
     return BlocBuilder<VaccineTimesCubit, VaccineTimesState>(
       builder: (context, state) {
         return SliverList.separated(
           itemCount: 10,
           itemBuilder: (context, index) {
             return AnimatedSwitcher(
-                duration: const Duration(milliseconds: 400), // Animation duration
+                duration:
+                    const Duration(milliseconds: 400), // Animation duration
                 transitionBuilder: (child, animation) {
                   return FadeTransition(
                     opacity: animation,
                     child: SizeTransition(
-                      sizeFactor: animation, // Resizes the widget during the transition
+                      sizeFactor:
+                          animation, // Resizes the widget during the transition
                       axis: Axis.vertical, // Controls the resizing direction
                       child: child,
                     ),
@@ -34,8 +36,7 @@ class VaccineTimesListItems extends StatelessWidget {
                 },
                 child: cubit.buttonSelected == 0
                     ? basicButtonList()
-                    : additionalButtonList()
-            );
+                    : additionalButtonList());
           },
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(height: 8);
@@ -45,7 +46,7 @@ class VaccineTimesListItems extends StatelessWidget {
     );
   }
 
-  Widget additionalButtonList(){
+  Widget additionalButtonList() {
     return ReusableItemCard(
       key: const ValueKey<int>(1), // Assign a unique key for animation
       imagePath: AppImages.vaccine4Test,
@@ -58,7 +59,8 @@ class VaccineTimesListItems extends StatelessWidget {
       },
     );
   }
-  Widget basicButtonList (){
+
+  Widget basicButtonList() {
     return ReusableItemCard(
       key: const ValueKey<int>(0), // Assign a unique key for animation
       imagePath: AppImages.tuberVaccineTest,

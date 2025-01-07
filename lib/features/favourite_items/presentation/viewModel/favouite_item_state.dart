@@ -1,4 +1,5 @@
-abstract class FavouriteItemsState{}
+abstract class FavouriteItemsState {}
 
-class FavouriteItemsInitialState extends FavouriteItemsState{}
-class ChangeButtonState extends FavouriteItemsState{}
+class FavouriteItemsInitialState extends FavouriteItemsState {}
+
+class ChangeButtonState extends FavouriteItemsState {}

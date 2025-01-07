@@ -15,7 +15,7 @@ class HaveAccountSignup extends StatelessWidget {
     var cubit = BlocProvider.of<SignUpCubit>(context);
     return BlocBuilder<SignUpCubit, SignUpState>(
       builder: (context, state) {
-        return TextWithActionRow (
+        return TextWithActionRow(
           titleOnTap: AppText.login,
           titleWithoutTap: AppText.alreadyHaveAccount,
           onTap: () {

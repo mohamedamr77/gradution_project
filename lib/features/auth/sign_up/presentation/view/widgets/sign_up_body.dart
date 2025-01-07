@@ -21,7 +21,7 @@ class SignUpBody extends StatelessWidget {
       key: formKey,
       autovalidateMode: autoValidateMode,
       child: Padding(
-        padding:  const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: Center(
           child: CustomScrollView(
             slivers: [
@@ -58,7 +58,9 @@ class SignUpBody extends StatelessWidget {
                     const SizedBox(
                       height: 32,
                     ),
-                     CreateAccountButton(formKey: formKey,),
+                    CreateAccountButton(
+                      formKey: formKey,
+                    ),
                     SocialAuthSection(
                       onTapFaceBooK: () {},
                       onTapGoogle: () {},

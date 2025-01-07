@@ -16,11 +16,15 @@ class FavouriteBody extends StatelessWidget {
       builder: (context, state) {
         return Padding(
           padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
-          child:  CustomScrollView(
+          child: CustomScrollView(
             slivers: [
-              FavHorizontalButtons(cubit: cubit,),
+              FavHorizontalButtons(
+                cubit: cubit,
+              ),
               const SliverToBoxAdapter(child: SizedBox(height: 16)),
-              FavListItems(cubit: cubit,),
+              FavListItems(
+                cubit: cubit,
+              ),
             ],
           ),
         );

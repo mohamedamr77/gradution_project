@@ -3,7 +3,7 @@ import 'package:shimmer/shimmer.dart';
 
 class BuildShimmerShape extends StatelessWidget {
   const BuildShimmerShape(
-      {super.key, required this.width, required this.height , this.margin});
+      {super.key, required this.width, required this.height, this.margin});
   final double height;
   final double width;
 
@@ -16,7 +16,7 @@ class BuildShimmerShape extends StatelessWidget {
       highlightColor: Colors.grey[300]!,
       direction: ShimmerDirection.ltr, // Left to right shimmer
       child: Container(
-        margin: margin??  EdgeInsets.zero,
+        margin: margin ?? EdgeInsets.zero,
         height: height,
         width: width,
         decoration: BoxDecoration(

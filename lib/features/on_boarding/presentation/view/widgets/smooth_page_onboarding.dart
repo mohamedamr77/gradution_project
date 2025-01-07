@@ -13,17 +13,15 @@ class SmoothPageOnboarding extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<OnBoardingCubit>(context);
 
-    return    Visibility(
-      visible: index != onBoardingList.length-1,
+    return Visibility(
+      visible: index != onBoardingList.length - 1,
       child: Align(
         alignment: Alignment.center,
         child: SmoothPageIndicator(
-            controller: cubit.pageControllerPageView,  // PageController
-            count:  onBoardingList.length,
-            effect:  const SwapEffect(), // your preferred effect
-            onDotClicked: (index){
-            }
-        ),
+            controller: cubit.pageControllerPageView, // PageController
+            count: onBoardingList.length,
+            effect: const SwapEffect(), // your preferred effect
+            onDotClicked: (index) {}),
       ),
     );
   }

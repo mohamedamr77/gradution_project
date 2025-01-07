@@ -15,7 +15,6 @@ class LoginBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
       child: Center(
@@ -31,18 +30,22 @@ class LoginBody extends StatelessWidget {
                   const NameScreen(
                     title: AppText.login,
                   ),
-                 const SizedBox(height: 25,),
+                  const SizedBox(
+                    height: 25,
+                  ),
                   const RiverImageLogin(),
-                  const SizedBox(height: 20,),
-                   const EmailFieldLogin(),
+                  const SizedBox(
+                    height: 20,
+                  ),
+                  const EmailFieldLogin(),
                   const SizedBox(
                     height: 16,
                   ),
-                   const PasswordFieldLogin(),
+                  const PasswordFieldLogin(),
                   const SizedBox(
                     height: 8,
                   ),
-                    const ForgetPasswordLogin(),
+                  const ForgetPasswordLogin(),
                   SizedBox(
                     height: 0.05.h,
                   ),

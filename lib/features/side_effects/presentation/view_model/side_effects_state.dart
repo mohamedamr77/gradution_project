@@ -1,4 +1,5 @@
-abstract class SideEffectsState{}
-class SideEffectInitialState extends SideEffectsState{}
+abstract class SideEffectsState {}
 
-class ChangeButtonSideEffectsState extends SideEffectsState{}
+class SideEffectInitialState extends SideEffectsState {}
+
+class ChangeButtonSideEffectsState extends SideEffectsState {}

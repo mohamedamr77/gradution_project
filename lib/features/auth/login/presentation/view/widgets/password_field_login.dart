@@ -8,7 +8,6 @@ import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_text.dart';
 
 class PasswordFieldLogin extends StatelessWidget {
-
   const PasswordFieldLogin({super.key});
 
   @override
@@ -20,19 +19,19 @@ class PasswordFieldLogin extends StatelessWidget {
           obscureText: cubit.visibilityPassword ? true : false,
           title: AppText.password,
           hintText: AppText.enterPassword,
-          onTap: cubit.visibilityPassword ==true ? cubit.handsUp :cubit.handsDown,
+          onTap: cubit.visibilityPassword == true
+              ? cubit.handsUp
+              : cubit.handsDown,
           suffixIcon: IconButton(
-            onPressed:
-            cubit.visibilityPassword
-                ?
-                () {
-              cubit.togglePasswordVisibility();
-              cubit.handsDown();
-            } :
-            () {
-              cubit.togglePasswordVisibility();
-              cubit.handsUp();
-            },
+            onPressed: cubit.visibilityPassword
+                ? () {
+                    cubit.togglePasswordVisibility();
+                    cubit.handsDown();
+                  }
+                : () {
+                    cubit.togglePasswordVisibility();
+                    cubit.handsUp();
+                  },
             icon: cubit.visibilityPassword
                 ? AppIcons.visibilityOffIcon
                 : AppIcons.visibilityIcon,

@@ -23,7 +23,9 @@ class ForgetPassForm extends StatelessWidget {
         child: Column(
           children: [
             phoneField(),
-            SizedBox(height: 0.04.h,),
+            SizedBox(
+              height: 0.04.h,
+            ),
             buttonNext(formKey),
           ],
         ),
@@ -31,8 +33,8 @@ class ForgetPassForm extends StatelessWidget {
     );
   }
 
-  Widget phoneField(){
-    return  CustomTextField(
+  Widget phoneField() {
+    return CustomTextField(
       hintText: AppText.enterPhoneNumber,
       prefix: AppIcons.phoneIcon,
       title: AppText.phoneNumber,
@@ -42,8 +44,8 @@ class ForgetPassForm extends StatelessWidget {
     );
   }
 
-  Widget buttonNext(formKey){
-    return   CustomElevatedButton(
+  Widget buttonNext(formKey) {
+    return CustomElevatedButton(
       onPress: () {
         if (formKey.currentState!.validate()) {
           NavigationManager.push(VerifyCodeScreen.id);
