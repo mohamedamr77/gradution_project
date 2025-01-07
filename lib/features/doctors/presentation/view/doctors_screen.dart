@@ -6,8 +6,6 @@ class DoctorsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      body: DoctorsBody(),
-    );
+    return DoctorsBody();
   }
 }

@@ -3,7 +3,7 @@ import 'package:gradutionproject/features/home/presentation/view/widgets/service
 import 'package:gradutionproject/features/home/presentation/view/widgets/time_lefts_section.dart';
 
 import 'feature_home_section.dart';
-import 'header_home_section.dart';
+import '../../../../../core/shared_widget/header_home_section.dart';
 
 class HomeBody extends StatelessWidget {
   const HomeBody({super.key});
@@ -18,7 +18,7 @@ class HomeBody extends StatelessWidget {
         ),
         child: CustomScrollView(
           slivers: [
-            SliverToBoxAdapter(child: HeaderHomeSection()),
+            SliverToBoxAdapter(child: HeaderBottomNavBarScreen()),
             SliverToBoxAdapter(
                 child: SizedBox(
               height: 16,

@@ -7,8 +7,8 @@ import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
-class HeaderHomeSection extends StatelessWidget {
-  const HeaderHomeSection({super.key});
+class HeaderBottomNavBarScreen extends StatelessWidget {
+  const HeaderBottomNavBarScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
