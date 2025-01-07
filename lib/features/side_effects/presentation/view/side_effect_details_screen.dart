@@ -17,7 +17,7 @@ class SideEffectDetailsScreen extends StatelessWidget {
         onBackPressed: () {
           NavigationManager.goBack();
         },),
-       body: SideEffectDetailsBody(),
+       body: const SideEffectDetailsBody(),
     );
   }
 }

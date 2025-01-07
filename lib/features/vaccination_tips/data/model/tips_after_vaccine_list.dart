@@ -1,5 +1,3 @@
-import 'package:gradutionproject/core/utils/app_icons.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 
 List<String> tipsAfterVaccineList = [
   " تأكد من استشارة الطبيب: إذا كان الطفل يعاني من الحمى أو أي مرض، استشر الطبيب لتحديد ما إذا كان من المناسب تأجيل التطعيم.",
