@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
+import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
@@ -12,6 +13,8 @@ class SideEffectsListItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SideEffectsCubit cubit = BlocProvider.of<SideEffectsCubit>(context);
+    return BlocBuilder<SideEffectsCubit, SideEffectsState>(
+  builder: (context, state) {
     return SliverList.separated(
       itemCount: 10,
       itemBuilder: (context, index) {
@@ -36,6 +39,8 @@ class SideEffectsListItem extends StatelessWidget {
         return const SizedBox(height: 8);
       },
     );
+  },
+);
   }
   Widget basicButtonList (){
     return ReusableItemCard(
