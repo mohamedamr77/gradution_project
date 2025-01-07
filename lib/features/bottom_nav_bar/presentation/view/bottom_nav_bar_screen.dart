@@ -5,7 +5,7 @@ import 'package:gradutionproject/features/drawer/presentation/view/widget/drawer
 import '../../../account/presentation/view/account_screen.dart';
 import '../../../doctors/presentation/view/doctors_screen.dart';
 import '../../../home/presentation/view/home_screen.dart';
-import '../../../vaccine/presentation/view/vaccine_screen.dart';
+import '../../../vaccine_times/presentation/view/vaccine_times_screen.dart';
 import '../../data/model/bottom_nav_icaon_list.dart';
 
 class BottomNavBarScreen extends StatefulWidget {
@@ -20,7 +20,7 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
   var navPages = [
     const HomeScreen(),
     const DoctorsScreen(),
-    const VaccineScreen(),
+    const VaccineTimesScreen(),
     const AccountScreen(),
   ];
 
