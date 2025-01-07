@@ -45,7 +45,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:DoctorDetailsScreen.id,
+          initialRoute:BottomNavBarScreen.id,
         ),
       );
       },

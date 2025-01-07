@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/features/doctors/presentation/view/doctor_details_screen.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 
@@ -24,7 +26,9 @@ class DoctorsListWidget extends StatelessWidget {
       description: "اخصائى اطفال",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(DoctorDetailsScreen.id);
+      },
       isDoctor: true,
       isRating: 4.5,
     );
