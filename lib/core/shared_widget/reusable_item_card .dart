@@ -12,8 +12,9 @@ class ReusableItemCard  extends StatelessWidget {
   final  void Function() onPressedIconFavourite;
   final Function() onTapCard;
   final bool isDoctor;
+  final bool isDetails;
   final double isRating;
-  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard,  this.isDoctor =false,  this.isRating =0});
+  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard,  this.isDoctor =false,  this.isRating =0,  this.isDetails =false});
 
   @override
   Widget build(BuildContext context) {
@@ -107,10 +108,13 @@ class ReusableItemCard  extends StatelessWidget {
             onPressed: onPressedIconFavourite,
             icon: const Icon(Icons.favorite,color: AppColors.primaryColor,),
           ),
-          Positioned(
-            bottom: -8,
-            left: 8,
-            child: TextButton(onPressed: () {}, child: const GText(color: AppColors.primaryColor, content: AppText.knowMore, fontSize: 12)),
+          Visibility(
+            visible: isDetails ==false,
+            child: Positioned(
+              bottom: -8,
+              left: 8,
+              child: TextButton(onPressed: () {}, child: const GText(color: AppColors.primaryColor, content: AppText.knowMore, fontSize: 12)),
+            ),
           )
         ],
       ),
