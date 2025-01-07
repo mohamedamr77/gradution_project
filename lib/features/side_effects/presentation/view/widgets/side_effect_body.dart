@@ -10,7 +10,7 @@ class SideEffectBody extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
-      child: CustomScrollView(
+      child: const CustomScrollView(
         slivers: [
           SideEffectsButton(),
           SliverToBoxAdapter(child: SizedBox(height: 16)),

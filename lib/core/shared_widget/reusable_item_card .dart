@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
-import '../utils/app_images.dart';
 import '../utils/app_text.dart';
 
 class ReusableItemCard  extends StatelessWidget {
@@ -91,8 +90,8 @@ class ReusableItemCard  extends StatelessWidget {
                           child: Row(
                             textDirection: TextDirection.rtl,
                             children: [
-                              Icon(Icons.star, color: Color(0xffFFD90F),),
-                              SizedBox(width: 6,),
+                              const Icon(Icons.star, color: Color(0xffFFD90F),),
+                              const SizedBox(width: 6,),
                               GText(color: AppColors.blackColor, content: "$isRating", fontSize: 15)
                             ],
                           ),

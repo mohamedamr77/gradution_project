@@ -3,10 +3,7 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
-import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
-import 'features/favourite_items/presentation/view/favourite_screen.dart';
 import 'features/side_effects/presentation/view/side_effect_screen.dart';
-import 'features/vaccination_tips/presentation/view/widgets/vaccination_tips_screen.dart';
 
 void main (){
   runApp(const MyApp());

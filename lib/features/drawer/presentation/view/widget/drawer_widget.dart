@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
@@ -46,8 +45,8 @@ class DrawerWidget extends StatelessWidget {
               onTap: () {
                 NavigationManager.push(FavouriteScreen.id);
               },
-              title: GText(color: AppColors.blackColor, content: AppText.favoriteItems, fontSize: 14),
-              trailing: Icon(Icons.favorite,color: AppColors.primaryColor,),
+              title: const GText(color: AppColors.blackColor, content: AppText.favoriteItems, fontSize: 14),
+              trailing: const Icon(Icons.favorite,color: AppColors.primaryColor,),
             ),
           ),
         ],

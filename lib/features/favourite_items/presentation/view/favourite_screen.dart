@@ -4,8 +4,6 @@ import 'package:gradutionproject/features/favourite_items/presentation/view/widg
 
 import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
-import '../../../../core/shared_widget/global_text.dart';
-import '../../../../core/utils/app_colors.dart';
 import '../../../../core/utils/app_text.dart';
 import '../viewModel/favourite_items_cubit.dart';
 
@@ -22,7 +20,7 @@ class FavouriteScreen extends StatelessWidget {
         appBar: CustomAppBar(title: AppText.favoriteItems, onBackPressed: () {
           NavigationManager.goBack();
         },),
-        body: FavouriteBody(),
+        body: const FavouriteBody(),
       ),
     );
   }

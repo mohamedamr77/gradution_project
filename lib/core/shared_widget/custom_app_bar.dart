@@ -29,7 +29,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         ),
       ),
       title: GText(
-        color: Color(0xff1A1E4C),
+        color: const Color(0xff1A1E4C),
         content: title,
         fontSize: 18,
         fontWeight: FontWeight.w500,
