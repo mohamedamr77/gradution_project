@@ -5,6 +5,7 @@ import 'package:gradutionproject/features/vaccination_tips/presentation/view/wid
 
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
+import '../../../../medicines/presentation/view/medicines_screen.dart';
 import '../../../../vaccine_info/presentation/view/vaccine_info_screen.dart';
 import 'feature_home_widget.dart';
 
@@ -47,9 +48,12 @@ class FeatureHomeSection extends StatelessWidget {
               },
             ),
             const SizedBox(),
-            const FeatureHomeWidget(
+             FeatureHomeWidget(
               imagePath: AppImages.databasePharmaceuticalImage,
               title: AppText.medicationDatabase,
+              onTap: () {
+                NavigationManager.push(MedicinesScreen.id);
+              },
             ),
           ],
         ),

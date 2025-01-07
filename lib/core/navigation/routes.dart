@@ -8,6 +8,7 @@ import '../../features/forget_password/presentation/view/change_pass_done_screen
 import '../../features/forget_password/presentation/view/change_pass_screen.dart';
 import '../../features/forget_password/presentation/view/forget_pass_screen.dart';
 import '../../features/forget_password/presentation/view/verify_code_screen.dart';
+import '../../features/medicines/presentation/view/medicines_screen.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
 import '../../features/side_effects/presentation/view/side_effect_screen.dart';
 import '../../features/vaccination_tips/presentation/view/widgets/vaccination_tips_screen.dart';
@@ -29,6 +30,7 @@ class AppRouter {
     VaccinationTipsScreen.id: (context) => const VaccinationTipsScreen(),
     SideEffectScreen.id: (context) => const SideEffectScreen(),
     VaccineInfoScreen.id: (context) => const VaccineInfoScreen(),
+    MedicinesScreen.id: (context) => const MedicinesScreen(),
 
   };
 }
