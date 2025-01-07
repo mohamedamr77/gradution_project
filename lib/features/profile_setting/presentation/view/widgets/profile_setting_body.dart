@@ -7,6 +7,7 @@ import 'package:gradutionproject/features/profile_setting/presentation/view/widg
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/setting_header_section.dart';
 
 import '../../../../../core/shared_widget/custom_row_buttons.dart';
+import '../../../../../core/utils/bottomSheet_helper.dart';
 import 'field_email_profile_setting.dart';
 import 'field_password_profile_setting.dart';
 
@@ -58,7 +59,17 @@ class ProfileSettingBody extends StatelessWidget {
         titleBlueButton: AppText.editAccount,
         onTapBlueButton: () {},
         titleWhiteButton: AppText.deleteAccount,
-        onTapWhiteButton: () {},
+        onTapWhiteButton: () {
+          BottomSheetHelper.customShowModelSheet(
+              title: AppText.deleteAccount,
+              subTitle: AppText.deleteAccountConfirmation,
+              button: CustomRowButtons(
+                titleBlueButton: AppText.delete,
+                onTapBlueButton: () {},
+                titleWhiteButton: AppText.cancel,
+                onTapWhiteButton: () {},
+              ));
+        },
       ),
     );
   }
