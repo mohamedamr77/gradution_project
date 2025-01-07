@@ -18,6 +18,7 @@ import '../../features/vaccination_tips/presentation/view/vaccination_tips_scree
 import '../../features/vaccination_tips/presentation/view/vaccine_tips_details_screen.dart';
 import '../../features/vaccine_info/presentation/view/vaccine_info_details_screen.dart';
 import '../../features/vaccine_info/presentation/view/vaccine_info_screen.dart';
+import '../../features/vaccine_times/presentation/view/vaccine_times_deatils_screen.dart';
 
 
 class AppRouter {
@@ -41,6 +42,7 @@ class AppRouter {
     VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
     DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
+    VaccineTimesDetailsScreen.id: (context) => const VaccineTimesDetailsScreen(),
 
   };
 }

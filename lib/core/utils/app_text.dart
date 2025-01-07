@@ -3,6 +3,12 @@ class AppText {
   static const String sideEffectsInfo = "تعرفي على الآثار الجانبية وكيفية التعامل معها، مع نصائح مباشرة من المتخصصين.";
   static const String safeMedicines = "اطلعي على أدوية آمنة لتخفيف الآثار الجانبية بعد التطعيم";
   static const String readyToStart = "جاهزة للبدء!";
+  static const String  timeLineDetails = ''' الجرعة الأولى: عند عمر 6 أسابيع.
+
+الجرعة الثانية: عند عمر 10 أسابيع.
+
+(جرعة ثالثة إن وُجدت): عند عمر 14 أسبوعًا.
+  ''';
   static const String   intermittentSideEffects = "الأعراض الجانبية النادرة";
   static const String editPhoto =   "تعديل صورة طفلك";
   static const String createNewAccount = "إنشاء حساب جديد";
@@ -82,6 +88,7 @@ class AppText {
   static const String handlingSideEffects = "كيفية التعامل مع الأعراض الجانبية";
   static const String commonSymptoms = "الأعراض الشائعة:";
   static const String generalArticles = "مقالات عامه عن التطعيمات";
+  static const String aboutVaccine = "عن التطعيم";
   static const String vaccineDetails = "تفاصيل عن التطعيم";
   static const String loremIpsumExample1 = 'هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها. ولذلك يتم استخدام طريقة لوريم إيبسوم لأنها تعطي توزيعاَ طبيعياَ -إلى حد ما- للأحرف عوضاً عن استخدام "هنا يوجد محتوى نصي، هنا يوجد محتوى نصي" فتجعلها تبدو (أي الأحرف) وكأنها نص مقروء. العديد من برامح النشر المكتبي وبرامح تحرير صفحات الويب تستخدم لوريم إيبسوم بشكل إفتراضي كنموذج عن النص، وإذا قراءه المزيد.....';
   static const String importanceOfVaccination = "أهمية هذا التطعيم";
@@ -90,6 +97,7 @@ class AppText {
   static const String healthNote = "ملحوظة توعوية";
   static const String healthNoteDetails = "هذه المعلومات للاسترشاد فقط وليست بديلاً عن استشارة الطبيب. يرجى التأكد من استخدام الأدوية تحت إشراف طبي";
   static const String doctorInfo = "معلومات عن الطبيب";
+  static const String sideEffectDetails = "إسهال خفيف، تقيؤ، حمى بسيطة، أو ألم بالبطن.ب";
   static const String doctorDetails = "عن هذا الطبيب";
   static const String doctorDescription = "الدكتور محمد هو طبيب أطفال متخصص في رعاية الأطفال منذ الولادة وحتى سن المراهقة. يتميز بخبرته الواسعة في متابعة نمو الأطفال وتطورهم، وتشخيص الأمراض الشائعة وعلاجها، مثل نزلات البرد، الحساسية، والالتهابات. كما يهتم بتقديم النصائح للأمهات حول التطعيمات اللازمة والتغذية السليمة للأطفال. الدكتور محمد معروف بتعامله الودود مع الأطفال وحرصه على تقديم أفضل رعاية طبية لهم.";
   static const String workHours = "مواعيد العمل";
@@ -102,6 +110,13 @@ class AppText {
   static const String timeline = "الجدول الزمني:";
   static const String sideEffectsLabel = "الآثار الجانبية:";
   static const String medicationsForSideEffects = "أدوية للتخفيف:";
+  static const String medicationsForSideEffectsDetails = '''للحُمّى: باراسيتامول (تحت إشراف الطبيب).
+
+للإسهال: محاليل الجفاف الفموية (ORS).
+
+للتقيؤ: تجنب الأطعمة الثقيلة مؤقتًا وتقديم السوائل تدريجيًا.
+
+  ''';
   static const String medicationsDetails = "للحُمّى: باراسيتامول (تحت إشراف الطبيب). للإسهال: محاليل الجفاف الفموية (ORS). للتقيؤ: تجنب الأطعمة الثقيلة مؤقتًا وتقديم السوائل تدريجيًا.";
   static const String accountSettings = "اعدادات الحساب الشخصى";
   static const String themes = "الثيمات";

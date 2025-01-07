@@ -5,6 +5,7 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/doctors/presentation/view/doctor_details_screen.dart';
+import 'features/vaccine_times/presentation/view/vaccine_times_deatils_screen.dart';
 
 
 void main (){

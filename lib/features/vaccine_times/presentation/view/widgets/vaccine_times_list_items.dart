@@ -7,6 +7,7 @@ import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../viewModel/vaccine_times_cubit.dart';
+import '../vaccine_times_deatils_screen.dart';
 
 class VaccineTimesListItems extends StatelessWidget {
   const VaccineTimesListItems({super.key});
@@ -53,7 +54,7 @@ class VaccineTimesListItems extends StatelessWidget {
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
       onTapCard: () {
-        // NavigationManager.push(VaccineInfoDetailsScreen.id);
+        NavigationManager.push(VaccineTimesDetailsScreen.id);
       },
     );
   }
@@ -66,7 +67,7 @@ class VaccineTimesListItems extends StatelessWidget {
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
       onTapCard: () {
-        // NavigationManager.push(VaccineInfoDetailsScreen.id);
+        NavigationManager.push(VaccineTimesDetailsScreen.id);
       },
     );
   }
