@@ -1,4 +1,9 @@
+import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/core/shared_widget/custom_row_buttons.dart';
+import 'package:gradutionproject/core/shared_widget/global_text.dart';
+import 'package:gradutionproject/core/utils/app_colors.dart';
+import 'package:gradutionproject/core/utils/bottomSheet_helper.dart';
 
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
@@ -41,6 +46,16 @@ List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: AppText.logout,
     imageLeadingPath: AppIcons.logoutIcon,
-    onTap: () {},
-  ),
+    onTap: () {
+      BottomSheetHelper.customShowModelSheet(
+          title: AppText.logout,
+          subTitle: AppText.logoutConfirmation,
+          button: CustomRowButtons(
+              titleBlueButton: AppText.logout,
+              onTapBlueButton: () {},
+              titleWhiteButton: AppText.cancel,
+              onTapWhiteButton: () {},
+          ));
+    }
+  )
 ];
