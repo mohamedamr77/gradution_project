@@ -1,20 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gradutionproject/features/vaccination_tips/presentation/viewModel/vaccination_tips_state.dart';
+import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
-import '../../viewModel/vaccination_tips_cubit.dart';
 
-class VaccinationTipsListItem extends StatelessWidget {
-  const VaccinationTipsListItem({super.key});
+class SideEffectsListItem extends StatelessWidget {
+  const SideEffectsListItem({super.key});
 
   @override
   Widget build(BuildContext context) {
-    VaccinationTipsCubit cubit = BlocProvider.of<VaccinationTipsCubit>(context);
-    return BlocBuilder<VaccinationTipsCubit, VaccinationTipsState>(
-  builder: (context, state) {
+    SideEffectsCubit cubit = BlocProvider.of<SideEffectsCubit>(context);
     return SliverList.separated(
       itemCount: 10,
       itemBuilder: (context, index) {
@@ -39,10 +36,7 @@ class VaccinationTipsListItem extends StatelessWidget {
         return const SizedBox(height: 8);
       },
     );
-  },
-);
   }
-
   Widget basicButtonList (){
     return ReusableItemCard(
       key: const ValueKey<int>(0), // Assign a unique key for animation
