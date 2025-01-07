@@ -7,16 +7,18 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 class CustomListTile extends StatelessWidget {
   final String title;
  final void Function()? onTap;
- final Widget? leading;
-  const CustomListTile({super.key, required this.title,required this.onTap,required this.leading});
+ final Color? colorTitle;
+ final String imagePath;
+  const CustomListTile({super.key, required this.title,required this.onTap, required this.imagePath, this.colorTitle});
   @override
   Widget build(BuildContext context) {
     return  Card(
       shadowColor: Colors.transparent,
-      color: Color(0xffF4F0F0),
+      color: const Color(0xffF4F0F0),
       child: ListTile(
         onTap: onTap,
-        title: GText(color: AppColors.darkGrayColor, content: title , fontSize: 18 ,),
+        title: GText(
+          color:  colorTitle??AppColors.darkGrayColor, content: title , fontSize: 18 ,),
         trailing:  Transform.translate(
           offset: const Offset(-12, 0),
           child: Icon(
@@ -24,7 +26,7 @@ class CustomListTile extends StatelessWidget {
             color: AppColors.primaryColor.withOpacity(0.6),
           ),
         ),
-        leading: leading,
+        leading: SvgPicture.asset(imagePath),
       ),
     );
   }
