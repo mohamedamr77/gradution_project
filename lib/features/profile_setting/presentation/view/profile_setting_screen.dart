@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/profile_setting_body.dart';
 
@@ -13,9 +12,9 @@ class ProfileSettingScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return  Scaffold(
+    return Scaffold(
       appBar: CustomAppBar(
-        iconArrowColor: AppColors.thirdColor ,
+        iconArrowColor: AppColors.thirdColor,
         title: AppText.accountSettings,
         onBackPressed: () {
           NavigationManager.goBack();

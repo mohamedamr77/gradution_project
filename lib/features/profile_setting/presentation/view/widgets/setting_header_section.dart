@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../core/utils/app_colors.dart';
@@ -18,13 +17,16 @@ class ProfileSettingHeaderSection extends StatelessWidget {
         children: [
           _buildImageWithIcon(),
           _buildSpacer(height: 8),
-          _buildNameText(name: "ملك عمرو",),
+          _buildNameText(
+            name: "ملك عمرو",
+          ),
         ],
       ),
     );
   }
-  Widget _buildImageWithIcon(){
-    return  Align(
+
+  Widget _buildImageWithIcon() {
+    return Align(
       alignment: Alignment.center,
       child: Stack(
         alignment: Alignment.bottomRight,
@@ -41,19 +43,20 @@ class ProfileSettingHeaderSection extends StatelessWidget {
               backgroundColor: AppColors.primaryColor,
               child: SvgPicture.asset(AppIcons.pinIcon),
             ),
-
           )
         ],
-
       ),
     );
   }
-  
-  Widget _buildSpacer({required double height}){
-    return SizedBox(height: height,);
+
+  Widget _buildSpacer({required double height}) {
+    return SizedBox(
+      height: height,
+    );
   }
-  
-  Widget _buildNameText({required String name}){
-    return GText(color: AppColors.darkCharcoalColor, content: name, fontSize: 18);
+
+  Widget _buildNameText({required String name}) {
+    return GText(
+        color: AppColors.darkCharcoalColor, content: name, fontSize: 18);
   }
 }

@@ -13,6 +13,7 @@ class CustomElevatedButton extends StatelessWidget {
   final double? borderRadius;
   final BorderSide? borderSide;
   final String titleButton;
+  final Color? titleColor;
 
   const CustomElevatedButton(
       {super.key,
@@ -23,7 +24,7 @@ class CustomElevatedButton extends StatelessWidget {
       this.height,
       this.borderSide,
       this.borderRadius,
-      required this.titleButton});
+      required this.titleButton, this.titleColor});
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +41,7 @@ class CustomElevatedButton extends StatelessWidget {
       onPressed: onPress,
       child: child ??
           GText(
-              color: AppColors.lightGrayColor,
+              color: titleColor?? AppColors.lightGrayColor,
               content: titleButton,
               fontSize: 16),
     );

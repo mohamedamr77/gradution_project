@@ -3,7 +3,6 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
-import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/profile_setting/presentation/view/profile_setting_screen.dart';
 
 void main() {
