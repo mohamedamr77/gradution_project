@@ -1,12 +1,17 @@
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
+import '../../../profile_setting/presentation/view/profile_setting_screen.dart';
 import 'account_list_tile_model.dart';
 
 List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: AppText.accountSettings,
     imageLeadingPath: AppIcons.settingsIcon,
-    onTap: () {},
+    onTap: () {
+      NavigationManager.push(ProfileSettingScreen.id);
+    },
   ),
   AccountListTileModel(
     title: AppText.themes,

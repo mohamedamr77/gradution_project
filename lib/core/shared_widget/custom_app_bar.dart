@@ -5,6 +5,7 @@ import 'global_text.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String title;
+  final Color? iconArrowColor;
   final List<Widget>? actions;
   final VoidCallback onBackPressed;
 
@@ -12,7 +13,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     super.key,
     required this.title,
     required this.onBackPressed,
-    this.actions,
+    this.actions, this.iconArrowColor,
   });
 
   @override
@@ -25,7 +26,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         onPressed: onBackPressed,
         icon: Icon(
           Icons.arrow_back_ios,
-          color: AppColors.primaryColor.withOpacity(0.7),
+          color: iconArrowColor ?? AppColors.primaryColor.withOpacity(0.7),
         ),
       ),
       title: GText(
