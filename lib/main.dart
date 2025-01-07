@@ -46,7 +46,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:VaccineTipsDetailsScreen.id,
+          initialRoute:BottomNavBarScreen.id,
         ),
       );
       },

@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/viewModel/vaccination_tips_state.dart';
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../viewModel/vaccination_tips_cubit.dart';
+import '../vaccine_tips_details_screen.dart';
 
 class VaccinationTipsListItem extends StatelessWidget {
   const VaccinationTipsListItem({super.key});
@@ -51,7 +53,9 @@ class VaccinationTipsListItem extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(VaccineTipsDetailsScreen.id);
+      },
     );
   }
   Widget additionalButtonList(){
@@ -62,7 +66,9 @@ class VaccinationTipsListItem extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(VaccineTipsDetailsScreen.id);
+      },
     );
   }
 }
