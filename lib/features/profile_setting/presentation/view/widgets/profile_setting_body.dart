@@ -4,44 +4,27 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/setting_header_section.dart';
 
 class ProfileSettingBody extends StatelessWidget {
   const ProfileSettingBody({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
+    return  CustomScrollView(
        slivers: [
-         _buildImageAndName(image: AppImages.lailaTest)
+         const ProfileSettingHeaderSection(image: AppImages.lailaTest),
+         _buildSpacer(height: 24),
+
        ],
     );
   }
 
-  SliverToBoxAdapter _buildImageAndName({required String image }){
+  SliverToBoxAdapter _buildSpacer({required double height}) {
     return SliverToBoxAdapter(
-      child: Align(
-        alignment: Alignment.center,
-        child: Stack(
-          alignment: Alignment.bottomRight,
-            children: [
-              CircleAvatar(
-                radius: 0.18.w,
-                child: Image.asset(image),
-              ),
-              CircleAvatar(
-                radius: 25,
-                backgroundColor: AppColors.lightGrayColor,
-                child: CircleAvatar(
-                  radius: 24,
-                  backgroundColor: AppColors.primaryColor,
-                  child: SvgPicture.asset(AppIcons.pinIcon),
-                ),
-
-              )
-            ],
-
-        ),
-      )
+      child: SizedBox(
+        height: height,
+      ),
     );
   }
 }
