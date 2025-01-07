@@ -7,7 +7,7 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccination_tips_body.dart';
 
-import '../../viewModel/vaccination_tips_cubit.dart';
+import '../viewModel/vaccination_tips_cubit.dart';
 
 class VaccinationTipsScreen extends StatelessWidget {
   static String id = "VaccinationTipsScreen";

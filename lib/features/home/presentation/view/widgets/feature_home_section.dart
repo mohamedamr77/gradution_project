@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view/side_effect_screen.dart';
-import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccination_tips_screen.dart';
+import 'package:gradutionproject/features/vaccination_tips/presentation/view/vaccination_tips_screen.dart';
 
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';

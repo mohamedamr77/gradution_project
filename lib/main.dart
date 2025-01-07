@@ -5,6 +5,7 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/side_effects/presentation/view/side_effect_screen.dart';
+import 'features/vaccination_tips/presentation/view/vaccine_tips_details_screen.dart';
 import 'features/vaccine_info/presentation/view/vaccine_info_screen.dart';
 
 void main (){
@@ -45,7 +46,7 @@ class MyApp extends StatelessWidget {
           debugShowCheckedModeBanner: false,
           navigatorKey: NavigationManager.navigationKey,
           routes: AppRouter.routes,
-          initialRoute:BottomNavBarScreen.id,
+          initialRoute:VaccineTipsDetailsScreen.id,
         ),
       );
       },
