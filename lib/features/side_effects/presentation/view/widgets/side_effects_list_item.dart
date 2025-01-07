@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/features/side_effects/presentation/view/side_effect_details_screen.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
-
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
@@ -50,7 +51,9 @@ class SideEffectsListItem extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(SideEffectDetailsScreen.id);
+      },
     );
   }
   Widget additionalButtonList(){
@@ -61,7 +64,9 @@ class SideEffectsListItem extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
-      onTapCard: () {},
+      onTapCard: () {
+        NavigationManager.push(SideEffectDetailsScreen.id);
+      },
     );
   }
 }
