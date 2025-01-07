@@ -3,6 +3,7 @@ import '../../features/auth/login/presentation/view/login_screen.dart';
 import '../../features/auth/sign_up/presentation/view/sign_up_screen.dart';
 import '../../features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import '../../features/child_information/presentation/view/child_info_screen.dart';
+import '../../features/doctors/presentation/view/doctor_details_screen.dart';
 import '../../features/favourite_items/presentation/view/favourite_screen.dart';
 import '../../features/forget_password/presentation/view/change_pass_done_screen.dart';
 import '../../features/forget_password/presentation/view/change_pass_screen.dart';
@@ -39,6 +40,7 @@ class AppRouter {
     SideEffectDetailsScreen.id: (context) => const SideEffectDetailsScreen(),
     VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
+    DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
 
   };
 }

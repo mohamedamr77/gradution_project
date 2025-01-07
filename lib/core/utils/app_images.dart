@@ -5,6 +5,8 @@ class AppImages {
  static const String confirmOtpScreen = "assets/images/confirm_otp_screen.png";
  static const String doctorAmrTest = "assets/images/doctoramr_test.png";
  static const String doctorAyaTest = "assets/images/doctoraya_test.png";
+ static const String whatsImage = "assets/images/whatsImage.png";
+ static const String phoneImage = "assets/images/phoneImage.png";
  static const String doctorMostafaTest = "assets/images/doctormostafa_test.png";
  static const String faridaTest = "assets/images/farida_test.png";
  static const String favouriteEmpty = "assets/images/favourite_empty.png";
