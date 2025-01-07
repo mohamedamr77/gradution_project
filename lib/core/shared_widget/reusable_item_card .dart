@@ -4,17 +4,27 @@ import 'global_text.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text.dart';
 
-class ReusableItemCard  extends StatelessWidget {
+class ReusableItemCard extends StatelessWidget {
   final String imagePath;
   final String title;
   final String description;
   final String subDescription;
-  final  void Function() onPressedIconFavourite;
+  final void Function() onPressedIconFavourite;
   final Function() onTapCard;
   final bool isDoctor;
   final bool isDetails;
   final double isRating;
-  const ReusableItemCard ({super.key, required this.imagePath, required this.title, required this.description, required this.subDescription, required this.onPressedIconFavourite,required this.onTapCard,  this.isDoctor =false,  this.isRating =0,  this.isDetails =false});
+  const ReusableItemCard(
+      {super.key,
+      required this.imagePath,
+      required this.title,
+      required this.description,
+      required this.subDescription,
+      required this.onPressedIconFavourite,
+      required this.onTapCard,
+      this.isDoctor = false,
+      this.isRating = 0,
+      this.isDetails = false});
 
   @override
   Widget build(BuildContext context) {
@@ -35,7 +45,7 @@ class ReusableItemCard  extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image(
-                    image:  AssetImage(imagePath),
+                    image: AssetImage(imagePath),
                     width: 0.28.w,
                     height: 0.12.h,
                     fit: BoxFit.fill,
@@ -49,71 +59,93 @@ class ReusableItemCard  extends StatelessWidget {
                     children: [
                       SizedBox(
                         width: 0.5.w,
-                        child:  GText(
+                        child: GText(
                           color: AppColors.blackColor,
-                          content:
-                          title,
+                          content: title,
                           fontSize: 16,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
-                      const SizedBox(height: 8,),
+                      const SizedBox(
+                        height: 8,
+                      ),
                       SizedBox(
                         width: 0.5.w,
-                        child:  GText(
+                        child: GText(
                           color: AppColors.primaryColor,
-                          content:
-                           description,
+                          content: description,
                           fontSize: 14,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.w400,
                         ),
                       ),
-                      const SizedBox(height: 4,),
-                       Visibility(
-                         visible: isDoctor ==false,
-                         child: GText(
+                      const SizedBox(
+                        height: 4,
+                      ),
+                      Visibility(
+                        visible: isDoctor == false,
+                        child: GText(
                           textAlign: TextAlign.right,
                           color: AppColors.grayColor1,
-                          content:
-                          subDescription,
+                          content: subDescription,
                           fontSize: 14,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
                           fontWeight: FontWeight.w400,
-                                               ),
-                       ),
-                        Visibility(
-                          visible: isDoctor,
+                        ),
+                      ),
+                      Visibility(
+                        visible: isDoctor,
+                        child: SizedBox(
+                          width: 0.5.w,
                           child: Row(
                             textDirection: TextDirection.rtl,
                             children: [
-                              const Icon(Icons.star, color: Color(0xffFFD90F),),
-                              const SizedBox(width: 6,),
-                              GText(color: AppColors.blackColor, content: "$isRating", fontSize: 15)
+                              const Icon(
+                                Icons.star,
+                                color: Color(0xffFFD90F),
+                              ),
+                              const SizedBox(
+                                width: 6,
+                              ),
+                              GText(
+                                  color: AppColors.blackColor,
+                                  content: "$isRating",
+                                  fontSize: 15)
                             ],
                           ),
-                        )
-
+                        ),
+                      )
                     ],
                   )
                 ],
               ),
             ),
           ),
-          IconButton(
-            onPressed: onPressedIconFavourite,
-            icon: const Icon(Icons.favorite,color: AppColors.primaryColor,),
+          Positioned(
+            left: 8,
+            child: IconButton(
+              onPressed: onPressedIconFavourite,
+              icon: const Icon(
+                Icons.favorite,
+                color: AppColors.primaryColor,
+              ),
+            ),
           ),
           Visibility(
-            visible: isDetails ==false,
+            visible: isDetails == false,
             child: Positioned(
               bottom: -8,
               left: 8,
-              child: TextButton(onPressed: () {}, child: const GText(color: AppColors.primaryColor, content: AppText.knowMore, fontSize: 12)),
+              child: TextButton(
+                  onPressed: () {},
+                  child: const GText(
+                      color: AppColors.primaryColor,
+                      content: AppText.knowMore,
+                      fontSize: 12)),
             ),
           )
         ],
