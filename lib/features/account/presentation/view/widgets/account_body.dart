@@ -57,7 +57,8 @@ class AccountBody extends StatelessWidget {
         radius: 0.18.w,
         child: Image.asset(imagePath),
       ),
-    ));
+    )
+    );
   }
 
   SliverList _buildListOfItems() {
