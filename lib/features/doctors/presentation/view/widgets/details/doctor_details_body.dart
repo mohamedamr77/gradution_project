@@ -4,6 +4,7 @@ import 'package:gradutionproject/core/shared_widget/custom_title_text.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
+import '../../../../../../core/shared_widget/custom_description_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_images.dart';
@@ -28,9 +29,10 @@ class DoctorDetailsBody extends StatelessWidget {
                onTapCard: () {},
                isDoctor: true,
                isRating: 4.5,
+               isDetails: true,
              ),
            ),
-           SliverToBoxAdapter(
+           const SliverToBoxAdapter(
              child: SizedBox(height: 32,),
            ),
            SliverToBoxAdapter(
@@ -58,10 +60,22 @@ class DoctorDetailsBody extends StatelessWidget {
                 ),
             ],)
           ),
-          SliverToBoxAdapter(
+          const SliverToBoxAdapter(
             child: SizedBox(height: 32,),
           ),
-            SliverToBoxAdapter(child: CustomTitleText(title: AppText.doctorDetails))
+          const SliverToBoxAdapter(child: CustomTitleText(title: AppText.doctorDetails)),
+           const SliverToBoxAdapter(child: SizedBox(height: 16,),),
+           const SliverToBoxAdapter(
+             child: CustomDescriptionText(
+               title: AppText.doctorDescription,),
+           ),
+          const SliverToBoxAdapter(child: SizedBox(height: 24,),),
+          const SliverToBoxAdapter(child: CustomTitleText(title: AppText.workHours)),
+          const SliverToBoxAdapter(child: SizedBox(height: 16,),),
+          const SliverToBoxAdapter(
+            child: CustomDescriptionText(
+              title: AppText.workSchedule,),
+          ),
         ],
       ),
     );
