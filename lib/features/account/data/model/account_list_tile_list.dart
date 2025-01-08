@@ -7,6 +7,7 @@ import 'package:gradutionproject/core/utils/bottomSheet_helper.dart';
 
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
+import '../../../language_app/presentation/view/language_screen.dart';
 import '../../../profile_setting/presentation/view/profile_setting_screen.dart';
 import 'account_list_tile_model.dart';
 
@@ -41,7 +42,9 @@ List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: AppText.language,
     imageLeadingPath: AppIcons.languageIcon,
-    onTap: () {},
+    onTap: () {
+      NavigationManager.push(LanguageScreen.id);
+    },
   ),
   AccountListTileModel(
     title: AppText.addChild,

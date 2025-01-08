@@ -43,7 +43,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: LanguageScreen.id,
+            initialRoute: BottomNavBarScreen.id,
           ),
         );
       },
