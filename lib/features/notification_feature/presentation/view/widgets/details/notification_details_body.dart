@@ -15,9 +15,14 @@ class NotificationDetailsBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: CustomScrollView(
         slivers: [
-          NotificationDetailsCard(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,)
+          _buildSpacer(height: 16),
+          const NotificationDetailsCard(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,)
+
         ],
       ),
     );
+  }
+  SliverToBoxAdapter _buildSpacer({required double height}){
+    return SliverToBoxAdapter(child: SizedBox(height: height,));
   }
 }

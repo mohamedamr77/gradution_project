@@ -179,7 +179,7 @@ class AppText {
   static const String deleteAllNotificationsConfirmation =
       "هل أنت متأكد أنك تريد حذف جميع الإشعارات؟";
   static const String vaccinationReminder = "لدى طفلك حمزة موعد تطعيم";
-  static const String childName = "حمزة محمد";
+  static const String childName = " محمد عمرو";
   static const String vaccineNameLabel = "اسم التطعيم : ";
   static const String vaccinationPlaceLabel = "مكان التطعيم   :  ";
   static const String vaccinationDateLabel = "تاريخ التطعيم   : ";
