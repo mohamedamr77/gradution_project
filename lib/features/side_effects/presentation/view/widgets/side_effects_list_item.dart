@@ -7,6 +7,7 @@ import 'package:gradutionproject/features/side_effects/presentation/view_model/s
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/shared_model/resuable_model.dart';
 
 class SideEffectsListItem extends StatelessWidget {
   const SideEffectsListItem({super.key});
@@ -47,29 +48,34 @@ class SideEffectsListItem extends StatelessWidget {
 
   Widget basicButtonList() {
     return ReusableItemCard(
-      key: const ValueKey<int>(0), // Assign a unique key for animation
-      imagePath: AppImages.tuberVaccineTest,
-      title: AppText.rotavirusVaccine,
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(SideEffectDetailsScreen.id);
-      },
+      key: const ValueKey<int>(0),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.tuberVaccineTest,
+        title: AppText.rotavirusVaccine,
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(SideEffectDetailsScreen.id);
+        },
+      ) // Assign a unique key for animation
+
     );
   }
 
   Widget additionalButtonList() {
     return ReusableItemCard(
       key: const ValueKey<int>(1), // Assign a unique key for animation
-      imagePath: AppImages.vaccine4Test,
-      title: "تطعيم الدرن",
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(SideEffectDetailsScreen.id);
-      },
+       reusableModel: ReusableModel(
+         imagePath: AppImages.vaccine4Test,
+         title: "تطعيم الدرن",
+         description: "فعال بنسبة99%",
+         subDescription: "يتم اخده مره واحده",
+         onPressedIconFavourite: () {},
+         onTapCard: () {
+           NavigationManager.push(SideEffectDetailsScreen.id);
+         },
+       ),
     );
   }
 }

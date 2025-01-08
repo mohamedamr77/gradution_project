@@ -7,6 +7,7 @@ import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/shared_model/resuable_model.dart';
 
 class MedicinesDetailsBody extends StatelessWidget {
   const MedicinesDetailsBody({super.key});
@@ -33,7 +34,7 @@ class MedicinesDetailsBody extends StatelessWidget {
 
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
-      child: ReusableItemCard(
+      child: ReusableItemCard(reusableModel: ReusableModel(
         imagePath: AppImages.tuberVaccineTest,
         title: AppText.rotavirusVaccine,
         description: "فعال بنسبة99%",
@@ -41,6 +42,8 @@ class MedicinesDetailsBody extends StatelessWidget {
         onPressedIconFavourite: () {},
         onTapCard: () {},
         isDetails: true,
+      ),
+
       ),
     );
   }

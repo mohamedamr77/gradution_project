@@ -8,6 +8,7 @@ import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../auth/shared_widget_auth/social_auth_section.dart';
+import '../../../../../../core/shared_model/resuable_model.dart';
 
 class DoctorDetailsBody extends StatelessWidget {
   const DoctorDetailsBody({super.key});
@@ -20,15 +21,18 @@ class DoctorDetailsBody extends StatelessWidget {
         slivers: [
           SliverToBoxAdapter(
             child: ReusableItemCard(
-              imagePath: AppImages.doctorAmrTest,
-              title: "د / محمد عمرو",
-              description: "اخصائى اطفال",
-              subDescription: "يتم اخده مره واحده",
-              onPressedIconFavourite: () {},
-              onTapCard: () {},
-              isDoctor: true,
-              isRating: 4.5,
-              isDetails: true,
+              reusableModel: ReusableModel(
+                imagePath: AppImages.doctorAmrTest,
+                title: "د / محمد عمرو",
+                description: "اخصائى اطفال",
+                subDescription: "يتم اخده مره واحده",
+                onPressedIconFavourite: () {},
+                onTapCard: () {},
+                isDoctor: true,
+                isRating: 4.5,
+                isDetails: true,
+              ),
+
             ),
           ),
           const SliverToBoxAdapter(

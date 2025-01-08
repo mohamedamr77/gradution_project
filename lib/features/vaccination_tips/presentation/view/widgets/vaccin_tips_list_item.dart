@@ -6,6 +6,7 @@ import 'package:gradutionproject/features/vaccination_tips/presentation/viewMode
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/shared_model/resuable_model.dart';
 import '../../viewModel/vaccination_tips_cubit.dart';
 import '../vaccine_tips_details_screen.dart';
 
@@ -49,28 +50,33 @@ class VaccinationTipsListItem extends StatelessWidget {
   Widget basicButtonList() {
     return ReusableItemCard(
       key: const ValueKey<int>(0), // Assign a unique key for animation
-      imagePath: AppImages.tuberVaccineTest,
-      title: AppText.rotavirusVaccine,
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(VaccineTipsDetailsScreen.id);
-      },
+      reusableModel: ReusableModel(
+        imagePath: AppImages.tuberVaccineTest,
+        title: AppText.rotavirusVaccine,
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(VaccineTipsDetailsScreen.id);
+        },
+      ),
     );
   }
 
   Widget additionalButtonList() {
     return ReusableItemCard(
-      key: const ValueKey<int>(1), // Assign a unique key for animation
-      imagePath: AppImages.vaccine4Test,
-      title: "تطعيم الدرن",
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(VaccineTipsDetailsScreen.id);
-      },
+      key: const ValueKey<int>(1),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.vaccine4Test,
+        title: "تطعيم الدرن",
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(VaccineTipsDetailsScreen.id);
+        },
+      ), // Assign a unique key for animation
+
     );
   }
 }

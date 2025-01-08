@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 import 'package:gradutionproject/features/vaccination_tips/data/model/tips_before_vaccine_list.dart';
 import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
@@ -34,13 +35,15 @@ class VaccineTipsDetailsBody extends StatelessWidget {
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
       child: ReusableItemCard(
-        imagePath: AppImages.tuberVaccineTest,
-        title: AppText.rotavirusVaccine,
-        description: "فعال بنسبة99%",
-        subDescription: "يتم اخده مره واحده",
-        onPressedIconFavourite: () {},
-        onTapCard: () {},
-        isDetails: true,
+        reusableModel:  ReusableModel(
+          imagePath: AppImages.tuberVaccineTest,
+          title: AppText.rotavirusVaccine,
+          description: "فعال بنسبة99%",
+          subDescription: "يتم اخده مره واحده",
+          onPressedIconFavourite: () {},
+          onTapCard: () {},
+          isDetails: true,
+        ),
       ),
     );
   }

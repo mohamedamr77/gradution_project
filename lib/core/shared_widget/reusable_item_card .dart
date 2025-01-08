@@ -2,44 +2,22 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import '../shared_model/resuable_model.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text.dart';
 
 class ReusableItemCard extends StatelessWidget {
-  final String imagePath;
-  final String title;
-  final String description;
-  final String subDescription;
-  final void Function()? onPressedIconFavourite;
-  final Function() onTapCard;
-  final bool isDoctor;
-  final bool isDetails;
-  final double isRating;
-  final bool isVaccineTimes;
-  final bool isFavourite;
-  final bool isCheckBoxTrue;
-  final void Function()? onTapCheckBoxVaccineTimes;
+  final ReusableModel reusableModel;
   const ReusableItemCard(
       {super.key,
-      required this.imagePath,
-      required this.title,
-      required this.description,
-      required this.subDescription,
-      this.onPressedIconFavourite,
-      required this.onTapCard,
-      this.isDoctor = false,
-      this.isRating = 0,
-      this.isDetails = false,
-      this.isVaccineTimes = false,
-      this.onTapCheckBoxVaccineTimes,
-      this.isFavourite = false,
-      this.isCheckBoxTrue = false});
+       required this.reusableModel,
+      });
 
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: onTapCard,
+      onTap: reusableModel.onTapCard,
       child: Stack(
         children: [
           Container(
@@ -55,7 +33,7 @@ class ReusableItemCard extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Image(
-                    image: AssetImage(imagePath),
+                    image: AssetImage(reusableModel.imagePath),
                     width: 0.28.w,
                     height: 0.12.h,
                     fit: BoxFit.fill,
@@ -71,7 +49,7 @@ class ReusableItemCard extends StatelessWidget {
                         width: 0.5.w,
                         child: GText(
                           color: AppColors.blackColor,
-                          content: title,
+                          content: reusableModel.title,
                           fontSize: 16,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
@@ -85,7 +63,7 @@ class ReusableItemCard extends StatelessWidget {
                         width: 0.5.w,
                         child: GText(
                           color: AppColors.primaryColor,
-                          content: description,
+                          content: reusableModel.description,
                           fontSize: 14,
                           maxLines: 1,
                           overflow: TextOverflow.ellipsis,
@@ -96,13 +74,13 @@ class ReusableItemCard extends StatelessWidget {
                         height: 4,
                       ),
                       Visibility(
-                        visible: isDoctor == false,
+                        visible: reusableModel.isDoctor == false,
                         child: SizedBox(
                           width: 0.5.w,
                           child: GText(
                             textAlign: TextAlign.right,
                             color: AppColors.grayColor1,
-                            content: subDescription,
+                            content: reusableModel.subDescription,
                             fontSize: 14,
                             maxLines: 1,
                             overflow: TextOverflow.ellipsis,
@@ -111,7 +89,7 @@ class ReusableItemCard extends StatelessWidget {
                         ),
                       ),
                       Visibility(
-                        visible: isDoctor,
+                        visible: reusableModel.isDoctor,
                         child: SizedBox(
                           width: 0.5.w,
                           child: Row(
@@ -126,7 +104,7 @@ class ReusableItemCard extends StatelessWidget {
                               ),
                               GText(
                                   color: AppColors.blackColor,
-                                  content: "$isRating",
+                                  content: "${reusableModel.isRating}",
                                   fontSize: 15)
                             ],
                           ),
@@ -139,12 +117,12 @@ class ReusableItemCard extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: isVaccineTimes == false,
+            visible: reusableModel.isVaccineTimes == false,
             child: Positioned(
               left: 8,
               child: IconButton(
-                onPressed: onPressedIconFavourite,
-                icon: isFavourite
+                onPressed: reusableModel.onPressedIconFavourite,
+                icon: reusableModel.isFavourite
                     ? const Icon(
                         Icons.favorite,
                         color: AppColors.primaryColor,
@@ -157,18 +135,18 @@ class ReusableItemCard extends StatelessWidget {
             ),
           ),
           Visibility(
-            visible: isVaccineTimes,
+            visible: reusableModel.isVaccineTimes,
             child: Positioned(
                 left: 10,
                 top: 10,
                 child: IconButton(
-                    onPressed: onTapCheckBoxVaccineTimes,
-                    icon: isCheckBoxTrue
+                    onPressed: reusableModel.onTapCheckBoxVaccineTimes,
+                    icon: reusableModel.isCheckBoxTrue
                         ? SvgPicture.asset(AppIcons.checkBoxCorrect)
                         : SvgPicture.asset(AppIcons.checkBoxEmpty))),
           ),
           Visibility(
-            visible: isDetails == false,
+            visible: reusableModel.isDetails == false,
             child: Positioned(
               bottom: -8,
               left: 8,

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/shared_model/resuable_model.dart';
 import '../../viewModel/favourite_items_cubit.dart';
 
 class FavListItems extends StatelessWidget {
@@ -38,27 +39,32 @@ class FavListItems extends StatelessWidget {
 
   Widget listButtonArticles() {
     return ReusableItemCard(
-      key: const ValueKey<int>(0), // Assign a unique key for animation
-      imagePath: AppImages.tuberVaccineTest,
-      title: AppText.sideEffectsTuberculosisVaccine,
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {},
+      key: const ValueKey<int>(0),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.tuberVaccineTest,
+        title: AppText.sideEffectsTuberculosisVaccine,
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {},
+      ), // Assign a unique key for animation
+
     );
   }
 
   Widget listButtonDoctors() {
     return ReusableItemCard(
-      key: const ValueKey<int>(1), // Assign a unique key for animation
-      imagePath: AppImages.doctorAmrTest,
-      title: "د / محمد عمرو",
-      description: "اخصائى اطفال",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {},
-      isDoctor: true,
-      isRating: 4.5,
+      key: const ValueKey<int>(1),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.doctorAmrTest,
+        title: "د / محمد عمرو",
+        description: "اخصائى اطفال",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {},
+        isDoctor: true,
+        isRating: 4.5,
+      ),
     );
   }
 }

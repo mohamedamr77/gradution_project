@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/viewModel/vaccine_info_cubit.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/viewModel/vaccine_info_state.dart';
 
@@ -48,29 +49,35 @@ class VaccineInfoListItem extends StatelessWidget {
 
   Widget basicButtonList() {
     return ReusableItemCard(
-      key: const ValueKey<int>(0), // Assign a unique key for animation
-      imagePath: AppImages.tuberVaccineTest,
-      title: AppText.rotavirusVaccine,
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(VaccineInfoDetailsScreen.id);
-      },
+      key: const ValueKey<int>(0),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.tuberVaccineTest,
+        title: AppText.rotavirusVaccine,
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(VaccineInfoDetailsScreen.id);
+        },
+      ), // Assign a unique key for animation
+
     );
   }
 
   Widget additionalButtonList() {
     return ReusableItemCard(
-      key: const ValueKey<int>(1), // Assign a unique key for animation
-      imagePath: AppImages.vaccine4Test,
-      title: "تطعيم الدرن",
-      description: "فعال بنسبة99%",
-      subDescription: "يتم اخده مره واحده",
-      onPressedIconFavourite: () {},
-      onTapCard: () {
-        NavigationManager.push(VaccineInfoDetailsScreen.id);
-      },
+      key: const ValueKey<int>(1),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.vaccine4Test,
+        title: "تطعيم الدرن",
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(VaccineInfoDetailsScreen.id);
+        },
+      ), // Assign a unique key for animation
+
     );
   }
 }
