@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/notification_item.dart';
+
+import '../notification_details_screen.dart';
 
 class NotificationBody extends StatelessWidget {
   const NotificationBody({super.key});
@@ -18,6 +21,7 @@ class NotificationBody extends StatelessWidget {
           _builderSpacer(height: 24),
           NotificationItem(
               onTapIconRemove: () {},
+              onTapCard: () => NavigationManager.push(NotificationDetailsScreen.id),
               title: AppText.tuberculosisVaccineAppointment,
               subTitle: AppText.subtitleNotification)
         ],

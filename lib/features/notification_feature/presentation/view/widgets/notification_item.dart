@@ -25,22 +25,24 @@ class NotificationItem extends StatelessWidget {
             color: AppColors.lightGrayColor,
             child: Padding(
               padding: const EdgeInsets.only(bottom: 20, top: 10),
-              child: ListTile(
+              child: GestureDetector(
                 onTap: onTapCard,
-                trailing: CircleAvatar(
-                  backgroundColor: AppColors.lightGrayColor5,
-                  child: SvgPicture.asset(AppIcons.injectionIcon),
-                ),
-                title: GText(
-                  color: AppColors.darkBlueColor,
-                  content: title,
-                  fontSize: 14,
-                  fontWeight: FontWeight.w400,
-                ),
-                subtitle: GText(
-                  color: AppColors.grayColor1,
-                  content: subTitle,
-                  fontSize: 13,
+                child: ListTile(
+                  trailing: CircleAvatar(
+                    backgroundColor: AppColors.lightGrayColor5,
+                    child: SvgPicture.asset(AppIcons.injectionIcon),
+                  ),
+                  title: GText(
+                    color: AppColors.darkBlueColor,
+                    content: title,
+                    fontSize: 14,
+                    fontWeight: FontWeight.w400,
+                  ),
+                  subtitle: GText(
+                    color: AppColors.grayColor1,
+                    content: subTitle,
+                    fontSize: 13,
+                  ),
                 ),
               ),
             ),
