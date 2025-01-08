@@ -9,6 +9,7 @@ import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
 import '../../../language_app/presentation/view/language_screen.dart';
 import '../../../profile_setting/presentation/view/profile_setting_screen.dart';
+import '../../../theme_app/presentation/view/theme_screen.dart';
 import 'account_list_tile_model.dart';
 
 List<AccountListTileModel> accountListTilesList = [
@@ -22,7 +23,9 @@ List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: AppText.themes,
     imageLeadingPath: AppIcons.themeIcon,
-    onTap: () {},
+    onTap: () {
+      NavigationManager.push(ThemeScreen.id);
+    },
   ),
   AccountListTileModel(
     title: AppText.notifications,

@@ -16,6 +16,7 @@ import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
 import '../../features/profile_setting/presentation/view/profile_setting_screen.dart';
 import '../../features/side_effects/presentation/view/side_effect_details_screen.dart';
 import '../../features/side_effects/presentation/view/side_effect_screen.dart';
+import '../../features/theme_app/presentation/view/theme_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccination_tips_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccine_tips_details_screen.dart';
 import '../../features/vaccine_info/presentation/view/vaccine_info_details_screen.dart';
@@ -46,5 +47,6 @@ class AppRouter {
     ProfileSettingScreen.id: (context) => const ProfileSettingScreen(),
     VaccineTimesDetailsScreen.id: (context) => const VaccineTimesDetailsScreen(),
     LanguageScreen.id: (context) => const LanguageScreen(),
+    ThemeScreen.id: (context) => const ThemeScreen(),
   };
 }
