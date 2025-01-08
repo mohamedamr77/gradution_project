@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/view/widgets/vaccin_tips_details/vaccine_tips_details_body.dart';
 
-import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_text.dart';
 
@@ -11,14 +10,11 @@ class VaccineTipsDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         title: AppText.tipsBeforeAfterVaccination,
-        onBackPressed: () {
-          NavigationManager.goBack();
-        },
       ),
-      body: const VaccineTipsDetailsBody(),
+      body: VaccineTipsDetailsBody(),
     );
   }
 }

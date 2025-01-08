@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/features/medicines/presentation/view/widgets/details/medicines_details_body.dart';
 
-import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_text.dart';
 
@@ -11,14 +10,12 @@ class MedicinesDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return const Scaffold(
       appBar: CustomAppBar(
         title: AppText.recommendedMedications,
-        onBackPressed: () {
-          NavigationManager.goBack();
-        },
+
       ),
-      body: const MedicinesDetailsBody(),
+      body: MedicinesDetailsBody(),
     );
   }
 }

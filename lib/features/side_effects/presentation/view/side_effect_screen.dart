@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view/widgets/side_effect_body.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 
-import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
@@ -26,9 +25,7 @@ class SideEffectScreen extends StatelessWidget {
             )
           ],
           title: AppText.articlesSideEffects,
-          onBackPressed: () {
-            NavigationManager.goBack();
-          },
+
         ),
         body: const SideEffectBody(),
       ),

@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/features/medicines/presentation/view/widgets/medicines_body.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_cubit.dart';
 
-import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
@@ -26,9 +25,7 @@ class MedicinesScreen extends StatelessWidget {
             )
           ],
           title: AppText.recommendedMedications,
-          onBackPressed: () {
-            NavigationManager.goBack();
-          },
+
         ),
         body: const MedicinesBody(),
       ),

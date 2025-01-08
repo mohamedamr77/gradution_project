@@ -4,7 +4,6 @@ import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/view/widgets/vaccine_info_body.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/viewModel/vaccine_info_cubit.dart';
 
-import '../../../../core/navigation/navigation_manager.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/app_text.dart';
@@ -27,9 +26,6 @@ class VaccineInfoScreen extends StatelessWidget {
             )
           ],
           title: AppText.generalArticlesVaccinations,
-          onBackPressed: () {
-            NavigationManager.goBack();
-          },
         ),
         body: const VaccineInfoBody(),
       ),

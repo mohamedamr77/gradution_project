@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
-import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/noificaion_body.dart';
 
 import '../../../../core/navigation/navigation_manager.dart';
