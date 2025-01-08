@@ -22,6 +22,8 @@ class AppText {
   static const String emailAddress = "البريد الالكتروني";
   static const String enterEmailAddress = "أدخل بريدك الإلكتروني";
   static const String password = "كلمة المرور";
+  static const String subtitleNotification =    "هناك حقيقة مثبتة منذ زمن طويل وهي أن المحتوى المقروء لصفحة ما سيلهي القارئ عن التركيز على الشكل الخارجي للنص أو شكل توضع الفقرات في الصفحة التي يقرأها";
+
   static const String enterPassword = "أدخل كلمة المرور";
   static const String confirmPassword = "تأكيد كلمة المرور";
   static const String createAccount = "انشاء حساب";
