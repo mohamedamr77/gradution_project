@@ -5,7 +5,7 @@ import 'package:gradutionproject/core/utils/app_font_family.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/details/notification_details_card.dart';
+import 'package:gradutionproject/core/shared_widget/custom_child_tile.dart';
 
 class NotificationDetailsBody extends StatelessWidget {
   const NotificationDetailsBody({super.key});
@@ -17,7 +17,7 @@ class NotificationDetailsBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           _buildSpacer(height: 16),
-          const NotificationDetailsCard(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,),
+          const CustomChildTile(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,),
           _buildSpacer(height: 32),
           _buildSpacer(height: 32),
           _buildTitleAndDescription(
