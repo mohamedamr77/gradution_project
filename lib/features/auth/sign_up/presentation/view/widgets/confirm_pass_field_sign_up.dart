@@ -19,7 +19,7 @@ class ConfirmPassFieldSignUp extends StatelessWidget {
           hintText: AppText.enterPassword,
           prefix: AppIcons.passwordIcon,
           title: AppText.confirmPassword,
-          obscureText: cubit.visibilityPassword ? true : false,
+          obscureText: cubit.visibilityConfirmPassword ? true : false,
           suffixIcon: IconButton(
             onPressed: () {
               cubit.toggleVisibilityConfirmPassword();

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/text_top_screen_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/vaccines_field_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/weight_field_child_info.dart';
@@ -46,7 +48,9 @@ class ChildInfoBody extends StatelessWidget {
           spaceBetweenWidget(),
           SliverToBoxAdapter(
             child: CustomElevatedButton(
-              onPress: () {},
+              onPress: () {
+                NavigationManager.replaceAll(BottomNavBarScreen.id);
+              },
               titleButton: AppText.register,
             ),
           ),
