@@ -5,15 +5,18 @@ import 'global_text.dart';
 
 class CustomDescriptionText extends StatelessWidget {
   final String title;
-  const CustomDescriptionText({super.key, required this.title});
+  final double? textSize;
+  const CustomDescriptionText({super.key, required this.title, this.textSize});
 
   @override
   Widget build(BuildContext context) {
-    return GText(
-      color: AppColors.mediumGrayColor,
-      content: title,
-      fontSize: 14,
-      fontWeight: FontWeight.w400,
+    return Expanded(
+      child: GText(
+        color: AppColors.mediumGrayColor,
+        content: title,
+        fontSize: textSize?? 14,
+        fontWeight: FontWeight.w400,
+      ),
     );
   }
 }
