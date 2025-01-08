@@ -3,8 +3,8 @@ import 'package:gradutionproject/features/language_app/presentation/viewModel/la
 
 class LanguageAppCubit extends Cubit<LanguageAppState> {
   LanguageAppCubit() : super(LanguageAppInitialState());
-  bool isArabic= true;
-  changeLanguage(bool isArabic){
+  bool isArabic = true;
+  changeLanguage(bool isArabic) {
     this.isArabic = isArabic;
     emit(ChangeLanguageButtonState());
   }

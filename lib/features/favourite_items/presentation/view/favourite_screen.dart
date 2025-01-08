@@ -15,13 +15,12 @@ class FavouriteScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => FavouriteItemsCubit(),
-      child:  const Scaffold(
-        appBar:   CustomAppBar(
+      child: const Scaffold(
+        appBar: CustomAppBar(
           title: AppText.favoriteItems,
         ),
         body: FavouriteBody(),
       ),
     );
   }
-
 }

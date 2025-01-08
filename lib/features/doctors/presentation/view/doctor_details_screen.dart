@@ -13,7 +13,6 @@ class DoctorDetailsScreen extends StatelessWidget {
     return const Scaffold(
       appBar: CustomAppBar(
         title: AppText.doctorInfo,
-
       ),
       body: DoctorDetailsBody(),
     );

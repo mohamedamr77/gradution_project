@@ -12,20 +12,36 @@ class BottomSheetHelper {
   }) {
     showModalBottomSheet(
       backgroundColor: AppColors.lightGrayColor,
-      context: NavigationManager.currentContext!, builder: (context) {
-      return Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          const SizedBox(height: 40,),
-          GText(color: AppColors.darkCharcoalColor, content: title, fontSize: 18),
-          const SizedBox(height: 8,),
-          GText(color:AppColors.mediumGrayColor, content:subTitle, fontSize: 16),
-          const SizedBox(height: 32,),
-          button,
-          const SizedBox(height: 32,),
-        ],
-      );
-    },);
+      context: NavigationManager.currentContext!,
+      builder: (context) {
+        return Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const SizedBox(
+              height: 40,
+            ),
+            GText(
+                color: AppColors.darkCharcoalColor,
+                content: title,
+                fontSize: 18),
+            const SizedBox(
+              height: 8,
+            ),
+            GText(
+                color: AppColors.mediumGrayColor,
+                content: subTitle,
+                fontSize: 16),
+            const SizedBox(
+              height: 32,
+            ),
+            button,
+            const SizedBox(
+              height: 32,
+            ),
+          ],
+        );
+      },
+    );
   }
 }
 

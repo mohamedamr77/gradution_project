@@ -13,8 +13,9 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({
     super.key,
     required this.title,
-     this.onBackPressed,
-    this.actions, this.iconArrowColor,
+    this.onBackPressed,
+    this.actions,
+    this.iconArrowColor,
   });
 
   @override
@@ -24,9 +25,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 0,
       centerTitle: true,
       leading: IconButton(
-        onPressed: onBackPressed ?? (){
-          NavigationManager.goBack();
-        },
+        onPressed: onBackPressed ??
+            () {
+              NavigationManager.goBack();
+            },
         icon: Icon(
           Icons.arrow_back_ios,
           color: iconArrowColor ?? AppColors.primaryColor.withOpacity(0.7),

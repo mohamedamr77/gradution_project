@@ -54,7 +54,7 @@ class VaccineTimesListItems extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onTapCheckBoxVaccineTimes: () {
-         debugPrint('Mohamed amr');
+        debugPrint('Mohamed amr');
       },
       onTapCard: () {
         NavigationManager.push(VaccineTimesDetailsScreen.id);

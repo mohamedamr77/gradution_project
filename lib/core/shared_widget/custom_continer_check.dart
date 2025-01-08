@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
@@ -10,15 +9,16 @@ import 'global_text.dart';
 class CustomContainerCheck extends StatelessWidget {
   final bool isCheck;
   final String title;
-  const CustomContainerCheck({super.key, required this.isCheck, required this.title});
+  const CustomContainerCheck(
+      {super.key, required this.isCheck, required this.title});
 
   @override
   Widget build(BuildContext context) {
-    return   Container(
+    return Container(
       width: 0.6.w,
-      padding:  EdgeInsets.symmetric(vertical: 0.015.h, horizontal: 0.02.w),
+      padding: EdgeInsets.symmetric(vertical: 0.015.h, horizontal: 0.02.w),
       decoration: BoxDecoration(
-        color: isCheck?  AppColors.primaryColor :AppColors.secondaryColor,
+        color: isCheck ? AppColors.primaryColor : AppColors.secondaryColor,
         borderRadius: BorderRadius.circular(20),
       ),
       child: Row(
@@ -26,17 +26,23 @@ class CustomContainerCheck extends StatelessWidget {
         children: [
           Visibility(
               visible: isCheck,
-              child: SvgPicture.asset(AppIcons.checkBoxCorrect,color: Colors.white,)),
+              child: SvgPicture.asset(
+                AppIcons.checkBoxCorrect,
+                color: Colors.white,
+              )),
           Visibility(
-              visible: isCheck ==false,
-              child: SvgPicture.asset(AppIcons.checkBoxEmpty,color:   AppColors.darkGrayColor,)),
+              visible: isCheck == false,
+              child: SvgPicture.asset(
+                AppIcons.checkBoxEmpty,
+                color: AppColors.darkGrayColor,
+              )),
           const Spacer(),
-          GText(color:
-          isCheck?
-          AppColors.whiteColor :
-          AppColors.darkBlueAccent,
+          GText(
+            color: isCheck ? AppColors.whiteColor : AppColors.darkBlueAccent,
             content: title,
-            fontSize: 18,fontWeight: FontWeight.w600,),
+            fontSize: 18,
+            fontWeight: FontWeight.w600,
+          ),
           const Spacer(),
         ],
       ),

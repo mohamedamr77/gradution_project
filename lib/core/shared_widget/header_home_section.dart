@@ -33,9 +33,11 @@ class HeaderBottomNavBarScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
             )),
         const Spacer(),
-         IconButton(onPressed: () {
-           NavigationManager.push(NotificationScreen.id);
-         }, icon: SvgPicture.asset(AppIcons.notificationIcon)),
+        IconButton(
+            onPressed: () {
+              NavigationManager.push(NotificationScreen.id);
+            },
+            icon: SvgPicture.asset(AppIcons.notificationIcon)),
         // SizedBox(
         //   width: 0.09.w,
         // ),

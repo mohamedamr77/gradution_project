@@ -25,7 +25,6 @@ class SideEffectScreen extends StatelessWidget {
             )
           ],
           title: AppText.articlesSideEffects,
-
         ),
         body: const SideEffectBody(),
       ),

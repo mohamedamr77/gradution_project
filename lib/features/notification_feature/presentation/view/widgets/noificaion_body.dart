@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/notification_item.dart';
@@ -18,7 +16,8 @@ class NotificationBody extends StatelessWidget {
         slivers: [
           _buildRowOfText(),
           _builderSpacer(height: 24),
-          const NotificationItem(
+          NotificationItem(
+              onTapIconRemove: () {},
               title: AppText.tuberculosisVaccineAppointment,
               subTitle: AppText.subtitleNotification)
         ],
@@ -47,7 +46,7 @@ class NotificationBody extends StatelessWidget {
           ),
           TextButton(
               onPressed: () {},
-              child: GText(
+              child: const GText(
                 color: AppColors.primaryColor,
                 content: AppText.markAsRead,
                 fontSize: 14,

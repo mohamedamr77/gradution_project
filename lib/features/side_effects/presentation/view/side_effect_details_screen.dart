@@ -13,7 +13,6 @@ class SideEffectDetailsScreen extends StatelessWidget {
     return const Scaffold(
       appBar: CustomAppBar(
         title: AppText.articlesSideEffects,
-
       ),
       body: SideEffectDetailsBody(),
     );

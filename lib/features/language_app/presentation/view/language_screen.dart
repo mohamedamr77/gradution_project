@@ -18,7 +18,6 @@ class LanguageScreen extends StatelessWidget {
       child: const Scaffold(
         appBar: CustomAppBar(
           title: AppText.language,
-
         ),
         body: LanguageBody(),
       ),

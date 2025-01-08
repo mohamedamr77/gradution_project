@@ -26,7 +26,6 @@ class VaccinationTipsScreen extends StatelessWidget {
             )
           ],
           title: AppText.tipsBeforeAfterVaccination,
-
         ),
         body: const VaccinationTipsBody(),
       ),

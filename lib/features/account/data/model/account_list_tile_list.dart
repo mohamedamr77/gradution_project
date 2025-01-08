@@ -57,18 +57,17 @@ List<AccountListTileModel> accountListTilesList = [
     onTap: () {},
   ),
   AccountListTileModel(
-    title: AppText.logout,
-    imageLeadingPath: AppIcons.logoutIcon,
-    onTap: () {
-      BottomSheetHelper.customShowModelSheet(
-          title: AppText.logout,
-          subTitle: AppText.logoutConfirmation,
-          button: CustomRowButtons(
+      title: AppText.logout,
+      imageLeadingPath: AppIcons.logoutIcon,
+      onTap: () {
+        BottomSheetHelper.customShowModelSheet(
+            title: AppText.logout,
+            subTitle: AppText.logoutConfirmation,
+            button: CustomRowButtons(
               titleBlueButton: AppText.logout,
               onTapBlueButton: () {},
               titleWhiteButton: AppText.cancel,
               onTapWhiteButton: () {},
-          ));
-    }
-  )
+            ));
+      })
 ];

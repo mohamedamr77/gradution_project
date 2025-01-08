@@ -144,16 +144,15 @@ class ReusableItemCard extends StatelessWidget {
               left: 8,
               child: IconButton(
                 onPressed: onPressedIconFavourite,
-                icon:
-                isFavourite ?
-                const Icon(
-                  Icons.favorite,
-                  color: AppColors.primaryColor,
-                ) :
-                const Icon(
-                  Icons.favorite_border_outlined,
-                  color: AppColors.primaryColor,
-                ),
+                icon: isFavourite
+                    ? const Icon(
+                        Icons.favorite,
+                        color: AppColors.primaryColor,
+                      )
+                    : const Icon(
+                        Icons.favorite_border_outlined,
+                        color: AppColors.primaryColor,
+                      ),
               ),
             ),
           ),
@@ -164,12 +163,9 @@ class ReusableItemCard extends StatelessWidget {
                 top: 10,
                 child: InkWell(
                     onTap: onTapCheckBoxVaccineTimes,
-                    child:
-                    isCheckBoxTrue?
-                    SvgPicture.asset(AppIcons.checkBoxCorrect)
-                 :
-                    SvgPicture.asset(AppIcons.checkBoxEmpty))
-            ),
+                    child: isCheckBoxTrue
+                        ? SvgPicture.asset(AppIcons.checkBoxCorrect)
+                        : SvgPicture.asset(AppIcons.checkBoxEmpty))),
           ),
           Visibility(
             visible: isDetails == false,

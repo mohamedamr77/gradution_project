@@ -8,8 +8,13 @@ class NotificationItem extends StatelessWidget {
   final String title;
   final String subTitle;
   final void Function()? onTapCard;
-  final  void Function()? onTapIconRemove;
-  const NotificationItem({super.key, required this.title, required this.subTitle, this.onTapCard, this.onTapIconRemove});
+  final void Function()? onTapIconRemove;
+  const NotificationItem(
+      {super.key,
+      required this.title,
+      required this.subTitle,
+      this.onTapCard,
+      this.onTapIconRemove});
 
   @override
   Widget build(BuildContext context) {
@@ -26,13 +31,13 @@ class NotificationItem extends StatelessWidget {
                   backgroundColor: AppColors.lightGrayColor5,
                   child: SvgPicture.asset(AppIcons.injectionIcon),
                 ),
-                title:  GText(
+                title: GText(
                   color: AppColors.darkBlueColor,
                   content: title,
                   fontSize: 14,
                   fontWeight: FontWeight.w400,
                 ),
-                subtitle:  GText(
+                subtitle: GText(
                   color: AppColors.grayColor1,
                   content: subTitle,
                   fontSize: 13,

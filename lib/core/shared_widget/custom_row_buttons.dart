@@ -6,11 +6,16 @@ import '../utils/app_colors.dart';
 
 class CustomRowButtons extends StatelessWidget {
   final String titleBlueButton;
-  final  void Function() onTapBlueButton;
-  
+  final void Function() onTapBlueButton;
+
   final String titleWhiteButton;
-  final  void Function() onTapWhiteButton;
-  const CustomRowButtons({super.key, required this.titleBlueButton, required this.onTapBlueButton, required this.titleWhiteButton, required this.onTapWhiteButton});
+  final void Function() onTapWhiteButton;
+  const CustomRowButtons(
+      {super.key,
+      required this.titleBlueButton,
+      required this.onTapBlueButton,
+      required this.titleWhiteButton,
+      required this.onTapWhiteButton});
 
   @override
   Widget build(BuildContext context) {
@@ -19,22 +24,21 @@ class CustomRowButtons extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceAround,
       children: [
         CustomElevatedButton(
-          width:0.42.w,
-          btnColor:AppColors.primaryColor ,
+          width: 0.42.w,
+          btnColor: AppColors.primaryColor,
           onPress: onTapBlueButton,
           titleButton: titleBlueButton,
         ),
         CustomElevatedButton(
-          width:0.42.w,
+          width: 0.42.w,
           titleColor: AppColors.primaryColor,
-          btnColor:AppColors.secondaryColor,
+          btnColor: AppColors.secondaryColor,
           onPress: onTapWhiteButton,
           titleButton: titleWhiteButton,
-         borderSide: const BorderSide(
-           color: AppColors.primaryColor,
-         ),
+          borderSide: const BorderSide(
+            color: AppColors.primaryColor,
+          ),
         ),
-
       ],
     );
   }

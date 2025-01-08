@@ -25,7 +25,6 @@ class MedicinesScreen extends StatelessWidget {
             )
           ],
           title: AppText.recommendedMedications,
-
         ),
         body: const MedicinesBody(),
       ),

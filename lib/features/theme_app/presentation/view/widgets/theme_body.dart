@@ -42,7 +42,6 @@ class ThemeBody extends StatelessWidget {
                 flex: 5,
               ),
             ],
-
           ),
         );
       },

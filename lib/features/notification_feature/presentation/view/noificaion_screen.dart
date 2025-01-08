@@ -22,10 +22,7 @@ class NotificationScreen extends StatelessWidget {
   CustomAppBar _appBarNotificationsScreen() {
     return CustomAppBar(
       actions: [
-        IconButton(
-            onPressed: () {
-            },
-            icon: SvgPicture.asset(AppIcons.trash))
+        IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.trash))
       ],
       iconArrowColor: AppColors.thirdColor,
       title: AppText.notifications,

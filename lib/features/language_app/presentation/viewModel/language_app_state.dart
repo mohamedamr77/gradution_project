@@ -1,5 +1,5 @@
-abstract class LanguageAppState{}
+abstract class LanguageAppState {}
 
-class LanguageAppInitialState extends LanguageAppState{}
+class LanguageAppInitialState extends LanguageAppState {}
 
-class ChangeLanguageButtonState extends LanguageAppState{}
+class ChangeLanguageButtonState extends LanguageAppState {}

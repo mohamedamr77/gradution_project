@@ -20,7 +20,6 @@ class ThemeScreen extends StatelessWidget {
           title: AppText.themes,
         ),
         body: ThemeBody(),
-
       ),
     );
   }

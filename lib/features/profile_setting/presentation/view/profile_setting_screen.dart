@@ -15,7 +15,6 @@ class ProfileSettingScreen extends StatelessWidget {
       appBar: CustomAppBar(
         iconArrowColor: AppColors.thirdColor,
         title: AppText.accountSettings,
-
       ),
       body: ProfileSettingBody(),
     );
