@@ -33,6 +33,7 @@ class LoginCubit extends Cubit<LoginState> {
   Future<void> loadRiveFile() async {
     try {
       final data = await rootBundle.load(riveUrl);
+      await RiveFile.initialize();
       final file = RiveFile.import(data);
       final art = file.mainArtboard;
 
