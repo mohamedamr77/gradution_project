@@ -6,6 +6,7 @@ class AppText {
   static const String safeMedicines =
       "اطلعي على أدوية آمنة لتخفيف الآثار الجانبية بعد التطعيم";
   static const String readyToStart = "جاهزة للبدء!";
+  static const String yearAndFourMonth = "عام وأربع أشهر";
   static const String timeLineDetails = ''' الجرعة الأولى: عند عمر 6 أسابيع.
 
 الجرعة الثانية: عند عمر 10 أسابيع.
