@@ -73,6 +73,7 @@ class VaccineTimesListItems extends StatelessWidget {
       description: "فعال بنسبة99%",
       subDescription: "يتم اخده مره واحده",
       onPressedIconFavourite: () {},
+      onTapCheckBoxVaccineTimes: () {},
       onTapCard: () {
         NavigationManager.push(VaccineTimesDetailsScreen.id);
       },

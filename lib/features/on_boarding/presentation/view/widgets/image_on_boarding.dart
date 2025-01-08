@@ -15,7 +15,7 @@ class ImageOnBoarding extends StatefulWidget {
 }
 
 class _ImageOnBoardingState extends State<ImageOnBoarding>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   late Animation<double> _opacityAnimation;
   late AnimationController _controller;
 
@@ -31,6 +31,11 @@ class _ImageOnBoardingState extends State<ImageOnBoarding>
     _controller.forward();
   }
 
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<OnBoardingCubit>(context);

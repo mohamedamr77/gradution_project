@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:rive/rive.dart';
 import 'login_state.dart';
 
@@ -75,21 +77,23 @@ class LoginCubit extends Cubit<LoginState> {
   void lookAround() {
     isChecking?.change(true);
     isHandUp?.change(false);
-    lookNum?.change(0);
+    lookNum?.change(20);
     emit(CheckingLoginState());
   }
 
   /// Moves the character's eyes based on text input
   void moveEyes(String value) {
-    int cursorPosition = emailController.selection.baseOffset;
 
-    if (cursorPosition < 0) {
-      lookNum?.change(0); // Default value if cursor position isn't detected
-      return;
-    }
-
-    double mappedValue = (cursorPosition / value.length) * 2.0 - 1.0;
-    lookNum?.change(mappedValue);
+    lookNum?.change(value.length.toDouble() *10);
+    // int cursorPosition = emailController.selection.baseOffset;
+    //
+    // if (cursorPosition < 0) {
+    //   lookNum?.change(0); // Default value if cursor position isn't detected
+    //   return;
+    // }
+    //
+    // double mappedValue = (cursorPosition / value.length) * 2.0 - 1.0;
+    // lookNum?.change(mappedValue);
   }
 
   /// Raises the character's hands to cover eyes
@@ -115,6 +119,7 @@ class LoginCubit extends Cubit<LoginState> {
     if (emailController.text == "email" &&
         passwordController.text == "password") {
       successTrigger?.fire();
+      NavigationManager.push(BottomNavBarScreen.id);
       emit(LoginSuccessState());
     } else {
       failTrigger?.fire();

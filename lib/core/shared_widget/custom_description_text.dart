@@ -10,13 +10,11 @@ class CustomDescriptionText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Expanded(
-      child: GText(
-        color: AppColors.mediumGrayColor,
-        content: title,
-        fontSize: textSize?? 14,
-        fontWeight: FontWeight.w400,
-      ),
+    return GText(
+      color: AppColors.mediumGrayColor,
+      content: title,
+      fontSize: textSize?? 14,
+      fontWeight: FontWeight.w400,
     );
   }
 }

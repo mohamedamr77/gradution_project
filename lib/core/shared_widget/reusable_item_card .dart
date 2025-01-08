@@ -161,9 +161,9 @@ class ReusableItemCard extends StatelessWidget {
             child: Positioned(
                 left: 10,
                 top: 10,
-                child: InkWell(
-                    onTap: onTapCheckBoxVaccineTimes,
-                    child: isCheckBoxTrue
+                child: IconButton(
+                    onPressed: onTapCheckBoxVaccineTimes,
+                    icon: isCheckBoxTrue
                         ? SvgPicture.asset(AppIcons.checkBoxCorrect)
                         : SvgPicture.asset(AppIcons.checkBoxEmpty))),
           ),
