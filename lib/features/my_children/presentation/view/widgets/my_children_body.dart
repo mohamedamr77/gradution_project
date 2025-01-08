@@ -15,11 +15,16 @@ class MyChildrenBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: CustomScrollView(
         slivers: [
-          CustomChildTile(
-            imagePath: AppImages.childTest,
-            title: AppText.childName,
-            subTitle: AppText.yearAndFourMonth,
-            leading: SvgPicture.asset(AppIcons.pencilSquare),
+          SliverList.builder(
+            itemBuilder: (context, index) {
+              return CustomChildTile(
+                imagePath: AppImages.childTest,
+                title: AppText.childName,
+                subTitle: AppText.yearAndFourMonth,
+                leading: SvgPicture.asset(AppIcons.pencilSquare),
+              );
+            },
+            itemCount: 4,
           )
         ],
       ),

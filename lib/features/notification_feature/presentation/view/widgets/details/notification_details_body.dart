@@ -17,7 +17,7 @@ class NotificationDetailsBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           _buildSpacer(height: 16),
-          const CustomChildTile(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,),
+           const SliverToBoxAdapter(child: CustomChildTile(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,)),
           _buildSpacer(height: 32),
           _buildSpacer(height: 32),
           _buildTitleAndDescription(
