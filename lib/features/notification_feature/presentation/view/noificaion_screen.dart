@@ -16,19 +16,22 @@ class NotificationScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: CustomAppBar(
-        actions: [
-          IconButton(onPressed: () {
-            
-          }, icon: SvgPicture.asset(AppIcons.trash))
-        ],
-        iconArrowColor: AppColors.thirdColor,
-        title: AppText.notifications,
-        onBackPressed: () {
-          NavigationManager.goBack();
-        },
-      ),
+      appBar: _appBarNotificationsScreen(),
       body: const NotificationBody(),
+    );
+  }
+
+  CustomAppBar _appBarNotificationsScreen() {
+    return CustomAppBar(
+      actions: [
+        IconButton(
+            onPressed: () {
+              NavigationManager.goBack();
+            },
+            icon: SvgPicture.asset(AppIcons.trash))
+      ],
+      iconArrowColor: AppColors.thirdColor,
+      title: AppText.notifications,
     );
   }
 }
