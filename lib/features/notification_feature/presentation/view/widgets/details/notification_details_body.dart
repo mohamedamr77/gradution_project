@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/core/shared_widget/custom_description_text.dart';
 import 'package:gradutionproject/core/shared_widget/custom_row_buttons.dart';
-import 'package:gradutionproject/core/shared_widget/custom_title_text.dart';
-import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
+import 'package:gradutionproject/core/utils/app_font_family.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
@@ -64,17 +62,33 @@ class NotificationDetailsBody extends StatelessWidget {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.only(bottom: 16),
-        child: Row(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          textDirection: TextDirection.rtl,
-          children: [
-            CustomTitleText(title:title),
-            SizedBox(width: 4,),
-            CustomDescriptionText(title: description , textSize: 16,),
-          ],
+        child: Text.rich(
+            textAlign: TextAlign.right,
+            textDirection: TextDirection.rtl,
+            TextSpan(
+                text: title,
+                style: const TextStyle(
+                  fontFamily: AppFontFamily.cairoFontFamily,
+                  color: AppColors.primaryColor,
+                  fontSize: 18,
+                  fontWeight: FontWeight.w500,
+                ),
+                children: [
+                  TextSpan(
+                    text:
+                    description,
+                    style: const TextStyle(
+                      fontFamily: AppFontFamily.cairoFontFamily,
+                      color: AppColors.mediumGrayColor,
+                      fontSize: 16,
+                      fontWeight: FontWeight.w400,
+                    ),
+                  ),
+                ])
         ),
       ),
     );
   }
 
 }
+

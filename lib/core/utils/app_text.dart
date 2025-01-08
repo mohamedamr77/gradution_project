@@ -9,10 +9,7 @@ class AppText {
   static const String explanatoryTextDescr =  "يرجى التأكد من إحضار السجل الصحي للطفل عند الذهاب للتطعيم.";
 
   static const String yearAndFourMonth = "عام وأربع أشهر";
-  static const String textTest1 = '''
-  "يرجى مراجعة الحالة الصحية
- للطفل قبل موعد التطعيم”
-  ''';
+  static const String textTest1 = '"يرجى مراجعة الحالة الصحية للطفل قبل موعد التطعيم”';
   static const String textTest2 = '''
  إذا كان ابنك يعاني من أي  أمراض، يرجى 
 استشارة الطبيب حول إمكانية تأجيل التطعيم."
