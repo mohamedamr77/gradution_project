@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+
+import '../../features/notification_feature/presentation/view/noificaion_screen.dart';
 
 class HeaderBottomNavBarScreen extends StatelessWidget {
   const HeaderBottomNavBarScreen({super.key});
@@ -30,23 +33,21 @@ class HeaderBottomNavBarScreen extends StatelessWidget {
               fontWeight: FontWeight.w600,
             )),
         const Spacer(),
-        InkWell(
-            onTap: () {}, child: SvgPicture.asset(AppIcons.notificationIcon)),
-        SizedBox(
-          width: 0.09.w,
+         IconButton(onPressed: () {
+           NavigationManager.push(NotificationScreen.id);
+         }, icon: SvgPicture.asset(AppIcons.notificationIcon)),
+        // SizedBox(
+        //   width: 0.09.w,
+        // ),
+        IconButton(
+          onPressed: () {
+            Scaffold.of(context).openDrawer();
+          },
+          icon: SvgPicture.asset(
+            AppIcons.drawerIcon,
+            fit: BoxFit.scaleDown,
+          ),
         ),
-        InkWell(
-            onTap: () {
-              Scaffold.of(context).openDrawer();
-            },
-            child: SizedBox(
-              width: 40,
-              height: 40,
-              child: SvgPicture.asset(
-                AppIcons.drawerIcon,
-                fit: BoxFit.scaleDown,
-              ),
-            )),
       ],
     );
   }

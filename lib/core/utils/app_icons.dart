@@ -21,6 +21,7 @@ class AppIcons {
   static const String notificationIcon = "assets/icon/notificanIcon.svg";
   static const String drawerIcon = "assets/icon/drawerIcon.svg";
   static const String checkBoxCorrect = "assets/icon/checkBoxCorrect.svg";
+  static const String trash = "assets/icon/trash.svg";
   static const String checkBoxEmpty = "assets/icon/CheckBoxEmpty.svg";
   static const String pinIcon = "assets/icon/pinIcon.svg";
   static const String vaccineIcon = "assets/icon/vaccineIcon.svg";
