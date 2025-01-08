@@ -12,6 +12,7 @@ import '../../features/forget_password/presentation/view/verify_code_screen.dart
 import '../../features/language_app/presentation/view/language_screen.dart';
 import '../../features/medicines/presentation/view/medicines_deatils_screen.dart';
 import '../../features/medicines/presentation/view/medicines_screen.dart';
+import '../../features/my_children/presentation/view/my_children_screen.dart';
 import '../../features/notification_feature/presentation/view/noificaion_screen.dart';
 import '../../features/notification_feature/presentation/view/notification_details_screen.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
@@ -52,5 +53,6 @@ class AppRouter {
     ThemeScreen.id: (context) => const ThemeScreen(),
     NotificationScreen.id: (context) => const NotificationScreen(),
     NotificationDetailsScreen.id: (context) => const NotificationDetailsScreen(),
+    MyChildrenScreen.id: (context) => const MyChildrenScreen(),
   };
 }
