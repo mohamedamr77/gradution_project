@@ -55,7 +55,7 @@ class _FavListItemsState extends State<FavListItems> {
           favDoctorsList[index].isFav =! favDoctorsList[index].isFav;
           setState(() {});
         },
-          isFavourite : favDoctorsList[index].isFav,
+        isFavourite : favDoctorsList[index].isFav,
         onTapCard: () {},
         isDoctor: true,
         isRating: favDoctorsList[index].rate,

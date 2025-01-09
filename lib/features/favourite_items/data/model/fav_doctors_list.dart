@@ -11,6 +11,13 @@ List<FavDoctorsModel> favDoctorsList =[
       imagePath: AppImages.doctorAmrTest,
   ),
   FavDoctorsModel(
+      isFav: false,
+      name:  "د / محمد عمرو",
+      description: "اخصائى اطفال",
+      rate: 4.5,
+      imagePath: AppImages.doctorAmrTest,
+  ),
+  FavDoctorsModel(
     isFav: false,
     name:  "د /عمرو مختار",
     description: "اخصائى اطفال",
