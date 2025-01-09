@@ -1,13 +1,17 @@
-class FavDoctorsModel{
+class FavDoctorsModel {
   final String name;
   final String description;
   final double rate;
   final String imagePath;
   bool isFav = false;
 
-
-
-  FavDoctorsModel( {required this.isFav ,required this.name, required this.description, required this.rate, required this.imagePath,});
+  FavDoctorsModel({
+    required this.isFav,
+    required this.name,
+    required this.description,
+    required this.rate,
+    required this.imagePath,
+  });
 }
 /*
  imagePath: AppImages.doctorAmrTest,

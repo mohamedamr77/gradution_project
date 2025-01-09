@@ -44,7 +44,6 @@ class VaccineInfoDetailsBody extends StatelessWidget {
           onTapCard: () {},
           isDetails: true,
         ),
-
       ),
     );
   }

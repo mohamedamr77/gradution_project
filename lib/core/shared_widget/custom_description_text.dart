@@ -13,7 +13,7 @@ class CustomDescriptionText extends StatelessWidget {
     return GText(
       color: AppColors.mediumGrayColor,
       content: title,
-      fontSize: textSize?? 14,
+      fontSize: textSize ?? 14,
       fontWeight: FontWeight.w400,
     );
   }

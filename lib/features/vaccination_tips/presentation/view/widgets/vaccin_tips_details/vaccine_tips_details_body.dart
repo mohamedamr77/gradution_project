@@ -35,7 +35,7 @@ class VaccineTipsDetailsBody extends StatelessWidget {
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
       child: ReusableItemCard(
-        reusableModel:  ReusableModel(
+        reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
           title: AppText.rotavirusVaccine,
           description: "فعال بنسبة99%",

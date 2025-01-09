@@ -64,25 +64,24 @@ class VaccineTimesListItems extends StatelessWidget {
         isVaccineTimes: true,
         isCheckBoxTrue: true,
       ), // Assign a unique key for animation
-
     );
   }
 
   Widget basicButtonList() {
     return ReusableItemCard(
       key: const ValueKey<int>(0), // Assign a unique key for animation
-       reusableModel: ReusableModel(
-         imagePath: AppImages.tuberVaccineTest,
-         title: AppText.rotavirusVaccine,
-         description: "فعال بنسبة99%",
-         subDescription: "يتم اخده مره واحده",
-         onPressedIconFavourite: () {},
-         onTapCheckBoxVaccineTimes: () {},
-         isVaccineTimes: true,
-         onTapCard: () {
-           NavigationManager.push(VaccineTimesDetailsScreen.id);
-         },
-       ),
+      reusableModel: ReusableModel(
+        imagePath: AppImages.tuberVaccineTest,
+        title: AppText.rotavirusVaccine,
+        description: "فعال بنسبة99%",
+        subDescription: "يتم اخده مره واحده",
+        onPressedIconFavourite: () {},
+        onTapCheckBoxVaccineTimes: () {},
+        isVaccineTimes: true,
+        onTapCard: () {
+          NavigationManager.push(VaccineTimesDetailsScreen.id);
+        },
+      ),
     );
   }
 }

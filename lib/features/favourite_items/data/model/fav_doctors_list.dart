@@ -2,52 +2,49 @@ import 'package:gradutionproject/features/favourite_items/data/model/fav_doctors
 
 import '../../../../core/utils/app_images.dart';
 
-List<FavDoctorsModel> favDoctorsList =[
-  FavDoctorsModel(
-      isFav: false,
-      name:  "د / محمد عمرو",
-      description: "اخصائى اطفال",
-      rate: 4.5,
-      imagePath: AppImages.doctorAmrTest,
-  ),
-  FavDoctorsModel(
-      isFav: false,
-      name:  "د / محمد عمرو",
-      description: "اخصائى اطفال",
-      rate: 4.5,
-      imagePath: AppImages.doctorAmrTest,
-  ),
+List<FavDoctorsModel> favDoctorsList = [
   FavDoctorsModel(
     isFav: false,
-    name:  "د /عمرو مختار",
+    name: "د / محمد عمرو",
     description: "اخصائى اطفال",
     rate: 4.5,
     imagePath: AppImages.doctorAmrTest,
   ),
   FavDoctorsModel(
     isFav: false,
-    name:  "د / احمد مختار",
+    name: "د / محمد عمرو",
     description: "اخصائى اطفال",
     rate: 4.5,
     imagePath: AppImages.doctorAmrTest,
   ),
   FavDoctorsModel(
     isFav: false,
-    name:  "د /عبد الله السيد",
+    name: "د /عمرو مختار",
     description: "اخصائى اطفال",
     rate: 4.5,
     imagePath: AppImages.doctorAmrTest,
-
   ),
   FavDoctorsModel(
     isFav: false,
-    name:  "د /محمد السيد",
+    name: "د / احمد مختار",
     description: "اخصائى اطفال",
     rate: 4.5,
     imagePath: AppImages.doctorAmrTest,
   ),
-
-
+  FavDoctorsModel(
+    isFav: false,
+    name: "د /عبد الله السيد",
+    description: "اخصائى اطفال",
+    rate: 4.5,
+    imagePath: AppImages.doctorAmrTest,
+  ),
+  FavDoctorsModel(
+    isFav: false,
+    name: "د /محمد السيد",
+    description: "اخصائى اطفال",
+    rate: 4.5,
+    imagePath: AppImages.doctorAmrTest,
+  ),
 ];
 /*
  imagePath: AppImages.doctorAmrTest,

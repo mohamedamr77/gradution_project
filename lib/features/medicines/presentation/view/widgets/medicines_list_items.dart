@@ -60,7 +60,6 @@ class MedicinesListItems extends StatelessWidget {
           NavigationManager.push(MedicinesDetailsScreen.id);
         },
       ), // Assign a unique key for animation
-
     );
   }
 
@@ -78,7 +77,6 @@ class MedicinesListItems extends StatelessWidget {
           NavigationManager.push(MedicinesDetailsScreen.id);
         },
       ), // Assign a unique key for animation
-
     );
   }
 }

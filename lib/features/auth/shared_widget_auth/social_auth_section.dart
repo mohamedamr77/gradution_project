@@ -69,7 +69,7 @@ class SocialContainerItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: onTap,
+      onPressed: onTap,
       child: Container(
         width: 0.17.w,
         height: 0.07.h,

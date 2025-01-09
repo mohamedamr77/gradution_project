@@ -17,48 +17,51 @@ class NotificationDetailsBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           _buildSpacer(height: 16),
-           const SliverToBoxAdapter(child: CustomChildTile(imagePath: AppImages.childTest, title: AppText.childName,subTitle: AppText.yearAndFourMonth,)),
+          const SliverToBoxAdapter(
+              child: CustomChildTile(
+            imagePath: AppImages.childTest,
+            title: AppText.childName,
+            subTitle: AppText.yearAndFourMonth,
+          )),
           _buildSpacer(height: 32),
           _buildSpacer(height: 32),
           _buildTitleAndDescription(
-              title:  AppText.vaccineNameLabel,
-              description: AppText.rotavirusVaccine
-          ),
+              title: AppText.vaccineNameLabel,
+              description: AppText.rotavirusVaccine),
           _buildTitleAndDescription(
-              title:  AppText.vaccinationDateLabel,
-              description: "12/6/2025"
-          ),
+              title: AppText.vaccinationDateLabel, description: "12/6/2025"),
           // _buildTitleAndDescription(
           //     title:  AppText.vaccineNameLabel,
           //     description: AppText.rotavirusVaccine
           // ),
           _buildTitleAndDescription(
-              title:  AppText.explanatoryText,
-              description: AppText.explanatoryTextDescr
-          ),
+              title: AppText.explanatoryText,
+              description: AppText.explanatoryTextDescr),
           _buildTitleAndDescription(
-              title:  AppText.informativeNote,
-              description: AppText.textTest1
-          ),
+              title: AppText.informativeNote, description: AppText.textTest1),
           _buildTitleAndDescription(
-              title:  AppText.advice,
-              description: AppText.textTest2
-          ),
+              title: AppText.advice, description: AppText.textTest2),
           SliverToBoxAdapter(
-            child: CustomRowButtons(
-                titleBlueButton: AppText.confirm ,
-                onTapBlueButton:() {},
-                titleWhiteButton: AppText.postpone,
-                onTapWhiteButton: () {},)
-          )
+              child: CustomRowButtons(
+            titleBlueButton: AppText.confirm,
+            onTapBlueButton: () {},
+            titleWhiteButton: AppText.postpone,
+            onTapWhiteButton: () {},
+          ))
         ],
       ),
     );
   }
-  SliverToBoxAdapter _buildSpacer({required double height}){
-    return SliverToBoxAdapter(child: SizedBox(height: height,));
+
+  SliverToBoxAdapter _buildSpacer({required double height}) {
+    return SliverToBoxAdapter(
+        child: SizedBox(
+      height: height,
+    ));
   }
-  SliverToBoxAdapter _buildTitleAndDescription({required String title, required description}){
+
+  SliverToBoxAdapter _buildTitleAndDescription(
+      {required String title, required description}) {
     return SliverToBoxAdapter(
       child: Padding(
         padding: const EdgeInsets.only(bottom: 16),
@@ -75,8 +78,7 @@ class NotificationDetailsBody extends StatelessWidget {
                 ),
                 children: [
                   TextSpan(
-                    text:
-                    description,
+                    text: description,
                     style: const TextStyle(
                       fontFamily: AppFontFamily.cairoFontFamily,
                       color: AppColors.mediumGrayColor,
@@ -84,11 +86,8 @@ class NotificationDetailsBody extends StatelessWidget {
                       fontWeight: FontWeight.w400,
                     ),
                   ),
-                ])
-        ),
+                ])),
       ),
     );
   }
-
 }
-
