@@ -32,7 +32,6 @@ class DoctorDetailsBody extends StatelessWidget {
                 isRating: 4.5,
                 isDetails: true,
               ),
-
             ),
           ),
           const SliverToBoxAdapter(

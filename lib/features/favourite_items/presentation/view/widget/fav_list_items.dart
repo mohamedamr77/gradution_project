@@ -52,10 +52,10 @@ class _FavListItemsState extends State<FavListItems> {
         description: favDoctorsList[index].description,
         subDescription: "يتم اخده مره واحده",
         onPressedIconFavourite: () {
-          favDoctorsList[index].isFav =! favDoctorsList[index].isFav;
+          favDoctorsList[index].isFav = !favDoctorsList[index].isFav;
           setState(() {});
         },
-        isFavourite : favDoctorsList[index].isFav,
+        isFavourite: favDoctorsList[index].isFav,
         onTapCard: () {},
         isDoctor: true,
         isRating: favDoctorsList[index].rate,
@@ -74,7 +74,6 @@ class _FavListItemsState extends State<FavListItems> {
         onPressedIconFavourite: () {},
         onTapCard: () {},
       ), // Assign a unique key for animation
-
     );
   }
 }

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/doctors/presentation/view/doctor_details_screen.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../../../favourite_items/data/model/fav_doctors_list.dart';
 
@@ -37,10 +36,10 @@ class _DoctorsListWidgetState extends State<DoctorsListWidget> {
         description: favDoctorsList[index].description,
         subDescription: "يتم اخده مره واحده",
         onPressedIconFavourite: () {
-          favDoctorsList[index].isFav =! favDoctorsList[index].isFav;
+          favDoctorsList[index].isFav = !favDoctorsList[index].isFav;
           setState(() {});
         },
-        isFavourite : favDoctorsList[index].isFav,
+        isFavourite: favDoctorsList[index].isFav,
         onTapCard: () {
           NavigationManager.push(DoctorDetailsScreen.id);
         },

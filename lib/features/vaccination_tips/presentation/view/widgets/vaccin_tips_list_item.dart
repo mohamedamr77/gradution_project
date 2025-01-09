@@ -76,7 +76,6 @@ class VaccinationTipsListItem extends StatelessWidget {
           NavigationManager.push(VaccineTipsDetailsScreen.id);
         },
       ), // Assign a unique key for animation
-
     );
   }
 }

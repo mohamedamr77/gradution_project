@@ -48,11 +48,13 @@ class AppRouter {
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
     DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
     ProfileSettingScreen.id: (context) => const ProfileSettingScreen(),
-    VaccineTimesDetailsScreen.id: (context) => const VaccineTimesDetailsScreen(),
+    VaccineTimesDetailsScreen.id: (context) =>
+        const VaccineTimesDetailsScreen(),
     LanguageScreen.id: (context) => const LanguageScreen(),
     ThemeScreen.id: (context) => const ThemeScreen(),
     NotificationScreen.id: (context) => const NotificationScreen(),
-    NotificationDetailsScreen.id: (context) => const NotificationDetailsScreen(),
+    NotificationDetailsScreen.id: (context) =>
+        const NotificationDetailsScreen(),
     MyChildrenScreen.id: (context) => const MyChildrenScreen(),
   };
 }

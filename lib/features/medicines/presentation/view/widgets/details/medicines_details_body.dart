@@ -34,16 +34,16 @@ class MedicinesDetailsBody extends StatelessWidget {
 
   SliverToBoxAdapter _buildReusableItemCard() {
     return SliverToBoxAdapter(
-      child: ReusableItemCard(reusableModel: ReusableModel(
-        imagePath: AppImages.tuberVaccineTest,
-        title: AppText.rotavirusVaccine,
-        description: "فعال بنسبة99%",
-        subDescription: "يتم اخده مره واحده",
-        onPressedIconFavourite: () {},
-        onTapCard: () {},
-        isDetails: true,
-      ),
-
+      child: ReusableItemCard(
+        reusableModel: ReusableModel(
+          imagePath: AppImages.tuberVaccineTest,
+          title: AppText.rotavirusVaccine,
+          description: "فعال بنسبة99%",
+          subDescription: "يتم اخده مره واحده",
+          onPressedIconFavourite: () {},
+          onTapCard: () {},
+          isDetails: true,
+        ),
       ),
     );
   }

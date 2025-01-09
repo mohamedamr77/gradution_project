@@ -48,34 +48,34 @@ class SideEffectsListItem extends StatelessWidget {
 
   Widget basicButtonList() {
     return ReusableItemCard(
-      key: const ValueKey<int>(0),
+        key: const ValueKey<int>(0),
+        reusableModel: ReusableModel(
+          imagePath: AppImages.tuberVaccineTest,
+          title: AppText.rotavirusVaccine,
+          description: "فعال بنسبة99%",
+          subDescription: "يتم اخده مره واحده",
+          onPressedIconFavourite: () {},
+          onTapCard: () {
+            NavigationManager.push(SideEffectDetailsScreen.id);
+          },
+        ) // Assign a unique key for animation
+
+        );
+  }
+
+  Widget additionalButtonList() {
+    return ReusableItemCard(
+      key: const ValueKey<int>(1), // Assign a unique key for animation
       reusableModel: ReusableModel(
-        imagePath: AppImages.tuberVaccineTest,
-        title: AppText.rotavirusVaccine,
+        imagePath: AppImages.vaccine4Test,
+        title: "تطعيم الدرن",
         description: "فعال بنسبة99%",
         subDescription: "يتم اخده مره واحده",
         onPressedIconFavourite: () {},
         onTapCard: () {
           NavigationManager.push(SideEffectDetailsScreen.id);
         },
-      ) // Assign a unique key for animation
-
-    );
-  }
-
-  Widget additionalButtonList() {
-    return ReusableItemCard(
-      key: const ValueKey<int>(1), // Assign a unique key for animation
-       reusableModel: ReusableModel(
-         imagePath: AppImages.vaccine4Test,
-         title: "تطعيم الدرن",
-         description: "فعال بنسبة99%",
-         subDescription: "يتم اخده مره واحده",
-         onPressedIconFavourite: () {},
-         onTapCard: () {
-           NavigationManager.push(SideEffectDetailsScreen.id);
-         },
-       ),
+      ),
     );
   }
 }

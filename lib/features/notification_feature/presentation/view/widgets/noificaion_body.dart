@@ -21,7 +21,8 @@ class NotificationBody extends StatelessWidget {
           _builderSpacer(height: 24),
           NotificationItem(
               onTapIconRemove: () {},
-              onTapCard: () => NavigationManager.push(NotificationDetailsScreen.id),
+              onTapCard: () =>
+                  NavigationManager.push(NotificationDetailsScreen.id),
               title: AppText.tuberculosisVaccineAppointment,
               subTitle: AppText.subtitleNotification)
         ],

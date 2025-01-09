@@ -36,6 +36,7 @@ class _ImageOnBoardingState extends State<ImageOnBoarding>
     _controller.dispose();
     super.dispose();
   }
+
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<OnBoardingCubit>(context);

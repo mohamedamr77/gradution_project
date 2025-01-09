@@ -6,8 +6,13 @@ class CustomChildTile extends StatelessWidget {
   final String imagePath;
   final String title;
   final String subTitle;
-  final Widget?  leading;
-  const CustomChildTile({super.key, required this.imagePath, required this.title, required this.subTitle, this.leading});
+  final Widget? leading;
+  const CustomChildTile(
+      {super.key,
+      required this.imagePath,
+      required this.title,
+      required this.subTitle,
+      this.leading});
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +21,13 @@ class CustomChildTile extends StatelessWidget {
       child: ListTile(
         leading: leading,
         trailing: Image.asset(imagePath),
-        title:  GText(
+        title: GText(
           color: AppColors.blackColor,
           content: title,
           fontSize: 18,
           fontWeight: FontWeight.w600,
         ),
-        subtitle:  GText(
+        subtitle: GText(
           color: AppColors.thirdColor,
           content: subTitle,
           fontSize: 12,

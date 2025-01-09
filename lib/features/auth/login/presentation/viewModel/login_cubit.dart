@@ -84,8 +84,7 @@ class LoginCubit extends Cubit<LoginState> {
 
   /// Moves the character's eyes based on text input
   void moveEyes(String value) {
-
-    lookNum?.change(value.length.toDouble() *10);
+    lookNum?.change(value.length.toDouble() * 10);
     // int cursorPosition = emailController.selection.baseOffset;
     //
     // if (cursorPosition < 0) {

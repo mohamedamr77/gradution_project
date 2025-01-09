@@ -9,10 +9,10 @@ import '../utils/app_text.dart';
 
 class ReusableItemCard extends StatelessWidget {
   final ReusableModel reusableModel;
-  const ReusableItemCard(
-      {super.key,
-       required this.reusableModel,
-      });
+  const ReusableItemCard({
+    super.key,
+    required this.reusableModel,
+  });
 
   @override
   Widget build(BuildContext context) {

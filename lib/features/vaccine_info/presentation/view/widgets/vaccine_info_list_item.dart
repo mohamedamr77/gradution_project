@@ -60,7 +60,6 @@ class VaccineInfoListItem extends StatelessWidget {
           NavigationManager.push(VaccineInfoDetailsScreen.id);
         },
       ), // Assign a unique key for animation
-
     );
   }
 
@@ -77,7 +76,6 @@ class VaccineInfoListItem extends StatelessWidget {
           NavigationManager.push(VaccineInfoDetailsScreen.id);
         },
       ), // Assign a unique key for animation
-
     );
   }
 }
