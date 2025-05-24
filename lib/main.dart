@@ -1,12 +1,23 @@
+import 'package:device_preview/device_preview.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
+import 'features/language_app/presentation/view/language_screen.dart';
 
 void main() {
-  runApp(const MyApp());
+
+ runApp(
+    DevicePreview(
+      enabled: !kReleaseMode,
+      builder: (context) => const MyApp(), // Wrap your app
+    ),
+  );
+
+
 }
 /*
  runApp(
@@ -15,7 +26,7 @@ void main() {
       builder: (context) => MyApp(), // Wrap your app
     ),
   );
-
+ 
    useInheritedMediaQuery: true,
           locale: DevicePreview.locale(context),
           builder: DevicePreview.appBuilder,
@@ -32,6 +43,9 @@ class MyApp extends StatelessWidget {
         ht = constraints.maxHeight;
         return SafeArea(
           child: MaterialApp(
+            useInheritedMediaQuery: true,
+            locale: DevicePreview.locale(context),
+            builder: DevicePreview.appBuilder,
             theme: ThemeData(
                 appBarTheme: const AppBarTheme(
                   elevation: 0,
@@ -41,7 +55,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: OnBoardingScreen.id,
+            initialRoute: LanguageScreen.id,
           ),
         );
       },

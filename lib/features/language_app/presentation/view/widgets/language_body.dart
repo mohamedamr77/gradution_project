@@ -6,9 +6,22 @@ import 'package:gradutionproject/features/language_app/presentation/viewModel/la
 import 'package:gradutionproject/features/language_app/presentation/viewModel/language_app_state.dart';
 import '../../../../../core/shared_widget/custom_continer_check.dart';
 
-class LanguageBody extends StatelessWidget {
+class LanguageBody extends StatefulWidget {
   const LanguageBody({super.key});
 
+  @override
+  State<LanguageBody> createState() => _LanguageBodyState();
+}
+
+class _LanguageBodyState extends State<LanguageBody> {
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+
+    BlocProvider.of<LanguageAppCubit>(context).fetchGetAllLevel();
+  }
   @override
   Widget build(BuildContext context) {
     LanguageAppCubit cubit = BlocProvider.of<LanguageAppCubit>(context);
