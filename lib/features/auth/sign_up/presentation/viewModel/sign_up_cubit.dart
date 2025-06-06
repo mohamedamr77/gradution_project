@@ -11,7 +11,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   bool visibilityConfirmPassword = true;
   final SignUpRepo signUpRepo;
 
-  String? name;
+  String? firstName;
+  String? secondName;
   String? email;
   String? password;
   String? phoneNumber;
@@ -29,7 +30,8 @@ class SignUpCubit extends Cubit<SignUpState> {
   void resetState() {
     visibilityPassword = true;
     visibilityConfirmPassword = true;
-    name = null;
+    firstName = null;
+    secondName = null;
     email = null;
     password = null;
     phoneNumber = null;
@@ -37,12 +39,11 @@ class SignUpCubit extends Cubit<SignUpState> {
   }
 
   Future<void> signUpWithEmail() async {
-    debugPrint("Name: $name, Email: $email, Password: $password, Phone: $phoneNumber");
     emit(SignUpWithEmailLoadingState());
     final result = await signUpRepo.userRegister(
         registerRequest: RegisterRequest(
-          firstName: name,
-          lastName: name,
+          firstName: firstName,
+          lastName:secondName,
           email: email,
           password: password,
           phoneNumber: phoneNumber,

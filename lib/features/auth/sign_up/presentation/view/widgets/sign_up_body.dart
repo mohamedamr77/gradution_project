@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/auth/shared_widget_auth/social_auth_section.dart';
 import '../../../../../../core/shared_widget/name_screen.dart';
+import '../../viewModel/sign_up_cubit.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
 import 'email_field_sign_up.dart';
@@ -17,6 +19,7 @@ class SignUpBody extends StatelessWidget {
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
     AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+    final cubit = context.read<SignUpCubit>();
     return Form(
       key: formKey,
       autovalidateMode: autoValidateMode,
@@ -38,7 +41,19 @@ class SignUpBody extends StatelessWidget {
                     const SizedBox(
                       height: 32,
                     ),
-                    const NameFieldSignUp(),
+                     NameFieldSignUp(hintText:  AppText.enterYourName, title: "الاسم الاول",
+                     onChanged: (v) {
+                       cubit.firstName = v;
+                     },
+                     ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    NameFieldSignUp(hintText:  AppText.enterYourName, title: "الاسم الثانى",
+                      onChanged: (v) {
+                        cubit.secondName = v;
+                      },
+                    ),
                     const SizedBox(
                       height: 16,
                     ),

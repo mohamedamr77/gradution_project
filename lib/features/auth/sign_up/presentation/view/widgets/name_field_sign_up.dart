@@ -9,25 +9,21 @@ import '../../../../../../core/utils/validation_service.dart';
 import '../../viewModel/sign_up_cubit.dart';
 
 class NameFieldSignUp extends StatelessWidget {
-  const NameFieldSignUp({super.key});
+  final String hintText;
+  final String title;
+  final void Function(String)? onChanged;
+  const NameFieldSignUp({super.key, required this.hintText, required this.title, this.onChanged});
 
   @override
   Widget build(BuildContext context) {
-    var cubit = BlocProvider.of<SignUpCubit>(context);
-    return BlocBuilder<SignUpCubit, SignUpState>(
-      builder: (context, state) {
-        return CustomTextField(
-          hintText: AppText.enterYourName,
-          prefix: AppIcons.nameIcon,
-          title: AppText.name,
-          validator: (value) {
-            return Validators.validateName(value);
-          },
-          onChanged: (v) {
-            cubit.name = v;
-          },
-        );
+    return CustomTextField(
+      hintText: hintText,
+      prefix: AppIcons.nameIcon,
+      title: title,
+      validator: (value) {
+        return Validators.validateName(value);
       },
+      onChanged: onChanged,
     );
   }
 }
