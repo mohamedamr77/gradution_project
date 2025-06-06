@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
+import 'package:gradutionproject/core/utils/token_manager.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
+import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -65,7 +67,11 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: LoginScreen.id,
+            initialRoute:
+            TokenManager.getToken() == null
+                ? OnBoardingScreen.id
+                : BottomNavBarScreen.id,
+
           ),
         );
       },

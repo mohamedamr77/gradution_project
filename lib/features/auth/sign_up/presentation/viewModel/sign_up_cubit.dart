@@ -1,8 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/auth/sign_up/data/model/sign_up_request.dart';
 import 'package:gradutionproject/features/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
+import '../../../../../core/utils/token_manager.dart';
 
 class SignUpCubit extends Cubit<SignUpState> {
   SignUpCubit({required this.signUpRepo}) : super(SignUpInitialState());
@@ -52,6 +52,7 @@ class SignUpCubit extends Cubit<SignUpState> {
    result.fold((l) {
       emit(SignUpWithEmailFailureState(error: l.message));
    }, (r) {
+     TokenManager.saveToken(r.token??"");
       emit(SignUpWithEmailSuccessState(authResponse: r));
    },);
   }

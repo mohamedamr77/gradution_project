@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
+import 'package:gradutionproject/core/utils/token_manager.dart';
 import 'package:gradutionproject/features/auth/login/data/model/login_request_model.dart';
 import 'package:gradutionproject/features/auth/login/data/repo/login_repo.dart';
 import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
@@ -127,6 +128,7 @@ class LoginCubit extends Cubit<LoginState> {
           message: "Login Successful",
           backgroundColor: AppColors.greenColor,
         );
+        TokenManager.saveToken(authResponse.token??"");
         emit(LoginWithSuccessState(authResponse: authResponse));
         successTrigger?.fire();
 
