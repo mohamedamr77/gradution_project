@@ -1,4 +1,4 @@
-import 'package:gradutionproject/features/auth/sign_up/data/model/sign_up_response.dart';
+import 'package:gradutionproject/features/auth/sign_up/data/model/auth_response.dart';
 
 abstract class SignUpState {}
 
@@ -9,9 +9,9 @@ class VisibilityPasswordChange extends SignUpState {}
 class VisibilityConfirmPasswordChange extends SignUpState {}
 class SignUpWithEmailLoadingState extends SignUpState {}
 class SignUpWithEmailSuccessState extends SignUpState {
-  final SignUpResponse signUpResponse;
+  final AuthResponse  authResponse;
 
-  SignUpWithEmailSuccessState({required this.signUpResponse});
+  SignUpWithEmailSuccessState({required this.authResponse});
 }
 class SignUpWithEmailFailureState extends SignUpState {
   final String error;

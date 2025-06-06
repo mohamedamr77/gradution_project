@@ -1,19 +1,19 @@
 
 import 'package:gradutionproject/features/auth/sign_up/data/model/user_model.dart';
 
-class SignUpResponse {
+class AuthResponse {
   final bool? succes;
   final UserModel? user;
   final String? token;
 
-  SignUpResponse({
+  AuthResponse({
     this.succes,
     this.user,
     this.token,
   });
 
-  factory SignUpResponse.fromJson(Map<String, dynamic> json) {
-    return SignUpResponse(
+  factory AuthResponse.fromJson(Map<String, dynamic> json) {
+    return AuthResponse(
       succes: json['succes'] as bool?,
       user: json['user'] != null ? UserModel.fromJson(json['user']) : null,
       token: json['Token'] as String?,

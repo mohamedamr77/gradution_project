@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
+import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/on_boarding/presentation/view/on_boarding_screen.dart';
 import 'package:hive/hive.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -64,7 +65,7 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: OnBoardingScreen.id,
+            initialRoute: LoginScreen.id,
           ),
         );
       },

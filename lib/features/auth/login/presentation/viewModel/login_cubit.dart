@@ -2,13 +2,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
+import 'package:gradutionproject/core/utils/app_colors.dart';
+import 'package:gradutionproject/features/auth/login/data/model/login_request_model.dart';
+import 'package:gradutionproject/features/auth/login/data/repo/login_repo.dart';
 import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:rive/rive.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
-  LoginCubit() : super(LoginInitialState());
-
+  LoginCubit({required this.loginRepo}) : super(LoginInitialState());
+  final LoginRepo loginRepo;
   // Controllers and variables
   bool visibilityPassword = true;
   TextEditingController emailController = TextEditingController();
@@ -85,15 +89,7 @@ class LoginCubit extends Cubit<LoginState> {
   /// Moves the character's eyes based on text input
   void moveEyes(String value) {
     lookNum?.change(value.length.toDouble() * 10);
-    // int cursorPosition = emailController.selection.baseOffset;
-    //
-    // if (cursorPosition < 0) {
-    //   lookNum?.change(0); // Default value if cursor position isn't detected
-    //   return;
-    // }
-    //
-    // double mappedValue = (cursorPosition / value.length) * 2.0 - 1.0;
-    // lookNum?.change(mappedValue);
+
   }
 
   /// Raises the character's hands to cover eyes
@@ -110,7 +106,38 @@ class LoginCubit extends Cubit<LoginState> {
     emit(HandDownState());
   }
 
-  /// Simulates a login attempt
+  Future<void> loginWithEmail ()async{
+    emit(LoginWithEmailLoadingState());
+    final result = await loginRepo.userLogin(
+      loginRequest: LoginRequest(email: emailController.text, password: passwordController.text)
+    );
+    result.fold(
+      (failure) {
+        debugPrint("Login Response Error: ${failure.message}");
+        ToastUtils.showToast(
+          message: failure.message,
+        );
+        emit(LoginFailState(error: failure.message));
+        failTrigger?.fire();
+      },
+      (authResponse) {
+        debugPrint("Login Response Success: ${authResponse.toString()}");
+        NavigationManager.replaceAll(BottomNavBarScreen.id);
+        ToastUtils.showToast(
+          message: "Login Successful",
+          backgroundColor: AppColors.greenColor,
+        );
+        emit(LoginWithSuccessState(authResponse: authResponse));
+        successTrigger?.fire();
+
+      },
+    );
+  }
+
+}
+
+
+/*
   void loginClick() {
     isChecking?.change(true);
     isHandUp?.change(false);
@@ -126,4 +153,4 @@ class LoginCubit extends Cubit<LoginState> {
       emit(LoginFailState());
     }
   }
-}
+ */

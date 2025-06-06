@@ -52,7 +52,7 @@ class SignUpCubit extends Cubit<SignUpState> {
    result.fold((l) {
       emit(SignUpWithEmailFailureState(error: l.message));
    }, (r) {
-      emit(SignUpWithEmailSuccessState(signUpResponse: r));
+      emit(SignUpWithEmailSuccessState(authResponse: r));
    },);
   }
 }
