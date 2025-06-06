@@ -1,224 +1,191 @@
 import 'dart:convert';
 import 'package:flutter/foundation.dart';
 import 'package:http/http.dart' as http;
-
 import '../utils/token_manager.dart';
+import 'package:injectable/injectable.dart';
+import 'package:pretty_http_logger/pretty_http_logger.dart';
 
+@injectable
 class ApiService {
- final   String baseUrl ="https://baby-tracker-baby-tracker.up.railway.app/api/v1";
-  Future<dynamic> get({required String url, String? token}) async {
-    Map<String, String> headers = {};
-    if (token != null) {
-      headers.addAll({
-        "Authorization": "Bearer $token",
-        "x-flutter-secret" :"flutter_client"
-      });
+  final HttpWithMiddleware _client = HttpWithMiddleware.build(
+    middlewares: [HttpLogger(logLevel: LogLevel.BODY)],
+  );
+
+  Future<dynamic> get({required String endPoint, String? token}) async {
+    Map<String, String> headers = {
+      'accept-language': 'ar',
+      'Content-Type': 'application/json',
+       'x-flutter-secret' :'flutter_client'
+    };
+    final accessToken = token ?? TokenManager.getToken();
+
+    if (accessToken != null && accessToken.isNotEmpty) {
+      headers.addAll({"Authorization": "Bearer $accessToken"});
     }
 
-    http.Response response = await http.get(
-      Uri.parse("$baseUrl$url"),
-      headers: headers,
-    );
+    debugPrint("EndPoint =$endPoint token=$accessToken");
 
-    if (response.statusCode == 200) {
-      if (kDebugMode) {
-        print(response.body);
+    try {
+      http.Response response = await http.get(
+        Uri.parse(endPoint),
+        headers: headers,
+      );
+
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        final decodedBody = jsonDecode(response.body);
+        final message = decodedBody['message'] ?? 'حدث خطأ ما';
+        throw message;
       }
-      debugPrint("success");
-      return jsonDecode(response.body);
-    } else {
-      debugPrint(response.body);
-      throw Exception(response.body);
+    } catch (e) {
+      debugPrint("Error in get request: $e");
+      throw e.toString();
     }
   }
 
-  Future<dynamic> postWithGoogle(
-      {required String url, dynamic body, String? token}) async {
+
+  Future<dynamic> post({
+    required String endPoint,
+    dynamic body,
+    String? token,
+  }) async {
     Map<String, String> headers = {
+      "x-flutter-secret": "flutter_client",
       "Content-Type": "application/json",
-      "Accept": "application/json",
     };
 
-    if (kDebugMode) {
-      print("URL: $url");
-    }
-    if (kDebugMode) {
-      print("Request Body: ${jsonEncode(body)}");
+    final accessToken = token ?? TokenManager.getToken();
+    if (accessToken != null && accessToken.isNotEmpty) {
+      headers.addAll({"Authorization": "Bearer $accessToken"});
     }
 
-    // Ensure the body is properly encoded as a JSON string
-    http.Response response = await http.post(
-      Uri.parse(url),
-      body: jsonEncode(body), // Correctly encode the body as a JSON string
-      headers: headers, // Pass headers
-    );
+    try {
+      http.Response response = await _client.post(
+        Uri.parse(endPoint),
+        body: jsonEncode(body),
+        headers: headers,
+      );
 
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return response;
-    } else {
-      if (kDebugMode) {
-        print('Error occurred: ${response.statusCode}');
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        debugPrint("Failure Post ${response.body}");
+        final decodedBody = jsonDecode(response.body);
+        final message = decodedBody['msg'] ?? 'حدث خطأ ما';
+        throw message;
       }
-      if (kDebugMode) {
-        print("respnse ${response.body}");
-      }
-      throw Exception(response.body);
+    } catch (e) {
+      debugPrint("Error in Post request: $e");
+      throw e.toString();
     }
   }
 
-  Future<dynamic> postWithEmailAndPassword(
-      {required String url, dynamic body, String? token}) async {
+
+  Future<dynamic> put({
+    required String endPoint,
+    dynamic body,
+    String? token,
+  }) async {
     Map<String, String> headers = {};
 
-    if (token != null) {
-      headers.addAll({
-        "Authorization": "Bearer $token",
-      });
+    final accessToken = token ?? TokenManager.getToken();
+
+    if (accessToken != null && accessToken.isNotEmpty) {
+      headers.addAll({"Authorization": "Bearer $accessToken"});
     }
+    // debugPrint("EndPoint =$endPoint token=$accessToken");
 
-    http.Response response = await http.post(
-      Uri.parse(url),
-      body: body,
-      headers: headers,
-    );
-
-    if (response.statusCode == 200 || response.statusCode == 201) {
-      return jsonDecode(response.body);
-    } else {
-      throw Exception(response.body);
-    }
-  }
-
-  Future<dynamic> put(
-      {required String url, dynamic body, String? token}) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/x-www-form-urlencoded",
-    };
-
-    if (token != null) {
-      headers.addAll({
-        "Authorization": "Bearer $token",
-      });
-    }
     if (kDebugMode) {
-      print("url =$url body=$body token=$token");
+      // print("EndPoint =$endPoint body=$body token=${TokenManager.getToken()}");
     }
-    http.Response response = await http.put(
-      Uri.parse(url),
+    http.Response response = await _client.put(
+      Uri.parse(endPoint),
       body: body,
       headers: headers,
     );
-    if (response.statusCode == 200) {
-      if (kDebugMode) {
-        print(response.statusCode);
+    try {
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        debugPrint("Faliure Put : ${response.body}");
+        final decodedBody = jsonDecode(response.body);
+        final message = decodedBody['message'] ?? 'حدث خطأ ما';
+        throw message;
       }
-      return jsonDecode(response.body);
-    } else {
-      throw Exception(
-          'Failed to load data status code: ${response.statusCode}');
+    } catch (e) {
+      debugPrint("Error in Put request: $e");
+      throw e.toString();
     }
   }
 
   Future<dynamic> patch({
-    required String url,
+    required String endPoint,
     dynamic body,
     String? token,
   }) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer $token",
-    };
+    Map<String, String> headers = {};
+    final accessToken = token ??TokenManager.getToken();
+
+    if (accessToken != null && accessToken.isNotEmpty) {
+      headers.addAll({"Authorization": "Bearer $accessToken"});
+    }
+    // debugPrint("EndPoint =$endPoint token=$accessToken");
 
     // Ensure that the body is correctly encoded to JSON
     final encodedBody = jsonEncode(body);
 
-    // if body == null  not send
-    http.Response response = await http.patch(
-      Uri.parse(url),
-      body: body == null
-          ? null
-          : encodedBody, // Correctly encode the body to JSON
-      headers: headers,
-    );
-
-    if (response.statusCode == 200) {
-      if (kDebugMode) {
-        print(response.statusCode);
-      }
-      debugPrint("success");
-      return jsonDecode(response.body); // Return the decoded JSON response
-    } else {
-      debugPrint(response.body.toString());
-      debugPrint(response.statusCode.toString());
-      debugPrint("token ${TokenManager.getToken().toString()}");
-      throw Exception(response.body);
-    }
-  }
-
-  Future<Map<String, dynamic>> patchResetPassword({
-    required String url,
-    dynamic body,
-    String? token,
-  }) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer $token",
-    };
-
-    final encodedBody = jsonEncode(body);
-
-    http.Response response = await http.patch(
-      Uri.parse(url),
+    http.Response response = await _client.patch(
+      Uri.parse(endPoint),
       body: body == null ? null : encodedBody,
       headers: headers,
     );
 
-    // If the response is successful, return a map with status code and body
-    if (response.statusCode == 200) {
-      debugPrint("Request successful");
-      return {
-        "statusCode": response.statusCode,
-        "body": jsonDecode(response.body),
-      };
-    } else {
-      // In case of error, add the status code to the response body
-      debugPrint("Error response: ${response.body}");
-      debugPrint("Error status code: ${response.statusCode}");
-      Map<String, dynamic> errorResponse = jsonDecode(response.body);
-      errorResponse["statusCode"] = response.statusCode;
-
-      // Throw an exception with both the status code and error body
-      throw Exception(jsonEncode(errorResponse));
+    try {
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        debugPrint("Faliure Patch : ${response.body}");
+        final decodedBody = jsonDecode(response.body);
+        final message = decodedBody['message'] ?? 'حدث خطأ ما';
+        throw message;
+      }
+    } catch (e) {
+      debugPrint("Error in Patch request: $e");
+      throw e.toString();
     }
   }
 
   Future<dynamic> delete({
-    required String url,
+    required String endPoint,
+    dynamic body,
     String? token,
   }) async {
-    Map<String, String> headers = {
-      "Content-Type": "application/json",
-      "Authorization": "Bearer $token",
-    };
+    Map<String, String> headers = {};
+    final accessToken = token ?? TokenManager.getToken();
 
-    // if body == null  not send
-    http.Response response = await http.delete(
-      Uri.parse(url),
-      headers: headers,
-    );
+    if (accessToken != null && accessToken.isNotEmpty) {
+      headers.addAll({"Authorization": "Bearer $accessToken"});
+    }
+    // debugPrint("EndPoint =$endPoint token=$accessToken");
+    try {
+      http.Response response = await _client.delete(
+        Uri.parse(endPoint),
+        body: body,
+        headers: headers,
+      );
 
-    if (response.statusCode == 200) {
-      if (kDebugMode) {
-        print(response.statusCode);
+      if (response.statusCode == 200 || response.statusCode == 201) {
+        return jsonDecode(response.body);
+      } else {
+        debugPrint("Faliure Post ${response.body}");
+        final decodedBody = jsonDecode(response.body);
+        final message = decodedBody['message'] ?? 'حدث خطأ ما';
+        throw message;
       }
-      debugPrint("success");
-      return jsonDecode(response.body); // Return the decoded JSON response
-    } else {
-      debugPrint(response.body.toString());
-      debugPrint(response.statusCode.toString());
-      debugPrint("token ${TokenManager.getToken().toString()}");
-
-      throw Exception(response.body);
+    } catch (e) {
+      debugPrint("Error in Delete request: $e");
+      throw e.toString();
     }
   }
 }

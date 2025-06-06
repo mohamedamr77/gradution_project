@@ -29,6 +29,7 @@ class CustomTextField extends StatelessWidget {
     required this.title,
     this.onTap,
     this.onTapOutside,
+    this.maxLength,
   });
 
   final String hintText;
@@ -38,6 +39,7 @@ class CustomTextField extends StatelessWidget {
   final Color? fillColor;
   final int minLine;
   final int maxLine;
+  final int? maxLength;
   final void Function()? onTap;
   final void Function(String)? onChanged;
   final String? initialValue;
@@ -71,6 +73,7 @@ class CustomTextField extends StatelessWidget {
             height: 12,
           ),
           TextFormField(
+            maxLength: maxLength,
             onTap: onTap,
             textDirection: (SharedFunctions.isArabicLocale()
                 ? TextDirection.ltr
@@ -97,6 +100,7 @@ class CustomTextField extends StatelessWidget {
               fontFamily: AppFontFamily.cairoFontFamily,
             ),
             decoration: InputDecoration(
+              counterText: "",
                 hintTextDirection: TextDirection.rtl,
                 fillColor: fillColor ?? const Color(0xffFAFAFA),
                 hintText: hintText,

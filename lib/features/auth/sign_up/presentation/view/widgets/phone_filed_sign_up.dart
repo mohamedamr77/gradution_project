@@ -14,6 +14,8 @@ class PhoneFiledSignUp extends StatelessWidget {
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<SignUpCubit>(context);
     return CustomTextField(
+      maxLength: 11,
+      keyboardType: TextInputType.phone,
       hintText: AppText.enterPhoneNumber,
       prefix: AppIcons.phoneIcon,
       title: AppText.phoneNumber,

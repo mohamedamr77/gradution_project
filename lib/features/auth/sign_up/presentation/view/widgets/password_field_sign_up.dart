@@ -18,6 +18,7 @@ class PasswordFieldSignUp extends StatelessWidget {
         return CustomTextField(
           obscureText: cubit.visibilityPassword ? true : false,
           hintText: AppText.enterPassword,
+          keyboardType: TextInputType.visiblePassword,
           prefix: AppIcons.passwordIcon,
           title: AppText.password,
           suffixIcon: IconButton(

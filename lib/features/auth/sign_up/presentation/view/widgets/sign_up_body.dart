@@ -16,7 +16,7 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
-    AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction;
+    AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
     return Form(
       key: formKey,
       autovalidateMode: autoValidateMode,

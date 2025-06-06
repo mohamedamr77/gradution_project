@@ -12,7 +12,7 @@ class HomeRepoImplement implements HomeRepo{
   Future<Either<Failure, HomeModel>> getHomeData() async{
     try {
       var response =await apiService.get(
-          url: "/user/getAll",
+          endPoint: "/user/getAll",
          token: "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJmaXJzdF9uYW1lIjoiRmlyc3QiLCJ1c2VySWQiOjcwLCJyb2xlIjoiQWRtaW4iLCJpYXQiOjE3NDM1Mzc2NTMsImV4cCI6MTc0NjEyOTY1M30.R9PP6k7U9xTkUHwPaYxMUUil-jVAg7NAKVYPcg30sfg"
       );
       return right(response);
