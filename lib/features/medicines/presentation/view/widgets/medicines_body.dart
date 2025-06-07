@@ -24,14 +24,9 @@ class MedicinesBody extends StatelessWidget {
                     ? Padding(
                         padding: EdgeInsets.symmetric(
                             horizontal: 0.04.w, vertical: 0.02.h),
-                        child: const CustomScrollView(
+                        child:  CustomScrollView(
                           slivers: [
-                            MedicinesButtons(),
-                            SliverToBoxAdapter(
-                                child: SizedBox(
-                              height: 16,
-                            )),
-                            MedicinesListItems(),
+                            MedicinesListItems(medications:state.medicineResponse.data?.rows??[],),
                           ],
                         ),
                       )

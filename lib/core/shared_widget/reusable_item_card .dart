@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
@@ -32,8 +33,8 @@ class ReusableItemCard extends StatelessWidget {
                 textDirection: TextDirection.rtl,
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Image(
-                    image: AssetImage(reusableModel.imagePath),
+                  CachedNetworkImage(
+                    imageUrl: reusableModel.imagePath,
                     width: 0.28.w,
                     height: 0.12.h,
                     fit: BoxFit.fill,

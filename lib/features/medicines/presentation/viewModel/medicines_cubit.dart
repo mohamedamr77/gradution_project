@@ -6,13 +6,9 @@ import 'package:gradutionproject/features/medicines/presentation/viewModel/medic
 class MedicinesCubit extends Cubit<MedicinesState> {
   MedicinesCubit({required this.medicinesRepo})
       : super(MedicinesInitialState());
-  int buttonSelected = 0;
+
   final MedicinesRepo medicinesRepo;
 
-  void selectButton(int index) {
-    buttonSelected = index;
-    emit(ChangeButtonMedicinesStateState());
-  }
 
   Future<void> getAllMedicines() async {
     emit(GetAllMedicinesLoadingState());
