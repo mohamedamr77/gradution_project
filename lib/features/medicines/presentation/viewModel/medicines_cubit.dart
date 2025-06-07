@@ -10,9 +10,9 @@ class MedicinesCubit extends Cubit<MedicinesState> {
   final MedicinesRepo medicinesRepo;
 
 
-  Future<void> getAllMedicines() async {
+  Future<void> getAllMedicines({required String search}) async {
     emit(GetAllMedicinesLoadingState());
-    final result = await medicinesRepo.getAllMedicine();
+    final result = await medicinesRepo.searchMedicine(search: search);
     result.fold(
           (failure) {
             debugPrint("Error Medicine: ${failure.message}");

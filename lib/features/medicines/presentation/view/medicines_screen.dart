@@ -17,7 +17,7 @@ class MedicinesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => MedicinesCubit(medicinesRepo: MedicinesRepoImpl(apiService: ApiService()))..getAllMedicines(),
+      create: (context) => MedicinesCubit(medicinesRepo: MedicinesRepoImpl(apiService: ApiService()))..getAllMedicines(search: ''),
       child: Scaffold(
         appBar: CustomAppBar(
           actions: [

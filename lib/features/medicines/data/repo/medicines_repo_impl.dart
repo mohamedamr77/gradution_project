@@ -13,10 +13,10 @@ class MedicinesRepoImpl implements MedicinesRepo {
 
   MedicinesRepoImpl({required this.apiService});
   @override
-  Future<Either<Failure, MedicationResponse>> getAllMedicine() async{
+  Future<Either<Failure, MedicationResponse>> searchMedicine({required String search}) async{
     try {
       final response = await apiService.get(
-        endPoint: AppEndPoint.getAllMedicine,
+        endPoint: AppEndPoint.searchMedicine(search),
       );
       if (response["success"] ==true) {
         final medicationResponse = MedicationResponse.fromJson(response);
