@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/shared_widget/custom_title_text.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../../core/shared_widget/custom_description_text.dart';
@@ -9,6 +9,7 @@ import '../../../../../../core/utils/app_icons.dart';
 import '../../../../../../core/utils/app_images.dart';
 import '../../../../../auth/shared_widget_auth/social_auth_section.dart';
 import '../../../../../../core/shared_model/resuable_model.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class DoctorDetailsBody extends StatelessWidget {
   const DoctorDetailsBody({super.key});
@@ -25,7 +26,7 @@ class DoctorDetailsBody extends StatelessWidget {
                 imagePath: AppImages.doctorAmrTest,
                 title: "د / محمد عمرو",
                 description: "اخصائى اطفال",
-                subDescription: "يتم اخده مره واحده",
+                subDescription: LocaleKeys.singleDose.tr(),
                 onPressedIconFavourite: () {},
                 onTapCard: () {},
                 isDoctor: true,
@@ -62,16 +63,16 @@ class DoctorDetailsBody extends StatelessWidget {
               height: 32,
             ),
           ),
-          const SliverToBoxAdapter(
-              child: CustomTitleText(title: AppText.doctorDetails)),
+          SliverToBoxAdapter(
+              child: CustomTitleText(title: LocaleKeys.doctorDetails.tr())),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 16,
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: CustomDescriptionText(
-              title: AppText.doctorDescription,
+              title: LocaleKeys.doctorDescription.tr(),
             ),
           ),
           const SliverToBoxAdapter(
@@ -79,16 +80,16 @@ class DoctorDetailsBody extends StatelessWidget {
               height: 24,
             ),
           ),
-          const SliverToBoxAdapter(
-              child: CustomTitleText(title: AppText.workHours)),
+          SliverToBoxAdapter(
+              child: CustomTitleText(title: LocaleKeys.workHours.tr())),
           const SliverToBoxAdapter(
             child: SizedBox(
               height: 16,
             ),
           ),
-          const SliverToBoxAdapter(
+          SliverToBoxAdapter(
             child: CustomDescriptionText(
-              title: AppText.workSchedule,
+              title: LocaleKeys.workSchedule.tr(),
             ),
           ),
         ],

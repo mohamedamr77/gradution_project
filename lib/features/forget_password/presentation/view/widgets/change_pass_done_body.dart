@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../core/shared_widget/name_screen.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import 'image_forget_password.dart';
 
 class ChangePassDoneBody extends StatelessWidget {
@@ -27,14 +28,14 @@ class ChangePassDoneBody extends StatelessWidget {
                   const ImageForgetPassword(
                       imagePath: AppImages.changePassDone),
                   SizedBox(height: 0.04.h),
-                  const NameScreen(title: AppText.passwordChanged),
+                  NameScreen(title: LocaleKeys.passwordChanged.tr()),
                   SizedBox(height: 0.04.h),
                   CustomElevatedButton(
                     onPress: () {
                       // Add your navigation or action here
                     },
                     btnColor: AppColors.primaryColor,
-                    titleButton: AppText.login,
+                    titleButton: LocaleKeys.login.tr(),
                   ),
                   SizedBox(height: 0.05.h),
                 ],

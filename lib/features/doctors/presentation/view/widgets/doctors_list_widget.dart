@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/doctors/presentation/view/doctor_details_screen.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../../../favourite_items/data/model/fav_doctors_list.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 
 class DoctorsListWidget extends StatefulWidget {
   const DoctorsListWidget({super.key});
@@ -34,7 +36,7 @@ class _DoctorsListWidgetState extends State<DoctorsListWidget> {
         imagePath: favDoctorsList[index].imagePath,
         title: favDoctorsList[index].name,
         description: favDoctorsList[index].description,
-        subDescription: "يتم اخده مره واحده",
+        subDescription: LocaleKeys.singleDose.tr(),
         onPressedIconFavourite: () {
           favDoctorsList[index].isFav = !favDoctorsList[index].isFav;
           setState(() {});

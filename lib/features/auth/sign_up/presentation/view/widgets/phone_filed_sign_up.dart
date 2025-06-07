@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../../../core/utils/validation_service.dart';
 
 class PhoneFiledSignUp extends StatelessWidget {
@@ -16,9 +17,9 @@ class PhoneFiledSignUp extends StatelessWidget {
     return CustomTextField(
       maxLength: 11,
       keyboardType: TextInputType.phone,
-      hintText: AppText.enterPhoneNumber,
+      hintText: LocaleKeys.enterPhoneNumber.tr(),
       prefix: AppIcons.phoneIcon,
-      title: AppText.phoneNumber,
+      title: LocaleKeys.phoneNumber.tr(),
       validator: (value) {
         return Validators.validatePhoneNumber(value);
       },

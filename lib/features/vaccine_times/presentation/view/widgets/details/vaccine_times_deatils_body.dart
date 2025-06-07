@@ -2,11 +2,12 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/custom_description_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/shared_model/resuable_model.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_text.dart';
 
 class VaccineTimesDetailsBody extends StatelessWidget {
   const VaccineTimesDetailsBody({super.key});
@@ -19,21 +20,22 @@ class VaccineTimesDetailsBody extends StatelessWidget {
         slivers: [
           _buildReusableItemCard(),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.doseCount),
+          _buildSectionTitle(LocaleKeys.doseCount.tr()),
           _buildSpacer(height: 16),
           _buildSectionDescription("جرعتان أو ثلاث (حسب نوع اللقاح)."),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.timeline),
+          _buildSectionTitle(LocaleKeys.timeline.tr()),
           _buildSpacer(height: 16),
-          _buildSectionDescription(AppText.timeLineDetails),
+          _buildSectionDescription(LocaleKeys.timeLineDetails.tr()),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.sideEffectsLabel),
+          _buildSectionTitle(LocaleKeys.sideEffectsLabel.tr()),
           _buildSpacer(height: 16),
-          _buildSectionDescription(AppText.sideEffectDetails),
+          _buildSectionDescription(LocaleKeys.sideEffectDetails.tr()),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.medicationsForSideEffects),
+          _buildSectionTitle(LocaleKeys.medicationsForSideEffects.tr()),
           _buildSpacer(height: 16),
-          _buildSectionDescription(AppText.medicationsForSideEffectsDetails)
+          _buildSectionDescription(
+              LocaleKeys.medicationsForSideEffectsDetails.tr())
         ],
       ),
     );
@@ -44,7 +46,7 @@ class VaccineTimesDetailsBody extends StatelessWidget {
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
           subDescription: "يتم اخده مره واحده",
           onPressedIconFavourite: () {},

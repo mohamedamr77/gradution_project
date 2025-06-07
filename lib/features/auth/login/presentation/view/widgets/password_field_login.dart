@@ -3,9 +3,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
 import 'package:gradutionproject/features/auth/login/presentation/viewModel/login_cubit.dart';
 import 'package:gradutionproject/features/auth/login/presentation/viewModel/login_state.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../../core/utils/app_icons.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class PasswordFieldLogin extends StatelessWidget {
   const PasswordFieldLogin({super.key});
@@ -17,8 +18,8 @@ class PasswordFieldLogin extends StatelessWidget {
       builder: (context, state) {
         return CustomTextField(
           obscureText: cubit.visibilityPassword ? true : false,
-          title: AppText.password,
-          hintText: AppText.enterPassword,
+          title: LocaleKeys.password.tr(),
+          hintText: LocaleKeys.enterPassword.tr(),
           onTap: cubit.visibilityPassword == true
               ? cubit.handsUp
               : cubit.handsDown,

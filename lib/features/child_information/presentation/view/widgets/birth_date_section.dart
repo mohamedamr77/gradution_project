@@ -4,9 +4,10 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_informtion_cubit.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 
 class BirthDateSection extends StatelessWidget {
   const BirthDateSection({super.key});
@@ -19,11 +20,11 @@ class BirthDateSection extends StatelessWidget {
         return SliverToBoxAdapter(
           child: Column(
             children: [
-              const Align(
+              Align(
                 alignment: Alignment.centerRight,
                 child: GText(
                   color: AppColors.thirdColor,
-                  content: AppText.birthDate,
+                  content: LocaleKeys.birthDate.tr(),
                   fontSize: 16,
                 ),
               ),
@@ -45,7 +46,6 @@ class BirthDateSection extends StatelessWidget {
                         color: AppColors.thirdColor,
                       )),
                   child: Row(
-                    textDirection: TextDirection.rtl,
                     children: [
                       AppIcons.dateIcon,
                       const SizedBox(width: 8),
@@ -53,7 +53,7 @@ class BirthDateSection extends StatelessWidget {
                         fontSize: 16,
                         color: AppColors.thirdColor,
                         content: cubit.selectedDate == null
-                            ? AppText.enterBirthDate
+                            ? LocaleKeys.enterBirthDate.tr()
                             : cubit.convertDateString(cubit.selectedDate!),
                       )
                     ],

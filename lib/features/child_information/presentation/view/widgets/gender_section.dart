@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_icons.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 
 class GenderSection extends StatefulWidget {
   const GenderSection({super.key});
@@ -21,11 +22,11 @@ class _GenderSectionState extends State<GenderSection> {
     return SliverToBoxAdapter(
       child: Column(
         children: [
-          const Align(
+          Align(
             alignment: Alignment.centerRight,
             child: GText(
               color: AppColors.thirdColor,
-              content: AppText.gender,
+              content: LocaleKeys.gender.tr(),
               fontSize: 16,
             ),
           ),
@@ -42,12 +43,10 @@ class _GenderSectionState extends State<GenderSection> {
                   color: AppColors.thirdColor,
                 )),
             child: Row(
-              textDirection: TextDirection.rtl,
               children: [
                 SvgPicture.asset(AppIcons.emojiIcon),
                 const Spacer(),
                 Row(
-                  textDirection: TextDirection.rtl,
                   children: [
                     Radio<String>(
                       value: 'female',
@@ -57,18 +56,17 @@ class _GenderSectionState extends State<GenderSection> {
                           selectedGender = value;
                         });
                       },
-                      activeColor: AppColors.primaryColor, // Active radio color
+                      activeColor: AppColors.primaryColor,
                     ),
-                    const GText(
+                    GText(
                       fontSize: 16,
                       color: AppColors.thirdColor,
-                      content: AppText.female,
+                      content: LocaleKeys.female.tr(),
                     )
                   ],
                 ),
                 const Spacer(),
                 Row(
-                  textDirection: TextDirection.rtl,
                   children: [
                     Radio<String>(
                       value: 'male',
@@ -78,20 +76,18 @@ class _GenderSectionState extends State<GenderSection> {
                           selectedGender = value;
                         });
                       },
-                      activeColor: AppColors.primaryColor, // Active radio color
+                      activeColor: AppColors.primaryColor,
                     ),
-                    const GText(
+                    GText(
                       fontSize: 16,
                       color: AppColors.thirdColor,
-                      content: AppText.male,
+                      content: LocaleKeys.male.tr(),
                     )
                   ],
                 ),
                 const Spacer(),
               ],
             ),
-            // Spacing between options
-            // Male Option
           ),
         ],
       ),

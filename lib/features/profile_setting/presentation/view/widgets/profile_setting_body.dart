@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/field_name_profile_setting.dart';
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/field_phone_profile_setting.dart';
@@ -10,6 +9,8 @@ import '../../../../../core/shared_widget/custom_row_buttons.dart';
 import '../../../../../core/utils/bottomSheet_helper.dart';
 import 'field_email_profile_setting.dart';
 import 'field_password_profile_setting.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 
 class ProfileSettingBody extends StatelessWidget {
   const ProfileSettingBody({super.key});
@@ -56,17 +57,17 @@ class ProfileSettingBody extends StatelessWidget {
   SliverToBoxAdapter _buildButtons() {
     return SliverToBoxAdapter(
       child: CustomRowButtons(
-        titleBlueButton: AppText.editAccount,
+        titleBlueButton: LocaleKeys.editAccount.tr(),
         onTapBlueButton: () {},
-        titleWhiteButton: AppText.deleteAccount,
+        titleWhiteButton: LocaleKeys.deleteAccount.tr(),
         onTapWhiteButton: () {
           BottomSheetHelper.customShowModelSheet(
-              title: AppText.deleteAccount,
-              subTitle: AppText.deleteAccountConfirmation,
+              title: LocaleKeys.deleteAccount.tr(),
+              subTitle: LocaleKeys.deleteAccountConfirmation.tr(),
               button: CustomRowButtons(
-                titleBlueButton: AppText.delete,
+                titleBlueButton: LocaleKeys.delete.tr(),
                 onTapBlueButton: () {},
-                titleWhiteButton: AppText.cancel,
+                titleWhiteButton: LocaleKeys.cancel.tr(),
                 onTapWhiteButton: () {},
               ));
         },

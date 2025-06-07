@@ -4,8 +4,9 @@ import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 class SocialAuthSection extends StatelessWidget {
   final void Function() onTapFaceBooK;
@@ -24,9 +25,9 @@ class SocialAuthSection extends StatelessWidget {
         const SizedBox(
           height: 16,
         ),
-        const GText(
+        GText(
             color: AppColors.primaryColor,
-            content: AppText.orRegisterUsing,
+            content: LocaleKeys.orRegisterUsing.tr(),
             fontSize: 16,
             fontWeight: FontWeight.w500),
         const SizedBox(

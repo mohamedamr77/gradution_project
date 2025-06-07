@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 
+import '../../../../../../core/shared_widget/custom_description_text.dart';
 import '../../../../../../core/shared_widget/custom_title_text.dart';
-import '../../../../../../core/shared_widget/global_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
-import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class VaccineInfoDetailsBody extends StatelessWidget {
   const VaccineInfoDetailsBody({super.key});
@@ -20,13 +20,13 @@ class VaccineInfoDetailsBody extends StatelessWidget {
         slivers: [
           _buildReusableItemCard(),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.beforeVaccination),
+          _buildSectionTitle(LocaleKeys.beforeVaccination.tr()),
           _buildSpacer(height: 16),
-          _buildTipsDescription(AppText.loremIpsumExample1),
+          _buildTipsDescription(LocaleKeys.loremIpsumExample1.tr()),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.postVaccination),
+          _buildSectionTitle(LocaleKeys.postVaccination.tr()),
           _buildSpacer(height: 16),
-          _buildTipsDescription(AppText.loremIpsumExample1),
+          _buildTipsDescription(LocaleKeys.loremIpsumExample1.tr()),
         ],
       ),
     );
@@ -37,7 +37,7 @@ class VaccineInfoDetailsBody extends StatelessWidget {
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
           subDescription: "يتم اخده مره واحده",
           onPressedIconFavourite: () {},
@@ -62,13 +62,10 @@ class VaccineInfoDetailsBody extends StatelessWidget {
     );
   }
 
-  _buildTipsDescription(String description) {
+  SliverToBoxAdapter _buildTipsDescription(String title) {
     return SliverToBoxAdapter(
-      child: GText(
-        color: AppColors.mediumGrayColor,
-        content: description,
-        fontSize: 14,
-        fontWeight: FontWeight.w400,
+      child: CustomDescriptionText(
+        title: title,
       ),
     );
   }

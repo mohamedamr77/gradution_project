@@ -5,7 +5,6 @@ import 'package:gradutionproject/features/medicines/presentation/viewModel/medic
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/app_text.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../../data/model/medication_model.dart';
 import '../../viewModel/medicines_cubit.dart';

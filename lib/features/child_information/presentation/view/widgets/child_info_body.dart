@@ -3,11 +3,12 @@ import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/text_top_screen_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/vaccines_field_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/weight_field_child_info.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 import 'birth_date_section.dart';
 import 'diseas_field_child_info.dart';
 import 'gender_section.dart';
@@ -51,7 +52,7 @@ class ChildInfoBody extends StatelessWidget {
               onPress: () {
                 NavigationManager.replaceAll(BottomNavBarScreen.id);
               },
-              titleButton: AppText.register,
+              titleButton: LocaleKeys.register.tr(),
             ),
           ),
           spaceBetweenWidget(),
@@ -66,13 +67,13 @@ class ChildInfoBody extends StatelessWidget {
   }
 
   Widget textCenterChildInfo() {
-    return const SliverToBoxAdapter(
+    return SliverToBoxAdapter(
       child: Align(
         alignment: Alignment.centerRight,
         child: GText(
           textAlign: TextAlign.right,
           color: AppColors.primaryColor,
-          content: AppText.registerChildData,
+          content: LocaleKeys.registerChildData.tr(),
           fontSize: 14,
           fontWeight: FontWeight.w600,
         ),

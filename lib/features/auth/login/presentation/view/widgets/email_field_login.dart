@@ -1,9 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 
 import '../../../../../../core/shared_widget/custom_text_form_field.dart';
-import '../../../../../../core/utils/app_text.dart';
 import '../../viewModel/login_cubit.dart';
 import '../../viewModel/login_state.dart';
 
@@ -24,9 +25,9 @@ class EmailFieldLogin extends StatelessWidget {
           onTapOutside: (e) {
             FocusManager.instance.primaryFocus?.unfocus();
           },
-          title: AppText.emailAddress,
+          title: LocaleKeys.emailAddress.tr(),
           prefix: AppIcons.emailIcon,
-          hintText: AppText.enterEmailAddress,
+          hintText: LocaleKeys.enterEmailAddress.tr(),
           controller: cubit.emailController,
         );
       },

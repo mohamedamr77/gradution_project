@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import 'package:percent_indicator/percent_indicator.dart';
 
 class TimeLeftsSection extends StatelessWidget {
@@ -12,12 +13,12 @@ class TimeLeftsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        const Align(
+        Align(
           alignment: Alignment.centerRight,
           child: GText(
             textAlign: TextAlign.right,
             color: AppColors.primaryColor,
-            content: AppText.vaccinationTimeRemaining,
+            content: LocaleKeys.vaccinationTimeRemaining.tr(),
             fontSize: 16,
             fontWeight: FontWeight.w600,
           ),

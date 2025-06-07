@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/shared_widget/custom_list_tile.dart';
 import '../../../../../core/utils/app_images.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import '../../../data/model/account_list_tile_list.dart';
 
 class AccountBody extends StatelessWidget {
@@ -21,7 +22,7 @@ class AccountBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           _buildSpacer(height: 16),
-          _buildNameScreen(title: AppText.profile),
+          _buildNameScreen(title: LocaleKeys.profile.tr()),
           _buildSpacer(height: 16),
           _buildImageUser(imagePath: AppImages.lailaTest),
           _buildSpacer(height: 16),

@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/name_screen.dart';
 import 'package:gradutionproject/core/shared_widget/text_with_action_row%20.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 
 import '../change_pass_screen.dart';
@@ -72,7 +73,7 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
               const Spacer(
                 flex: 2,
               ),
-              const NameScreen(title: AppText.passwordResetCode),
+              NameScreen(title: LocaleKeys.passwordResetCode.tr()),
               const Spacer(),
               const ImageForgetPassword(imagePath: AppImages.confirmOtpScreen),
               const Spacer(),
@@ -95,11 +96,11 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
                           NavigationManager.push(ChangePasswordScreen.id);
                         }
                       : () {},
-                  titleButton: AppText.confirm),
+                  titleButton: LocaleKeys.confirm.tr()),
               const Spacer(),
               TextWithActionRow(
-                titleOnTap: AppText.resendCode,
-                titleWithoutTap: AppText.notHaveCode,
+                titleOnTap: LocaleKeys.resendCode.tr(),
+                titleWithoutTap: LocaleKeys.notHaveCode.tr(),
                 onTap: () {},
               ),
               const Spacer(

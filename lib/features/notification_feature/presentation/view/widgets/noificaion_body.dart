@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
-import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/notification_item.dart';
+import 'package:easy_localization/easy_localization.dart';
+
+import '../../../../../core/utils/locale_keys.g.dart';
 
 import '../notification_details_screen.dart';
 
@@ -23,8 +24,8 @@ class NotificationBody extends StatelessWidget {
               onTapIconRemove: () {},
               onTapCard: () =>
                   NavigationManager.push(NotificationDetailsScreen.id),
-              title: AppText.tuberculosisVaccineAppointment,
-              subTitle: AppText.subtitleNotification)
+              title: LocaleKeys.tuberculosisVaccineAppointment.tr(),
+              subTitle: LocaleKeys.subtitleNotification.tr())
         ],
       ),
     );
@@ -40,23 +41,27 @@ class NotificationBody extends StatelessWidget {
   SliverToBoxAdapter _buildRowOfText() {
     return SliverToBoxAdapter(
       child: Row(
-        textDirection: TextDirection.rtl,
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          const GText(
-            color: AppColors.thirdColor,
-            content: AppText.today,
-            fontSize: 14,
-            fontWeight: FontWeight.w500,
+          Text(
+            LocaleKeys.today.tr(),
+            style: const TextStyle(
+              color: AppColors.thirdColor,
+              fontSize: 14,
+              fontWeight: FontWeight.w400,
+            ),
           ),
+          const Spacer(),
           TextButton(
-              onPressed: () {},
-              child: const GText(
+            onPressed: () {},
+            child: Text(
+              LocaleKeys.markAsRead.tr(),
+              style: const TextStyle(
                 color: AppColors.primaryColor,
-                content: AppText.markAsRead,
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-              ))
+              ),
+            ),
+          ),
         ],
       ),
     );

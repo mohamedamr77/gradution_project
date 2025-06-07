@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/theme_app/presentation/viewModel/theme_state.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../core/shared_widget/custom_continer_check.dart';
 import '../../../../../core/shared_widget/custom_elevated_btn.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import '../../viewModel/theme_cubit.dart';
 
 class ThemeBody extends StatelessWidget {
@@ -23,12 +24,12 @@ class ThemeBody extends StatelessWidget {
               ),
               CustomContainerCheck(
                 isCheck: cubit.isLight,
-                title: AppText.lightTheme,
+                title: LocaleKeys.lightTheme.tr(),
               ),
               const Spacer(),
               CustomContainerCheck(
                 isCheck: cubit.isLight == false,
-                title: AppText.darkTheme,
+                title: LocaleKeys.darkTheme.tr(),
               ),
               const Spacer(
                 flex: 3,
@@ -37,7 +38,7 @@ class ThemeBody extends StatelessWidget {
                   onPress: () {
                     cubit.toggleTheme();
                   },
-                  titleButton: AppText.change),
+                  titleButton: LocaleKeys.change.tr()),
               const Spacer(
                 flex: 5,
               ),

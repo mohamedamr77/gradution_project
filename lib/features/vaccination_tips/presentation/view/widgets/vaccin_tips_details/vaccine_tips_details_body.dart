@@ -7,8 +7,9 @@ import 'package:gradutionproject/features/vaccination_tips/data/model/tips_befor
 import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_text.dart';
 import '../../../../data/model/tips_after_vaccine_list.dart';
+import 'package:easy_localization/easy_localization.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class VaccineTipsDetailsBody extends StatelessWidget {
   const VaccineTipsDetailsBody({super.key});
@@ -20,11 +21,11 @@ class VaccineTipsDetailsBody extends StatelessWidget {
         slivers: [
           _buildReusableItemCard(),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.beforeVaccination),
+          _buildSectionTitle(LocaleKeys.beforeVaccination.tr()),
           _buildSpacer(height: 16),
           _buildTipsList(tipsBeforeVaccineList),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.postVaccination),
+          _buildSectionTitle(LocaleKeys.postVaccination.tr()),
           _buildSpacer(height: 16),
           _buildTipsList(tipsAfterVaccineList),
         ],
@@ -37,7 +38,7 @@ class VaccineTipsDetailsBody extends StatelessWidget {
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
           subDescription: "يتم اخده مره واحده",
           onPressedIconFavourite: () {},

@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/features/doctors/presentation/view/widgets/details/doctor_details_body.dart';
 
 import '../../../../core/shared_widget/custom_app_bar.dart';
-import '../../../../core/utils/app_text.dart';
+import '../../../../core/utils/locale_keys.g.dart';
 
 class DoctorDetailsScreen extends StatelessWidget {
   static String id = "DoctorDetailsScreen";
@@ -10,11 +11,11 @@ class DoctorDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       appBar: CustomAppBar(
-        title: AppText.doctorInfo,
+        title: LocaleKeys.doctorInfo.tr(),
       ),
-      body: DoctorDetailsBody(),
+      body: const DoctorDetailsBody(),
     );
   }
 }

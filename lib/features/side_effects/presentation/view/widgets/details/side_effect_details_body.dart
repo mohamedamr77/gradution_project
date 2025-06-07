@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 
@@ -7,8 +8,8 @@ import '../../../../../../core/shared_widget/global_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_text.dart';
-import '../../../../../vaccination_tips/data/model/tips_before_vaccine_list.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
+import '../../../../data/model/side_effect_details_list.dart';
 
 class SideEffectDetailsBody extends StatelessWidget {
   const SideEffectDetailsBody({super.key});
@@ -21,15 +22,15 @@ class SideEffectDetailsBody extends StatelessWidget {
         slivers: [
           _buildReusableItemCard(),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.commonSideEffects),
+          _buildSectionTitle(LocaleKeys.beforeVaccination.tr()),
           _buildSpacer(height: 16),
-          _buildTipsList(tipsBeforeVaccineList),
+          _buildTipsList(sideEffectDetailsList),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.intermittentSideEffects),
+          _buildSectionTitle(LocaleKeys.postVaccination.tr()),
           _buildSpacer(height: 16),
-          _buildTipsList(tipsBeforeVaccineList),
+          _buildTipsList(sideEffectDetailsList),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.handlingSideEffects),
+          _buildSectionTitle(LocaleKeys.handlingSideEffects.tr()),
           _buildSpacer(height: 24),
         ],
       ),
@@ -41,7 +42,7 @@ class SideEffectDetailsBody extends StatelessWidget {
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
           subDescription: "يتم اخده مره واحده",
           onPressedIconFavourite: () {},

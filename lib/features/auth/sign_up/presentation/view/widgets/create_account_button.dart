@@ -5,10 +5,11 @@ import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_cubit.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/child_info_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../../core/utils/app_colors.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class CreateAccountButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
@@ -22,7 +23,7 @@ class CreateAccountButton extends StatelessWidget {
       listener: (context, state) {
         if (state is SignUpWithEmailSuccessState) {
           ToastUtils.showToast(
-              message: "تم تسجيل الدخول بنجاح",
+              message: LocaleKeys.loginSuccess.tr(),
               backgroundColor: AppColors.greenColor);
           NavigationManager.replaceAll(ChildInfoScreen.id);
         } else if (state is SignUpWithEmailFailureState) {
@@ -38,7 +39,7 @@ class CreateAccountButton extends StatelessWidget {
             }
           },
           btnColor: AppColors.primaryColor,
-          titleButton: AppText.createAccount,
+          titleButton: LocaleKeys.createAccount.tr(),
         );
       },
     );

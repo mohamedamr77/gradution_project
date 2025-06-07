@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/features/auth/shared_widget_auth/social_auth_section.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../../core/shared_widget/name_screen.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../viewModel/sign_up_cubit.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
@@ -35,21 +36,25 @@ class SignUpBody extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const NameScreen(
-                      title: AppText.createNewAccount,
+                    NameScreen(
+                      title: LocaleKeys.createNewAccount.tr(),
                     ),
                     const SizedBox(
                       height: 32,
                     ),
-                     NameFieldSignUp(hintText:  AppText.enterYourName, title: "الاسم الاول",
-                     onChanged: (v) {
-                       cubit.firstName = v;
-                     },
-                     ),
+                    NameFieldSignUp(
+                      hintText: LocaleKeys.enterYourName.tr(),
+                      title: LocaleKeys.firstName.tr(),
+                      onChanged: (v) {
+                        cubit.firstName = v;
+                      },
+                    ),
                     const SizedBox(
                       height: 16,
                     ),
-                    NameFieldSignUp(hintText:  AppText.enterYourName, title: "الاسم الثانى",
+                    NameFieldSignUp(
+                      hintText: LocaleKeys.enterYourName.tr(),
+                      title: LocaleKeys.LastName.tr(),
                       onChanged: (v) {
                         cubit.secondName = v;
                       },

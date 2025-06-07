@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../../core/shared_widget/custom_title_text.dart';
@@ -6,7 +7,7 @@ import '../../../../../../core/shared_widget/global_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_colors.dart';
 import '../../../../../../core/utils/app_images.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../../../core/shared_model/resuable_model.dart';
 
 class MedicinesDetailsBody extends StatelessWidget {
@@ -20,13 +21,13 @@ class MedicinesDetailsBody extends StatelessWidget {
         slivers: [
           _buildReusableItemCard(),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.healthNote),
+          _buildSectionTitle(LocaleKeys.healthNote.tr()),
           _buildSpacer(height: 16),
-          _buildTipsDescription(AppText.loremIpsumExample1),
+          _buildTipsDescription(LocaleKeys.loremIpsumExample1.tr()),
           _buildSpacer(height: 24),
-          _buildSectionTitle(AppText.recommendedMedications),
+          _buildSectionTitle(LocaleKeys.recommendedMedications.tr()),
           _buildSpacer(height: 16),
-          _buildTipsDescription(AppText.loremIpsumExample1),
+          _buildTipsDescription(LocaleKeys.loremIpsumExample1.tr()),
         ],
       ),
     );
@@ -37,9 +38,9 @@ class MedicinesDetailsBody extends StatelessWidget {
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
-          subDescription: "يتم اخده مره واحده",
+          subDescription: LocaleKeys.singleDose.tr(),
           onPressedIconFavourite: () {},
           onTapCard: () {},
           isDetails: true,
