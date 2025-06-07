@@ -5,7 +5,6 @@ import 'package:gradutionproject/features/on_boarding/data/on_boarding_list.dart
 
 import '../../../../../core/shared_widget/global_text.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text.dart';
 
 class StartText extends StatelessWidget {
   final int index;
@@ -16,7 +15,7 @@ class StartText extends StatelessWidget {
     return Visibility(
       visible: index == onBoardingList.length - 1,
       child:  Padding(
-        padding: EdgeInsets.only(top: 18),
+        padding: const EdgeInsets.only(top: 18),
         child: GText(
           color: AppColors.primaryColor,
           content: LocaleKeys.readyToStart.tr(),

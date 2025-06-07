@@ -4,7 +4,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/favourite_items/presentation/view/widget/favourite_body.dart';
 
 import '../../../../core/shared_widget/custom_app_bar.dart';
-import '../../../../core/utils/app_text.dart';
 import '../../../../core/utils/locale_keys.g.dart';
 import '../viewModel/favourite_items_cubit.dart';
 
@@ -21,7 +20,7 @@ class FavouriteScreen extends StatelessWidget {
         appBar: CustomAppBar(
           title: LocaleKeys.favoriteItems.tr(),
         ),
-        body: FavouriteBody(),
+        body: const FavouriteBody(),
       ),
     );
   }

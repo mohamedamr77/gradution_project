@@ -1,7 +1,6 @@
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_row_buttons.dart';
 import 'package:gradutionproject/core/utils/bottomSheet_helper.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/locale_keys.g.dart';
@@ -13,64 +12,64 @@ import 'account_list_tile_model.dart';
 
 List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
-    title: LocaleKeys.accountSettings.tr(),
+    title: LocaleKeys.accountSettings,
     imageLeadingPath: AppIcons.settingsIcon,
     onTap: () {
       NavigationManager.push(ProfileSettingScreen.id);
     },
   ),
   AccountListTileModel(
-    title: LocaleKeys.themes.tr(),
+    title: LocaleKeys.themes,
     imageLeadingPath: AppIcons.themeIcon,
     onTap: () {
       NavigationManager.push(ThemeScreen.id);
     },
   ),
   AccountListTileModel(
-    title: LocaleKeys.notifications.tr(),
+    title: LocaleKeys.notifications,
     imageLeadingPath: AppIcons.notificationIcon,
     onTap: () {
       BottomSheetHelper.customShowModelSheet(
-          title: LocaleKeys.deleteAllNotifications.tr(),
-          subTitle: LocaleKeys.deleteAllNotificationsConfirmation.tr(),
+          title: LocaleKeys.deleteAllNotifications,
+          subTitle: LocaleKeys.deleteAllNotificationsConfirmation,
           button: CustomRowButtons(
-            titleBlueButton: LocaleKeys.delete.tr(),
+            titleBlueButton: LocaleKeys.delete,
             onTapBlueButton: () {},
-            titleWhiteButton: LocaleKeys.cancel.tr(),
+            titleWhiteButton: LocaleKeys.cancel,
             onTapWhiteButton: () {},
           ));
     },
   ),
   AccountListTileModel(
-    title: LocaleKeys.language.tr(),
+    title: LocaleKeys.language,
     imageLeadingPath: AppIcons.languageIcon,
     onTap: () {
       NavigationManager.push(LanguageScreen.id);
     },
   ),
   AccountListTileModel(
-    title: LocaleKeys.addChild.tr(),
+    title: LocaleKeys.addChild,
     imageLeadingPath: AppIcons.addChilderIcon,
     onTap: () {},
   ),
   AccountListTileModel(
-    title: LocaleKeys.myChildren.tr(),
+    title: LocaleKeys.myChildren,
     imageLeadingPath: AppIcons.accountIcon,
     onTap: () {
       NavigationManager.push(MyChildrenScreen.id);
     },
   ),
   AccountListTileModel(
-      title: LocaleKeys.logout.tr(),
+      title: LocaleKeys.logout,
       imageLeadingPath: AppIcons.logoutIcon,
       onTap: () {
         BottomSheetHelper.customShowModelSheet(
-            title: LocaleKeys.logout.tr(),
-            subTitle: LocaleKeys.logoutConfirmation.tr(),
+            title: LocaleKeys.logout,
+            subTitle: LocaleKeys.logoutConfirmation,
             button: CustomRowButtons(
-              titleBlueButton: LocaleKeys.logout.tr(),
+              titleBlueButton: LocaleKeys.logout,
               onTapBlueButton: () {},
-              titleWhiteButton: LocaleKeys.cancel.tr(),
+              titleWhiteButton: LocaleKeys.cancel,
               onTapWhiteButton: () {},
             ));
       })

@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';

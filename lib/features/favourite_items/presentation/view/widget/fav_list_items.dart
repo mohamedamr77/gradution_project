@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/features/favourite_items/data/model/fav_doctors_list.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/app_text.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../../../../core/utils/locale_keys.g.dart';
 import '../../viewModel/favourite_items_cubit.dart';

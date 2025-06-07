@@ -26,7 +26,24 @@ class AccountBody extends StatelessWidget {
           _buildSpacer(height: 16),
           _buildImageUser(imagePath: AppImages.lailaTest),
           _buildSpacer(height: 16),
-          _buildListOfItems(),
+          SliverList.separated(
+            itemBuilder: (context, index) {
+              return CustomListTile(
+                title: accountListTilesList[index].title.tr(),
+                onTap: accountListTilesList[index].onTap,
+                imagePath: accountListTilesList[index].imageLeadingPath,
+                colorTitle: index == accountListTilesList.length - 1
+                    ? AppColors.redColor
+                    : AppColors.darkGrayColor,
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(
+                height: 24,
+              );
+            },
+            itemCount: accountListTilesList.length,
+          ),
           _buildSpacer(height: 32),
         ],
       ),
@@ -46,7 +63,7 @@ class AccountBody extends StatelessWidget {
       child: Align(
           alignment: Alignment.center,
           child: GText(
-              color: AppColors.primaryColor, content: title, fontSize: 18)),
+              color: AppColors.primaryColor, content: title.tr(), fontSize: 18)),
     );
   }
 
@@ -65,7 +82,7 @@ class AccountBody extends StatelessWidget {
     return SliverList.separated(
       itemBuilder: (context, index) {
         return CustomListTile(
-          title: accountListTilesList[index].title,
+          title: accountListTilesList[index].title.tr(),
           onTap: accountListTilesList[index].onTap,
           imagePath: accountListTilesList[index].imageLeadingPath,
           colorTitle: index == accountListTilesList.length - 1

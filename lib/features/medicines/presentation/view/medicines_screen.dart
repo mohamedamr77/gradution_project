@@ -10,7 +10,6 @@ import 'package:gradutionproject/features/medicines/presentation/viewModel/medic
 
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_icons.dart';
-import '../../../../core/utils/app_text.dart';
 
 class MedicinesScreen extends StatelessWidget {
   static String id = "MedicinesScreen";

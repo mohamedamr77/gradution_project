@@ -6,7 +6,6 @@ import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import '../../../../../core/utils/app_colors.dart';
-import '../../../../../core/utils/app_text.dart';
 import '../../../../auth/sign_up/presentation/view/sign_up_screen.dart';
 import '../../../data/on_boarding_list.dart';
 import '../../viewModel/on_boaring_cubit.dart';

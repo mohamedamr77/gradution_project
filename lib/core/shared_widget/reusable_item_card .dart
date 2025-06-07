@@ -9,7 +9,6 @@ import '../shared_model/resuable_model.dart';
 import '../utils/locale_keys.g.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
-import '../utils/app_text.dart';
 import 'dart:ui' as ui;
 class ReusableItemCard extends StatelessWidget {
   final ReusableModel reusableModel;

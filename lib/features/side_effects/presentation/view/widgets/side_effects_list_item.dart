@@ -8,7 +8,6 @@ import 'package:gradutionproject/features/side_effects/presentation/view_model/s
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/app_text.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 
 class SideEffectsListItem extends StatelessWidget {

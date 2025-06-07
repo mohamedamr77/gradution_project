@@ -6,7 +6,6 @@ import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
-import '../../../../../core/utils/app_text.dart';
 
 class MyChildrenBody extends StatelessWidget {
   const MyChildrenBody({super.key});
