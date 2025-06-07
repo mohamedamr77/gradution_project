@@ -169,5 +169,10 @@
   "phone_number_required": "Phone number is required",
   "phone_number_invalid": "Please enter a valid phone number",
   "female1" : "Female",
-  "male1" : "Male"
+  "male1" : "Male",
+  "welcome_message": "Welcome to the Children's Medical Assistant You can ask your questions here \uD83D\uDC47\uD83D\uDC47",
+  "typing_indicator": "Typing...",
+  "reset_chat_button": "Restart Chat",
+  "text_field_hint": "Type your question here...",
+  "appbar_title": "Children's Medical Assistant"
 }

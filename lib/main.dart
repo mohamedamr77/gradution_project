@@ -79,7 +79,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
             initialRoute:
-            GeminiHealthScreen.id,
+            BottomNavBarScreen.id,
             // TokenManager.getToken() == null
             //     ? OnBoardingScreen.id
             //     : BottomNavBarScreen.id,

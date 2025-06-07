@@ -174,5 +174,10 @@ abstract class  LocaleKeys {
   static const phone_number_invalid = 'phone_number_invalid';
   static const female1 = 'female1';
   static const male1 = 'male1';
+  static const welcome_message = 'welcome_message';
+  static const typing_indicator = 'typing_indicator';
+  static const reset_chat_button = 'reset_chat_button';
+  static const text_field_hint = 'text_field_hint';
+  static const appbar_title = 'appbar_title';
 
 }

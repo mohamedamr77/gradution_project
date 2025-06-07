@@ -170,5 +170,10 @@
   "phone_number_required": "رقم الهاتف مطلوب",
   "phone_number_invalid": "الرجاء إدخال رقم هاتف صحيح",
   "female1" : "ذكر",
-  "male1" : "انثى"
+  "male1" : "انثى",
+  "welcome_message": "مرحباً بك في المساعد الطبي للأطفال\nيمكنك طرح أسئلتك هنا\n\n\uD83D\uDC47\uD83D\uDC47",
+  "reset_chat_button": "إعادة المحادثة",
+  "text_field_hint": "اكتب سؤالك هنا...",
+  "appbar_title": "المساعد الطبي للأطفال",
+  "typing_indicator": "جاري الكتابة"
 }

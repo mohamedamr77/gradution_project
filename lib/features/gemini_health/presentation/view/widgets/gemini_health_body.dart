@@ -1,7 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/app_font_family.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 
+import '../../../../../core/utils/app_colors.dart';
 import '../../../data/model/chat_message.dart';
 import '../../view_model/gemini_health_cubit.dart';
 import '../../view_model/gemini_health_state.dart';
@@ -32,12 +35,12 @@ class GeminiHealthBody extends StatelessWidget {
     if (state is GeminiHealthInitial) {
       return Center(
         child: Text(
-          'مرحباً بك في المساعد الطبي للأطفال\nيمكنك طرح أسئلتك هنا',
+          LocaleKeys.welcome_message.tr(),
           textAlign: TextAlign.center,
-          style:TextStyle(
+          style: TextStyle(
             fontFamily: AppFontFamily.cairoFontFamily,
             fontSize: 20,
-            color: const Color(0xff3640CE),
+            color: AppColors.primaryColor,
             fontWeight: FontWeight.w600,
           ),
         ),
@@ -86,8 +89,8 @@ class GeminiHealthBody extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
               ),
               child: Text(
-                'إعادة المحادثة',
-                style: TextStyle(
+                LocaleKeys.reset_chat_button.tr(),
+                style: const TextStyle(
                     fontFamily: AppFontFamily.cairoFontFamily,
                     fontSize: 16),
               ),
@@ -135,7 +138,7 @@ class GeminiHealthBody extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             Text(
-              'جاري الكتابة',
+              LocaleKeys.typing_indicator.tr(),
               style: TextStyle(
                 fontFamily: AppFontFamily.cairoFontFamily,
                 fontSize: 14,
@@ -224,7 +227,7 @@ class GeminiHealthBody extends StatelessWidget {
             child: TextField(
               controller: cubit.questionController,
               decoration: InputDecoration(
-                hintText: 'اكتب سؤالك هنا...',
+                hintText: LocaleKeys.text_field_hint.tr(),
                 hintStyle: TextStyle(
                     fontFamily: AppFontFamily.cairoFontFamily,
                     color: Colors.grey[500]),
