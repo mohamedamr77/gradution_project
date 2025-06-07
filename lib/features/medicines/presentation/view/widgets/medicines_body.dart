@@ -16,25 +16,26 @@ class MedicinesBody extends StatelessWidget {
         // TODO: implement listener
       },
       builder: (context, state) {
-        return
-          state is GetAllMedicinesLoadingState
-              ? const Center(child: CircularProgressIndicator())
-              : state is GetAllMedicinesErrorState
-                  ? Center(child: Text(state.error))
-                  : state is GetAllMedicinesSuccessState ?
-          Padding(
-          padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
-          child: const CustomScrollView(
-            slivers: [
-              MedicinesButtons(),
-              SliverToBoxAdapter(
-                  child: SizedBox(
-                    height: 16,
-                  )),
-              MedicinesListItems(),
-            ],
-          ),
-        ) :const SizedBox();
+        return state is GetAllMedicinesLoadingState
+            ? const Center(child: CircularProgressIndicator())
+            : state is GetAllMedicinesErrorState
+                ? Center(child: Text(state.error))
+                : state is GetAllMedicinesSuccessState
+                    ? Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: 0.04.w, vertical: 0.02.h),
+                        child: const CustomScrollView(
+                          slivers: [
+                            MedicinesButtons(),
+                            SliverToBoxAdapter(
+                                child: SizedBox(
+                              height: 16,
+                            )),
+                            MedicinesListItems(),
+                          ],
+                        ),
+                      )
+                    : const SizedBox();
       },
     );
   }
