@@ -41,6 +41,7 @@ class ReusableItemCard extends StatelessWidget {
                     width: 14,
                   ),
                   Column(
+
                     children: [
                       SizedBox(
                         width: 0.5.w,
@@ -50,7 +51,7 @@ class ReusableItemCard extends StatelessWidget {
                           fontSize: 16,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          textDirection: textDirection,
+                          textAlign: isArabic ? TextAlign.right : TextAlign.left,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -60,8 +61,8 @@ class ReusableItemCard extends StatelessWidget {
                       SizedBox(
                         width: 0.5.w,
                         child: GText(
-                          textDirection: textDirection,
                           color: AppColors.primaryColor,
+                          textAlign: isArabic ? TextAlign.right : TextAlign.left,
                           content: reusableModel.description,
                           fontSize: 14,
                           maxLines: 1,
@@ -77,7 +78,6 @@ class ReusableItemCard extends StatelessWidget {
                         child: SizedBox(
                           width: 0.5.w,
                           child: GText(
-                            textDirection: textDirection,
                             color: AppColors.grayColor1,
                             content: reusableModel.subDescription,
                             fontSize: 14,

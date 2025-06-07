@@ -1,3 +1,6 @@
+import 'dart:ui' as ui;
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/font_size_responsize.dart';
 
@@ -35,14 +38,12 @@ class GText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.locale.languageCode == 'ar';
+    final textDirection = isArabic ? ui.TextDirection.rtl : ui.TextDirection.ltr;
     return Text(
       content,
-      textAlign: textAlign ??
-          (SharedFunctions.isArabicLocale() ? TextAlign.left : TextAlign.right),
-      textDirection: textDirection ??
-          (SharedFunctions.isArabicLocale()
-              ? TextDirection.ltr
-              : TextDirection.rtl),
+      textAlign: textAlign ?? (isArabic ? TextAlign.right : TextAlign.left),
+      textDirection: textDirection,
       maxLines: maxLines,
       style: TextStyle(
         fontSize: getResponsiveFontSize(context: context, fontSize: fontSize),

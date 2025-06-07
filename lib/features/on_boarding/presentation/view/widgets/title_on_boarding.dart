@@ -63,7 +63,6 @@ class _TitleOnBoardingState extends State<TitleOnBoarding>
         );
       },
       child: GText(
-        textDirection: TextDirection.rtl,
         color: AppColors.primaryColor,
         content: widget.title,
         fontSize: 22,

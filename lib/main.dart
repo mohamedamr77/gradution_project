@@ -71,7 +71,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
             initialRoute:
-            BottomNavBarScreen.id,
+            OnBoardingScreen.id,
             // TokenManager.getToken() == null
             //     ? OnBoardingScreen.id
             //     : BottomNavBarScreen.id,
