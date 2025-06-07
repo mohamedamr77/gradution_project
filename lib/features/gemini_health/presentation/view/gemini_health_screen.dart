@@ -16,7 +16,14 @@ class GeminiHealthScreen extends StatelessWidget {
         appBar: AppBar(
           elevation: 0,
           scrolledUnderElevation: 0,
-          title: const Text('المساعد الطبي للأطفال'),
+          title:  Text('المساعد الطبي للأطفال',
+          style: TextStyle(
+            fontFamily: 'Cairo',
+            fontSize: 20,
+            color: const Color(0xff3640CE),
+            fontWeight: FontWeight.w600,
+          )
+          ),
           centerTitle: true,
           actions: [
             IconButton(

@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/utils/app_font_family.dart';
+
+import '../../../data/model/chat_message.dart';
 import '../../view_model/gemini_health_cubit.dart';
 import '../../view_model/gemini_health_state.dart';
-import '../../../data/model/chat_message.dart';
 
 class GeminiHealthBody extends StatelessWidget {
   const GeminiHealthBody({super.key});
@@ -14,7 +16,10 @@ class GeminiHealthBody extends StatelessWidget {
         return Column(
           children: [
             Expanded(
-              child: _buildMessagesList(context, state),
+              child: Container(
+                color: Colors.grey[50],
+                child: _buildMessagesList(context, state),
+              ),
             ),
             _buildInputField(context),
           ],
@@ -25,11 +30,16 @@ class GeminiHealthBody extends StatelessWidget {
 
   Widget _buildMessagesList(BuildContext context, GeminiHealthState state) {
     if (state is GeminiHealthInitial) {
-      return const Center(
+      return Center(
         child: Text(
           'مرحباً بك في المساعد الطبي للأطفال\nيمكنك طرح أسئلتك هنا',
           textAlign: TextAlign.center,
-          style: TextStyle(fontSize: 18),
+          style:TextStyle(
+            fontFamily: AppFontFamily.cairoFontFamily,
+            fontSize: 20,
+            color: const Color(0xff3640CE),
+            fontWeight: FontWeight.w600,
+          ),
         ),
       );
     }
@@ -37,15 +47,16 @@ class GeminiHealthBody extends StatelessWidget {
     if (state is GeminiHealthLoading) {
       return ListView.builder(
         reverse: true,
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         itemCount: context.read<GeminiHealthCubit>().messages.length + 1,
         itemBuilder: (context, index) {
           if (index == 0) {
             return _buildTypingIndicator();
           }
-          final message = context.read<GeminiHealthCubit>().messages[
-              context.read<GeminiHealthCubit>().messages.length - index];
-          return _buildMessageBubble(message);
+          final message = context
+              .read<GeminiHealthCubit>()
+              .messages[context.read<GeminiHealthCubit>().messages.length - index];
+          return _buildMessageBubble(message, context);
         },
       );
     }
@@ -55,11 +66,31 @@ class GeminiHealthBody extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text(state.message),
+            Text(
+              state.message,
+              style: TextStyle(
+                fontFamily: AppFontFamily.cairoFontFamily,
+                fontSize: 16,
+                color: Colors.red[700],
+              ),
+            ),
             const SizedBox(height: 16),
             ElevatedButton(
               onPressed: () => context.read<GeminiHealthCubit>().clearChat(),
-              child: const Text('إعادة المحادثة'),
+              style: ElevatedButton.styleFrom(
+                backgroundColor: const Color(0xff3640CE),
+                foregroundColor: Colors.white,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+                padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 12),
+              ),
+              child: Text(
+                'إعادة المحادثة',
+                style: TextStyle(
+                    fontFamily: AppFontFamily.cairoFontFamily,
+                    fontSize: 16),
+              ),
             ),
           ],
         ),
@@ -69,11 +100,11 @@ class GeminiHealthBody extends StatelessWidget {
     if (state is GeminiHealthLoaded) {
       return ListView.builder(
         reverse: true,
-        padding: const EdgeInsets.all(16),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         itemCount: state.messages.length,
         itemBuilder: (context, index) {
           final message = state.messages[state.messages.length - 1 - index];
-          return _buildMessageBubble(message);
+          return _buildMessageBubble(message, context);
         },
       );
     }
@@ -86,26 +117,38 @@ class GeminiHealthBody extends StatelessWidget {
       alignment: Alignment.centerRight,
       child: Container(
         margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.all(12),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
         decoration: BoxDecoration(
-          color: Colors.grey[200],
-          borderRadius: BorderRadius.circular(12),
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(16),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.1),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
         ),
-        constraints: const BoxConstraints(maxWidth: 150),
+        constraints: const BoxConstraints(maxWidth: 200),
         child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            const Text(
+            Text(
               'جاري الكتابة',
-              style: TextStyle(fontSize: 14, color: Colors.grey),
+              style: TextStyle(
+                fontFamily: AppFontFamily.cairoFontFamily,
+                fontSize: 14,
+                color: Colors.grey[600],
+              ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 12),
             SizedBox(
-              width: 16,
-              height: 16,
+              width: 20,
+              height: 20,
               child: CircularProgressIndicator(
-                strokeWidth: 2,
-                valueColor: AlwaysStoppedAnimation<Color>(Colors.grey[400]!),
+                strokeWidth: 2.5,
+                valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff3640CE)),
               ),
             ),
           ],
@@ -114,20 +157,47 @@ class GeminiHealthBody extends StatelessWidget {
     );
   }
 
-  Widget _buildMessageBubble(ChatMessage message) {
+  Widget _buildMessageBubble(ChatMessage message , BuildContext context){
+    final isUser = message.isUser;
     return Align(
-      alignment: message.isUser ? Alignment.centerLeft : Alignment.centerRight,
+      alignment: isUser ? Alignment.centerLeft : Alignment.centerRight,
       child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.all(12),
-        decoration: BoxDecoration(
-          color: message.isUser ? Colors.blue[100] : Colors.green[100],
-          borderRadius: BorderRadius.circular(12),
+        margin:  EdgeInsets.symmetric(vertical: 6),
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+        constraints: BoxConstraints(
+          maxWidth: MediaQuery.of(context).size.width * 0.75,
         ),
-        constraints: const BoxConstraints(maxWidth: 300),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: isUser
+                ? [Colors.white, Colors.grey[50]!]
+                : [const Color(0xff3640CE), const Color(0xff4854E0)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+          borderRadius: BorderRadius.only(
+            topLeft: const Radius.circular(16),
+            topRight: const Radius.circular(16),
+            bottomLeft: isUser ? const Radius.circular(4) : const Radius.circular(16),
+            bottomRight: isUser ? const Radius.circular(16) : const Radius.circular(4),
+          ),
+          boxShadow: [
+            BoxShadow(
+              color: Colors.grey.withOpacity(0.2),
+              spreadRadius: 1,
+              blurRadius: 4,
+              offset: const Offset(0, 2),
+            ),
+          ],
+        ),
         child: Text(
           message.text,
-          style: const TextStyle(fontSize: 16),
+          style: TextStyle(
+            fontFamily: AppFontFamily.cairoFontFamily,
+            fontSize: 16,
+            color: isUser ? Colors.black87 : Colors.white,
+            fontWeight: isUser ? FontWeight.normal : FontWeight.w500,
+          ),
         ),
       ),
     );
@@ -135,17 +205,16 @@ class GeminiHealthBody extends StatelessWidget {
 
   Widget _buildInputField(BuildContext context) {
     final cubit = context.read<GeminiHealthCubit>();
-
     return Container(
-      padding: const EdgeInsets.all(8),
+      padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 8),
       decoration: BoxDecoration(
         color: Colors.white,
         boxShadow: [
           BoxShadow(
-            color: Colors.grey.withOpacity(0.2),
+            color: Colors.grey.withOpacity(0.1),
             spreadRadius: 1,
-            blurRadius: 3,
-            offset: const Offset(0, -1),
+            blurRadius: 4,
+            offset: const Offset(0, -2),
           ),
         ],
       ),
@@ -154,20 +223,53 @@ class GeminiHealthBody extends StatelessWidget {
           Expanded(
             child: TextField(
               controller: cubit.questionController,
-              decoration: const InputDecoration(
+              decoration: InputDecoration(
                 hintText: 'اكتب سؤالك هنا...',
-                border: OutlineInputBorder(),
+                hintStyle: TextStyle(
+                    fontFamily: AppFontFamily.cairoFontFamily,
+                    color: Colors.grey[500]),
+                filled: true,
+                fillColor: Colors.grey[100],
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: BorderSide.none,
+                ),
+                focusedBorder: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(16),
+                  borderSide: const BorderSide(
+                    color: Color(0xff3640CE),
+                    width: 2,
+                  ),
+                ),
+                contentPadding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 12,
+                ),
               ),
               maxLines: null,
               textInputAction: TextInputAction.send,
               onSubmitted: (_) => cubit.askQuestion(),
+              style: TextStyle(
+                  fontFamily: AppFontFamily.cairoFontFamily,
+                  fontSize: 16),
             ),
           ),
           const SizedBox(width: 8),
-          IconButton(
-            onPressed: cubit.askQuestion,
-            icon: const Icon(Icons.send),
-            color: Colors.blue,
+          Material(
+            color: const Color(0xff3640CE),
+            borderRadius: BorderRadius.circular(12),
+            child: InkWell(
+              borderRadius: BorderRadius.circular(12),
+              onTap: cubit.askQuestion,
+              child: Container(
+                padding: const EdgeInsets.all(12),
+                child: const Icon(
+                  Icons.send,
+                  color: Colors.white,
+                  size: 24,
+                ),
+              ),
+            ),
           ),
         ],
       ),
