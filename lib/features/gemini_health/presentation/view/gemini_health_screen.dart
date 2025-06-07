@@ -12,28 +12,38 @@ class GeminiHealthScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(
       create: (context) => GeminiHealthCubit(ChatRepositoryImpl()),
-      child: Scaffold(
-        appBar: AppBar(
-          elevation: 0,
-          scrolledUnderElevation: 0,
-          title:  Text('المساعد الطبي للأطفال',
+      child: const _GeminiHealthView(),
+    );
+  }
+}
+
+class _GeminiHealthView extends StatelessWidget {
+  const _GeminiHealthView();
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        elevation: 0,
+        scrolledUnderElevation: 0,
+        title: Text(
+          'المساعد الطبي للأطفال',
           style: TextStyle(
             fontFamily: 'Cairo',
             fontSize: 20,
             color: const Color(0xff3640CE),
             fontWeight: FontWeight.w600,
-          )
           ),
-          centerTitle: true,
-          actions: [
-            IconButton(
-              icon: const Icon(Icons.refresh),
-              onPressed: () => BlocProvider.of<GeminiHealthCubit>(context).clearChat(),
-            ),
-          ],
         ),
-        body: const GeminiHealthBody(),
+        centerTitle: true,
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            onPressed: () => context.read<GeminiHealthCubit>().clearChat(),
+          ),
+        ],
       ),
+      body: const GeminiHealthBody(),
     );
   }
 }
