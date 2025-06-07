@@ -16,45 +16,40 @@ class LanguageBody extends StatefulWidget {
 
 class _LanguageBodyState extends State<LanguageBody> {
   @override
-  void initState() {
-    // TODO: implement initState
-    super.initState();
-
-    BlocProvider.of<LanguageAppCubit>(context).fetchGetAllLevel();
-  }
-
-  @override
   Widget build(BuildContext context) {
-    LanguageAppCubit cubit = BlocProvider.of<LanguageAppCubit>(context);
+    // Get the current locale
+    final isArabic = context.locale.languageCode == 'ar';
+
     return BlocBuilder<LanguageAppCubit, LanguageAppState>(
       builder: (context, state) {
         return Center(
           child: Column(
             children: [
-              const Spacer(
-                flex: 3,
-              ),
+              const Spacer(flex: 3),
               CustomContainerCheck(
-                isCheck: cubit.isArabic,
+                isCheck: isArabic, // Check if current language is Arabic
                 title: LocaleKeys.arabicLanguage.tr(),
+                onTap: () {
+                  context.setLocale(const Locale('ar'));
+                },
               ),
               const Spacer(),
               CustomContainerCheck(
-                isCheck: cubit.isArabic == false,
+                isCheck: !isArabic, // Check if current language is English
                 title: LocaleKeys.englishLanguage.tr(),
+                onTap: () {
+                  context.setLocale(const Locale('en'));
+                },
               ),
-              const Spacer(
-                flex: 3,
-              ),
+              const Spacer(flex: 3),
               CustomElevatedButton(
-                  onPress: () {
-                    cubit.isArabic = !cubit.isArabic;
-                    cubit.changeLanguage(cubit.isArabic);
-                  },
-                  titleButton: LocaleKeys.change.tr()),
-              const Spacer(
-                flex: 5,
+                onPress: () {
+                  // Toggle language between Arabic and English
+                  context.setLocale(isArabic ? const Locale('en') : const Locale('ar'));
+                },
+                titleButton: LocaleKeys.change.tr(),
               ),
+              const Spacer(flex: 5),
             ],
           ),
         );

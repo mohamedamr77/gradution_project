@@ -24,12 +24,12 @@ class ThemeBody extends StatelessWidget {
               ),
               CustomContainerCheck(
                 isCheck: cubit.isLight,
-                title: LocaleKeys.lightTheme.tr(),
+                title: LocaleKeys.lightTheme.tr(), onTap: () {  },
               ),
               const Spacer(),
               CustomContainerCheck(
                 isCheck: cubit.isLight == false,
-                title: LocaleKeys.darkTheme.tr(),
+                title: LocaleKeys.darkTheme.tr(), onTap: () {  },
               ),
               const Spacer(
                 flex: 3,
