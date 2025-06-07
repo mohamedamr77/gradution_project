@@ -8,6 +8,8 @@ import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
+
 void main() async{
   await _initializeHive();
  runApp(
@@ -69,7 +71,7 @@ class MyApp extends StatelessWidget {
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
             initialRoute:
-            OnBoardingScreen.id,
+            BottomNavBarScreen.id,
             // TokenManager.getToken() == null
             //     ? OnBoardingScreen.id
             //     : BottomNavBarScreen.id,

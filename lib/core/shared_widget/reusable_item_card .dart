@@ -9,7 +9,7 @@ import '../utils/locale_keys.g.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text.dart';
-
+import 'dart:ui' as ui;
 class ReusableItemCard extends StatelessWidget {
   final ReusableModel reusableModel;
   const ReusableItemCard({
@@ -19,6 +19,8 @@ class ReusableItemCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.locale.languageCode == 'ar';
+    final textDirection = isArabic ? ui.TextDirection.rtl : ui.TextDirection.ltr;
     return GestureDetector(
       onTap: reusableModel.onTapCard,
       child: Stack(
@@ -32,21 +34,20 @@ class ReusableItemCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: Row(
-
-                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  CachedNetworkImage(
-                    imageUrl: reusableModel.imagePath,
-                    width: 0.28.w,
-                    height: 0.12.h,
-                    fit: BoxFit.fill,
+                  ClipRRect(
+                    borderRadius: BorderRadius.circular(8),
+                    child: CachedNetworkImage(
+                      imageUrl: reusableModel.imagePath,
+                      width: 0.28.w,
+                      height: 0.12.h,
+                      fit: BoxFit.fill,
+                    ),
                   ),
                   const SizedBox(
                     width: 14,
                   ),
                   Column(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.end,
                     children: [
                       SizedBox(
                         width: 0.5.w,
@@ -56,6 +57,7 @@ class ReusableItemCard extends StatelessWidget {
                           fontSize: 16,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
+                          textAlign: TextAlign.end,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -65,6 +67,7 @@ class ReusableItemCard extends StatelessWidget {
                       SizedBox(
                         width: 0.5.w,
                         child: GText(
+                          textDirection: textDirection,
                           color: AppColors.primaryColor,
                           content: reusableModel.description,
                           fontSize: 14,
@@ -81,7 +84,7 @@ class ReusableItemCard extends StatelessWidget {
                         child: SizedBox(
                           width: 0.5.w,
                           child: GText(
-                            textAlign: TextAlign.right,
+                            textDirection: textDirection,
                             color: AppColors.grayColor1,
                             content: reusableModel.subDescription,
                             fontSize: 14,
@@ -122,7 +125,8 @@ class ReusableItemCard extends StatelessWidget {
           Visibility(
             visible: reusableModel.isVaccineTimes == false,
             child: Positioned(
-              left: 8,
+              left: isArabic ?  10 :null,
+              right: isArabic ? null : 10,
               child: IconButton(
                 onPressed: reusableModel.onPressedIconFavourite,
                 icon: reusableModel.isFavourite
@@ -140,7 +144,8 @@ class ReusableItemCard extends StatelessWidget {
           Visibility(
             visible: reusableModel.isVaccineTimes,
             child: Positioned(
-                left: 10,
+                left: isArabic ?  10 :null,
+                right: isArabic ? null : 10,
                 top: 10,
                 child: IconButton(
                     onPressed: reusableModel.onTapCheckBoxVaccineTimes,
@@ -152,7 +157,8 @@ class ReusableItemCard extends StatelessWidget {
             visible: reusableModel.isDetails == false,
             child: Positioned(
               bottom: -8,
-              left: 8,
+              left: isArabic ?  8 :null,
+              right: isArabic ? null : 8,
               child: TextButton(
                   onPressed: () {},
                   child: GText(

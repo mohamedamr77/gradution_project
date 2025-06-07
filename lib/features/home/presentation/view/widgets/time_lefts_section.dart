@@ -13,15 +13,11 @@ class TimeLeftsSection extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Align(
-          alignment: Alignment.centerRight,
-          child: GText(
-            textAlign: TextAlign.right,
-            color: AppColors.primaryColor,
-            content: LocaleKeys.vaccinationTimeRemaining.tr(),
-            fontSize: 16,
-            fontWeight: FontWeight.w600,
-          ),
+        GText(
+          color: AppColors.primaryColor,
+          content: LocaleKeys.vaccinationTimeRemaining.tr(),
+          fontSize: 16,
+          fontWeight: FontWeight.w600,
         ),
         const SizedBox(height: 16),
         CircularPercentIndicator(

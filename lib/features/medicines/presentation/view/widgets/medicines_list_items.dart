@@ -48,21 +48,18 @@ class MedicinesListItems extends StatelessWidget {
   }
 
   Widget basicButtonList({required MedicationModel medicationModel}) {
-    return Directionality(
-      textDirection: TextDirection.ltr,
-      child: ReusableItemCard(
-        key: const ValueKey<int>(0),
-        reusableModel: ReusableModel(
-          imagePath: medicationModel.image ?? AppImages.tuberVaccineTest,
-          title: medicationModel.name ?? "غير متاح",
-          description: medicationModel.description ?? "غير متاح",
-          subDescription: medicationModel.dosage ??"غير متاح",
-          onPressedIconFavourite: () {},
-          onTapCard: () {
-            NavigationManager.push(MedicinesDetailsScreen.id);
-          },
-        ), // Assign a unique key for animation
-      ),
+    return ReusableItemCard(
+      key: const ValueKey<int>(0),
+      reusableModel: ReusableModel(
+        imagePath: medicationModel.image ?? AppImages.tuberVaccineTest,
+        title: medicationModel.name ?? "غير متاح",
+        description: medicationModel.description ?? "غير متاح",
+        subDescription: medicationModel.dosage ??"غير متاح",
+        onPressedIconFavourite: () {},
+        onTapCard: () {
+          NavigationManager.push(MedicinesDetailsScreen.id);
+        },
+      ), // Assign a unique key for animation
     );
   }
 
