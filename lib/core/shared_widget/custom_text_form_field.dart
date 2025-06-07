@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_font_family.dart';
 
-import '../shared_functions/shared_functions.dart';
 import '../utils/app_colors.dart';
 import '../utils/font_size_responsize.dart';
 
