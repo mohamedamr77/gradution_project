@@ -26,7 +26,7 @@ class ApiService {
     debugPrint("EndPoint =$endPoint token=$accessToken");
 
     try {
-      http.Response response = await http.get(
+      http.Response response = await _client.get(
         Uri.parse(endPoint),
         headers: headers,
       );

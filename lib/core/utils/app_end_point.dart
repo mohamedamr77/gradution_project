@@ -4,5 +4,6 @@ class AppEndPoint{
   static const String signUp = "$domain/Auth/userRegister";
   static const String login = "$domain/Auth/login";
   static const String forgetPassword = "$domain/auth/forgotPassword";
+  static const String getAllMedicine = "$domain/medicine/getAll";
 
 }
