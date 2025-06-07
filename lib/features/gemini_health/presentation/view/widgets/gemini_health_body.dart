@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/app_font_family.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
-
 import '../../../../../core/utils/app_colors.dart';
 import '../../../data/model/chat_message.dart';
 import '../../view_model/gemini_health_cubit.dart';
@@ -91,8 +90,7 @@ class GeminiHealthBody extends StatelessWidget {
               child: Text(
                 LocaleKeys.reset_chat_button.tr(),
                 style: const TextStyle(
-                    fontFamily: AppFontFamily.cairoFontFamily,
-                    fontSize: 16),
+                    fontFamily: AppFontFamily.cairoFontFamily, fontSize: 16),
               ),
             ),
           ],
@@ -118,91 +116,15 @@ class GeminiHealthBody extends StatelessWidget {
   Widget _buildTypingIndicator() {
     return Align(
       alignment: Alignment.centerRight,
-      child: Container(
-        margin: const EdgeInsets.symmetric(vertical: 8),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          borderRadius: BorderRadius.circular(16),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.1),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        constraints: const BoxConstraints(maxWidth: 200),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              LocaleKeys.typing_indicator.tr(),
-              style: TextStyle(
-                fontFamily: AppFontFamily.cairoFontFamily,
-                fontSize: 14,
-                color: Colors.grey[600],
-              ),
-            ),
-            const SizedBox(width: 12),
-            SizedBox(
-              width: 20,
-              height: 20,
-              child: CircularProgressIndicator(
-                strokeWidth: 2.5,
-                valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff3640CE)),
-              ),
-            ),
-          ],
-        ),
-      ),
+      child: AnimatedTypingIndicator(),
     );
   }
 
-  Widget _buildMessageBubble(ChatMessage message , BuildContext context){
+  Widget _buildMessageBubble(ChatMessage message, BuildContext context) {
     final isUser = message.isUser;
-    return Align(
-      alignment: isUser ? Alignment.centerLeft : Alignment.centerRight,
-      child: Container(
-        margin:  EdgeInsets.symmetric(vertical: 6),
-        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
-        constraints: BoxConstraints(
-          maxWidth: MediaQuery.of(context).size.width * 0.75,
-        ),
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: isUser
-                ? [Colors.white, Colors.grey[50]!]
-                : [const Color(0xff3640CE), const Color(0xff4854E0)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
-          borderRadius: BorderRadius.only(
-            topLeft: const Radius.circular(16),
-            topRight: const Radius.circular(16),
-            bottomLeft: isUser ? const Radius.circular(4) : const Radius.circular(16),
-            bottomRight: isUser ? const Radius.circular(16) : const Radius.circular(4),
-          ),
-          boxShadow: [
-            BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              spreadRadius: 1,
-              blurRadius: 4,
-              offset: const Offset(0, 2),
-            ),
-          ],
-        ),
-        child: Text(
-          message.text,
-          style: TextStyle(
-            fontFamily: AppFontFamily.cairoFontFamily,
-            fontSize: 16,
-            color: isUser ? Colors.black87 : Colors.white,
-            fontWeight: isUser ? FontWeight.normal : FontWeight.w500,
-          ),
-        ),
-      ),
+    return AnimatedMessageBubble(
+      message: message,
+      isUser: isUser,
     );
   }
 
@@ -253,28 +175,268 @@ class GeminiHealthBody extends StatelessWidget {
               textInputAction: TextInputAction.send,
               onSubmitted: (_) => cubit.askQuestion(),
               style: TextStyle(
-                  fontFamily: AppFontFamily.cairoFontFamily,
-                  fontSize: 16),
+                  fontFamily: AppFontFamily.cairoFontFamily, fontSize: 16),
             ),
           ),
           const SizedBox(width: 8),
-          Material(
-            color: const Color(0xff3640CE),
-            borderRadius: BorderRadius.circular(12),
-            child: InkWell(
-              borderRadius: BorderRadius.circular(12),
-              onTap: cubit.askQuestion,
-              child: Container(
-                padding: const EdgeInsets.all(12),
-                child: const Icon(
-                  Icons.send,
-                  color: Colors.white,
-                  size: 24,
+          AnimatedSendButton(
+            onTap: cubit.askQuestion,
+          ),
+        ],
+      ),
+    );
+  }
+}
+
+// New widget for animated message bubble
+class AnimatedMessageBubble extends StatefulWidget {
+  final ChatMessage message;
+  final bool isUser;
+
+  const AnimatedMessageBubble({
+    super.key,
+    required this.message,
+    required this.isUser,
+  });
+
+  @override
+  _AnimatedMessageBubbleState createState() => _AnimatedMessageBubbleState();
+}
+
+class _AnimatedMessageBubbleState extends State<AnimatedMessageBubble>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _opacityAnimation;
+  late Animation<Offset> _slideAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+
+    _opacityAnimation = Tween<double>(begin: 0.0, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeIn),
+    );
+
+    _slideAnimation = Tween<Offset>(
+      begin: Offset(widget.isUser ? -0.2 : 0.2, 0.0),
+      end: Offset.zero,
+    ).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeOut),
+    );
+
+    _controller.forward();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SlideTransition(
+      position: _slideAnimation,
+      child: FadeTransition(
+        opacity: _opacityAnimation,
+        child: Align(
+          alignment: widget.isUser ? Alignment.centerLeft : Alignment.centerRight,
+          child: Container(
+            margin: const EdgeInsets.symmetric(vertical: 6),
+            padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+            constraints: BoxConstraints(
+              maxWidth: MediaQuery.of(context).size.width * 0.75,
+            ),
+            decoration: BoxDecoration(
+              gradient: LinearGradient(
+                colors: widget.isUser
+                    ? [Colors.white, Colors.grey[50]!]
+                    : [const Color(0xff3640CE), const Color(0xff4854E0)],
+                begin: Alignment.topLeft,
+                end: Alignment.bottomRight,
+              ),
+              borderRadius: BorderRadius.only(
+                topLeft: const Radius.circular(16),
+                topRight: const Radius.circular(16),
+                bottomLeft: widget.isUser
+                    ? const Radius.circular(4)
+                    : const Radius.circular(16),
+                bottomRight: widget.isUser
+                    ? const Radius.circular(16)
+                    : const Radius.circular(4),
+              ),
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.grey.withOpacity(0.2),
+                  spreadRadius: 1,
+                  blurRadius: 4,
+                  offset: const Offset(0, 2),
                 ),
+              ],
+            ),
+            child: Text(
+              widget.message.text,
+              style: TextStyle(
+                fontFamily: AppFontFamily.cairoFontFamily,
+                fontSize: 16,
+                color: widget.isUser ? Colors.black87 : Colors.white,
+                fontWeight: widget.isUser ? FontWeight.normal : FontWeight.w500,
               ),
             ),
           ),
-        ],
+        ),
+      ),
+    );
+  }
+}
+
+// New widget for animated typing indicator
+class AnimatedTypingIndicator extends StatefulWidget {
+  const AnimatedTypingIndicator({super.key});
+
+  @override
+  _AnimatedTypingIndicatorState createState() => _AnimatedTypingIndicatorState();
+}
+
+class _AnimatedTypingIndicatorState extends State<AnimatedTypingIndicator>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 800),
+      vsync: this,
+    )..repeat(reverse: true);
+
+    _scaleAnimation = Tween<double>(begin: 0.8, end: 1.0).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: Container(
+          margin: const EdgeInsets.symmetric(vertical: 8),
+          padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 12),
+          decoration: BoxDecoration(
+            color: Colors.white,
+            borderRadius: BorderRadius.circular(16),
+            boxShadow: [
+              BoxShadow(
+                color: Colors.grey.withOpacity(0.1),
+                spreadRadius: 1,
+                blurRadius: 4,
+                offset: const Offset(0, 2),
+              ),
+            ],
+          ),
+          constraints: const BoxConstraints(maxWidth: 200),
+          child: Row(
+            mainAxisSize: MainAxisSize.min,
+            children: [
+              Text(
+                LocaleKeys.typing_indicator.tr(),
+                style: TextStyle(
+                  fontFamily: AppFontFamily.cairoFontFamily,
+                  fontSize: 14,
+                  color: Colors.grey[600],
+                ),
+              ),
+              const SizedBox(width: 12),
+              SizedBox(
+                width: 20,
+                height: 20,
+                child: CircularProgressIndicator(
+                  strokeWidth: 2.5,
+                  valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff3640CE)),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+// New widget for animated send button
+class AnimatedSendButton extends StatefulWidget {
+  final VoidCallback onTap;
+
+  const AnimatedSendButton({super.key, required this.onTap});
+
+  @override
+  _AnimatedSendButtonState createState() => _AnimatedSendButtonState();
+}
+
+class _AnimatedSendButtonState extends State<AnimatedSendButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 200),
+      vsync: this,
+    );
+
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.9).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTapDown: (_) {
+        _controller.forward();
+      },
+      onTapUp: (_) {
+        _controller.reverse();
+        widget.onTap();
+      },
+      onTapCancel: () {
+        _controller.reverse();
+      },
+      child: ScaleTransition(
+        scale: _scaleAnimation,
+        child: Material(
+          color: const Color(0xff3640CE),
+          borderRadius: BorderRadius.circular(12),
+          child: Container(
+            padding: const EdgeInsets.all(12),
+            child: const Icon(
+              Icons.send,
+              color: Colors.white,
+              size: 24,
+            ),
+          ),
+        ),
       ),
     );
   }
