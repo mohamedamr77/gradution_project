@@ -1,4 +1,5 @@
 import 'dart:io';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
@@ -6,6 +7,7 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_informtion_cubit.dart';
 
@@ -44,8 +46,8 @@ class ImageChildSection extends StatelessWidget {
               child: GText(
                 color: AppColors.grayBlackColor,
                 content: cubit.image == null
-                    ? AppText.addChildPhoto
-                    : AppText.editPhoto,
+                    ? LocaleKeys.addChildPhoto.tr()
+                    : LocaleKeys.editPhoto.tr(),
                 fontSize: 18,
                 fontWeight: FontWeight.w600,
               ),

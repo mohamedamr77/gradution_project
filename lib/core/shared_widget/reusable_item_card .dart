@@ -1,9 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import '../shared_model/resuable_model.dart';
+import '../utils/locale_keys.g.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
 import '../utils/app_text.dart';
@@ -30,7 +32,7 @@ class ReusableItemCard extends StatelessWidget {
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: Row(
-                textDirection: TextDirection.rtl,
+
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   CachedNetworkImage(
@@ -94,7 +96,7 @@ class ReusableItemCard extends StatelessWidget {
                         child: SizedBox(
                           width: 0.5.w,
                           child: Row(
-                            textDirection: TextDirection.rtl,
+
                             children: [
                               const Icon(
                                 Icons.star,
@@ -153,9 +155,9 @@ class ReusableItemCard extends StatelessWidget {
               left: 8,
               child: TextButton(
                   onPressed: () {},
-                  child: const GText(
+                  child: GText(
                       color: AppColors.primaryColor,
-                      content: AppText.knowMore,
+                      content: LocaleKeys.knowMore.tr(),
                       fontSize: 12)),
             ),
           )

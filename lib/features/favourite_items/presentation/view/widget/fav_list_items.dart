@@ -1,9 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/features/favourite_items/data/model/fav_doctors_list.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import '../../viewModel/favourite_items_cubit.dart';
 
 class FavListItems extends StatefulWidget {
@@ -65,10 +67,10 @@ class _FavListItemsState extends State<FavListItems> {
 
   Widget listButtonArticles() {
     return ReusableItemCard(
-      key: const ValueKey<int>(0),
+      key:const   ValueKey<int>(0),
       reusableModel: ReusableModel(
         imagePath: AppImages.tuberVaccineTest,
-        title: AppText.sideEffectsTuberculosisVaccine,
+        title: LocaleKeys.sideEffectsTuberculosisVaccine.tr(),
         description: "فعال بنسبة99%",
         subDescription: "يتم اخده مره واحده",
         onPressedIconFavourite: () {},

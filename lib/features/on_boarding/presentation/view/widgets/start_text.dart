@@ -1,4 +1,6 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/on_boarding/data/on_boarding_list.dart';
 
 import '../../../../../core/shared_widget/global_text.dart';
@@ -13,12 +15,11 @@ class StartText extends StatelessWidget {
   Widget build(BuildContext context) {
     return Visibility(
       visible: index == onBoardingList.length - 1,
-      child: const Padding(
+      child:  Padding(
         padding: EdgeInsets.only(top: 18),
         child: GText(
-          textDirection: TextDirection.rtl,
           color: AppColors.primaryColor,
-          content: AppText.readyToStart,
+          content: LocaleKeys.readyToStart.tr(),
           fontSize: 22,
           fontWeight: FontWeight.w600,
           textAlign: TextAlign.center,

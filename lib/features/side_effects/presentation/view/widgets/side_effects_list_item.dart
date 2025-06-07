@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view/side_effect_details_screen.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
@@ -51,7 +53,7 @@ class SideEffectsListItem extends StatelessWidget {
         key: const ValueKey<int>(0),
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: AppText.rotavirusVaccine,
+          title: LocaleKeys.rotavirusVaccine.tr(),
           description: "فعال بنسبة99%",
           subDescription: "يتم اخده مره واحده",
           onPressedIconFavourite: () {},

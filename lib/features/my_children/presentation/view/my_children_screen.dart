@@ -1,6 +1,8 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/custom_app_bar.dart';
 import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/my_children/presentation/view/widgets/my_children_body.dart';
 
 class MyChildrenScreen extends StatelessWidget {
@@ -9,8 +11,8 @@ class MyChildrenScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
-      appBar: CustomAppBar(title: AppText.myChildren),
+    return  Scaffold(
+      appBar: CustomAppBar(title: LocaleKeys.myChildren.tr()),
       body: MyChildrenBody(),
     );
   }

@@ -1,8 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_text.dart';
 import '../../../../auth/sign_up/presentation/view/sign_up_screen.dart';
@@ -42,9 +44,9 @@ class TopScreenOnboarding extends StatelessWidget {
       visible: index != onBoardingList.length - 1,
       child: InkWell(
         onTap: () => NavigationManager.replaceAll(SignUpScreen.id),
-        child: const GText(
+        child:  GText(
           color: AppColors.primaryColor,
-          content: AppText.continueText,
+          content: LocaleKeys.continueText.tr(),
           fontSize: 18,
         ),
       ),
