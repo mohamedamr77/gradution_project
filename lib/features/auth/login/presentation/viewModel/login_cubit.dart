@@ -114,7 +114,6 @@ class LoginCubit extends Cubit<LoginState> {
     );
     result.fold(
       (failure) {
-        debugPrint("Login Response Error: ${failure.message}");
         ToastUtils.showToast(
           message: failure.message,
         );
@@ -122,7 +121,6 @@ class LoginCubit extends Cubit<LoginState> {
         failTrigger?.fire();
       },
       (authResponse) {
-        debugPrint("Login Response Success: ${authResponse.toString()}");
         NavigationManager.replaceAll(BottomNavBarScreen.id);
         ToastUtils.showToast(
           message: "Login Successful",

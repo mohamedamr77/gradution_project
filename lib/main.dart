@@ -1,4 +1,3 @@
-import 'package:dartz/dartz.dart' as SplachScreen;
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -15,11 +14,20 @@ import 'package:hive_flutter/adapters.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'features/language_app/presentation/view/language_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 void main() async{
   await _initializeHive();
  runApp(
-    const MyApp(),
+   EasyLocalization(
+       supportedLocales: const [
+         Locale('ar'), // Arabic
+         Locale('en'), // English
+       ],
+       path: 'assets/translations', // Path to translation files
+       fallbackLocale: const Locale('ar'), // Fallback language
+       startLocale: const Locale('ar'),
+       child: const MyApp()),
   );
 }
 

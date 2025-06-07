@@ -1,13 +1,9 @@
 class AppText {
-  static const String startJourney =
-      "ابدأ رحلتك لتأمين صحة أطفالك وتذكيرك بأهم التطعيمات في مواعيدها.";
-  static const String sideEffectsInfo =
-      "تعرفي على الآثار الجانبية وكيفية التعامل معها، مع نصائح مباشرة من المتخصصين.";
-  static const String safeMedicines =
-      "اطلعي على أدوية آمنة لتخفيف الآثار الجانبية بعد التطعيم";
+  static const String startJourney = "ابدأ رحلتك لتأمين صحة أطفالك وتذكيرك بأهم التطعيمات في مواعيدها.";
+  static const String sideEffectsInfo = "تعرفي على الآثار الجانبية وكيفية التعامل معها، مع نصائح مباشرة من المتخصصين.";
+  static const String safeMedicines = "اطلعي على أدوية آمنة لتخفيف الآثار الجانبية بعد التطعيم";
   static const String readyToStart = "جاهزة للبدء!";
-  static const String explanatoryTextDescr =
-      "يرجى التأكد من إحضار السجل الصحي للطفل عند الذهاب للتطعيم.";
+  static const String explanatoryTextDescr = "يرجى التأكد من إحضار السجل الصحي للطفل عند الذهاب للتطعيم.";
 
   static const String yearAndFourMonth = "عام وأربع أشهر";
   static const String textTest1 =
@@ -200,4 +196,10 @@ class AppText {
   static const String enterPostponementDate = "يرجى ادخال الموعد بعد التاجيل";
   static const String postponementDate = "تاريخ التاجيل";
   static const String enterVaccinationDate = "قم بإدخال تاريخ التطعيم";
+  static const String text = "تم تسجيل الدخول بنجاح";
+  static const String firstName = "الاسم الاول";
+  static const String LastName = "الاسم الثانى";
+  static const String notSelectImage = "لم يتم اختيار صوره";
+  static const String loginSuccess =  "Login Successful";
+  static const String unAvailable =   "غير متاح";
 }
