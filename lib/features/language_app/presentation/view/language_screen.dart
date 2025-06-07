@@ -11,7 +11,6 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Scaffold(
       appBar: CustomAppBar(
         title: LocaleKeys.language.tr(),

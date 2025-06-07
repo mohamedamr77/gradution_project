@@ -19,24 +19,28 @@ class LanguageBody extends StatelessWidget {
         children: [
           const Spacer(flex: 3),
           CustomContainerCheck(
-            isCheck :currentLocale.languageCode == 'ar', // Check if current language is Arabic
+            isCheck: currentLocale.languageCode ==
+                'ar', // Check if current language is Arabic
             title: LocaleKeys.arabicLanguage.tr(),
             onTap: () {
-              context.setLocale(const Locale('ar'));
+              // context.setLocale(const Locale('ar'));
             },
           ),
           const Spacer(),
           CustomContainerCheck(
-            isCheck: currentLocale.languageCode == 'en', // Check if current language is English
+            isCheck: currentLocale.languageCode ==
+                'en', // Check if current language is English
             title: LocaleKeys.englishLanguage.tr(),
             onTap: () {
-              context.setLocale(const Locale('en'));
+              // context.setLocale(const Locale('en'));
             },
           ),
           const Spacer(flex: 3),
           CustomElevatedButton(
             onPress: () {
-              context.setLocale(currentLocale.languageCode == 'ar' ? const Locale('en') : const Locale('ar'));
+              context.setLocale(currentLocale.languageCode == 'ar'
+                  ? const Locale('en')
+                  : const Locale('ar'));
               NavigationManager.push(BottomNavBarScreen.id);
             },
             titleButton: LocaleKeys.change.tr(),

@@ -9,6 +9,7 @@ import '../../features/forget_password/presentation/view/change_pass_done_screen
 import '../../features/forget_password/presentation/view/change_pass_screen.dart';
 import '../../features/forget_password/presentation/view/forget_pass_screen.dart';
 import '../../features/forget_password/presentation/view/verify_code_screen.dart';
+import '../../features/gemini_health/presentation/view/gemini_health_screen.dart';
 import '../../features/language_app/presentation/view/language_screen.dart';
 import '../../features/medicines/presentation/view/medicines_deatils_screen.dart';
 import '../../features/medicines/presentation/view/medicines_screen.dart';
@@ -32,6 +33,7 @@ class AppRouter {
     SignUpScreen.id: (context) => const SignUpScreen(),
     LoginScreen.id: (context) => const LoginScreen(),
     ForgetPassScreen.id: (context) => const ForgetPassScreen(),
+    GeminiHealthScreen.id: (context) => const GeminiHealthScreen(),
     VerifyCodeScreen.id: (context) => const VerifyCodeScreen(),
     ChangePasswordScreen.id: (context) => const ChangePasswordScreen(),
     ChangePassDoneScreen.id: (context) => const ChangePassDoneScreen(),
