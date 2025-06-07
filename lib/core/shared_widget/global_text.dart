@@ -41,7 +41,7 @@ class GText extends StatelessWidget {
     final isArabic = context.locale.languageCode == 'ar';
     final textDirection = isArabic ? ui.TextDirection.rtl : ui.TextDirection.ltr;
     return Text(
-      content.tr(),
+      content,
       textAlign: textAlign ?? (isArabic ? TextAlign.right : TextAlign.left),
       textDirection: textDirection,
       maxLines: maxLines,

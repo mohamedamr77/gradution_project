@@ -7,9 +7,9 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 
 import '../../features/notification_feature/presentation/view/noificaion_screen.dart';
-import '../utils/locale_keys.g.dart';
 
 class HeaderBottomNavBarScreen extends StatelessWidget {
   const HeaderBottomNavBarScreen({super.key});
@@ -32,7 +32,8 @@ class HeaderBottomNavBarScreen extends StatelessWidget {
               content: LocaleKeys.welcomeLily.tr(),
               fontSize: 16,
               fontWeight: FontWeight.w600,
-            )),
+            )
+        ),
         const Spacer(),
         IconButton(
             onPressed: () {
