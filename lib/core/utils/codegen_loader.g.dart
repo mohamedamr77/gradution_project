@@ -57,8 +57,6 @@ class CodegenLoader extends AssetLoader{
   "enterChildName": "قم بإدخال اسم طفلك",
   "height": "الطول",
   "weight": "الوزن",
-  "male": "ذكر",
-  "female": "انثى",
   "gender": "النوع",
   "childDiseases": "هل يعانى طفلك من اى امراض ",
   "childVaccines": "هل اخذ طفلك اى تطعيمات من قبل",
@@ -174,7 +172,20 @@ class CodegenLoader extends AssetLoader{
   "LastName": "الاسم الثانى",
   "notSelectImage": "لم يتم اختيار صوره",
   "loginSuccess": "Login Successful",
-  "unAvailable": "غير متاح"
+  "unAvailable": "غير متاح",
+  "name_required": "الاسم مطلوب",
+  "name_invalid": "الاسم يجب أن يحتوي على حروف عربية أو إنجليزية فقط",
+  "email_required": "البريد الإلكتروني مطلوب",
+  "email_invalid": "الرجاء إدخال بريد إلكتروني صحيح",
+  "password_required": "كلمة المرور مطلوبة",
+  "password_length": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+  "password_invalid": "كلمة المرور يجب أن تحتوي على حرف واحد (عربي أو إنجليزي) ورقم واحد على الأقل",
+  "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+  "confirm_password_mismatch": "كلمة المرور وتأكيد كلمة المرور غير متطابقتين",
+  "phone_number_required": "رقم الهاتف مطلوب",
+  "phone_number_invalid": "الرجاء إدخال رقم هاتف صحيح",
+  "female1": "ذكر",
+  "male1": "انثى"
 };
 static const Map<String,dynamic> _en = {
   "startJourney": "Start your journey to secure your children's health and remind you of the most important vaccinations on time.",
@@ -219,8 +230,6 @@ static const Map<String,dynamic> _en = {
   "enterChildName": "Enter your child's name",
   "height": "Height",
   "weight": "Weight",
-  "male": "Male",
-  "female": "Female",
   "gender": "Gender",
   "childDiseases": "Does your child suffer from any diseases?",
   "childVaccines": "Has your child received any previous vaccinations?",
@@ -336,7 +345,20 @@ static const Map<String,dynamic> _en = {
   "LastName": "Last name",
   "notSelectImage": "No image selected",
   "loginSuccess": "Login Successful",
-  "unAvailable": "Unavailable"
+  "unAvailable": "Unavailable",
+  "name_required": "Name is required",
+  "name_invalid": "Name must contain only Arabic or English letters",
+  "email_required": "Email is required",
+  "email_invalid": "Please enter a valid email",
+  "password_required": "Password is required",
+  "password_length": "Password must be at least 8 characters long",
+  "password_invalid": "Password must contain at least one letter (Arabic or English) and one number",
+  "confirm_password_required": "Password confirmation is required",
+  "confirm_password_mismatch": "Password and confirm password do not match",
+  "phone_number_required": "Phone number is required",
+  "phone_number_invalid": "Please enter a valid phone number",
+  "female1": "Female",
+  "male1": "Male"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

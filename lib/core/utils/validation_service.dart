@@ -1,61 +1,59 @@
+import 'package:easy_localization/easy_localization.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
+
 class Validators {
-  /// التحقق من الاسم (يجب ألا يكون فارغًا ويحتوي فقط على حروف عربية أو إنجليزية ومسافات)
   static String? validateName(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'الاسم مطلوب';
+      return LocaleKeys.name_required.tr();
     }
     if (!RegExp(r'^[\u0621-\u064A\u0660-\u0669a-zA-Z\s]+$').hasMatch(value)) {
-      return 'الاسم يجب أن يحتوي على حروف عربية أو إنجليزية فقط';
+      return LocaleKeys.name_invalid.tr();
     }
-    return null; // لا يوجد خطأ
+    return null;
   }
 
-  /// التحقق من البريد الإلكتروني
   static String? validateEmail(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'البريد الإلكتروني مطلوب';
+      return LocaleKeys.email_required.tr();
     }
     if (!RegExp(r'^[^@\s]+@[^@\s]+\.[^@\s]+$').hasMatch(value)) {
-      return 'الرجاء إدخال بريد إلكتروني صحيح';
+      return LocaleKeys.email_invalid.tr();
     }
     return null; // لا يوجد خطأ
   }
 
-  /// التحقق من كلمة المرور (حد أدنى 8 أحرف، على الأقل رقم واحد وحرف واحد عربي أو إنجليزي)
   static String? validatePassword(String? value) {
     if (value == null || value.isEmpty) {
-      return 'كلمة المرور مطلوبة';
+      return LocaleKeys.password_required.tr();
     }
     if (value.length < 8) {
-      return 'كلمة المرور يجب أن تكون 8 أحرف على الأقل';
+      return LocaleKeys.password_length.tr();
     }
     if (!RegExp(
             r'^(?=.*[\u0621-\u064Aa-zA-Z])(?=.*\d)[\u0621-\u064A\u0660-\u0669a-zA-Z\d@$!%*?&]+$')
         .hasMatch(value)) {
-      return 'كلمة المرور يجب أن تحتوي على حرف واحد (عربي أو إنجليزي) ورقم واحد على الأقل';
+      return LocaleKeys.password_invalid.tr();
     }
     return null; // لا يوجد خطأ
   }
 
-  /// التحقق من تأكيد كلمة المرور
   static String? validateConfirmPassword(
       String? password, String? confirmPassword) {
     if (confirmPassword == null || confirmPassword.isEmpty) {
-      return 'تأكيد كلمة المرور مطلوب';
+      return LocaleKeys.confirm_password_required.tr();
     }
     if (password != confirmPassword) {
-      return 'كلمة المرور وتأكيد كلمة المرور غير متطابقتين';
+      return LocaleKeys.confirm_password_mismatch.tr();
     }
     return null; // لا يوجد خطأ
   }
 
-  /// التحقق من رقم الهاتف (يدعم الأرقام العربية والإنجليزية)
   static String? validatePhoneNumber(String? value) {
     if (value == null || value.trim().isEmpty) {
-      return 'رقم الهاتف مطلوب';
+      return LocaleKeys.phone_number_required.tr();
     }
     if (!RegExp(r'^\+?[0-9\u0660-\u0669]{7,15}$').hasMatch(value)) {
-      return 'الرجاء إدخال رقم هاتف صحيح';
+      return LocaleKeys.phone_number_invalid.tr();
     }
     return null; // لا يوجد خطأ
   }

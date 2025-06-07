@@ -2,7 +2,7 @@
 
 // ignore_for_file: constant_identifier_names
 
-abstract class LocaleKeys {
+abstract class  LocaleKeys {
   static const startJourney = 'startJourney';
   static const sideEffectsInfo = 'sideEffectsInfo';
   static const safeMedicines = 'safeMedicines';
@@ -46,8 +46,6 @@ abstract class LocaleKeys {
   static const height = 'height';
   static const weight = 'weight';
   static const gender = 'gender';
-  static const male = 'male';
-  static const female = 'female';
   static const childDiseases = 'childDiseases';
   static const childVaccines = 'childVaccines';
   static const register = 'register';
@@ -62,8 +60,7 @@ abstract class LocaleKeys {
   static const favoriteItems = 'favoriteItems';
   static const articles = 'articles';
   static const doctors = 'doctors';
-  static const sideEffectsTuberculosisVaccine =
-      'sideEffectsTuberculosisVaccine';
+  static const sideEffectsTuberculosisVaccine = 'sideEffectsTuberculosisVaccine';
   static const effective99Percent = 'effective99Percent';
   static const singleDose = 'singleDose';
   static const knowMore = 'knowMore';
@@ -111,8 +108,7 @@ abstract class LocaleKeys {
   static const timeline = 'timeline';
   static const sideEffectsLabel = 'sideEffectsLabel';
   static const medicationsForSideEffects = 'medicationsForSideEffects';
-  static const medicationsForSideEffectsDetails =
-      'medicationsForSideEffectsDetails';
+  static const medicationsForSideEffectsDetails = 'medicationsForSideEffectsDetails';
   static const medicationsDetails = 'medicationsDetails';
   static const accountSettings = 'accountSettings';
   static const themes = 'themes';
@@ -143,11 +139,9 @@ abstract class LocaleKeys {
   static const notificationsLabel = 'notificationsLabel';
   static const markAsRead = 'markAsRead';
   static const today = 'today';
-  static const tuberculosisVaccineAppointment =
-      'tuberculosisVaccineAppointment';
+  static const tuberculosisVaccineAppointment = 'tuberculosisVaccineAppointment';
   static const deleteAllNotifications = 'deleteAllNotifications';
-  static const deleteAllNotificationsConfirmation =
-      'deleteAllNotificationsConfirmation';
+  static const deleteAllNotificationsConfirmation = 'deleteAllNotificationsConfirmation';
   static const vaccinationReminder = 'vaccinationReminder';
   static const childName = 'childName';
   static const vaccineNameLabel = 'vaccineNameLabel';
@@ -167,4 +161,18 @@ abstract class LocaleKeys {
   static const notSelectImage = 'notSelectImage';
   static const loginSuccess = 'loginSuccess';
   static const unAvailable = 'unAvailable';
+  static const name_required = 'name_required';
+  static const name_invalid = 'name_invalid';
+  static const email_required = 'email_required';
+  static const email_invalid = 'email_invalid';
+  static const password_required = 'password_required';
+  static const password_length = 'password_length';
+  static const password_invalid = 'password_invalid';
+  static const confirm_password_required = 'confirm_password_required';
+  static const confirm_password_mismatch = 'confirm_password_mismatch';
+  static const phone_number_required = 'phone_number_required';
+  static const phone_number_invalid = 'phone_number_invalid';
+  static const female1 = 'female1';
+  static const male1 = 'male1';
+
 }

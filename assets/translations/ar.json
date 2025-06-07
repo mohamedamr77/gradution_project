@@ -41,8 +41,7 @@
   "enterChildName": "قم بإدخال اسم طفلك",
   "height": "الطول",
   "weight": "الوزن",
-  "male": "ذكر",
-  "female": "انثى",
+
   "gender": "النوع",
   "childDiseases": "هل يعانى طفلك من اى امراض ",
   "childVaccines": "هل اخذ طفلك اى تطعيمات من قبل",
@@ -158,5 +157,18 @@
   "LastName": "الاسم الثانى",
   "notSelectImage": "لم يتم اختيار صوره",
   "loginSuccess": "Login Successful",
-  "unAvailable": "غير متاح"
+  "unAvailable": "غير متاح",
+  "name_required": "الاسم مطلوب",
+  "name_invalid": "الاسم يجب أن يحتوي على حروف عربية أو إنجليزية فقط",
+  "email_required": "البريد الإلكتروني مطلوب",
+  "email_invalid": "الرجاء إدخال بريد إلكتروني صحيح",
+  "password_required": "كلمة المرور مطلوبة",
+  "password_length": "كلمة المرور يجب أن تكون 8 أحرف على الأقل",
+  "password_invalid": "كلمة المرور يجب أن تحتوي على حرف واحد (عربي أو إنجليزي) ورقم واحد على الأقل",
+  "confirm_password_required": "تأكيد كلمة المرور مطلوب",
+  "confirm_password_mismatch": "كلمة المرور وتأكيد كلمة المرور غير متطابقتين",
+  "phone_number_required": "رقم الهاتف مطلوب",
+  "phone_number_invalid": "الرجاء إدخال رقم هاتف صحيح",
+  "female1" : "ذكر",
+  "male1" : "انثى"
 }

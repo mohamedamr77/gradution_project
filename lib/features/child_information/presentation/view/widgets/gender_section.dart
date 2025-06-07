@@ -61,7 +61,7 @@ class _GenderSectionState extends State<GenderSection> {
                     GText(
                       fontSize: 16,
                       color: AppColors.thirdColor,
-                      content: LocaleKeys.female.tr(),
+                      content: LocaleKeys.female1.tr(),
                     )
                   ],
                 ),
@@ -81,7 +81,7 @@ class _GenderSectionState extends State<GenderSection> {
                     GText(
                       fontSize: 16,
                       color: AppColors.thirdColor,
-                      content: LocaleKeys.male.tr(),
+                      content: LocaleKeys.male1.tr(),
                     )
                   ],
                 ),
