@@ -3,5 +3,6 @@ class AppEndPoint{
   static const String domain = "$baseUrl/api/v1";
   static const String signUp = "$domain/Auth/userRegister";
   static const String login = "$domain/Auth/login";
+  static const String forgetPassword = "$domain/auth/forgotPassword";
 
 }
