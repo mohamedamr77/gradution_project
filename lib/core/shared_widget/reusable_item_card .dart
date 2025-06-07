@@ -3,6 +3,7 @@ import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
+import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import '../shared_model/resuable_model.dart';
 import '../utils/locale_keys.g.dart';
@@ -35,15 +36,7 @@ class ReusableItemCard extends StatelessWidget {
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 16),
               child: Row(
                 children: [
-                  ClipRRect(
-                    borderRadius: BorderRadius.circular(8),
-                    child: CachedNetworkImage(
-                      imageUrl: reusableModel.imagePath,
-                      width: 0.28.w,
-                      height: 0.12.h,
-                      fit: BoxFit.fill,
-                    ),
-                  ),
+                  CustomImageNetwork(reusableModel: reusableModel),
                   const SizedBox(
                     width: 14,
                   ),
@@ -57,7 +50,7 @@ class ReusableItemCard extends StatelessWidget {
                           fontSize: 16,
                           maxLines: 2,
                           overflow: TextOverflow.ellipsis,
-                          textAlign: TextAlign.end,
+                          textDirection: textDirection,
                           fontWeight: FontWeight.w600,
                         ),
                       ),
@@ -96,25 +89,7 @@ class ReusableItemCard extends StatelessWidget {
                       ),
                       Visibility(
                         visible: reusableModel.isDoctor,
-                        child: SizedBox(
-                          width: 0.5.w,
-                          child: Row(
-
-                            children: [
-                              const Icon(
-                                Icons.star,
-                                color: Color(0xffFFD90F),
-                              ),
-                              const SizedBox(
-                                width: 6,
-                              ),
-                              GText(
-                                  color: AppColors.blackColor,
-                                  content: "${reusableModel.isRating}",
-                                  fontSize: 15)
-                            ],
-                          ),
-                        ),
+                        child: IsDoctorRate(reusableModel: reusableModel,),
                       )
                     ],
                   )
@@ -127,18 +102,7 @@ class ReusableItemCard extends StatelessWidget {
             child: Positioned(
               left: isArabic ?  10 :null,
               right: isArabic ? null : 10,
-              child: IconButton(
-                onPressed: reusableModel.onPressedIconFavourite,
-                icon: reusableModel.isFavourite
-                    ? const Icon(
-                        Icons.favorite,
-                        color: AppColors.primaryColor,
-                      )
-                    : const Icon(
-                        Icons.favorite_border_outlined,
-                        color: AppColors.primaryColor,
-                      ),
-              ),
+              child: FavIcon(reusableModel: reusableModel,)
             ),
           ),
           Visibility(
@@ -147,11 +111,8 @@ class ReusableItemCard extends StatelessWidget {
                 left: isArabic ?  10 :null,
                 right: isArabic ? null : 10,
                 top: 10,
-                child: IconButton(
-                    onPressed: reusableModel.onTapCheckBoxVaccineTimes,
-                    icon: reusableModel.isCheckBoxTrue
-                        ? SvgPicture.asset(AppIcons.checkBoxCorrect)
-                        : SvgPicture.asset(AppIcons.checkBoxEmpty))),
+                child: CheckBoxIcon(reusableModel: reusableModel,)
+            ),
           ),
           Visibility(
             visible: reusableModel.isDetails == false,
@@ -159,15 +120,121 @@ class ReusableItemCard extends StatelessWidget {
               bottom: -8,
               left: isArabic ?  8 :null,
               right: isArabic ? null : 8,
-              child: TextButton(
-                  onPressed: () {},
-                  child: GText(
-                      color: AppColors.primaryColor,
-                      content: LocaleKeys.knowMore.tr(),
-                      fontSize: 12)),
+              child:  ReadMore(reusableModel: reusableModel,)
             ),
           )
         ],
+      ),
+    );
+  }
+}
+
+
+class IsDoctorRate extends StatelessWidget {
+  final ReusableModel reusableModel;
+
+  const IsDoctorRate({super.key, required this.reusableModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      width: 0.5.w,
+      child: Row(
+        children: [
+          const Icon(
+            Icons.star,
+            color: Color(0xffFFD90F),
+          ),
+          const SizedBox(
+            width: 6,
+          ),
+          GText(
+              color: AppColors.blackColor,
+              content: "${reusableModel.isRating}",
+              fontSize: 15)
+        ],
+      ),
+    );
+  }
+}
+
+
+class CustomImageNetwork extends StatelessWidget {
+  final ReusableModel reusableModel;
+
+  const CustomImageNetwork({super.key, required this.reusableModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return  ClipRRect(
+      borderRadius: BorderRadius.circular(8),
+      child: CachedNetworkImage(
+        imageUrl: reusableModel.imagePath,
+        errorWidget: (_, __, ___) => Image.asset(
+          AppImages.adviceHomeImage,
+          width: 0.28.w,
+          height: 0.12.h,
+          fit: BoxFit.fill,
+        ),
+        width: 0.28.w,
+        height: 0.12.h,
+        fit: BoxFit.fill,
+      ),
+    );
+  }
+}
+
+
+
+class ReadMore extends StatelessWidget {
+  final ReusableModel reusableModel;
+
+  const ReadMore({super.key, required this.reusableModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return TextButton(
+        onPressed: () {},
+        child: GText(
+            color: AppColors.primaryColor,
+            content: LocaleKeys.knowMore.tr(),
+            fontSize: 12));
+  }
+}
+
+class CheckBoxIcon extends StatelessWidget {
+  final ReusableModel reusableModel;
+
+  const CheckBoxIcon({super.key, required this.reusableModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return  IconButton(
+        onPressed: reusableModel.onTapCheckBoxVaccineTimes,
+        icon: reusableModel.isCheckBoxTrue
+            ? SvgPicture.asset(AppIcons.checkBoxCorrect)
+            : SvgPicture.asset(AppIcons.checkBoxEmpty));
+  }
+}
+
+
+
+class FavIcon extends StatelessWidget {
+  final ReusableModel reusableModel;
+  const FavIcon({super.key, required this.reusableModel});
+
+  @override
+  Widget build(BuildContext context) {
+    return IconButton(
+      onPressed: reusableModel.onPressedIconFavourite,
+      icon: reusableModel.isFavourite
+          ? const Icon(
+        Icons.favorite,
+        color: AppColors.primaryColor,
+      )
+          : const Icon(
+        Icons.favorite_border_outlined,
+        color: AppColors.primaryColor,
       ),
     );
   }

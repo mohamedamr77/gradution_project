@@ -53,8 +53,8 @@ class VaccineTimesListItems extends StatelessWidget {
       key: const ValueKey<int>(1),
       reusableModel: ReusableModel(
         imagePath: AppImages.vaccine4Test,
-        title: "تطعيم الدرن",
-        description: "فعال بنسبة99%",
+        title: "Mohameddc ",
+        description: "fdasfas",
         subDescription: "يتم اخده مره واحده",
         onTapCheckBoxVaccineTimes: () {
           debugPrint('Mohamed amr');
@@ -74,8 +74,8 @@ class VaccineTimesListItems extends StatelessWidget {
       reusableModel: ReusableModel(
         imagePath: AppImages.tuberVaccineTest,
         title: LocaleKeys.rotavirusVaccine.tr(),
-        description: "فعال بنسبة99%",
-        subDescription: "يتم اخده مره واحده",
+        description: LocaleKeys.rotavirusVaccine.tr(),
+        subDescription:LocaleKeys.rotavirusVaccine.tr(),
         onPressedIconFavourite: () {},
         onTapCheckBoxVaccineTimes: () {},
         isVaccineTimes: true,
