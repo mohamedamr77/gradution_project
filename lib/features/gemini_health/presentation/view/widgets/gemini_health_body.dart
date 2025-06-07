@@ -35,7 +35,19 @@ class GeminiHealthBody extends StatelessWidget {
     }
 
     if (state is GeminiHealthLoading) {
-      return const Center(child: CircularProgressIndicator());
+      return ListView.builder(
+        reverse: true,
+        padding: const EdgeInsets.all(16),
+        itemCount: context.read<GeminiHealthCubit>().messages.length + 1,
+        itemBuilder: (context, index) {
+          if (index == 0) {
+            return _buildTypingIndicator();
+          }
+          final message = context.read<GeminiHealthCubit>().messages[
+              context.read<GeminiHealthCubit>().messages.length - index];
+          return _buildMessageBubble(message);
+        },
+      );
     }
 
     if (state is GeminiHealthError) {
@@ -67,6 +79,39 @@ class GeminiHealthBody extends StatelessWidget {
     }
 
     return const SizedBox.shrink();
+  }
+
+  Widget _buildTypingIndicator() {
+    return Align(
+      alignment: Alignment.centerRight,
+      child: Container(
+        margin: const EdgeInsets.symmetric(vertical: 8),
+        padding: const EdgeInsets.all(12),
+        decoration: BoxDecoration(
+          color: Colors.grey[200],
+          borderRadius: BorderRadius.circular(12),
+        ),
+        constraints: const BoxConstraints(maxWidth: 150),
+        child: Row(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            const Text(
+              'جاري الكتابة',
+              style: TextStyle(fontSize: 14, color: Colors.grey),
+            ),
+            const SizedBox(width: 8),
+            SizedBox(
+              width: 16,
+              height: 16,
+              child: CircularProgressIndicator(
+                strokeWidth: 2,
+                valueColor: AlwaysStoppedAnimation<Color>(Colors.grey[400]!),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
   }
 
   Widget _buildMessageBubble(ChatMessage message) {

@@ -20,7 +20,7 @@ class GeminiHealthCubit extends Cubit<GeminiHealthState> {
     messages.add(userMessage);
     emit(GeminiHealthLoaded(List.from(messages)));
 
-    // Show loading state
+    // Show loading state while keeping messages visible
     emit(GeminiHealthLoading());
     questionController.clear();
 
