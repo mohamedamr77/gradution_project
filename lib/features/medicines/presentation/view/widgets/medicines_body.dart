@@ -1,9 +1,13 @@
+import 'dart:async';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_cubit.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_state.dart';
+import 'package:skeletonizer/skeletonizer.dart';
+import '../../../data/model/list/list_dummy_data_medicines.dart';
 import 'medicines_list_items.dart';
 
 class MedicinesBody extends StatelessWidget {
@@ -11,6 +15,7 @@ class MedicinesBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final debouncer = Debouncer(delay: const Duration(milliseconds: 500));
     return BlocConsumer<MedicinesCubit, MedicinesState>(
       listener: (context, state) {
         // Implement listener if needed, or remove if not used
@@ -25,8 +30,9 @@ class MedicinesBody extends StatelessWidget {
                   hintText: "ابحث هنا ......",
                   title: "",
                   onChanged: (value) {
-                    BlocProvider.of<MedicinesCubit>(context)
-                        .getAllMedicines(search: value);
+                    debouncer.run(() {
+                      context.read<MedicinesCubit>().getAllMedicines(search: value);
+                    });
                   },
                 ),
               ),
@@ -38,20 +44,27 @@ class MedicinesBody extends StatelessWidget {
       },
     );
   }
-  Widget _buildContent(BuildContext context, MedicinesState state) {
-    if (state is GetAllMedicinesLoadingState) {
-      return const SliverToBoxAdapter(
-        child: Center(child: CircularProgressIndicator()),
-      );
-    }
 
-    if (state is GetAllMedicinesSuccessState) {
-      final medications = state.medicineResponse.data?.rows ?? [];
+  Widget _buildContent(BuildContext context, MedicinesState state) {
+    if (state is GetAllMedicinesSuccessState ||
+        state is GetAllMedicinesLoadingState) {
+      final medications = state is GetAllMedicinesSuccessState
+          ? state.medicineResponse.data?.rows ?? []
+          : listDummyDataMedicines;
       return medications.isEmpty
           ? const SliverToBoxAdapter(
-        child: Center(child: Text('لا توجد نتائج')),
-      )
-          : MedicinesListItems(medications: medications);
+              child: Center(child: Text('لا توجد نتائج')),
+            )
+          : SliverToBoxAdapter(
+              child: Skeletonizer(
+                  enabled: state is GetAllMedicinesLoadingState,
+                  effect: ShimmerEffect(
+                    baseColor: Colors.grey[400]!,
+                    highlightColor: const Color(0xff3640CE).withOpacity(0.2), //// Primary color
+                    duration: const Duration(seconds: 2),
+                  ),
+                  child: MedicinesListItems(medications: medications)),
+            );
     }
 
     if (state is GetAllMedicinesErrorState) {
@@ -62,5 +75,24 @@ class MedicinesBody extends StatelessWidget {
 
     return const SliverToBoxAdapter(child: SizedBox.shrink());
   }
+}
 
+
+
+
+
+class Debouncer {
+  final Duration delay;
+  Timer? _timer;
+
+  Debouncer({required this.delay});
+
+  void run(VoidCallback action) {
+    _timer?.cancel();
+    _timer = Timer(delay, action);
+  }
+
+  void dispose() {
+    _timer?.cancel();
+  }
 }

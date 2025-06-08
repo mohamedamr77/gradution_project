@@ -19,7 +19,9 @@ class MedicinesListItems extends StatelessWidget {
     MedicinesCubit cubit = BlocProvider.of<MedicinesCubit>(context);
     return BlocBuilder<MedicinesCubit, MedicinesState>(
       builder: (context, state) {
-        return SliverList.separated(
+        return ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
           itemCount: medications.length,
           itemBuilder: (context, index) {
             return AnimatedSwitcher(
