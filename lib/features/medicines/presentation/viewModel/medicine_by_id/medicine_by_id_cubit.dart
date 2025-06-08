@@ -19,7 +19,8 @@ class MedicineByIdCubit extends Cubit<MedicineByIdState> {
             emit(MedicineByIdErrorState(message: failure.message));
           },
           (medication) {
-            debugPrint("MedicineByIdCubit: getMedicineById: $medication");
+            debugPrint("MedicineByIdCubit: getMedicineById: ${medication.name}");
+
             emit(MedicineByIdSuccessState(medication: medication));
           },
     );

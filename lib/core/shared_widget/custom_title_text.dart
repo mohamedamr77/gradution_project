@@ -9,13 +9,11 @@ class CustomTitleText extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Align(
-        alignment: Alignment.centerRight,
-        child: GText(
-          color: AppColors.primaryColor,
-          content: title,
-          fontSize: 18,
-          fontWeight: FontWeight.w500,
-        ));
+    return GText(
+      color: AppColors.primaryColor,
+      content: title,
+      fontSize: 18,
+      fontWeight: FontWeight.w500,
+    );
   }
 }

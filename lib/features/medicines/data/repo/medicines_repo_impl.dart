@@ -38,7 +38,7 @@ class MedicinesRepoImpl implements MedicinesRepo {
         endPoint: AppEndPoint.getMedicineById(id),
       );
       if (response["success"] == true) {
-        final medicationModel = MedicationModel.fromJson(response);
+        final medicationModel = MedicationModel.fromJson(response["data"]["rows"][0]);
         return Right(medicationModel);
       } else {
         return const Left(ServerFailure(message: "حدث خطأ فى استرجاع البيانات"));
