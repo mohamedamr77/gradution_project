@@ -8,5 +8,7 @@ class AppEndPoint{
   static String searchMedicine(String name) {
     return "$domain/medicine/search?name=$name";
   }
-
+  static String getMedicineById(String id) {
+    return "$domain/medicine/medicineById/$id";
+  }
 }
