@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/medicines/presentation/viewModel/medicine_by_id/medicine_by_id_cubit.dart';
 
 import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/global_text.dart';
@@ -10,9 +12,21 @@ import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../../../core/shared_model/resuable_model.dart';
 
-class MedicinesDetailsBody extends StatelessWidget {
-  const MedicinesDetailsBody({super.key});
+class MedicinesDetailsBody extends StatefulWidget {
+  final String medicineId;
+  const MedicinesDetailsBody({super.key, required this.medicineId});
 
+  @override
+  State<MedicinesDetailsBody> createState() => _MedicinesDetailsBodyState();
+}
+
+class _MedicinesDetailsBodyState extends State<MedicinesDetailsBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<MedicineByIdCubit>(context).getMedicineById(id: widget.medicineId);
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

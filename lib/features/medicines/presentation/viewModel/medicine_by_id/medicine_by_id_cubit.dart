@@ -7,11 +7,11 @@ import 'medicine_by_id_state.dart';
 
 class MedicineByIdCubit extends Cubit<MedicineByIdState> {
   MedicineByIdCubit({required this.medicinesRepo}) : super(MedicineByIdInitialState());
-   String? medicineId;
+
   final MedicinesRepo medicinesRepo;
   Future<void> getMedicineById({required String id}) async {
     emit(MedicineByIdLoadingState());
-    medicineId = id;
+
     final result = await medicinesRepo.getMedicineDetails(id: id);
     result.fold(
           (failure) {

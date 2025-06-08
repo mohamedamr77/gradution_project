@@ -59,7 +59,11 @@ class MedicinesListItems extends StatelessWidget {
         subDescription: medicationModel.dosage ??"غير متاح",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(MedicinesDetailsScreen.id);
+          NavigationManager.push(MedicinesDetailsScreen.id,
+          arguments: {
+            'MedicineId': medicationModel.id ?? '',
+          }
+          );
         },
       ), // Assign a unique key for animation
     );
