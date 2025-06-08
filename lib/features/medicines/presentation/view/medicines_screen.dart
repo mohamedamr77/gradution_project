@@ -21,12 +21,6 @@ class MedicinesScreen extends StatelessWidget {
       create: (context) => MedicinesCubit(medicinesRepo: MedicinesRepoImpl(apiService: ApiService()))..getAllMedicines(search: ''),
       child: Scaffold(
         appBar: CustomAppBar(
-          actions: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: SvgPicture.asset(AppIcons.search),
-            )
-          ],
           title: LocaleKeys.recommendedMedications.tr(),
         ),
         body: const MedicinesBody(),

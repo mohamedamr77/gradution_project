@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
@@ -7,6 +5,7 @@ import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_cubit.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+import '../../../../../core/utils/debouncer.dart';
 import '../../../data/model/list/list_dummy_data_medicines.dart';
 import 'medicines_list_items.dart';
 
@@ -81,18 +80,3 @@ class MedicinesBody extends StatelessWidget {
 
 
 
-class Debouncer {
-  final Duration delay;
-  Timer? _timer;
-
-  Debouncer({required this.delay});
-
-  void run(VoidCallback action) {
-    _timer?.cancel();
-    _timer = Timer(delay, action);
-  }
-
-  void dispose() {
-    _timer?.cancel();
-  }
-}
