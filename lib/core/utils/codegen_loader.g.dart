@@ -186,11 +186,13 @@ class CodegenLoader extends AssetLoader{
   "phone_number_invalid": "الرجاء إدخال رقم هاتف صحيح",
   "female1": "ذكر",
   "male1": "انثى",
-  "welcome_message": "مرحباً بك في المساعد الطبي للأطفال\nيمكنك طرح أسئلتك هنا",
-  "typing_indicator": "جاري الكتابة",
+  "welcome_message": "مرحباً بك في المساعد الطبي للأطفال\nيمكنك طرح أسئلتك هنا\n\n👇👇",
   "reset_chat_button": "إعادة المحادثة",
   "text_field_hint": "اكتب سؤالك هنا...",
-  "appbar_title": "المساعد الطبي للأطفال"
+  "appbar_title": "المساعد الطبي للأطفال",
+  "typing_indicator": "جاري الكتابة",
+  "description": "الوصف",
+  "dosage": "الجرعة"
 };
 static const Map<String,dynamic> _en = {
   "startJourney": "Start your journey to secure your children's health and remind you of the most important vaccinations on time.",
@@ -364,10 +366,13 @@ static const Map<String,dynamic> _en = {
   "phone_number_invalid": "Please enter a valid phone number",
   "female1": "Female",
   "male1": "Male",
+  "welcome_message": "Welcome to the Children's Medical Assistant You can ask your questions here 👇👇",
   "typing_indicator": "Typing...",
   "reset_chat_button": "Restart Chat",
   "text_field_hint": "Type your question here...",
-  "appbar_title": "Children's Medical Assistant"
+  "appbar_title": "Children's Medical Assistant",
+  "description": "Description",
+  "dosage": "Dosage"
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

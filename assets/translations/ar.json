@@ -175,5 +175,7 @@
   "reset_chat_button": "إعادة المحادثة",
   "text_field_hint": "اكتب سؤالك هنا...",
   "appbar_title": "المساعد الطبي للأطفال",
-  "typing_indicator": "جاري الكتابة"
+  "typing_indicator": "جاري الكتابة",
+  "description": "الوصف",
+  "dosage": "الجرعة"
 }

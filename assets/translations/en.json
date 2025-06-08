@@ -174,5 +174,7 @@
   "typing_indicator": "Typing...",
   "reset_chat_button": "Restart Chat",
   "text_field_hint": "Type your question here...",
-  "appbar_title": "Children's Medical Assistant"
+  "appbar_title": "Children's Medical Assistant",
+  "description": "Description",
+  "dosage": "Dosage"
 }
