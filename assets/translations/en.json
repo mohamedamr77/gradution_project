@@ -176,5 +176,6 @@
   "text_field_hint": "Type your question here...",
   "appbar_title": "Children's Medical Assistant",
   "description": "Description",
-  "dosage": "Dosage"
+  "dosage": "Dosage",
+  "searchHere": "Search here ..."
 }

@@ -180,7 +180,7 @@ abstract class  LocaleKeys {
   static const appbar_title = 'appbar_title';
   static const typing_indicator = 'typing_indicator';
   static const description = 'description';
-
   static const dosage = 'dosage';
+  static const searchHere = 'searchHere';
 
 }

@@ -192,7 +192,8 @@ class CodegenLoader extends AssetLoader{
   "appbar_title": "المساعد الطبي للأطفال",
   "typing_indicator": "جاري الكتابة",
   "description": "الوصف",
-  "dosage": "الجرعة"
+  "dosage": "الجرعة",
+  "searchHere": "ابحث هنا ..."
 };
 static const Map<String,dynamic> _en = {
   "startJourney": "Start your journey to secure your children's health and remind you of the most important vaccinations on time.",
@@ -372,7 +373,8 @@ static const Map<String,dynamic> _en = {
   "text_field_hint": "Type your question here...",
   "appbar_title": "Children's Medical Assistant",
   "description": "Description",
-  "dosage": "Dosage"
+  "dosage": "Dosage",
+  "searchHere": "Search here ..."
 };
 static const Map<String, Map<String,dynamic>> mapLocales = {"ar": _ar, "en": _en};
 }

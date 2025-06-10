@@ -1,7 +1,9 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_cubit.dart';
 import 'package:gradutionproject/features/medicines/presentation/viewModel/medicines_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -26,7 +28,7 @@ class MedicinesBody extends StatelessWidget {
             slivers: [
               SliverToBoxAdapter(
                 child: CustomTextField(
-                  hintText: "ابحث هنا ......",
+                  hintText:LocaleKeys.searchHere.tr(),
                   title: "",
                   onChanged: (value) {
                     debouncer.run(() {
