@@ -19,7 +19,6 @@ class MedicinesBody extends StatelessWidget {
     final debouncer = Debouncer(delay: const Duration(milliseconds: 500));
     return BlocConsumer<MedicinesCubit, MedicinesState>(
       listener: (context, state) {
-        // Implement listener if needed, or remove if not used
       },
       builder: (context, state) {
         return Padding(

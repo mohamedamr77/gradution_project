@@ -1,15 +1,21 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/helper/api_service.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
+import 'package:gradutionproject/features/side_effects/data/repo/article/artcile_impl.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import 'core/utils/token_manager.dart';
 import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/gemini_health/presentation/view/gemini_health_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'features/on_boarding/presentation/view/on_boarding_screen.dart';
+import 'features/side_effects/presentation/view_model/article/article_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -29,7 +35,13 @@ void main() async{
        path: 'assets/translations', // Path to translation files
        fallbackLocale: const Locale('en'), // Fallback language
        startLocale: const Locale('en'),
-       child: const MyApp()),
+       child:  MultiBlocProvider(
+           providers: [
+              BlocProvider<ArticleCubit>(
+                create: (context) => ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService())),
+              ),
+           ],
+           child: const MyApp())),
   );
 }
 
@@ -42,19 +54,6 @@ Future<void> _initializeHive() async {
 
   ]);
 }
-/*
- runApp(
-    DevicePreview(
-      enabled: !kReleaseMode,
-      builder: (context) => MyApp(), // Wrap your app
-    ),
-  );
- 
-   useInheritedMediaQuery: true,
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
- */
-
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -79,10 +78,9 @@ class MyApp extends StatelessWidget {
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
             initialRoute:
-            BottomNavBarScreen.id,
-            // TokenManager.getToken() == null
-            //     ? OnBoardingScreen.id
-            //     : BottomNavBarScreen.id,
+            TokenManager.getToken() == null
+                ? OnBoardingScreen.id
+                : BottomNavBarScreen.id,
 
           ),
         );

@@ -6,10 +6,22 @@ import 'package:gradutionproject/features/side_effects/presentation/view_model/s
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 
 import '../../../../../core/shared_widget/button_list_horizontal.dart';
+import '../../view_model/article/article_cubit.dart';
 
-class SideEffectBody extends StatelessWidget {
+class SideEffectBody extends StatefulWidget {
   const SideEffectBody({super.key});
 
+  @override
+  State<SideEffectBody> createState() => _SideEffectBodyState();
+}
+
+class _SideEffectBodyState extends State<SideEffectBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<ArticleCubit>(context).getAllArticle();
+  }
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<SideEffectsCubit, SideEffectsState>(
