@@ -37,7 +37,7 @@ class ArticleImpl implements ArticleRepo{
       endPoint: AppEndPoint.getArticleById(id: id),
     );
     if (response["success"] == true) {
-      final articleModel = ArticleModel.fromJson(response["data"]);
+      final articleModel = ArticleModel.fromJson(response["data"]["rows"][0]);
       return Right(articleModel);
     } else {
       return Left(ServerFailure(message: response["msg"] ?? "Unknown error"));

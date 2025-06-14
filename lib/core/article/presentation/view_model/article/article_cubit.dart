@@ -43,6 +43,7 @@ class ArticleCubit extends Cubit<ArticleState> {
         emit(ArticleGetByIdErrorState(message: l.message));
       },
       (r) {
+        debugPrint("Article by ID: ${r.id}");
         emit(ArticleGetByIdSuccessState(article: r));
       },
     );

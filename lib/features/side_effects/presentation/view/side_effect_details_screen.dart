@@ -18,7 +18,7 @@ class SideEffectDetailsScreen extends StatelessWidget {
       appBar: CustomAppBar(
         title: LocaleKeys.articlesSideEffects.tr(),
       ),
-      body: const SideEffectDetailsBody(),
+      body:  SideEffectDetailsBody(articleId: articleId,),
     );
   }
 }
