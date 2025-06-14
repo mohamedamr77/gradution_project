@@ -12,6 +12,8 @@ class ArticleCubit extends Cubit<ArticleState> {
   List<ArticleModel>?articlesSideEffectNotFeature = [];
   List<ArticleModel>? articleBeforeAndAfterVaccinationFeature =[];
   List<ArticleModel>? articleBeforeAndAfterVaccinationNotFeature =[];
+  List<ArticleModel>? articlesFeature = [];
+  List<ArticleModel>? articlesNotFeature = [];
 
   Future<void> getAllArticle() async {
     emit(ArticleLoadingState());
@@ -25,6 +27,8 @@ class ArticleCubit extends Cubit<ArticleState> {
         articlesSideEffectNotFeature = r.data?.rows?.where((article) => article.isFeatured ==false &&  article.category=="Articles about side effects").toList();
         articleBeforeAndAfterVaccinationFeature = r.data?.rows?.where((article) => article.isFeatured ==true && article.category=="Advice before and after vaccination").toList();
         articleBeforeAndAfterVaccinationNotFeature = r.data?.rows?.where((article) => article.isFeatured ==false && article.category=="Advice before and after vaccination").toList();
+        articlesFeature = r.data?.rows?.where((article) => article.isFeatured ==true).toList();
+        articlesNotFeature = r.data?.rows?.where((article) => article.isFeatured ==false).toList();
         debugPrint("articleBeforeAndAfterVaccinationFeature: ${articleBeforeAndAfterVaccinationFeature?.length}");
         debugPrint("articlesFeature: ${articlesSideEffectFeature?.length}");
         debugPrint("articlesNotFeature: ${articlesSideEffectNotFeature?.length}");

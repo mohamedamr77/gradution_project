@@ -18,7 +18,6 @@ class VaccineInfoDetailsBody extends StatelessWidget {
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
       child: CustomScrollView(
         slivers: [
-          _buildReusableItemCard(),
           _buildSpacer(height: 24),
           _buildSectionTitle(LocaleKeys.beforeVaccination.tr()),
           _buildSpacer(height: 16),
