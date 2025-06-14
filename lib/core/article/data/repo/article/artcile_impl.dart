@@ -1,10 +1,12 @@
 import 'package:dartz/dartz.dart';
 import 'package:gradutionproject/core/error/faliure.dart';
 import 'package:gradutionproject/core/helper/api_service.dart';
-import 'package:gradutionproject/core/utils/app_end_point.dart';
-import 'package:gradutionproject/features/side_effects/data/model/article/artcile_model.dart';
-import 'package:gradutionproject/features/side_effects/data/model/article/article_response.dart';
-import 'package:gradutionproject/features/side_effects/data/repo/article/article_repo.dart';
+
+import '../../../../utils/app_end_point.dart';
+import '../../model/article/artcile_model.dart';
+import '../../model/article/article_response.dart';
+import 'article_repo.dart';
+
 
 class ArticleImpl implements ArticleRepo{
   final ApiService apiService;

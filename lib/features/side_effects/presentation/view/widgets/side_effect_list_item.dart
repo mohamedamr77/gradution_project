@@ -3,16 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
-import 'package:gradutionproject/features/side_effects/data/model/article/artcile_model.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_state.dart';
+import 'package:gradutionproject/features/side_effects/presentation/view/side_effect_details_screen.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 
+import '../../../../../core/article/data/model/article/artcile_model.dart';
+import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../../data/model/side_effect_list.dart';
-import '../../view_model/article/article_cubit.dart';
 
 class SideEffectListItem extends StatelessWidget {
   const SideEffectListItem({super.key,});
@@ -64,7 +64,11 @@ class SideEffectListItem extends StatelessWidget {
 
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push('side_effect_details_screen');
+          NavigationManager.push(SideEffectDetailsScreen.id,
+              arguments: {
+                'articleId': articleModel.id,
+              }
+          );
         },
       ),
     );
@@ -81,7 +85,11 @@ class SideEffectListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push('side_effect_details_screen');
+          NavigationManager.push(SideEffectDetailsScreen.id,
+          arguments: {
+            'articleId': articleModel.id,
+          }
+          );
         },
       ),
     );

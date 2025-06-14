@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_cubit.dart';
 import 'package:gradutionproject/features/vaccination_tips/presentation/viewModel/vaccination_tips_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../../../../core/article/data/model/article/artcile_model.dart';
+import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
-import '../../../../side_effects/data/model/article/artcile_model.dart';
 import '../../viewModel/vaccination_tips_cubit.dart';
 import '../vaccine_tips_details_screen.dart';
 import '../../../../../core/utils/locale_keys.g.dart';

@@ -11,9 +11,15 @@ import '../../../../../../core/utils/app_images.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../data/model/side_effect_details_list.dart';
 
-class SideEffectDetailsBody extends StatelessWidget {
+class SideEffectDetailsBody extends StatefulWidget {
   const SideEffectDetailsBody({super.key});
 
+  @override
+  State<SideEffectDetailsBody> createState() => _SideEffectDetailsBodyState();
+}
+
+class _SideEffectDetailsBodyState extends State<SideEffectDetailsBody> {
+  
   @override
   Widget build(BuildContext context) {
     return Padding(

@@ -2,13 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/side_effects/data/model/button_side_effects_list.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view/widgets/side_effect_list_item.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_state.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
+import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
+import '../../../../../core/article/presentation/view_model/article/article_state.dart';
 import '../../../../../core/shared_widget/button_list_horizontal.dart';
-import '../../view_model/article/article_cubit.dart';
 
 class SideEffectBody extends StatelessWidget {
   const SideEffectBody({super.key});

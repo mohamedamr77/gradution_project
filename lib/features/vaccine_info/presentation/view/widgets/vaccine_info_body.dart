@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_cubit.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_state.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/view/widgets/vaccine_info_buttons.dart';
 import 'package:gradutionproject/features/vaccine_info/presentation/view/widgets/vaccine_info_list_item.dart';
 import 'package:skeletonizer/skeletonizer.dart';
+
+import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
+import '../../../../../core/article/presentation/view_model/article/article_state.dart';
 
 class VaccineInfoBody extends StatelessWidget {
   const VaccineInfoBody({super.key});

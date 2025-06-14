@@ -11,6 +11,9 @@ class SideEffectDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args =
+    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final articleId = args['articleId'] as String;
     return Scaffold(
       appBar: CustomAppBar(
         title: LocaleKeys.articlesSideEffects.tr(),

@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:gradutionproject/features/side_effects/data/repo/article/article_repo.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view_model/article/article_state.dart';
-
 import '../../../data/model/article/artcile_model.dart';
+import '../../../data/repo/article/article_repo.dart';
+import 'article_state.dart';
 
 class ArticleCubit extends Cubit<ArticleState> {
   ArticleCubit({required this.articleRepo}) : super(ArticleInitialState());
@@ -33,6 +32,18 @@ class ArticleCubit extends Cubit<ArticleState> {
         debugPrint("articlesFeature: ${articlesSideEffectFeature?.length}");
         debugPrint("articlesNotFeature: ${articlesSideEffectNotFeature?.length}");
         emit(ArticleSuccessState());
+      },
+    );
+  }
+  Future<void> getArticleById({required String id}) async {
+    emit(ArticleLoadingByIdState());
+    final result = await articleRepo.getArticleById(id: id);
+    result.fold(
+      (l) {
+        emit(ArticleGetByIdErrorState(message: l.message));
+      },
+      (r) {
+        emit(ArticleGetByIdSuccessState(article: r));
       },
     );
   }

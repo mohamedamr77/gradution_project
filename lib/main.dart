@@ -4,8 +4,9 @@ import 'package:gradutionproject/core/helper/api_service.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
-import 'package:gradutionproject/features/side_effects/data/repo/article/artcile_impl.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'core/article/data/repo/article/artcile_impl.dart';
+import 'core/article/presentation/view_model/article/article_cubit.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -15,7 +16,6 @@ import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/gemini_health/presentation/view/gemini_health_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'features/on_boarding/presentation/view/on_boarding_screen.dart';
-import 'features/side_effects/presentation/view_model/article/article_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async{
