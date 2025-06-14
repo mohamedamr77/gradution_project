@@ -38,7 +38,7 @@ void main() async{
        child:  MultiBlocProvider(
            providers: [
               BlocProvider<ArticleCubit>(
-                create: (context) => ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService())),
+                create: (context) => ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService()))..getAllArticle(),
               ),
            ],
            child: const MyApp())),
