@@ -27,7 +27,7 @@ class SideEffectListItem extends StatelessWidget {
           itemCount:
           cubit.buttonSelected == 0
               ?
-         articleCubit.articlesFeature?.length ??0: articleCubit.articlesNotFeature?.length ??0,
+         articleCubit.articlesSideEffectFeature?.length ??0: articleCubit.articlesSideEffectNotFeature?.length ??0,
           itemBuilder: (context, index) {
             return AnimatedSwitcher(
                 duration: const Duration(milliseconds: 400),
@@ -42,8 +42,8 @@ class SideEffectListItem extends StatelessWidget {
                   );
                 },
                 child: cubit.buttonSelected == 0
-                    ? _buildBasicButtonList(index: index, articleModel:articleCubit.articlesFeature?[index] ??const ArticleModel())
-                    : _buildAdditionalButtonList(index: index, articleModel:articleCubit.articlesNotFeature?[index] ??const ArticleModel()));
+                    ? _buildBasicButtonList(index: index, articleModel:articleCubit.articlesSideEffectFeature?[index] ??const ArticleModel())
+                    : _buildAdditionalButtonList(index: index, articleModel:articleCubit.articlesSideEffectNotFeature?[index] ??const ArticleModel()));
           },
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(height: 8);
