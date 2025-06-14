@@ -48,4 +48,8 @@ class ArticleCubit extends Cubit<ArticleState> {
       },
     );
   }
+
+  Future<void> getArticleBySearch({required String search}) async {
+
+  }
 }

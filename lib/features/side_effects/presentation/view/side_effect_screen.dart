@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view/widgets/side_effect_body.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:easy_localization/easy_localization.dart';
 
+import '../../../../core/article/presentation/view/search/article_search_screen.dart';
 import '../../../../core/shared_widget/custom_app_bar.dart';
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/locale_keys.g.dart';
@@ -20,9 +22,14 @@ class SideEffectScreen extends StatelessWidget {
       child: Scaffold(
         appBar: CustomAppBar(
           actions: [
-            Padding(
-              padding: const EdgeInsets.all(16),
-              child: SvgPicture.asset(AppIcons.search),
+            InkWell(
+              onTap: () {
+                NavigationManager.push(ArticleSearchScreen.id);
+              },
+              child: Padding(
+                padding: const EdgeInsets.all(16),
+                child: SvgPicture.asset(AppIcons.search),
+              ),
             )
           ],
           title: LocaleKeys.articlesSideEffects.tr(),

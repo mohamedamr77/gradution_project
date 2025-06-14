@@ -26,3 +26,17 @@ class ArticleGetByIdErrorState extends ArticleState {
 class ArticleLoadingByIdState extends ArticleState {
   ArticleLoadingByIdState();
 }
+
+class GetArticleBySearchSuccessState extends ArticleState {
+  final List<ArticleModel> articles;
+
+  GetArticleBySearchSuccessState({required this.articles});
+}
+class GetArticleBySearchErrorState extends ArticleState {
+  final String message;
+
+  GetArticleBySearchErrorState({required this.message});
+}
+class GetArticleBySearchLoadingState extends ArticleState {
+  GetArticleBySearchLoadingState();
+}
