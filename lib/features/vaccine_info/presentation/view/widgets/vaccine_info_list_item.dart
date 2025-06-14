@@ -6,6 +6,7 @@ import 'package:gradutionproject/features/vaccine_info/presentation/viewModel/va
 import 'package:gradutionproject/features/vaccine_info/presentation/viewModel/vaccine_info_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/article/data/model/article/artcile_model.dart';
+import '../../../../../core/article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/utils/locale_keys.g.dart';
 
@@ -63,7 +64,11 @@ class VaccineInfoListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(VaccineInfoDetailsScreen.id);
+          NavigationManager.push(ArticleDetailsById.id,
+              arguments: {
+                'articleId': articleModel.id,
+              }
+          );
         },
       ), // Assign a unique key for animation
     );
@@ -79,7 +84,11 @@ class VaccineInfoListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(VaccineInfoDetailsScreen.id);
+          NavigationManager.push(ArticleDetailsById.id,
+              arguments: {
+                'articleId': articleModel.id,
+              }
+          );
         },
       ), // Assign a unique key for animation
     );

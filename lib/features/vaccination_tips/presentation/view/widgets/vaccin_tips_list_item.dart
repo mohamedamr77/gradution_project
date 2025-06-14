@@ -5,6 +5,7 @@ import 'package:gradutionproject/features/vaccination_tips/presentation/viewMode
 import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../core/article/data/model/article/artcile_model.dart';
+import '../../../../../core/article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
@@ -63,7 +64,11 @@ class VaccinationTipsListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(VaccineTipsDetailsScreen.id);
+          NavigationManager.push(ArticleDetailsById.id,
+              arguments: {
+                'articleId': articleModel.id,
+              }
+          );
         },
       ),
     );
@@ -79,7 +84,11 @@ class VaccinationTipsListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(VaccineTipsDetailsScreen.id);
+          NavigationManager.push(ArticleDetailsById.id,
+              arguments: {
+                'articleId': articleModel.id,
+              }
+          );
         },
       ), // Assign a unique key for animation
     );

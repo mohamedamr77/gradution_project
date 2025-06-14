@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view/widgets/details/side_effect_details_body.dart';
+import 'package:gradutionproject/core/article/presentation/view/article_by_id/article_details_by_id_body.dart';
 import 'package:easy_localization/easy_localization.dart';
-import '../../../../core/utils/locale_keys.g.dart';
+import '../../../../utils/locale_keys.g.dart';
 
-import '../../../../core/shared_widget/custom_app_bar.dart';
+import '../../../../shared_widget/custom_app_bar.dart';
 
-class SideEffectDetailsScreen extends StatelessWidget {
+class ArticleDetailsById extends StatelessWidget {
   static String id = "side_effect_details_screen";
-  const SideEffectDetailsScreen({super.key});
+  const ArticleDetailsById({super.key});
 
   @override
   Widget build(BuildContext context) {

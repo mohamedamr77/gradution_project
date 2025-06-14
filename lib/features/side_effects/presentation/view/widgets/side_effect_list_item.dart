@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
-import 'package:gradutionproject/features/side_effects/presentation/view/side_effect_details_screen.dart';
+import 'package:gradutionproject/core/article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_cubit.dart';
 import 'package:gradutionproject/features/side_effects/presentation/view_model/side_effects_state.dart';
 
@@ -64,7 +64,7 @@ class SideEffectListItem extends StatelessWidget {
 
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(SideEffectDetailsScreen.id,
+          NavigationManager.push(ArticleDetailsById.id,
               arguments: {
                 'articleId': articleModel.id,
               }
@@ -85,7 +85,7 @@ class SideEffectListItem extends StatelessWidget {
         subDescription: articleModel.author?[0]??"",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(SideEffectDetailsScreen.id,
+          NavigationManager.push(ArticleDetailsById.id,
           arguments: {
             'articleId': articleModel.id,
           }

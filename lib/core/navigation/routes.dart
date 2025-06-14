@@ -18,7 +18,7 @@ import '../../features/notification_feature/presentation/view/noificaion_screen.
 import '../../features/notification_feature/presentation/view/notification_details_screen.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
 import '../../features/profile_setting/presentation/view/profile_setting_screen.dart';
-import '../../features/side_effects/presentation/view/side_effect_details_screen.dart';
+import '../article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import '../../features/side_effects/presentation/view/side_effect_screen.dart';
 import '../../features/theme_app/presentation/view/theme_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccination_tips_screen.dart';
@@ -45,7 +45,7 @@ class AppRouter {
     VaccineInfoScreen.id: (context) => const VaccineInfoScreen(),
     MedicinesScreen.id: (context) => const MedicinesScreen(),
     VaccineTipsDetailsScreen.id: (context) => const VaccineTipsDetailsScreen(),
-    SideEffectDetailsScreen.id: (context) => const SideEffectDetailsScreen(),
+    ArticleDetailsById.id: (context) => const ArticleDetailsById(),
     VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
     DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
