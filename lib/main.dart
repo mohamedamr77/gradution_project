@@ -7,6 +7,7 @@ import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'core/article/data/repo/article/artcile_impl.dart';
 import 'core/article/presentation/view_model/article/article_cubit.dart';
+import 'core/article/presentation/view_model/article/search/article_search.dart';
 import 'core/navigation/navigation_manager.dart';
 import 'core/navigation/routes.dart';
 import 'package:easy_localization/easy_localization.dart';
@@ -39,6 +40,9 @@ void main() async{
            providers: [
               BlocProvider<ArticleCubit>(
                 create: (context) => ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService()))..getAllArticle(),
+              ),
+             BlocProvider<ArticleSearchCubit>(
+                create: (context) => ArticleSearchCubit(articleRepo: ArticleImpl(apiService: ApiService())),
               ),
            ],
            child: const MyApp())),

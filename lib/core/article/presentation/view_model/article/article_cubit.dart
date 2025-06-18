@@ -49,17 +49,5 @@ class ArticleCubit extends Cubit<ArticleState> {
     );
   }
 
-  Future<void> getArticleBySearch({required String search}) async {
-    final result = await articleRepo.searchArticle(search: search);
-    result.fold((l) {
-      emit(ArticleSearchErrorState(message: l.message));
-    }, (r) {
-      if (r.data?.rows != null) {
-        emit(ArticleSearchSuccessState(articles: r.data?.rows));
-      } else {
-        emit(ArticleSearchSuccessState(articles: []));
-      }
-    },);
 
-  }
 }

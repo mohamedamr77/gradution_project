@@ -1,9 +1,11 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradutionproject/core/article/data/model/dummy_articles.dart';
 import 'package:gradutionproject/core/article/presentation/view_model/article/article_cubit.dart';
 import 'package:gradutionproject/core/article/presentation/view_model/article/article_state.dart';
+import 'package:gradutionproject/core/article/presentation/view_model/article/search/article_search_state.dart';
 import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:skeletonizer/skeletonizer.dart';
@@ -15,6 +17,7 @@ import '../../../../shared_model/resuable_model.dart';
 import '../../../../shared_widget/reusable_item_card .dart';
 import '../../../../utils/debouncer.dart';
 import '../../../data/model/article/artcile_model.dart';
+import '../../view_model/article/search/article_search.dart';
 import '../article_by_id/article_details_by_id_screen.dart';
 
 class ArticleSearchBody extends StatelessWidget {
@@ -24,7 +27,7 @@ class ArticleSearchBody extends StatelessWidget {
   Widget build(BuildContext context) {
     final debouncer = Debouncer(delay: const Duration(milliseconds: 500));
 
-    return BlocBuilder<ArticleCubit, ArticleState>(
+    return BlocBuilder<ArticleSearchCubit, ArticleSearchState>(
       builder: (context, state) {
         return Padding(
           padding: const EdgeInsets.all(8.0),
@@ -35,7 +38,7 @@ class ArticleSearchBody extends StatelessWidget {
                   title: "",
                   onChanged: (value) {
                     debouncer.run(() {
-                       context.read<ArticleCubit>().getArticleBySearch(search:value);
+                       context.read<ArticleSearchCubit>().getArticleBySearch(search:value);
                     });
                   },
                 ),
@@ -48,7 +51,28 @@ class ArticleSearchBody extends StatelessWidget {
     );
   }
 
-  Widget _buildContent(BuildContext context, ArticleState state) {
+  Widget _buildContent(BuildContext context, ArticleSearchState state) {
+    if (state is ArticleSearchInitialState) {
+      return  SliverToBoxAdapter(
+        child: Padding(
+          padding: EdgeInsets.only(top: MediaQuery.of(context).size.height*0.25),
+          child: const Center(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Icon(Icons.search, size: 80, color: Colors.grey),
+                SizedBox(height: 16),
+                Text(
+                  'ابدأ بالبحث عن المقالات',
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
+
     if (state is ArticleSearchSuccessState ||
         state is ArticleSearchLoadingState) {
       final articles = state is ArticleSearchSuccessState
