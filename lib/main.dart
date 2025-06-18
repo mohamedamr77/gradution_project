@@ -23,6 +23,7 @@ import 'features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'features/doctors/presentation/view_model/doctors_cubit.dart';
 import 'features/gemini_health/presentation/view/gemini_health_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'features/map/presenation/view/google_maps_screen.dart';
 import 'features/on_boarding/presentation/view/on_boarding_screen.dart';
 import 'features/profile_setting/presentation/view_model/profile_setting_cubit.dart';
 import 'firebase_options.dart';
@@ -101,7 +102,7 @@ class MyApp extends StatelessWidget {
             initialRoute:
             TokenManager.getToken() == null
                 ? OnBoardingScreen.id
-                : BottomNavBarScreen.id,
+                : GoogleMapsScreen.id,
 
           ),
         );
