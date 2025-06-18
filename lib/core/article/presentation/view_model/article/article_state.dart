@@ -40,3 +40,21 @@ class GetArticleBySearchErrorState extends ArticleState {
 class GetArticleBySearchLoadingState extends ArticleState {
   GetArticleBySearchLoadingState();
 }
+
+
+class ArticleSearchInitialState extends ArticleState {
+  ArticleSearchInitialState();
+}
+class ArticleSearchLoadingState extends ArticleState {
+  ArticleSearchLoadingState();
+}
+class ArticleSearchSuccessState extends ArticleState {
+  final List<ArticleModel>? articles;
+
+  ArticleSearchSuccessState({required this.articles});
+}
+class ArticleSearchErrorState extends ArticleState {
+  final String message;
+
+  ArticleSearchErrorState({required this.message});
+}

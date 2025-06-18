@@ -16,7 +16,6 @@ class MedicinesListItems extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    MedicinesCubit cubit = BlocProvider.of<MedicinesCubit>(context);
     return BlocBuilder<MedicinesCubit, MedicinesState>(
       builder: (context, state) {
         return ListView.separated(

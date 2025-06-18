@@ -1,3 +1,5 @@
+import 'package:gradutionproject/core/article/data/model/article/artcile_model.dart';
+
 import '../medication_model.dart';
 
 List<MedicationModel> listDummyDataMedicines = [
@@ -76,4 +78,8 @@ List<MedicationModel> listDummyDataMedicines = [
     createdAt: DateTime(2024, 12, 1),
     updatedAt: DateTime(2025, 2, 20),
   ),
+];
+
+List<ArticleModel> listArticleDummyData=[
+
 ];
