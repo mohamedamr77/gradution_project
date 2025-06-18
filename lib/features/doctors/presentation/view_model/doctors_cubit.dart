@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/doctors/data/repo/doctors_repo.dart';
 import 'package:gradutionproject/features/doctors/presentation/view_model/doctors_state.dart';
@@ -15,6 +16,7 @@ class DoctorsCubit extends Cubit<DoctorsState> {
         emit(DoctorsErrorState(message: failure.message));
       },
           (doctorsResponse) {
+            debugPrint("Doctors ${doctorsResponse.data?.rows.toString()}");
         emit(DoctorsSuccessState(doctors: doctorsResponse.data?.rows));
       },
     );
