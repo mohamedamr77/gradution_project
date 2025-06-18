@@ -5,6 +5,7 @@ class AppEndPoint{
   static const String login = "$domain/Auth/login";
   static const String articleGetAll = "$domain/article/getAll";
 
+  static const String doctorsGetAll = "$domain/doctor/getAll";
   static String getArticleById({required String id}) {
     return "$domain/article/articleById/$id";
   }
