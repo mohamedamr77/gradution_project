@@ -11,11 +11,14 @@ class VaccineTimesDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args =
+    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final vaccineId = args['vaccineId'] as String;
     return Scaffold(
       appBar: CustomAppBar(
         title: LocaleKeys.vaccineDetails.tr(),
       ),
-      body: const VaccineTimesDetailsBody(),
+      body:  VaccineTimesDetailsBody(id: vaccineId,),
     );
   }
 }

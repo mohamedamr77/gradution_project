@@ -53,7 +53,7 @@ class VaccineTimesListItems extends StatelessWidget {
       key: const ValueKey<int>(1),
       reusableModel: ReusableModel(
         imagePath: AppImages.vaccine4Test,
-        title: "Mohameddc ",
+        title: "لقاح الروتا فيروس",
         description: "fdasfas",
         subDescription: "يتم اخده مره واحده",
         onTapCheckBoxVaccineTimes: () {

@@ -5,6 +5,8 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/doctors/data/repo/doctor_repo_impl.dart';
+import 'package:gradutionproject/features/vaccine_times/data/repo/vaccine_repo_impl.dart';
+import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
 import 'package:hive_flutter/adapters.dart';
 import 'core/article/data/repo/article/artcile_impl.dart';
 import 'core/article/presentation/view_model/article/article_cubit.dart';
@@ -48,6 +50,9 @@ void main() async{
               ),
              BlocProvider<DoctorsCubit>(
                 create: (context) => DoctorsCubit(DoctorRepoImpl(apiService: ApiService()))..doctorsGetAll(),
+              ),
+             BlocProvider<VaccineCubit>(
+                create: (context) => VaccineCubit(vaccineRepo: VaccineRepoImpl(apiService: ApiService()))..getAllVaccine(),
               ),
            ],
            child: const MyApp())),
