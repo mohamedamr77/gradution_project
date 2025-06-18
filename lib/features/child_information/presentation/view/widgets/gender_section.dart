@@ -3,10 +3,13 @@ import 'package:flutter_svg/svg.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_icons.dart';
 import '../../../../../core/utils/locale_keys.g.dart';
+import 'package:gradutionproject/features/child_information/data/model/child_rquest_model.dart';
+import 'package:gradutionproject/features/child_information/presentation/view_model/child_informtion_cubit.dart';
 
 class GenderSection extends StatefulWidget {
   const GenderSection({super.key});
@@ -19,6 +22,7 @@ class _GenderSectionState extends State<GenderSection> {
   String? selectedGender;
   @override
   Widget build(BuildContext context) {
+    final cubit = BlocProvider.of<ChildInformationCubit>(context);
     return SliverToBoxAdapter(
       child: Column(
         children: [
@@ -49,12 +53,21 @@ class _GenderSectionState extends State<GenderSection> {
                 Row(
                   children: [
                     Radio<String>(
-                      value: 'female',
+                      value: 'Female',
                       groupValue: selectedGender,
                       onChanged: (value) {
                         setState(() {
                           selectedGender = value;
                         });
+                        final old = cubit.childRequestModel;
+                        cubit.childRequestModel = ChildRequestModel(
+                          firstName: old?.firstName,
+                          lastName: old?.lastName,
+                          dateOfBirth: old?.dateOfBirth,
+                          gender: value,
+                          height: old?.height,
+                          weight: old?.weight,
+                        );
                       },
                       activeColor: AppColors.primaryColor,
                     ),
@@ -69,12 +82,21 @@ class _GenderSectionState extends State<GenderSection> {
                 Row(
                   children: [
                     Radio<String>(
-                      value: 'male',
+                      value: 'Male',
                       groupValue: selectedGender,
                       onChanged: (value) {
                         setState(() {
                           selectedGender = value;
                         });
+                        final old = cubit.childRequestModel;
+                        cubit.childRequestModel = ChildRequestModel(
+                          firstName: old?.firstName,
+                          lastName: old?.lastName,
+                          dateOfBirth: old?.dateOfBirth,
+                          gender: value,
+                          height: old?.height,
+                          weight: old?.weight,
+                        );
                       },
                       activeColor: AppColors.primaryColor,
                     ),

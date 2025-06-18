@@ -1,5 +1,6 @@
 import 'dart:io';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/features/child_information/data/model/child_rquest_model.dart';
 import 'package:gradutionproject/features/child_information/data/repo/child_info_repo.dart';
 import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';
@@ -57,7 +58,9 @@ class ChildInformationCubit extends Cubit<ChildInformationState> {
     ToastUtils.showToast(message: l.message);
     emit(ChildInformationErrorState(l.message));
   }, (r) {
-    ToastUtils.showToast(message: "تم اضافة الطفل بنجاح");
+    ToastUtils.showToast(message: "تم اضافة الطفل بنجاح",
+    backgroundColor: AppColors.greenColor,
+    );
     emit(ChildInformationSuccessState());
   },);
   }
