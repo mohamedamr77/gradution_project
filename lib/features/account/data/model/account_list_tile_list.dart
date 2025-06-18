@@ -1,6 +1,10 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_row_buttons.dart';
 import 'package:gradutionproject/core/utils/bottomSheet_helper.dart';
+import 'package:gradutionproject/core/utils/token_manager.dart';
+import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
+import 'package:gradutionproject/features/notification_feature/presentation/view/noificaion_screen.dart';
 
 import '../../../../core/utils/app_icons.dart';
 import '../../../../core/utils/locale_keys.g.dart';
@@ -18,26 +22,18 @@ List<AccountListTileModel> accountListTilesList = [
       NavigationManager.push(ProfileSettingScreen.id);
     },
   ),
-  AccountListTileModel(
-    title: LocaleKeys.themes,
-    imageLeadingPath: AppIcons.themeIcon,
-    onTap: () {
-      NavigationManager.push(ThemeScreen.id);
-    },
-  ),
+  // AccountListTileModel(
+  //   title: LocaleKeys.themes,
+  //   imageLeadingPath: AppIcons.themeIcon,
+  //   onTap: () {
+  //     NavigationManager.push(ThemeScreen.id);
+  //   },
+  // ),
   AccountListTileModel(
     title: LocaleKeys.notifications,
     imageLeadingPath: AppIcons.notificationIcon,
     onTap: () {
-      BottomSheetHelper.customShowModelSheet(
-          title: LocaleKeys.deleteAllNotifications,
-          subTitle: LocaleKeys.deleteAllNotificationsConfirmation,
-          button: CustomRowButtons(
-            titleBlueButton: LocaleKeys.delete,
-            onTapBlueButton: () {},
-            titleWhiteButton: LocaleKeys.cancel,
-            onTapWhiteButton: () {},
-          ));
+       NavigationManager.push(NotificationScreen.id);
     },
   ),
   AccountListTileModel(
@@ -64,13 +60,18 @@ List<AccountListTileModel> accountListTilesList = [
       imageLeadingPath: AppIcons.logoutIcon,
       onTap: () {
         BottomSheetHelper.customShowModelSheet(
-            title: LocaleKeys.logout,
-            subTitle: LocaleKeys.logoutConfirmation,
+            title: LocaleKeys.logout.tr(),
+            subTitle: LocaleKeys.logoutConfirmation.tr(),
             button: CustomRowButtons(
-              titleBlueButton: LocaleKeys.logout,
-              onTapBlueButton: () {},
-              titleWhiteButton: LocaleKeys.cancel,
-              onTapWhiteButton: () {},
+              titleBlueButton: LocaleKeys.logout.tr(),
+              onTapBlueButton: () {
+                TokenManager.clearToken();
+                NavigationManager.replaceAll(LoginScreen.id);
+              },
+              titleWhiteButton: LocaleKeys.cancel.tr(),
+              onTapWhiteButton: () {
+                NavigationManager.goBack();
+              },
             ));
       })
 ];

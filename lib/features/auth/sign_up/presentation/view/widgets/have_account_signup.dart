@@ -21,7 +21,7 @@ class HaveAccountSignup extends StatelessWidget {
           titleWithoutTap: LocaleKeys.alreadyHaveAccount.tr(),
           onTap: () {
             cubit.resetState();
-            NavigationManager.push(LoginScreen.id);
+            NavigationManager.goBack();
           },
         );
       },

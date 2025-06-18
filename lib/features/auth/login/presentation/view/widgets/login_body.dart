@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/widgets/password_field_login.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/widgets/river_image_login.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/widgets/social_auth_login.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:gradutionproject/features/auth/sign_up/presentation/view/sign_up_screen.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../../../core/shared_widget/name_screen.dart';
 import 'email_field_login.dart';
@@ -58,7 +60,9 @@ class LoginBody extends StatelessWidget {
                   SizedBox(
                     height: 0.04.h,
                   ),
-                  const NotHaveAccountLogin(),
+                   NotHaveAccountLogin(onTap: () {
+                     NavigationManager.push(SignUpScreen.id);
+                   },),
                 ],
               ),
             ),

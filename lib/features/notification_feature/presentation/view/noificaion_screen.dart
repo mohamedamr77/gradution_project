@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/widgets/noificaion_body.dart';
 import 'package:easy_localization/easy_localization.dart';
+import '../../../../core/shared_widget/custom_row_buttons.dart';
+import '../../../../core/utils/bottomSheet_helper.dart';
 import '../../../../core/utils/locale_keys.g.dart';
 
 import '../../../../core/shared_widget/custom_app_bar.dart';
@@ -23,7 +25,18 @@ class NotificationScreen extends StatelessWidget {
   CustomAppBar _appBarNotificationsScreen() {
     return CustomAppBar(
       actions: [
-        IconButton(onPressed: () {}, icon: SvgPicture.asset(AppIcons.trash))
+        IconButton(onPressed: () {
+          BottomSheetHelper.customShowModelSheet(
+              title: LocaleKeys.deleteAllNotifications.tr(),
+              subTitle: LocaleKeys.deleteAllNotificationsConfirmation.tr(),
+              button: CustomRowButtons(
+                titleBlueButton: LocaleKeys.delete.tr(),
+                onTapBlueButton: () {},
+                titleWhiteButton: LocaleKeys.cancel.tr(),
+                onTapWhiteButton: () {},
+              )
+          );
+        }, icon: SvgPicture.asset(AppIcons.trash))
       ],
       iconArrowColor: AppColors.thirdColor,
       title: LocaleKeys.notifications.tr(),
