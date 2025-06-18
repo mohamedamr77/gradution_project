@@ -8,6 +8,7 @@ import 'package:gradutionproject/features/child_information/presentation/view/wi
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/vaccines_field_child_info.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/weight_field_child_info.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:gradutionproject/features/child_information/presentation/view_model/child_information_state.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../auth/sign_up/presentation/view/widgets/name_field_sign_up.dart';
 import 'birth_date_section.dart';
@@ -93,109 +94,118 @@ class _ChildInfoBodyState extends State<ChildInfoBody> {
   @override
   Widget build(BuildContext context) {
     final cubit = context.read<ChildInformationCubit>();
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
-      child: Center(
-          child: CustomScrollView(
-        slivers: [
-          spaceBetweenWidget(height: 8),
-          const TextTopScreenChildInfo(),
-          spaceBetweenWidget(),
-          const SliverToBoxAdapter(child: ImageChildSection()),
-          spaceBetweenWidget(height: 24),
-          textCenterChildInfo(context: context),
-          spaceBetweenWidget(),
-          SliverToBoxAdapter(
-            child: NameFieldSignUp(
-              hintText: LocaleKeys.enterYourName.tr(),
-              title: LocaleKeys.firstName.tr(),
-              onChanged: (v) {
-                final old = cubit.childRequestModel;
-                cubit.childRequestModel = ChildRequestModel(
-                  firstName: v,
-                  lastName: old?.lastName,
-                  dateOfBirth: old?.dateOfBirth,
-                  gender: old?.gender,
-                  height: old?.height,
-                  weight: old?.weight,
-                );
-                _firstNameController.text = v;
-              },
-            ),
-          ),
-          spaceBetweenWidget(),
-          SliverToBoxAdapter(
-            child: NameFieldSignUp(
-              hintText: LocaleKeys.enterYourName.tr(),
-              title: LocaleKeys.LastName.tr(),
-              onChanged: (v) {
-                final old = cubit.childRequestModel;
-                cubit.childRequestModel = ChildRequestModel(
-                  firstName: old?.firstName,
-                  lastName: v,
-                  dateOfBirth: old?.dateOfBirth,
-                  gender: old?.gender,
-                  height: old?.height,
-                  weight: old?.weight,
-                );
-                _lastNameController.text = v;
-              },
-            ),
-          ),
-          spaceBetweenWidget(),
-          const BirthDateSection(),
-          spaceBetweenWidget(),
-          SliverToBoxAdapter(
-            child: CustomTextField(
-              hintText: LocaleKeys.height.tr(),
-              title: LocaleKeys.height.tr(),
-              controller: _heightController,
-              keyboardType: TextInputType.number,
-              onChanged: (v) {
-                final old = cubit.childRequestModel;
-                cubit.childRequestModel = ChildRequestModel(
-                  firstName: old?.firstName,
-                  lastName: old?.lastName,
-                  dateOfBirth: old?.dateOfBirth,
-                  gender: old?.gender,
-                  height: double.tryParse(v) ?? 0.0,
-                  weight: old?.weight,
-                );
-              },
-            ),
-          ),
-          spaceBetweenWidget(),
-          SliverToBoxAdapter(
-            child: CustomTextField(
-              hintText: LocaleKeys.weight.tr(),
-              title: LocaleKeys.weight.tr(),
-              controller: _weightController,
-              keyboardType: TextInputType.number,
-              onChanged: (v) {
-                final old = cubit.childRequestModel;
-                cubit.childRequestModel = ChildRequestModel(
-                  firstName: old?.firstName,
-                  lastName: old?.lastName,
-                  dateOfBirth: old?.dateOfBirth,
-                  gender: old?.gender,
-                  height: old?.height,
-                  weight: double.tryParse(v) ?? 0.0,
-                );
-              },
-            ),
-          ),
-          spaceBetweenWidget(),
-          const GenderSection(),
-          spaceBetweenWidget(),
-          SliverToBoxAdapter(
-            child: CustomElevatedButton(
-              onPress: () => _onRegisterPressed(context),
-              titleButton: LocaleKeys.register.tr(),
-            ),
-          ),
-          spaceBetweenWidget(),
-        ],
-      )),
+    return BlocListener<ChildInformationCubit, ChildInformationState>(
+      listener: (context, state) {
+        if (state is ChildInformationSuccessState) {
+          NavigationManager.replaceAll(
+              BottomNavBarScreen.id,
+          );
+        }
+      },
+      child: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 16),
+        child: Center(
+            child: CustomScrollView(
+              slivers: [
+                spaceBetweenWidget(height: 8),
+                const TextTopScreenChildInfo(),
+                spaceBetweenWidget(),
+                const SliverToBoxAdapter(child: ImageChildSection()),
+                spaceBetweenWidget(height: 24),
+                textCenterChildInfo(context: context),
+                spaceBetweenWidget(),
+                SliverToBoxAdapter(
+                  child: NameFieldSignUp(
+                    hintText: LocaleKeys.enterYourName.tr(),
+                    title: LocaleKeys.firstName.tr(),
+                    onChanged: (v) {
+                      final old = cubit.childRequestModel;
+                      cubit.childRequestModel = ChildRequestModel(
+                        firstName: v,
+                        lastName: old?.lastName,
+                        dateOfBirth: old?.dateOfBirth,
+                        gender: old?.gender,
+                        height: old?.height,
+                        weight: old?.weight,
+                      );
+                      _firstNameController.text = v;
+                    },
+                  ),
+                ),
+                spaceBetweenWidget(),
+                SliverToBoxAdapter(
+                  child: NameFieldSignUp(
+                    hintText: LocaleKeys.enterYourName.tr(),
+                    title: LocaleKeys.LastName.tr(),
+                    onChanged: (v) {
+                      final old = cubit.childRequestModel;
+                      cubit.childRequestModel = ChildRequestModel(
+                        firstName: old?.firstName,
+                        lastName: v,
+                        dateOfBirth: old?.dateOfBirth,
+                        gender: old?.gender,
+                        height: old?.height,
+                        weight: old?.weight,
+                      );
+                      _lastNameController.text = v;
+                    },
+                  ),
+                ),
+                spaceBetweenWidget(),
+                const BirthDateSection(),
+                spaceBetweenWidget(),
+                SliverToBoxAdapter(
+                  child: CustomTextField(
+                    hintText: LocaleKeys.height.tr(),
+                    title: LocaleKeys.height.tr(),
+                    controller: _heightController,
+                    keyboardType: TextInputType.number,
+                    onChanged: (v) {
+                      final old = cubit.childRequestModel;
+                      cubit.childRequestModel = ChildRequestModel(
+                        firstName: old?.firstName,
+                        lastName: old?.lastName,
+                        dateOfBirth: old?.dateOfBirth,
+                        gender: old?.gender,
+                        height: double.tryParse(v) ?? 0.0,
+                        weight: old?.weight,
+                      );
+                    },
+                  ),
+                ),
+                spaceBetweenWidget(),
+                SliverToBoxAdapter(
+                  child: CustomTextField(
+                    hintText: LocaleKeys.weight.tr(),
+                    title: LocaleKeys.weight.tr(),
+                    controller: _weightController,
+                    keyboardType: TextInputType.number,
+                    onChanged: (v) {
+                      final old = cubit.childRequestModel;
+                      cubit.childRequestModel = ChildRequestModel(
+                        firstName: old?.firstName,
+                        lastName: old?.lastName,
+                        dateOfBirth: old?.dateOfBirth,
+                        gender: old?.gender,
+                        height: old?.height,
+                        weight: double.tryParse(v) ?? 0.0,
+                      );
+                    },
+                  ),
+                ),
+                spaceBetweenWidget(),
+                const GenderSection(),
+                spaceBetweenWidget(),
+                SliverToBoxAdapter(
+                  child: CustomElevatedButton(
+                    onPress: () => _onRegisterPressed(context),
+                    titleButton: LocaleKeys.register.tr(),
+                  ),
+                ),
+                spaceBetweenWidget(),
+              ],
+            )),
+      ),
     );
   }
 
