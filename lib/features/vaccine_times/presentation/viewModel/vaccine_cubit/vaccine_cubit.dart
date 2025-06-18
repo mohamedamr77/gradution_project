@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/vaccine_times/data/model/vaccine/vaccine_model.dart';
 import 'package:gradutionproject/features/vaccine_times/data/repo/vaccine_repo.dart';
@@ -18,6 +19,11 @@ class VaccineCubit extends Cubit<VaccineState> {
         emit(VaccineErrorState(l.message));
       },
       (r) {
+        vaccineListBasic = r.data?.rows?.where((article) => article.isMandatory ==true).toList();
+        vaccineListAdditional = r.data?.rows?.where((article) => article.isMandatory ==false).toList();
+        debugPrint("vaccineListBasic: ${vaccineListBasic?.length}");
+        debugPrint("vaccineListAdditional: ${vaccineListAdditional?.length}");
+
         emit(VaccineSuccessState(vaccines: r.data?.rows ?? []));
       },
     );
@@ -28,11 +34,10 @@ class VaccineCubit extends Cubit<VaccineState> {
     final result = await vaccineRepo.getVaccineById(id: id);
     result.fold(
       (l) {
+        debugPrint("Error getting vaccine by ID: ${l.message}");
         emit(VaccineDetailsErrorState(l.message));
       },
       (r) {
-        vaccineListBasic = r.data?.rows?.where((article) => article.isMandatory ==true).toList();
-        vaccineListAdditional = r.data?.rows?.where((article) => article.isMandatory ==false).toList();
         emit(VaccineDetailsSuccessState(vaccine: r.data?.rows?[0]??const VaccineModel()));
       },
     );
