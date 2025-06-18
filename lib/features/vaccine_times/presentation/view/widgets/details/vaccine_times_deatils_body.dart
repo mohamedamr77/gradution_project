@@ -11,6 +11,7 @@ import '../../../../../../core/utils/locale_keys.g.dart';
 import '../../../../../../core/shared_widget/custom_title_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../../core/utils/app_images.dart';
+import '../../../../data/model/vaccine/vaccine_model.dart';
 
 class VaccineTimesDetailsBody extends StatefulWidget {
   final String id;
@@ -49,24 +50,23 @@ class _VaccineTimesDetailsBodyState extends State<VaccineTimesDetailsBody> {
                   state is VaccineDetailsSuccessState ?
           CustomScrollView(
             slivers: [
-              _buildReusableItemCard(),
+              _buildReusableItemCard(vaccineModel: state.vaccine),
               _buildSpacer(height: 24),
               _buildSectionTitle(LocaleKeys.doseCount.tr()),
               _buildSpacer(height: 16),
-              _buildSectionDescription("جرعتان أو ثلاث (حسب نوع اللقاح)."),
+              _buildSectionDescription("Number of Doses :${state.vaccine.dosesRequired.toString()}",),
               _buildSpacer(height: 24),
-              _buildSectionTitle(LocaleKeys.timeline.tr()),
+              _buildSectionTitle("Min Age (Months)"),
               _buildSpacer(height: 16),
-              _buildSectionDescription(LocaleKeys.timeLineDetails.tr()),
+              _buildSectionDescription("${state.vaccine.minAge.toString()} Month"??""),
               _buildSpacer(height: 24),
-              _buildSectionTitle(LocaleKeys.sideEffectsLabel.tr()),
+              _buildSectionTitle("Max Age (Months)"),
               _buildSpacer(height: 16),
-              _buildSectionDescription(LocaleKeys.sideEffectDetails.tr()),
+              _buildSectionDescription("${state.vaccine.maxAge.toString()} Month"??""),
               _buildSpacer(height: 24),
-              _buildSectionTitle(LocaleKeys.medicationsForSideEffects.tr()),
+              _buildSectionTitle("Desc :"),
               _buildSpacer(height: 16),
-              _buildSectionDescription(
-                  LocaleKeys.medicationsForSideEffectsDetails.tr())
+              _buildSectionDescription("${state.vaccine.description.toString()} Month"??""),
             ],
           ) : const SizedBox();
         },
@@ -74,14 +74,16 @@ class _VaccineTimesDetailsBodyState extends State<VaccineTimesDetailsBody> {
     );
   }
 
-  SliverToBoxAdapter _buildReusableItemCard() {
+  SliverToBoxAdapter _buildReusableItemCard({required VaccineModel vaccineModel}) {
     return SliverToBoxAdapter(
       child: ReusableItemCard(
         reusableModel: ReusableModel(
           imagePath: AppImages.tuberVaccineTest,
-          title: LocaleKeys.rotavirusVaccine.tr(),
-          description: "فعال بنسبة99%",
-          subDescription: "يتم اخده مره واحده",
+          title: vaccineModel.vaccineName??"",
+          description: vaccineModel.description??"",
+          subDescription: vaccineModel.isMandatory == true
+              ? "Basic"
+              : "Additional",
           onPressedIconFavourite: () {},
           onTapCard: () {},
           isDetails: true,
