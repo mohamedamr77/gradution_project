@@ -9,6 +9,7 @@ import 'package:gradutionproject/features/child_information/presentation/view/wi
 import 'package:gradutionproject/features/child_information/presentation/view/widgets/weight_field_child_info.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
+import '../../../../auth/sign_up/presentation/view/widgets/name_field_sign_up.dart';
 import 'birth_date_section.dart';
 import 'diseas_field_child_info.dart';
 import 'gender_section.dart';
@@ -31,9 +32,25 @@ class ChildInfoBody extends StatelessWidget {
           spaceBetweenWidget(),
           const SliverToBoxAdapter(child: ImageChildSection()),
           spaceBetweenWidget(height: 24),
-          textCenterChildInfo(),
+          textCenterChildInfo(context: context),
           spaceBetweenWidget(),
-          const NameFieldChildInfo(),
+          SliverToBoxAdapter(
+            child: NameFieldSignUp(
+              hintText: LocaleKeys.enterYourName.tr(),
+              title: LocaleKeys.firstName.tr(),
+              onChanged: (v) {
+              },
+            ),
+          ),
+          spaceBetweenWidget(),
+          SliverToBoxAdapter(
+            child: NameFieldSignUp(
+              hintText: LocaleKeys.enterYourName.tr(),
+              title: LocaleKeys.LastName.tr(),
+              onChanged: (v) {
+              },
+            ),
+          ),
           spaceBetweenWidget(),
           const BirthDateSection(),
           spaceBetweenWidget(),
@@ -42,10 +59,6 @@ class ChildInfoBody extends StatelessWidget {
           const WeightFieldChildInfo(),
           spaceBetweenWidget(),
           const GenderSection(),
-          spaceBetweenWidget(),
-          const DiseasesFieldChildInfo(),
-          spaceBetweenWidget(),
-          const VaccinesFieldChildInfo(),
           spaceBetweenWidget(),
           SliverToBoxAdapter(
             child: CustomElevatedButton(
@@ -66,12 +79,12 @@ class ChildInfoBody extends StatelessWidget {
         child: SizedBox(height: height ?? 16, width: width ?? 0));
   }
 
-  Widget textCenterChildInfo() {
+  Widget textCenterChildInfo({required BuildContext context}) {
     return SliverToBoxAdapter(
       child: Align(
-        alignment: Alignment.centerRight,
+        alignment: context.locale.languageCode == 'ar '? Alignment.centerRight : Alignment.centerLeft,
         child: GText(
-          textAlign: TextAlign.right,
+
           color: AppColors.primaryColor,
           content: LocaleKeys.registerChildData.tr(),
           fontSize: 14,

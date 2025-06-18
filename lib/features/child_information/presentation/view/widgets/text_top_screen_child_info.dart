@@ -12,7 +12,6 @@ class TextTopScreenChildInfo extends StatelessWidget {
   Widget build(BuildContext context) {
     return SliverToBoxAdapter(
       child: GText(
-          textAlign: TextAlign.center,
           color: AppColors.primaryColor,
           content: LocaleKeys.welcomeMessage.tr(),
           fontSize: 18),

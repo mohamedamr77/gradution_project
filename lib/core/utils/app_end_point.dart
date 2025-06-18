@@ -4,7 +4,7 @@ class AppEndPoint{
   static const String signUp = "$domain/Auth/userRegister";
   static const String login = "$domain/Auth/login";
   static const String articleGetAll = "$domain/article/getAll";
-
+  static const String createChild ="$domain/child/create";
   static const String doctorsGetAll = "$domain/doctor/getAll";
   static  String deleteAccount ({required String id }){
     return "$domain/user/userById/$id";

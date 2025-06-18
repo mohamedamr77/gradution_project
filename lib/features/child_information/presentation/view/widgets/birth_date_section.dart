@@ -21,7 +21,7 @@ class BirthDateSection extends StatelessWidget {
           child: Column(
             children: [
               Align(
-                alignment: Alignment.centerRight,
+                alignment: context.locale.languageCode == 'ar' ? Alignment.centerRight : Alignment.centerLeft,
                 child: GText(
                   color: AppColors.thirdColor,
                   content: LocaleKeys.birthDate.tr(),
