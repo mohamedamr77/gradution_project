@@ -178,21 +178,21 @@ class _CustomGoogleMapState extends State<CustomGoogleMap> {
           myLocationEnabled: true,
           mapToolbarEnabled: true,
         ),
-        Positioned(
-          bottom: 40,
-          right: 40,
-          left: 40,
-          child: ElevatedButton(
-              onPressed: () {
-                CameraPosition cameraPosition = const CameraPosition(
-                    zoom: 18,
-                    target: LatLng(30.710469441426305, 31.240245013503866));
-                googleMapController!.animateCamera(
-                    CameraUpdate.newCameraPosition(cameraPosition));
-                setState(() {});
-              },
-              child: const Text("Change Location")),
-        )
+        // Positioned(
+        //   bottom: 40,
+        //   right: 40,
+        //   left: 40,
+        //   child: ElevatedButton(
+        //       onPressed: () {
+        //         CameraPosition cameraPosition = const CameraPosition(
+        //             zoom: 18,
+        //             target: LatLng(30.710469441426305, 31.240245013503866));
+        //         googleMapController!.animateCamera(
+        //             CameraUpdate.newCameraPosition(cameraPosition));
+        //         setState(() {});
+        //       },
+        //       child: const Text("Change Location")),
+        // )
       ],
     );
   }

@@ -6,6 +6,8 @@ import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/gemini_health/presentation/view/gemini_health_screen.dart';
 import 'package:gradutionproject/features/home/presentation/view/widgets/service_tile_home.dart';
 
+import '../../../../map/presenation/view/google_maps_screen.dart';
+
 class ServiceOptionsSection extends StatelessWidget {
   const ServiceOptionsSection({super.key});
 
@@ -24,7 +26,9 @@ class ServiceOptionsSection extends StatelessWidget {
         ServiceTile(
           imagePath: AppIcons.mapIcon,
           title: LocaleKeys.nearbyPharmacies.tr(),
-          onTap: () {},
+          onTap: () {
+            NavigationManager.push(GoogleMapsScreen.id);
+          },
         ),
       ],
     );

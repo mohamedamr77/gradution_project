@@ -102,7 +102,7 @@ class MyApp extends StatelessWidget {
             initialRoute:
             TokenManager.getToken() == null
                 ? OnBoardingScreen.id
-                : GoogleMapsScreen.id,
+                : BottomNavBarScreen.id,
 
           ),
         );
