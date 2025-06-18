@@ -4,6 +4,7 @@ import 'package:gradutionproject/core/shared_widget/custom_row_buttons.dart';
 import 'package:gradutionproject/core/utils/bottomSheet_helper.dart';
 import 'package:gradutionproject/core/utils/token_manager.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
+import 'package:gradutionproject/features/child_information/presentation/view/child_info_screen.dart';
 import 'package:gradutionproject/features/notification_feature/presentation/view/noificaion_screen.dart';
 
 import '../../../../core/utils/app_icons.dart';
@@ -11,7 +12,7 @@ import '../../../../core/utils/locale_keys.g.dart';
 import '../../../language_app/presentation/view/language_screen.dart';
 import '../../../my_children/presentation/view/my_children_screen.dart';
 import '../../../profile_setting/presentation/view/profile_setting_screen.dart';
-import '../../../theme_app/presentation/view/theme_screen.dart';
+
 import 'account_list_tile_model.dart';
 
 List<AccountListTileModel> accountListTilesList = [
@@ -46,7 +47,9 @@ List<AccountListTileModel> accountListTilesList = [
   AccountListTileModel(
     title: LocaleKeys.addChild,
     imageLeadingPath: AppIcons.addChilderIcon,
-    onTap: () {},
+    onTap: () {
+      NavigationManager.push(ChildInfoScreen.id);
+      },
   ),
   AccountListTileModel(
     title: LocaleKeys.myChildren,

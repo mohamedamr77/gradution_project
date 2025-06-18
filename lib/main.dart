@@ -6,6 +6,8 @@ import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/doctors/data/repo/doctor_repo_impl.dart';
+import 'package:gradutionproject/features/profile_setting/data/repo/profile_setting_impl.dart';
+import 'package:gradutionproject/features/profile_setting/data/repo/profile_setting_repo.dart';
 import 'package:gradutionproject/features/vaccine_times/data/repo/vaccine_repo_impl.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
 import 'package:hive_flutter/adapters.dart';
@@ -22,6 +24,7 @@ import 'features/doctors/presentation/view_model/doctors_cubit.dart';
 import 'features/gemini_health/presentation/view/gemini_health_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'features/on_boarding/presentation/view/on_boarding_screen.dart';
+import 'features/profile_setting/presentation/view_model/profile_setting_cubit.dart';
 import 'firebase_options.dart';
 
 void main() async{
@@ -54,6 +57,9 @@ void main() async{
               ),
              BlocProvider<VaccineCubit>(
                 create: (context) => VaccineCubit(vaccineRepo: VaccineRepoImpl(apiService: ApiService()))..getAllVaccine(),
+              ), 
+             BlocProvider<ProfileSettingCubit>(
+                create: (context) => ProfileSettingCubit(ProfileSettingImpl(apiService: ApiService())),
               ),
            ],
            child: const MyApp())),

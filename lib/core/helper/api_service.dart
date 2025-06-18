@@ -161,7 +161,11 @@ class ApiService {
     dynamic body,
     String? token,
   }) async {
-    Map<String, String> headers = {};
+    Map<String, String> headers = {
+      'accept-language': 'ar',
+      'Content-Type': 'application/json',
+      'x-flutter-secret' :'flutter_client'
+    };
     final accessToken = token ?? TokenManager.getToken();
 
     if (accessToken != null && accessToken.isNotEmpty) {

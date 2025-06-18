@@ -6,6 +6,9 @@ class AppEndPoint{
   static const String articleGetAll = "$domain/article/getAll";
 
   static const String doctorsGetAll = "$domain/doctor/getAll";
+  static  String deleteAccount ({required String id }){
+    return "$domain/user/userById/$id";
+  }
 
   static const String getAllVaccine = "$domain/vaccine/getAll";
   static String getVaccineById({required String id}) {
