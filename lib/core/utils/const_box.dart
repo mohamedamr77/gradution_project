@@ -5,4 +5,5 @@ class BoxApp {
   static const String kAdviceBox = "AdviceBox";
   static const String kFillDataCorrect = "fillCorrect";
   static const String kDietType = "dietType";
+  static const String kUserId = "userId";
 }

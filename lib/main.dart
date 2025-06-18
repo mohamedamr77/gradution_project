@@ -72,7 +72,7 @@ Future<void> _initializeHive() async {
   await Future.wait([
     Hive.openBox(BoxApp.kThemeBox),
     Hive.openBox(BoxApp.kAuthBox),
-
+    Hive.openBox(BoxApp.kUserId),
   ]);
 }
 class MyApp extends StatelessWidget {

@@ -1,4 +1,5 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/utils/user_id_managar.dart';
 import 'package:gradutionproject/features/auth/sign_up/data/model/sign_up_request.dart';
 import 'package:gradutionproject/features/auth/sign_up/data/repo/sign_up_repo.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
@@ -53,6 +54,7 @@ class SignUpCubit extends Cubit<SignUpState> {
       emit(SignUpWithEmailFailureState(error: l.message));
    }, (r) {
      TokenManager.saveToken(r.token??"");
+     UserIdManager.saveToken(userId: r.user?.userId.toString()??"");
       emit(SignUpWithEmailSuccessState(authResponse: r));
    },);
   }

@@ -9,6 +9,7 @@ import 'package:gradutionproject/features/auth/login/data/model/login_request_mo
 import 'package:gradutionproject/features/auth/login/data/repo/login_repo.dart';
 import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/bottom_nav_bar_screen.dart';
 import 'package:rive/rive.dart';
+import '../../../../../core/utils/user_id_managar.dart';
 import 'login_state.dart';
 
 class LoginCubit extends Cubit<LoginState> {
@@ -127,6 +128,7 @@ class LoginCubit extends Cubit<LoginState> {
           backgroundColor: AppColors.greenColor,
         );
         TokenManager.saveToken(authResponse.token??"");
+        UserIdManager.saveToken(userId: authResponse.user?.userId.toString()??"");
         emit(LoginWithSuccessState(authResponse: authResponse));
         successTrigger?.fire();
 

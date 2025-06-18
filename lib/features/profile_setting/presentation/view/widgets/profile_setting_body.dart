@@ -5,6 +5,7 @@ import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/utils/token_manager.dart';
+import 'package:gradutionproject/core/utils/user_id_managar.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/field_name_profile_setting.dart';
 import 'package:gradutionproject/features/profile_setting/presentation/view/widgets/field_phone_profile_setting.dart';
@@ -88,8 +89,9 @@ class ProfileSettingBody extends StatelessWidget {
                   button: CustomRowButtons(
                     titleBlueButton: LocaleKeys.delete.tr(),
                     onTapBlueButton: () {
+                      NavigationManager.goBack();
                       BlocProvider.of<ProfileSettingCubit>(context)
-                          .deleteAccount(userId: "77");
+                          .deleteAccount(userId: UserIdManager.getToken() ??"");
                     },
                     titleWhiteButton: LocaleKeys.cancel.tr(),
                     onTapWhiteButton: () {},
