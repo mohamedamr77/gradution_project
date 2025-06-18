@@ -11,11 +11,14 @@ class DoctorDetailsScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final args =
+    ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>;
+    final doctorId = args['doctorId'] as String;
     return Scaffold(
       appBar: CustomAppBar(
         title: LocaleKeys.doctorInfo.tr(),
       ),
-      body: const DoctorDetailsBody(),
+      body:  DoctorDetailsBody(id: doctorId,),
     );
   }
 }

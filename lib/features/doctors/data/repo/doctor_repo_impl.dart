@@ -27,4 +27,21 @@ class DoctorRepoImpl implements DoctorsRepo{
     }
   }
 
+  @override
+  Future<Either<Failure, DoctorFullResponse>> getDoctorById(String id) async{
+    try{
+      final response = await apiService.get(
+        endPoint: AppEndPoint.getDoctorById(id),
+      );
+      if (response["success"]==true) {
+        final doctorFullResponse = DoctorFullResponse.fromJson(response);
+        return Right(doctorFullResponse);
+      } else {
+        return const Left(ServerFailure(message: "Failed to fetch doctors"));
+      }
+    }catch(e){
+      return Left(ServerFailure(message: e.toString()));
+    }
+  }
+
 }

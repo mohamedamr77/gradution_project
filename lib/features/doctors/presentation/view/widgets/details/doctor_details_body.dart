@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/shared_widget/custom_title_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/doctors/presentation/view_model/doctors_cubit.dart';
 
 import '../../../../../../core/shared_widget/custom_description_text.dart';
 import '../../../../../../core/shared_widget/reusable_item_card .dart';
@@ -11,9 +13,21 @@ import '../../../../../auth/shared_widget_auth/social_auth_section.dart';
 import '../../../../../../core/shared_model/resuable_model.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 
-class DoctorDetailsBody extends StatelessWidget {
-  const DoctorDetailsBody({super.key});
+class DoctorDetailsBody extends StatefulWidget {
+  final String id;
+  const DoctorDetailsBody({super.key, required this.id});
 
+  @override
+  State<DoctorDetailsBody> createState() => _DoctorDetailsBodyState();
+}
+
+class _DoctorDetailsBodyState extends State<DoctorDetailsBody> {
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    BlocProvider.of<DoctorsCubit>(context).getDoctorById(id: widget.id);
+  }
   @override
   Widget build(BuildContext context) {
     return Padding(

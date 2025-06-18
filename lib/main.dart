@@ -47,7 +47,7 @@ void main() async{
                 create: (context) => ArticleSearchCubit(articleRepo: ArticleImpl(apiService: ApiService())),
               ),
              BlocProvider<DoctorsCubit>(
-                create: (context) => DoctorsCubit(DoctorRepoImpl(apiService: ApiService())),
+                create: (context) => DoctorsCubit(DoctorRepoImpl(apiService: ApiService()))..doctorsGetAll(),
               ),
            ],
            child: const MyApp())),

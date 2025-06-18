@@ -5,5 +5,6 @@ import '../model/doctor_full_response.dart';
 
 abstract class DoctorsRepo{
   Future<Either<Failure,DoctorFullResponse>> getDoctors();
+  Future<Either<Failure,DoctorFullResponse>> getDoctorById(String id);
 
 }

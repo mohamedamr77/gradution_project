@@ -6,6 +6,10 @@ class AppEndPoint{
   static const String articleGetAll = "$domain/article/getAll";
 
   static const String doctorsGetAll = "$domain/doctor/getAll";
+
+  static  String getDoctorById(String id) {
+    return "$domain/doctor/$id";
+  }
   static String getArticleById({required String id}) {
     return "$domain/article/articleById/$id";
   }

@@ -15,3 +15,17 @@ class DoctorsErrorState extends DoctorsState {
   final String message;
   DoctorsErrorState({required this.message});
 }
+
+
+class GetDoctorByIdLoadingState extends DoctorsState {
+  GetDoctorByIdLoadingState();
+}
+
+class GetDoctorByIdSuccessState extends DoctorsState {
+  final DoctorModel doctor;
+  GetDoctorByIdSuccessState({required this.doctor});
+}
+class GetDoctorByIdErrorState extends DoctorsState {
+  final String message;
+  GetDoctorByIdErrorState({required this.message});
+}
