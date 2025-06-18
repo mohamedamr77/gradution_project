@@ -7,12 +7,16 @@ import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/v
 import 'package:skeletonizer/skeletonizer.dart';
 
 import '../../../../../core/shared_widget/header_home_section.dart';
+import '../../../data/model/vaccine_dummy_list.dart';
+import '../../viewModel/vaccine_times_cubit.dart';
 
 class VaccineTimesBody extends StatelessWidget {
   const VaccineTimesBody({super.key});
 
   @override
   Widget build(BuildContext context) {
+    VaccineTimesCubit vaccineTimesCubit = BlocProvider.of<VaccineTimesCubit>(context);
+    VaccineCubit vaccineCubit = BlocProvider.of<VaccineCubit>(context);
     return Padding(
       padding: const EdgeInsets.only(
         top: 16,
@@ -23,19 +27,26 @@ class VaccineTimesBody extends StatelessWidget {
         builder: (context, state) {
           return Skeletonizer(
               enabled: state is VaccineLoadingState,
-              child: const CustomScrollView(
+              child:  CustomScrollView(
                 slivers: [
-                  SliverToBoxAdapter(child: HeaderBottomNavBarScreen()),
-                  SliverToBoxAdapter(
+                  const SliverToBoxAdapter(child: HeaderBottomNavBarScreen()),
+                  const SliverToBoxAdapter(
                       child: SizedBox(
                         height: 16,
                       )),
-                  VaccineTimesButtons(),
-                  SliverToBoxAdapter(
+                  const VaccineTimesButtons(),
+                  const SliverToBoxAdapter(
                       child: SizedBox(
                         height: 16,
                       )),
-                  VaccineTimesListItems(),
+                  VaccineTimesListItems(vaccineList:
+
+               state is VaccineSuccessState?   vaccineTimesCubit.buttonSelected == 0
+                      ?
+                  vaccineCubit.vaccineListBasic ??[]:
+                  vaccineCubit.vaccineListAdditional??[]
+                    :dummyVaccineList,
+                    ),
                 ],
               ) );
         },

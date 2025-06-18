@@ -15,8 +15,8 @@ import '../../viewModel/vaccine_times_cubit.dart';
 import '../vaccine_times_deatils_screen.dart';
 
 class VaccineTimesListItems extends StatelessWidget {
-
-  const VaccineTimesListItems({super.key});
+  final List<VaccineModel> vaccineList;
+  const VaccineTimesListItems({super.key, required this.vaccineList});
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +28,7 @@ class VaccineTimesListItems extends StatelessWidget {
           builder: (context, state) {
             return SliverList.separated(
               itemCount:
-              vaccineTimesCubit.buttonSelected == 0
-                  ?
-              vaccineCubit.vaccineListBasic?.length ??0:
-              vaccineCubit.vaccineListAdditional?.length ??0,
+              vaccineList.length,
               itemBuilder: (context, index) {
                 return AnimatedSwitcher(
                     duration:
@@ -48,8 +45,8 @@ class VaccineTimesListItems extends StatelessWidget {
                       );
                     },
                     child: vaccineTimesCubit.buttonSelected == 0
-                        ? basicButtonList(vaccineModel: vaccineCubit.vaccineListBasic?[index]??const VaccineModel())
-                        : additionalButtonList(vaccineModel:  vaccineCubit.vaccineListAdditional?[index]??const VaccineModel()));
+                        ? basicButtonList(vaccineModel: vaccineList[index])
+                        : additionalButtonList(vaccineModel:   vaccineList[index]));
               },
               separatorBuilder: (BuildContext context, int index) {
                 return const SizedBox(height: 8);
