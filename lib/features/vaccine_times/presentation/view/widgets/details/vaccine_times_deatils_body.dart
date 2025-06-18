@@ -5,6 +5,7 @@ import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
+import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_state.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
 
 import '../../../../../../core/shared_widget/custom_title_text.dart';
@@ -13,10 +14,12 @@ import '../../../../../../core/utils/app_images.dart';
 
 class VaccineTimesDetailsBody extends StatefulWidget {
   final String id;
+
   const VaccineTimesDetailsBody({super.key, required this.id});
 
   @override
-  State<VaccineTimesDetailsBody> createState() => _VaccineTimesDetailsBodyState();
+  State<VaccineTimesDetailsBody> createState() =>
+      _VaccineTimesDetailsBodyState();
 }
 
 class _VaccineTimesDetailsBodyState extends State<VaccineTimesDetailsBody> {
@@ -26,31 +29,47 @@ class _VaccineTimesDetailsBodyState extends State<VaccineTimesDetailsBody> {
     super.initState();
     BlocProvider.of<VaccineCubit>(context).getVaccineById(id: widget.id);
   }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 0.04.w, vertical: 0.02.h),
-      child: CustomScrollView(
-        slivers: [
-          _buildReusableItemCard(),
-          _buildSpacer(height: 24),
-          _buildSectionTitle(LocaleKeys.doseCount.tr()),
-          _buildSpacer(height: 16),
-          _buildSectionDescription("جرعتان أو ثلاث (حسب نوع اللقاح)."),
-          _buildSpacer(height: 24),
-          _buildSectionTitle(LocaleKeys.timeline.tr()),
-          _buildSpacer(height: 16),
-          _buildSectionDescription(LocaleKeys.timeLineDetails.tr()),
-          _buildSpacer(height: 24),
-          _buildSectionTitle(LocaleKeys.sideEffectsLabel.tr()),
-          _buildSpacer(height: 16),
-          _buildSectionDescription(LocaleKeys.sideEffectDetails.tr()),
-          _buildSpacer(height: 24),
-          _buildSectionTitle(LocaleKeys.medicationsForSideEffects.tr()),
-          _buildSpacer(height: 16),
-          _buildSectionDescription(
-              LocaleKeys.medicationsForSideEffectsDetails.tr())
-        ],
+      child: BlocBuilder<VaccineCubit, VaccineState>(
+        builder: (context, state) {
+          return
+              state is VaccineDetailsLoadingState ?
+              const Center(child: CircularProgressIndicator())
+          : state is VaccineDetailsErrorState ?
+          Center(
+              child: Text(
+                state.errorMessage,
+                style: const TextStyle(color: Colors.red, fontSize: 16),
+              ),
+            ) :
+                  state is VaccineDetailsSuccessState ?
+          CustomScrollView(
+            slivers: [
+              _buildReusableItemCard(),
+              _buildSpacer(height: 24),
+              _buildSectionTitle(LocaleKeys.doseCount.tr()),
+              _buildSpacer(height: 16),
+              _buildSectionDescription("جرعتان أو ثلاث (حسب نوع اللقاح)."),
+              _buildSpacer(height: 24),
+              _buildSectionTitle(LocaleKeys.timeline.tr()),
+              _buildSpacer(height: 16),
+              _buildSectionDescription(LocaleKeys.timeLineDetails.tr()),
+              _buildSpacer(height: 24),
+              _buildSectionTitle(LocaleKeys.sideEffectsLabel.tr()),
+              _buildSpacer(height: 16),
+              _buildSectionDescription(LocaleKeys.sideEffectDetails.tr()),
+              _buildSpacer(height: 24),
+              _buildSectionTitle(LocaleKeys.medicationsForSideEffects.tr()),
+              _buildSpacer(height: 16),
+              _buildSectionDescription(
+                  LocaleKeys.medicationsForSideEffectsDetails.tr())
+            ],
+          ) : const SizedBox();
+        },
       ),
     );
   }
