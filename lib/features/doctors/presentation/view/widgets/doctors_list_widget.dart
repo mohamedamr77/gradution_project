@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
@@ -9,8 +8,6 @@ import 'package:gradutionproject/features/doctors/presentation/view_model/doctor
 import 'package:skeletonizer/skeletonizer.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/shared_model/resuable_model.dart';
-import '../../../../favourite_items/data/model/fav_doctors_list.dart';
-import '../../../../../core/utils/locale_keys.g.dart';
 import '../../../data/model/dummy_doctors.dart';
 import '../../view_model/doctors_cubit.dart';
 

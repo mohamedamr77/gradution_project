@@ -36,7 +36,7 @@ class GeminiHealthBody extends StatelessWidget {
         child: Text(
           LocaleKeys.welcome_message.tr(),
           textAlign: TextAlign.center,
-          style: TextStyle(
+          style: const TextStyle(
             fontFamily: AppFontFamily.cairoFontFamily,
             fontSize: 20,
             color: AppColors.primaryColor,
@@ -114,7 +114,7 @@ class GeminiHealthBody extends StatelessWidget {
   }
 
   Widget _buildTypingIndicator() {
-    return Align(
+    return const Align(
       alignment: Alignment.centerRight,
       child: AnimatedTypingIndicator(),
     );
@@ -174,7 +174,7 @@ class GeminiHealthBody extends StatelessWidget {
               maxLines: null,
               textInputAction: TextInputAction.send,
               onSubmitted: (_) => cubit.askQuestion(),
-              style: TextStyle(
+              style: const TextStyle(
                   fontFamily: AppFontFamily.cairoFontFamily, fontSize: 16),
             ),
           ),
@@ -360,12 +360,12 @@ class _AnimatedTypingIndicatorState extends State<AnimatedTypingIndicator>
                 ),
               ),
               const SizedBox(width: 12),
-              SizedBox(
+              const SizedBox(
                 width: 20,
                 height: 20,
                 child: CircularProgressIndicator(
                   strokeWidth: 2.5,
-                  valueColor: const AlwaysStoppedAnimation<Color>(Color(0xff3640CE)),
+                  valueColor: AlwaysStoppedAnimation<Color>(Color(0xff3640CE)),
                 ),
               ),
             ],

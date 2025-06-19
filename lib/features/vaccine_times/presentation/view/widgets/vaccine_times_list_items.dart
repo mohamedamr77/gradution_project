@@ -4,12 +4,10 @@ import 'package:gradutionproject/core/shared_model/resuable_model.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_state.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_times_state.dart';
-import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../core/navigation/navigation_manager.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/locale_keys.g.dart';
 import '../../../data/model/vaccine/vaccine_model.dart';
 import '../../viewModel/vaccine_times_cubit.dart';
 import '../vaccine_times_deatils_screen.dart';

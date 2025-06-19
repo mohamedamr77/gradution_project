@@ -8,10 +8,8 @@ import '../../../../../core/article/data/model/article/artcile_model.dart';
 import '../../../../../core/article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
 import '../../viewModel/vaccination_tips_cubit.dart';
-import '../vaccine_tips_details_screen.dart';
 import '../../../../../core/utils/locale_keys.g.dart';
 
 class VaccinationTipsListItem extends StatelessWidget {

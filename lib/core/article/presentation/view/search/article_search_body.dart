@@ -1,7 +1,6 @@
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gradutionproject/core/article/data/model/dummy_articles.dart';
 import 'package:gradutionproject/core/article/presentation/view_model/article/article_cubit.dart';
 import 'package:gradutionproject/core/article/presentation/view_model/article/article_state.dart';
@@ -10,8 +9,6 @@ import 'package:gradutionproject/core/shared_widget/custom_text_form_field.dart'
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:skeletonizer/skeletonizer.dart';
 
-import '../../../../../features/medicines/data/model/list/list_dummy_data_medicines.dart';
-import '../../../../../features/medicines/presentation/viewModel/medicines_cubit.dart';
 import '../../../../navigation/navigation_manager.dart';
 import '../../../../shared_model/resuable_model.dart';
 import '../../../../shared_widget/reusable_item_card .dart';

@@ -11,8 +11,6 @@ import '../../../../../core/article/presentation/view_model/article/article_cubi
 import '../../../../../core/utils/locale_keys.g.dart';
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
-import '../../../../../core/utils/app_images.dart';
-import '../vaccine_info_details_screen.dart';
 
 class VaccineInfoListItem extends StatelessWidget {
   const VaccineInfoListItem({super.key});

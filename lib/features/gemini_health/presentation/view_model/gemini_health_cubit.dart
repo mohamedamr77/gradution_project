@@ -35,7 +35,7 @@ class GeminiHealthCubit extends Cubit<GeminiHealthState> {
       // Update UI with new messages
       emit(GeminiHealthLoaded(List.from(messages)));
     } catch (e) {
-      emit(GeminiHealthError(
+      emit(const GeminiHealthError(
           'حدث خطأ أثناء التواصل مع المساعد الطبي. الرجاء المحاولة مرة أخرى.'));
     }
   }

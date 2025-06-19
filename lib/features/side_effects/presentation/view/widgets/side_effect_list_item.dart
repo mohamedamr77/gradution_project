@@ -10,9 +10,7 @@ import 'package:gradutionproject/features/side_effects/presentation/view_model/s
 import '../../../../../core/article/data/model/article/artcile_model.dart';
 import '../../../../../core/article/presentation/view_model/article/article_cubit.dart';
 import '../../../../../core/shared_widget/reusable_item_card .dart';
-import '../../../../../core/utils/app_images.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
-import '../../../data/model/side_effect_list.dart';
 
 class SideEffectListItem extends StatelessWidget {
   const SideEffectListItem({super.key,});

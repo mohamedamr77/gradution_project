@@ -11,9 +11,7 @@ import '../../../../shared_widget/custom_title_text.dart';
 import '../../../../shared_widget/global_text.dart';
 import '../../../../shared_widget/reusable_item_card .dart';
 import '../../../../utils/app_colors.dart';
-import '../../../../utils/app_images.dart';
 import '../../../../utils/locale_keys.g.dart';
-import '../../../../../features/side_effects/data/model/side_effect_details_list.dart';
 
 class SideEffectDetailsBody extends StatefulWidget {
   final String articleId;

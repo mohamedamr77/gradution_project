@@ -1,5 +1,4 @@
 import 'artcile_data.dart';
-import 'artcile_model.dart';
 
 class ArticleResponse {
   final bool? success;
