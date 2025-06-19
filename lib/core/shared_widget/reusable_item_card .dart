@@ -193,7 +193,7 @@ class ReadMore extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return TextButton(
-        onPressed: () {},
+        onPressed: reusableModel.onTapCard,
         child: GText(
             color: AppColors.primaryColor,
             content: LocaleKeys.knowMore.tr(),
