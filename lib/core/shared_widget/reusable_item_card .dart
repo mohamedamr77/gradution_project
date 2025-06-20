@@ -5,7 +5,6 @@ import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import '../shared_model/resuable_model.dart';
 import 'global_text.dart';
 import '../utils/app_colors.dart';
-import '../utils/app_text.dart';
 
 class ReusableItemCard extends StatelessWidget {
   final ReusableModel reusableModel;
@@ -154,7 +153,7 @@ class ReusableItemCard extends StatelessWidget {
                   onPressed: () {},
                   child: const GText(
                       color: AppColors.primaryColor,
-                      content: AppText.knowMore,
+                      content: "dasdfasffdsafsad",
                       fontSize: 12)),
             ),
           )

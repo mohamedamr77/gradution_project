@@ -6,6 +6,8 @@ import 'package:gradutionproject/features/bottom_nav_bar/presentation/view/botto
 import 'package:rive/rive.dart';
 import 'login_state.dart';
 
+
+
 class LoginCubit extends Cubit<LoginState> {
   LoginCubit() : super(LoginInitialState());
 
@@ -120,10 +122,10 @@ class LoginCubit extends Cubit<LoginState> {
         passwordController.text == "password") {
       successTrigger?.fire();
       NavigationManager.push(BottomNavBarScreen.id);
-      emit(LoginSuccessState());
+      // emit(LoginSuccessState());
     } else {
       failTrigger?.fire();
-      emit(LoginFailState());
+      // emit(LoginFailState());
     }
   }
 }
