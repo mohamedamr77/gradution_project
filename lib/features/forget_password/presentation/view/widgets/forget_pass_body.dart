@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/name_screen.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/forget_pass_form.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
@@ -35,8 +36,8 @@ class ForgetPassBody extends StatelessWidget {
                 child: SizedBox(
               height: 0.04.h,
             )),
-            const SliverToBoxAdapter(
-                child: NameScreen(title: AppText.forgotPassword)),
+            SliverToBoxAdapter(
+                child: NameScreen(title: LocaleKeys.forgotPassword.tr())),
             SliverToBoxAdapter(
                 child: SizedBox(
               height: 0.04.h,

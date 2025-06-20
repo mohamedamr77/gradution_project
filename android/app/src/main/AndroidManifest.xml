@@ -3,6 +3,8 @@
         android:label="gradutionproject"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
+        <meta-data android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyAjEaTwt5AYfDWS6ygA_VTf3SXmRhvhzMg"/>
         <activity
             android:name=".MainActivity"
             android:exported="true"

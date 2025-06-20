@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/on_boarding/data/model/on_boarding_model.dart';
@@ -40,7 +41,7 @@ class OnBoardingBody extends StatelessWidget {
                       flex: 1,
                     ),
                     TitleOnBoarding(
-                      title: onboardingModel.title,
+                      title: onboardingModel.title.tr(),
                     ),
                     const Spacer(
                       flex: 2,

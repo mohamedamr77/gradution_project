@@ -1,6 +1,7 @@
-import '../../../../core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
+
 
 List<String> buttonFavouriteTitles = [
-  AppText.articles,
-  AppText.doctors,
+  LocaleKeys.articles,
+  LocaleKeys.doctors,
 ];

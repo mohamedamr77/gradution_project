@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../core/shared_widget/custom_list_tile.dart';
 import '../../../../../core/utils/app_images.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import '../../../data/model/account_list_tile_list.dart';
 
 class AccountBody extends StatelessWidget {
@@ -21,11 +22,28 @@ class AccountBody extends StatelessWidget {
       child: CustomScrollView(
         slivers: [
           _buildSpacer(height: 16),
-          _buildNameScreen(title: AppText.profile),
+          _buildNameScreen(title: LocaleKeys.profile.tr()),
           _buildSpacer(height: 16),
           _buildImageUser(imagePath: AppImages.lailaTest),
           _buildSpacer(height: 16),
-          _buildListOfItems(),
+          SliverList.separated(
+            itemBuilder: (context, index) {
+              return CustomListTile(
+                title: accountListTilesList[index].title.tr(),
+                onTap: accountListTilesList[index].onTap,
+                imagePath: accountListTilesList[index].imageLeadingPath,
+                colorTitle: index == accountListTilesList.length - 1
+                    ? AppColors.redColor
+                    : AppColors.darkGrayColor,
+              );
+            },
+            separatorBuilder: (BuildContext context, int index) {
+              return const SizedBox(
+                height: 24,
+              );
+            },
+            itemCount: accountListTilesList.length,
+          ),
           _buildSpacer(height: 32),
         ],
       ),
@@ -45,7 +63,7 @@ class AccountBody extends StatelessWidget {
       child: Align(
           alignment: Alignment.center,
           child: GText(
-              color: AppColors.primaryColor, content: title, fontSize: 18)),
+              color: AppColors.primaryColor, content: title.tr(), fontSize: 18)),
     );
   }
 
@@ -64,7 +82,7 @@ class AccountBody extends StatelessWidget {
     return SliverList.separated(
       itemBuilder: (context, index) {
         return CustomListTile(
-          title: accountListTilesList[index].title,
+          title: accountListTilesList[index].title.tr(),
           onTap: accountListTilesList[index].onTap,
           imagePath: accountListTilesList[index].imageLeadingPath,
           colorTitle: index == accountListTilesList.length - 1

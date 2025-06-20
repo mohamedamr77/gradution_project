@@ -1,3 +1,4 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
@@ -5,8 +6,8 @@ import 'package:gradutionproject/core/shared_widget/global_text.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 
 import '../../features/notification_feature/presentation/view/noificaion_screen.dart';
 
@@ -24,14 +25,15 @@ class HeaderBottomNavBarScreen extends StatelessWidget {
         const SizedBox(
           width: 8,
         ),
-        const FittedBox(
+        FittedBox(
             fit: BoxFit.scaleDown,
             child: GText(
               color: AppColors.primaryColor,
-              content: AppText.welcomeLily,
+              content: LocaleKeys.welcomeLily.tr(),
               fontSize: 16,
               fontWeight: FontWeight.w600,
-            )),
+            )
+        ),
         const Spacer(),
         IconButton(
             onPressed: () {

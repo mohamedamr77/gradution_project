@@ -1,0 +1,2 @@
+C:/Users/moamr/Documents/Language/Mobile App/gradutionproject/android/app/.cxx/RelWithDebInfo/5w2o1826/x86/CMakeFiles/edit_cache.dir
+C:/Users/moamr/Documents/Language/Mobile App/gradutionproject/android/app/.cxx/RelWithDebInfo/5w2o1826/x86/CMakeFiles/rebuild_cache.dir

@@ -1,0 +1,2 @@
+C:/Users/moamr/Documents/Language/Mobile App/gradutionproject/android/app/.cxx/Debug/r1r1h4v6/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Users/moamr/Documents/Language/Mobile App/gradutionproject/android/app/.cxx/Debug/r1r1h4v6/arm64-v8a/CMakeFiles/rebuild_cache.dir

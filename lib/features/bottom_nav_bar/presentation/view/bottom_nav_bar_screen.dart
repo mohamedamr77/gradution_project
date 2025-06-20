@@ -1,3 +1,6 @@
+import 'dart:ui' as ui;
+
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
@@ -41,10 +44,12 @@ class _BottomNavBarScreenState extends State<BottomNavBarScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final isArabic = context.locale.languageCode == 'ar';
+    final textDirection = isArabic ? ui.TextDirection.rtl : ui.TextDirection.ltr;
     return Scaffold(
       drawer: const DrawerWidget(),
       body: Directionality(
-        textDirection: TextDirection.rtl,
+        textDirection: textDirection,
         child: PageView.builder(
           reverse: true,
           itemCount: navPages.length,

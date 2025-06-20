@@ -1,6 +1,7 @@
-import '../../../../../core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
+
 
 List<String> medicineButtonsList = [
-  AppText.basic,
-  AppText.additional,
+  LocaleKeys.basic,
+  LocaleKeys.additional,
 ];

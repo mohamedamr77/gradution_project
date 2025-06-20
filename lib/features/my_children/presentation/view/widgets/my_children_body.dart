@@ -1,10 +1,11 @@
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gradutionproject/core/shared_widget/custom_child_tile.dart';
 import 'package:gradutionproject/core/utils/app_icons.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
-import '../../../../../core/utils/app_text.dart';
+import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 
 class MyChildrenBody extends StatelessWidget {
   const MyChildrenBody({super.key});
@@ -19,8 +20,8 @@ class MyChildrenBody extends StatelessWidget {
             itemBuilder: (context, index) {
               return CustomChildTile(
                 imagePath: AppImages.childTest,
-                title: AppText.childName,
-                subTitle: AppText.yearAndFourMonth,
+                title: LocaleKeys.childName.tr(),
+                subTitle: LocaleKeys.yearAndFourMonth.tr(),
                 leading: SvgPicture.asset(AppIcons.pencilSquare),
               );
             },

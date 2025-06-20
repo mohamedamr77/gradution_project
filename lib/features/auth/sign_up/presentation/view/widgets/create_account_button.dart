@@ -1,29 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_cubit.dart';
+import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import 'package:gradutionproject/features/child_information/presentation/view/child_info_screen.dart';
+import 'package:easy_localization/easy_localization.dart';
 
 import '../../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../../core/utils/app_colors.dart';
-import '../../../../../../core/utils/app_text.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
 
 class CreateAccountButton extends StatelessWidget {
   final GlobalKey<FormState> formKey;
+
   const CreateAccountButton({super.key, required this.formKey});
 
   @override
   Widget build(BuildContext context) {
     var cubit = BlocProvider.of<SignUpCubit>(context);
-    return CustomElevatedButton(
-      borderRadius: 8,
-      onPress: () {
-        if (formKey.currentState!.validate()) {
-          NavigationManager.push(ChildInfoScreen.id);
+    return BlocConsumer<SignUpCubit, SignUpState>(
+      listener: (context, state) {
+        if (state is SignUpWithEmailSuccessState) {
+          ToastUtils.showToast(
+              message: LocaleKeys.loginSuccess.tr(),
+              backgroundColor: AppColors.greenColor);
+          NavigationManager.replaceAll(ChildInfoScreen.id);
+        } else if (state is SignUpWithEmailFailureState) {
+          ToastUtils.showToast(message: state.error);
         }
       },
-      btnColor: AppColors.primaryColor,
-      titleButton: AppText.createAccount,
+      builder: (context, state) {
+        return CustomElevatedButton(
+          borderRadius: 8,
+          onPress: () {
+            if (formKey.currentState!.validate()) {
+              cubit.signUpWithEmail();
+            }
+          },
+          btnColor: AppColors.primaryColor,
+          titleButton: LocaleKeys.createAccount.tr(),
+        );
+      },
     );
   }
 }

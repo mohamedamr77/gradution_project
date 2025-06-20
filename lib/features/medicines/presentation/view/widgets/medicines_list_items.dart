@@ -5,21 +5,23 @@ import 'package:gradutionproject/features/medicines/presentation/viewModel/medic
 
 import '../../../../../core/shared_widget/reusable_item_card .dart';
 import '../../../../../core/utils/app_images.dart';
-import '../../../../../core/utils/app_text.dart';
 import '../../../../../core/shared_model/resuable_model.dart';
+import '../../../data/model/medication_model.dart';
 import '../../viewModel/medicines_cubit.dart';
 import '../medicines_deatils_screen.dart';
 
 class MedicinesListItems extends StatelessWidget {
-  const MedicinesListItems({super.key});
+  final  List<MedicationModel> medications;
+  const MedicinesListItems({super.key, required this.medications});
 
   @override
   Widget build(BuildContext context) {
-    MedicinesCubit cubit = BlocProvider.of<MedicinesCubit>(context);
     return BlocBuilder<MedicinesCubit, MedicinesState>(
       builder: (context, state) {
-        return SliverList.separated(
-          itemCount: 10,
+        return ListView.separated(
+          shrinkWrap: true,
+          physics: const NeverScrollableScrollPhysics(),
+          itemCount: medications.length,
           itemBuilder: (context, index) {
             return AnimatedSwitcher(
                 duration:
@@ -29,15 +31,14 @@ class MedicinesListItems extends StatelessWidget {
                     opacity: animation,
                     child: SizeTransition(
                       sizeFactor:
-                          animation, // Resizes the widget during the transition
+                          animation,
                       axis: Axis.vertical, // Controls the resizing direction
                       child: child,
                     ),
                   );
                 },
-                child: cubit.buttonSelected == 0
-                    ? basicButtonList()
-                    : additionalButtonList());
+                child: basicButtonList(medicationModel: medications[index]),
+            );
           },
           separatorBuilder: (BuildContext context, int index) {
             return const SizedBox(height: 8);
@@ -47,36 +48,24 @@ class MedicinesListItems extends StatelessWidget {
     );
   }
 
-  Widget basicButtonList() {
+  Widget basicButtonList({required MedicationModel medicationModel}) {
     return ReusableItemCard(
       key: const ValueKey<int>(0),
       reusableModel: ReusableModel(
-        imagePath: AppImages.tuberVaccineTest,
-        title: AppText.rotavirusVaccine,
-        description: "فعال بنسبة99%",
-        subDescription: "يتم اخده مره واحده",
+        imagePath: medicationModel.image ?? AppImages.tuberVaccineTest,
+        title: medicationModel.name ?? "غير متاح",
+        description: medicationModel.description ?? "غير متاح",
+        subDescription: medicationModel.dosage ??"غير متاح",
         onPressedIconFavourite: () {},
         onTapCard: () {
-          NavigationManager.push(MedicinesDetailsScreen.id);
+          NavigationManager.push(MedicinesDetailsScreen.id,
+          arguments: {
+            'MedicineId': medicationModel.id ?? '',
+          }
+          );
         },
       ), // Assign a unique key for animation
     );
   }
 
-  Widget additionalButtonList() {
-    return ReusableItemCard(
-      key: const ValueKey<int>(1),
-      reusableModel: ReusableModel(
-        imagePath: AppImages.vaccine4Test,
-        title: "تطعيم الدرن",
-        description: "فعال بنسبة99%",
-        subDescription: "يتم اخده مره واحده",
-        onPressedIconFavourite: () {},
-        onTapCheckBoxVaccineTimes: () {},
-        onTapCard: () {
-          NavigationManager.push(MedicinesDetailsScreen.id);
-        },
-      ), // Assign a unique key for animation
-    );
-  }
 }

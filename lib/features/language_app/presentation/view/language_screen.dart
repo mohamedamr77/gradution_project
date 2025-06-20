@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/features/language_app/presentation/view/widgets/language_body.dart';
-import 'package:gradutionproject/features/language_app/presentation/viewModel/language_app_cubit.dart';
-
 import '../../../../core/shared_widget/custom_app_bar.dart';
-import '../../../../core/utils/app_text.dart';
+import '../../../../core/utils/locale_keys.g.dart';
 
 class LanguageScreen extends StatelessWidget {
   static String id = "language_screen";
@@ -13,14 +11,11 @@ class LanguageScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => LanguageAppCubit(),
-      child: const Scaffold(
-        appBar: CustomAppBar(
-          title: AppText.language,
-        ),
-        body: LanguageBody(),
+    return Scaffold(
+      appBar: CustomAppBar(
+        title: LocaleKeys.language.tr(),
       ),
+      body: const LanguageBody(),
     );
   }
 }

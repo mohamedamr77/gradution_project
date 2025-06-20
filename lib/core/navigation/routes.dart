@@ -9,7 +9,9 @@ import '../../features/forget_password/presentation/view/change_pass_done_screen
 import '../../features/forget_password/presentation/view/change_pass_screen.dart';
 import '../../features/forget_password/presentation/view/forget_pass_screen.dart';
 import '../../features/forget_password/presentation/view/verify_code_screen.dart';
+import '../../features/gemini_health/presentation/view/gemini_health_screen.dart';
 import '../../features/language_app/presentation/view/language_screen.dart';
+import '../../features/map/presenation/view/google_maps_screen.dart';
 import '../../features/medicines/presentation/view/medicines_deatils_screen.dart';
 import '../../features/medicines/presentation/view/medicines_screen.dart';
 import '../../features/my_children/presentation/view/my_children_screen.dart';
@@ -17,7 +19,7 @@ import '../../features/notification_feature/presentation/view/noificaion_screen.
 import '../../features/notification_feature/presentation/view/notification_details_screen.dart';
 import '../../features/on_boarding/presentation/view/on_boarding_screen.dart';
 import '../../features/profile_setting/presentation/view/profile_setting_screen.dart';
-import '../../features/side_effects/presentation/view/side_effect_details_screen.dart';
+import '../article/presentation/view/article_by_id/article_details_by_id_screen.dart';
 import '../../features/side_effects/presentation/view/side_effect_screen.dart';
 import '../../features/theme_app/presentation/view/theme_screen.dart';
 import '../../features/vaccination_tips/presentation/view/vaccination_tips_screen.dart';
@@ -25,6 +27,7 @@ import '../../features/vaccination_tips/presentation/view/vaccine_tips_details_s
 import '../../features/vaccine_info/presentation/view/vaccine_info_details_screen.dart';
 import '../../features/vaccine_info/presentation/view/vaccine_info_screen.dart';
 import '../../features/vaccine_times/presentation/view/vaccine_times_deatils_screen.dart';
+import '../article/presentation/view/search/article_search_screen.dart';
 
 class AppRouter {
   static Map<String, Widget Function(dynamic)> routes = {
@@ -32,6 +35,7 @@ class AppRouter {
     SignUpScreen.id: (context) => const SignUpScreen(),
     LoginScreen.id: (context) => const LoginScreen(),
     ForgetPassScreen.id: (context) => const ForgetPassScreen(),
+    GeminiHealthScreen.id: (context) => const GeminiHealthScreen(),
     VerifyCodeScreen.id: (context) => const VerifyCodeScreen(),
     ChangePasswordScreen.id: (context) => const ChangePasswordScreen(),
     ChangePassDoneScreen.id: (context) => const ChangePassDoneScreen(),
@@ -43,18 +47,20 @@ class AppRouter {
     VaccineInfoScreen.id: (context) => const VaccineInfoScreen(),
     MedicinesScreen.id: (context) => const MedicinesScreen(),
     VaccineTipsDetailsScreen.id: (context) => const VaccineTipsDetailsScreen(),
-    SideEffectDetailsScreen.id: (context) => const SideEffectDetailsScreen(),
+    ArticleDetailsById.id: (context) => const ArticleDetailsById(),
     VaccineInfoDetailsScreen.id: (context) => const VaccineInfoDetailsScreen(),
     MedicinesDetailsScreen.id: (context) => const MedicinesDetailsScreen(),
     DoctorDetailsScreen.id: (context) => const DoctorDetailsScreen(),
+    ArticleSearchScreen.id: (context) => const ArticleSearchScreen(),
     ProfileSettingScreen.id: (context) => const ProfileSettingScreen(),
     VaccineTimesDetailsScreen.id: (context) =>
-        const VaccineTimesDetailsScreen(),
+    const VaccineTimesDetailsScreen(),
     LanguageScreen.id: (context) => const LanguageScreen(),
     ThemeScreen.id: (context) => const ThemeScreen(),
     NotificationScreen.id: (context) => const NotificationScreen(),
     NotificationDetailsScreen.id: (context) =>
-        const NotificationDetailsScreen(),
+    const NotificationDetailsScreen(),
     MyChildrenScreen.id: (context) => const MyChildrenScreen(),
+    GoogleMapsScreen.id: (context) => const GoogleMapsScreen(),
   };
 }

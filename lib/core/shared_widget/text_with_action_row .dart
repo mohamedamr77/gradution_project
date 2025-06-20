@@ -16,7 +16,6 @@ class TextWithActionRow extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Row(
-      textDirection: TextDirection.rtl,
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GText(

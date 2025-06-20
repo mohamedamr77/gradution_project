@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:gradutionproject/core/utils/app_text.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/features/auth/shared_widget_auth/social_auth_section.dart';
+import 'package:easy_localization/easy_localization.dart';
 import '../../../../../../core/shared_widget/name_screen.dart';
+import '../../../../../../core/utils/locale_keys.g.dart';
+import '../../viewModel/sign_up_cubit.dart';
 import 'confirm_pass_field_sign_up.dart';
 import 'create_account_button.dart';
 import 'email_field_sign_up.dart';
@@ -16,7 +19,8 @@ class SignUpBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var formKey = GlobalKey<FormState>();
-    AutovalidateMode autoValidateMode = AutovalidateMode.onUserInteraction;
+    AutovalidateMode autoValidateMode = AutovalidateMode.disabled;
+    final cubit = context.read<SignUpCubit>();
     return Form(
       key: formKey,
       autovalidateMode: autoValidateMode,
@@ -32,13 +36,29 @@ class SignUpBody extends StatelessWidget {
                     const SizedBox(
                       height: 10,
                     ),
-                    const NameScreen(
-                      title: AppText.createNewAccount,
+                    NameScreen(
+                      title: LocaleKeys.createNewAccount.tr(),
                     ),
                     const SizedBox(
                       height: 32,
                     ),
-                    const NameFieldSignUp(),
+                    NameFieldSignUp(
+                      hintText: LocaleKeys.enterYourName.tr(),
+                      title: LocaleKeys.firstName.tr(),
+                      onChanged: (v) {
+                        cubit.firstName = v;
+                      },
+                    ),
+                    const SizedBox(
+                      height: 16,
+                    ),
+                    NameFieldSignUp(
+                      hintText: LocaleKeys.enterYourName.tr(),
+                      title: LocaleKeys.LastName.tr(),
+                      onChanged: (v) {
+                        cubit.secondName = v;
+                      },
+                    ),
                     const SizedBox(
                       height: 16,
                     ),

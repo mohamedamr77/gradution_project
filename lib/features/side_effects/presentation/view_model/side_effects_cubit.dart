@@ -3,9 +3,11 @@ import 'package:gradutionproject/features/side_effects/presentation/view_model/s
 
 class SideEffectsCubit extends Cubit<SideEffectsState> {
   SideEffectsCubit() : super(SideEffectInitialState());
+
   int buttonSelected = 0;
+
   void selectButton(int index) {
     buttonSelected = index;
-    emit(ChangeButtonSideEffectsState());
+    emit(SideEffectInitialState());
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/utils/validation_service.dart';
 import '../../../../../core/navigation/navigation_manager.dart';
@@ -6,7 +7,7 @@ import '../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../core/shared_widget/custom_text_form_field.dart';
 import '../../../../../core/utils/app_colors.dart';
 import '../../../../../core/utils/app_icons.dart';
-import '../../../../../core/utils/app_text.dart';
+import '../../../../../core/utils/locale_keys.g.dart';
 import '../verify_code_screen.dart';
 
 class ForgetPassForm extends StatelessWidget {
@@ -35,9 +36,9 @@ class ForgetPassForm extends StatelessWidget {
 
   Widget phoneField() {
     return CustomTextField(
-      hintText: AppText.enterPhoneNumber,
+      hintText: LocaleKeys.enterPhoneNumber.tr(),
       prefix: AppIcons.phoneIcon,
-      title: AppText.phoneNumber,
+      title: LocaleKeys.phoneNumber.tr(),
       validator: (value) {
         return Validators.validatePhoneNumber(value);
       },
@@ -52,7 +53,7 @@ class ForgetPassForm extends StatelessWidget {
         }
       },
       btnColor: AppColors.primaryColor,
-      titleButton: AppText.next,
+      titleButton: LocaleKeys.next.tr(),
     );
   }
 }
