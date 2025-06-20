@@ -18,7 +18,7 @@ class LoginButton extends StatelessWidget {
         cubit.loginClick();
       },
       btnColor: AppColors.primaryColor,
-      titleButton: AppText.login,
+      titleButton: "",
     );
   }
 }
