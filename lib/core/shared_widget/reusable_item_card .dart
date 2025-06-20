@@ -154,7 +154,7 @@ class ReusableItemCard extends StatelessWidget {
                   onPressed: () {},
                   child: const GText(
                       color: AppColors.primaryColor,
-                      content: AppText.knowMore,
+                      content: "dasdfasffdsafsad",
                       fontSize: 12)),
             ),
           )
