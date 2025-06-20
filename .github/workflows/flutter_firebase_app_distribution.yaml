@@ -1,6 +1,10 @@
 name: Flutter CI/CD
 
 on:
+  push:
+    branches:
+      - main
+      - develop
   pull_request:
     types:
       - labeled
@@ -18,9 +22,9 @@ on:
 jobs:
   build:
     # Only run this job if the label is "ready for testing" or it's a push event
-    if: |
-      github.event_name == 'push' || 
-      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ready for testing'))
+#    if: |
+#      github.event_name == 'push' ||
+#      (github.event_name == 'pull_request' && contains(github.event.pull_request.labels.*.name, 'ready for testing'))
 
     runs-on: ubuntu-latest
 
