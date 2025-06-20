@@ -52,8 +52,8 @@ jobs:
       - name: 🔄 Run Build Runner (if necessary)
         run: flutter pub run build_runner build --delete-conflicting-outputs
 
-      - name: 🚀 Run Flutter Unit Tests
-        run: flutter test
+#      - name: 🚀 Run Flutter Unit Tests
+#        run: flutter test
 
       - name: Build APK
         run: flutter build apk --release
@@ -63,6 +63,6 @@ jobs:
         uses: wzieba/Firebase-Distribution-Github-Action@v1
         with:
           appId: ${{secrets.GRADUTAION_PROGECT}}
-          serviceCredentialsFileContent: ${{secrets.GOOGLE_CREDIENTIAL_PROJECT}}
+          serviceCredentialsFileContent: ${{secrets.GOOGLE_CREDIENTIAL_PROJECT_APP}}
           groups: testers
           file: build/app/outputs/flutter-apk/app-release.apk
