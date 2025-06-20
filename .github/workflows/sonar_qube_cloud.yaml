@@ -63,8 +63,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
           args: >
-            -Dsonar.organization=mohamedamr77 \
-            -Dsonar.projectKey=mohamedamr77_gradution_project \
+            -Dsonar.organization=mohamedamr77 
+            -Dsonar.projectKey=mohamedamr77_gradution_project 
             -Dsonar.sources=lib
             -Dsonar.host.url=https://sonarcloud.io
             -Dsonar.dart.lcov.reportPaths=coverage/lcov.info
