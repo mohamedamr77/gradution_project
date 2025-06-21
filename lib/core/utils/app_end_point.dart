@@ -1,12 +1,12 @@
-class AppEndPoint{
-  static const String baseUrl ="https://baby-tracker.koyeb.app";
+class AppEndPoint {
+  static const String baseUrl = "https://baby-tracker.koyeb.app";
   static const String domain = "$baseUrl/api/v1";
   static const String signUp = "$domain/Auth/userRegister";
   static const String login = "$domain/Auth/login";
   static const String articleGetAll = "$domain/article/getAll";
-  static const String createChild ="$domain/child/create";
+  static const String createChild = "$domain/child/create";
   static const String doctorsGetAll = "$domain/doctor/getAll";
-  static  String deleteAccount ({required String id }){
+  static String deleteAccount({required String id}) {
     return "$domain/user/userById/$id";
   }
 
@@ -14,21 +14,27 @@ class AppEndPoint{
   static String getVaccineById({required String id}) {
     return "$domain/vaccine/vaccineById/$id";
   }
-  static  String getDoctorById(String id) {
+
+  static String getDoctorById(String id) {
     return "$domain/doctor/$id";
   }
+
   static String getArticleById({required String id}) {
     return "$domain/article/articleById/$id";
   }
 
+  static const String getMyChildren = "$domain/child/myChildren";
+
   static String searchArticle({required String search}) {
     return "$domain/article/search?title=$search";
   }
+
   static const String forgetPassword = "$domain/auth/forgotPassword";
   // static const String getAllMedicine = "$domain/medicine/getAll";
   static String searchMedicine(String name) {
     return "$domain/medicine/search?name=$name";
   }
+
   static String getMedicineById(String id) {
     return "$domain/medicine/medicineById/$id";
   }
