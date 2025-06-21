@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
+import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/auth/sign_up/presentation/viewModel/sign_up_state.dart';
 import 'package:easy_localization/easy_localization.dart';
 import '../../../../../../core/utils/locale_keys.g.dart';
@@ -20,7 +21,7 @@ class HaveAccountSignup extends StatelessWidget {
           titleWithoutTap: LocaleKeys.alreadyHaveAccount.tr(),
           onTap: () {
             cubit.resetState();
-            NavigationManager.goBack();
+            NavigationManager.push(LoginScreen.id);
           },
         );
       },

@@ -24,8 +24,7 @@ import 'features/on_boarding/presentation/view/on_boarding_screen.dart';
 import 'features/profile_setting/presentation/view_model/profile_setting_cubit.dart';
 import 'firebase_options.dart';
 
-void main() async{
-
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await _initializeHive();
   await EasyLocalization.ensureInitialized();
@@ -33,33 +32,39 @@ void main() async{
     options: DefaultFirebaseOptions.currentPlatform,
   );
   runApp(
-   EasyLocalization(
-       supportedLocales: const [
-         Locale('ar'), // Arabic
-         Locale('en'), // English
-       ],
-       path: 'assets/translations', // Path to translation files
-       fallbackLocale: const Locale('en'), // Fallback language
-       startLocale: const Locale('en'),
-       child:  MultiBlocProvider(
-           providers: [
-              BlocProvider<ArticleCubit>(
-                create: (context) => ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService()))..getAllArticle(),
-              ),
-             BlocProvider<ArticleSearchCubit>(
-                create: (context) => ArticleSearchCubit(articleRepo: ArticleImpl(apiService: ApiService())),
-              ),
-             BlocProvider<DoctorsCubit>(
-                create: (context) => DoctorsCubit(DoctorRepoImpl(apiService: ApiService()))..doctorsGetAll(),
-              ),
-             BlocProvider<VaccineCubit>(
-                create: (context) => VaccineCubit(vaccineRepo: VaccineRepoImpl(apiService: ApiService()))..getAllVaccine(),
-              ), 
-             BlocProvider<ProfileSettingCubit>(
-                create: (context) => ProfileSettingCubit(ProfileSettingImpl(apiService: ApiService())),
-              ),
-           ],
-           child: const MyApp())),
+    EasyLocalization(
+        supportedLocales: const [
+          Locale('ar'), // Arabic
+          Locale('en'), // English
+        ],
+        path: 'assets/translations', // Path to translation files
+        fallbackLocale: const Locale('en'), // Fallback language
+        startLocale: const Locale('en'),
+        child: MultiBlocProvider(providers: [
+          BlocProvider<ArticleCubit>(
+            create: (context) =>
+                ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService()))
+                  ..getAllArticle(),
+          ),
+          BlocProvider<ArticleSearchCubit>(
+            create: (context) => ArticleSearchCubit(
+                articleRepo: ArticleImpl(apiService: ApiService())),
+          ),
+          BlocProvider<DoctorsCubit>(
+            create: (context) =>
+                DoctorsCubit(DoctorRepoImpl(apiService: ApiService()))
+                  ..doctorsGetAll(),
+          ),
+          BlocProvider<VaccineCubit>(
+            create: (context) => VaccineCubit(
+                vaccineRepo: VaccineRepoImpl(apiService: ApiService()))
+              ..getAllVaccine(),
+          ),
+          BlocProvider<ProfileSettingCubit>(
+            create: (context) => ProfileSettingCubit(
+                ProfileSettingImpl(apiService: ApiService())),
+          ),
+        ], child: const MyApp())),
   );
 }
 
@@ -72,6 +77,7 @@ Future<void> _initializeHive() async {
     Hive.openBox(BoxApp.kUserId),
   ]);
 }
+
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
 
@@ -95,11 +101,9 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute:
-            TokenManager.getToken() == null
+            initialRoute: TokenManager.getToken() == null
                 ? OnBoardingScreen.id
                 : BottomNavBarScreen.id,
-
           ),
         );
       },
