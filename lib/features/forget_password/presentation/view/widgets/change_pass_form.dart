@@ -28,11 +28,26 @@ class _ChangePassFormState extends State<ChangePassForm> {
       TextEditingController();
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
 
+  bool _isPasswordVisible = false;
+  bool _isConfirmPasswordVisible = false;
+
   @override
   void dispose() {
     _passwordController.dispose();
     _confirmPasswordController.dispose();
     super.dispose();
+  }
+
+  void _togglePasswordVisibility() {
+    setState(() {
+      _isPasswordVisible = !_isPasswordVisible;
+    });
+  }
+
+  void _toggleConfirmPasswordVisibility() {
+    setState(() {
+      _isConfirmPasswordVisible = !_isConfirmPasswordVisible;
+    });
   }
 
   @override
@@ -67,7 +82,16 @@ class _ChangePassFormState extends State<ChangePassForm> {
                     hintText: LocaleKeys.enterPassword.tr(),
                     prefix: AppIcons.passwordIcon,
                     title: LocaleKeys.password.tr(),
-                    suffixIcon: AppIcons.visibilityOffIcon,
+                    obscureText: !_isPasswordVisible,
+                    suffixIcon: InkWell(
+                      onTap: _togglePasswordVisibility,
+                      child: Icon(
+                        _isPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: AppColors.grayColor,
+                      ),
+                    ),
                     validator: (value) {
                       return Validators.validatePassword(value);
                     },
@@ -83,7 +107,16 @@ class _ChangePassFormState extends State<ChangePassForm> {
                     hintText: LocaleKeys.enterPassword.tr(),
                     prefix: AppIcons.passwordIcon,
                     title: LocaleKeys.confirmPassword.tr(),
-                    suffixIcon: AppIcons.visibilityOffIcon,
+                    obscureText: !_isConfirmPasswordVisible,
+                    suffixIcon: InkWell(
+                      onTap: _toggleConfirmPasswordVisibility,
+                      child: Icon(
+                        _isConfirmPasswordVisible
+                            ? Icons.visibility
+                            : Icons.visibility_off,
+                        color: AppColors.grayColor,
+                      ),
+                    ),
                     validator: (value) {
                       return Validators.validateConfirmPassword(
                           _passwordController.text, value);

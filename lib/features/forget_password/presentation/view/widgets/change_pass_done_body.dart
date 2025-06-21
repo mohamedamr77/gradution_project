@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
+import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 
 import '../../../../../core/shared_widget/custom_elevated_btn.dart';
 import '../../../../../core/shared_widget/name_screen.dart';
@@ -32,7 +34,7 @@ class ChangePassDoneBody extends StatelessWidget {
                   SizedBox(height: 0.04.h),
                   CustomElevatedButton(
                     onPress: () {
-                      // Add your navigation or action here
+                      NavigationManager.replaceAll(LoginScreen.id);
                     },
                     btnColor: AppColors.primaryColor,
                     titleButton: LocaleKeys.login.tr(),
