@@ -53,16 +53,14 @@ class LoginBody extends StatelessWidget {
                     height: 0.05.h,
                   ),
                   const LoginButton(),
-                  const SizedBox(
-                    height: 16,
-                  ),
-                  const SocialAuthLogin(),
                   SizedBox(
                     height: 0.04.h,
                   ),
-                   NotHaveAccountLogin(onTap: () {
-                     NavigationManager.push(SignUpScreen.id);
-                   },),
+                  NotHaveAccountLogin(
+                    onTap: () {
+                      NavigationManager.push(SignUpScreen.id);
+                    },
+                  ),
                 ],
               ),
             ),
