@@ -6,7 +6,9 @@ import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
 import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/doctors/data/repo/doctor_repo_impl.dart';
+import 'package:gradutionproject/features/forget_password/data/repo/forget_password_impl.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/forget_pass_screen.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view_model/change_pass_cubit/change_pass_cubit.dart';
 import 'package:gradutionproject/features/profile_setting/data/repo/profile_setting_impl.dart';
 import 'package:gradutionproject/features/vaccine_times/data/repo/vaccine_repo_impl.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
@@ -48,9 +50,10 @@ void main() async {
                 ArticleCubit(articleRepo: ArticleImpl(apiService: ApiService()))
                   ..getAllArticle(),
           ),
-          BlocProvider<ArticleSearchCubit>(
-            create: (context) => ArticleSearchCubit(
-                articleRepo: ArticleImpl(apiService: ApiService())),
+          BlocProvider<ChangePassCubit>(
+            create: (context) => ChangePassCubit(
+              ForgetPasswordImpl(apiService: ApiService()),
+            ),
           ),
           BlocProvider<DoctorsCubit>(
             create: (context) =>

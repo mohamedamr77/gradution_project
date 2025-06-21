@@ -15,6 +15,8 @@ class AppEndPoint {
     return "$domain/vaccine/vaccineById/$id";
   }
 
+  static const String confirmResetPassword = "$domain/auth/confirmResetCode";
+
   static String getDoctorById(String id) {
     return "$domain/doctor/$id";
   }
@@ -29,7 +31,10 @@ class AppEndPoint {
     return "$domain/article/search?title=$search";
   }
 
-  static const String forgetPassword = "$domain/auth/forgotPassword";
+  static String forgetPassword({required String email}) {
+    return "$domain/auth/forgotPassword?email=$email";
+  }
+
   // static const String getAllMedicine = "$domain/medicine/getAll";
   static String searchMedicine(String name) {
     return "$domain/medicine/search?name=$name";

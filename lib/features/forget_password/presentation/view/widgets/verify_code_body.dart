@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
@@ -8,6 +9,8 @@ import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view_model/change_pass_cubit/change_pass_cubit.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view_model/change_pass_cubit/change_pass_state.dart';
 
 import '../change_pass_screen.dart';
 import 'otp_text_form_field.dart';
@@ -36,6 +39,10 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
     });
   }
 
+  String getOtpCode() {
+    return '${numberOneController?.text ?? ''}${numberTwoController?.text ?? ''}${numberThreeController?.text ?? ''}${numberFourController?.text ?? ''}';
+  }
+
   @override
   void initState() {
     super.initState();
@@ -54,7 +61,6 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     numberOneController?.dispose();
     numberTwoController?.dispose();
@@ -64,52 +70,83 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
 
   @override
   Widget build(BuildContext context) {
-    return CustomScrollView(
-      slivers: [
-        SliverFillRemaining(
-          hasScrollBody: false,
-          child: Column(
-            children: [
-              const Spacer(
-                flex: 2,
-              ),
-              NameScreen(title: LocaleKeys.passwordResetCode.tr()),
-              const Spacer(),
-              const ImageForgetPassword(imagePath: AppImages.confirmOtpScreen),
-              const Spacer(),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  OTPTextFormField(controller: numberOneController),
-                  OTPTextFormField(controller: numberTwoController),
-                  OTPTextFormField(controller: numberThreeController),
-                  OTPTextFormField(controller: numberFourController),
-                ],
-              ),
-              const Spacer(),
-              CustomElevatedButton(
-                  btnColor: isButtonEnabled == false
-                      ? AppColors.thirdColor
-                      : AppColors.primaryColor,
-                  onPress: isButtonEnabled
-                      ? () {
-                          NavigationManager.push(ChangePasswordScreen.id);
-                        }
-                      : () {},
-                  titleButton: LocaleKeys.confirm.tr()),
-              const Spacer(),
-              TextWithActionRow(
-                titleOnTap: LocaleKeys.resendCode.tr(),
-                titleWithoutTap: LocaleKeys.notHaveCode.tr(),
-                onTap: () {},
-              ),
-              const Spacer(
-                flex: 3,
-              ),
+    return BlocListener<ChangePassCubit, ChangePassState>(
+      listener: (context, state) {
+        if (state is ConfirmResetPasswordSuccessState) {
+          // Navigate to change password screen
+          NavigationManager.push(ChangePasswordScreen.id);
+        } else if (state is ConfirmResetPasswordFaliureState) {
+          // Show error message
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(state.errorMessage),
+              backgroundColor: AppColors.redColor,
+            ),
+          );
+        }
+      },
+      child: BlocBuilder<ChangePassCubit, ChangePassState>(
+        builder: (context, state) {
+          final isLoading = state is ConfirmResetPasswordLoadingState;
+
+          return CustomScrollView(
+            slivers: [
+              SliverFillRemaining(
+                hasScrollBody: false,
+                child: Column(
+                  children: [
+                    const Spacer(
+                      flex: 2,
+                    ),
+                    NameScreen(title: LocaleKeys.passwordResetCode.tr()),
+                    const Spacer(),
+                    const ImageForgetPassword(
+                        imagePath: AppImages.confirmOtpScreen),
+                    const Spacer(),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        OTPTextFormField(controller: numberOneController),
+                        OTPTextFormField(controller: numberTwoController),
+                        OTPTextFormField(controller: numberThreeController),
+                        OTPTextFormField(controller: numberFourController),
+                      ],
+                    ),
+                    const Spacer(),
+                    CustomElevatedButton(
+                        btnColor: (isButtonEnabled && !isLoading) == false
+                            ? AppColors.thirdColor
+                            : AppColors.primaryColor,
+                        onPress: (isButtonEnabled && !isLoading)
+                            ? () {
+                                final otpCode = getOtpCode();
+                                context
+                                    .read<ChangePassCubit>()
+                                    .saveOtpCode(otpCode);
+                                // Navigate to change password screen to enter new password
+                                NavigationManager.push(ChangePasswordScreen.id);
+                              }
+                            : () {},
+                        titleButton:
+                            isLoading ? "Loading..." : LocaleKeys.confirm.tr()),
+                    const Spacer(),
+                    TextWithActionRow(
+                      titleOnTap: LocaleKeys.resendCode.tr(),
+                      titleWithoutTap: LocaleKeys.notHaveCode.tr(),
+                      onTap: () {
+                        // TODO: Implement resend code functionality
+                      },
+                    ),
+                    const Spacer(
+                      flex: 3,
+                    ),
+                  ],
+                ),
+              )
             ],
-          ),
-        )
-      ],
+          );
+        },
+      ),
     );
   }
 }
