@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 
 import '../../../../../core/navigation/navigation_manager.dart';
@@ -39,16 +40,16 @@ class _ChangePassFormState extends State<ChangePassForm> {
     return BlocListener<ChangePassCubit, ChangePassState>(
       listener: (context, state) {
         if (state is ConfirmResetPasswordSuccessState) {
-          // Navigate to success screen
+          // Show success message from backend
+          ToastUtils.showToast(
+            message: state.message,
+            backgroundColor: Colors.green,
+          );
+          // Navigate to success screen after showing message
           NavigationManager.push(ChangePassDoneScreen.id);
         } else if (state is ConfirmResetPasswordFaliureState) {
-          // Show error message
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: AppColors.redColor,
-            ),
-          );
+          // Show error message from backend
+          ToastUtils.showToast(message: state.errorMessage);
         }
       },
       child: BlocBuilder<ChangePassCubit, ChangePassState>(

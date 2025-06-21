@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:easy_localization/easy_localization.dart';
+import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/core/utils/validation_service.dart';
 import '../../../../../core/navigation/navigation_manager.dart';
@@ -35,16 +36,16 @@ class _ForgetPassFormState extends State<ForgetPassForm> {
     return BlocListener<ChangePassCubit, ChangePassState>(
       listener: (context, state) {
         if (state is ForgetPasswordSuccessState) {
-          // Navigate to verify code screen
+          // Show success message from backend
+          ToastUtils.showToast(
+            message: state.forgetPasswordResponse.message ?? "Succes Email",
+            backgroundColor: Colors.green,
+          );
+          // Navigate to verify code screen after showing message
           NavigationManager.push(VerifyCodeScreen.id);
         } else if (state is ForgetPasswordFaliureState) {
-          // Show error message
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: AppColors.redColor,
-            ),
-          );
+          // Show error message from backend
+          ToastUtils.showToast(message: state.errorMessage);
         }
       },
       child: BlocBuilder<ChangePassCubit, ChangePassState>(

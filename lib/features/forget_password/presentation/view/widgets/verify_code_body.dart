@@ -5,6 +5,7 @@ import 'package:gradutionproject/core/navigation/navigation_manager.dart';
 import 'package:gradutionproject/core/shared_widget/custom_elevated_btn.dart';
 import 'package:gradutionproject/core/shared_widget/name_screen.dart';
 import 'package:gradutionproject/core/shared_widget/text_with_action_row%20.dart';
+import 'package:gradutionproject/core/shared_widget/toast_utils.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
@@ -84,16 +85,15 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
     return BlocListener<ChangePassCubit, ChangePassState>(
       listener: (context, state) {
         if (state is ConfirmResetPasswordSuccessState) {
-          // Navigate to change password screen
+          // Show success message from backend
+          ToastUtils.showToast(
+            message: state.message,
+            backgroundColor: Colors.green,
+          );
           NavigationManager.push(ChangePasswordScreen.id);
         } else if (state is ConfirmResetPasswordFaliureState) {
-          // Show error message
-          ScaffoldMessenger.of(context).showSnackBar(
-            SnackBar(
-              content: Text(state.errorMessage),
-              backgroundColor: AppColors.redColor,
-            ),
-          );
+          // Show error message from backend
+          ToastUtils.showToast(message: state.errorMessage);
         }
       },
       child: BlocBuilder<ChangePassCubit, ChangePassState>(
