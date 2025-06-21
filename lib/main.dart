@@ -4,7 +4,9 @@ import 'package:gradutionproject/core/helper/api_service.dart';
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/const_box.dart';
 import 'package:gradutionproject/core/utils/const_variables.dart';
+import 'package:gradutionproject/features/auth/login/presentation/view/login_screen.dart';
 import 'package:gradutionproject/features/doctors/data/repo/doctor_repo_impl.dart';
+import 'package:gradutionproject/features/forget_password/presentation/view/forget_pass_screen.dart';
 import 'package:gradutionproject/features/profile_setting/data/repo/profile_setting_impl.dart';
 import 'package:gradutionproject/features/vaccine_times/data/repo/vaccine_repo_impl.dart';
 import 'package:gradutionproject/features/vaccine_times/presentation/viewModel/vaccine_cubit/vaccine_cubit.dart';
@@ -101,9 +103,12 @@ class MyApp extends StatelessWidget {
             debugShowCheckedModeBanner: false,
             navigatorKey: NavigationManager.navigationKey,
             routes: AppRouter.routes,
-            initialRoute: TokenManager.getToken() == null
+            initialRoute: ForgetPassScreen.id,
+            /*
+            TokenManager.getToken() == null
                 ? OnBoardingScreen.id
                 : BottomNavBarScreen.id,
+                */
           ),
         );
       },

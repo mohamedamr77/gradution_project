@@ -23,7 +23,7 @@ class ForgetPassForm extends StatelessWidget {
       child: SliverToBoxAdapter(
         child: Column(
           children: [
-            phoneField(),
+            emailField(),
             SizedBox(
               height: 0.04.h,
             ),
@@ -34,13 +34,13 @@ class ForgetPassForm extends StatelessWidget {
     );
   }
 
-  Widget phoneField() {
+  Widget emailField() {
     return CustomTextField(
-      hintText: LocaleKeys.enterPhoneNumber.tr(),
-      prefix: AppIcons.phoneIcon,
-      title: LocaleKeys.phoneNumber.tr(),
+      hintText: LocaleKeys.enterEmailAddress.tr(),
+      prefix: AppIcons.emailIcon,
+      title: LocaleKeys.emailAddress.tr(),
       validator: (value) {
-        return Validators.validatePhoneNumber(value);
+        return Validators.validateEmail(value);
       },
     );
   }
