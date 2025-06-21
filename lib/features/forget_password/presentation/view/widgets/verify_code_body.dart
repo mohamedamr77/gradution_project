@@ -8,6 +8,7 @@ import 'package:gradutionproject/core/shared_widget/text_with_action_row%20.dart
 import 'package:gradutionproject/core/utils/app_colors.dart';
 import 'package:gradutionproject/core/utils/app_images.dart';
 import 'package:gradutionproject/core/utils/locale_keys.g.dart';
+import 'package:gradutionproject/core/utils/extentions/screen_size.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view/widgets/image_forget_password.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view_model/change_pass_cubit/change_pass_cubit.dart';
 import 'package:gradutionproject/features/forget_password/presentation/view_model/change_pass_cubit/change_pass_state.dart';
@@ -27,6 +28,8 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
   TextEditingController? numberTwoController;
   TextEditingController? numberThreeController;
   TextEditingController? numberFourController;
+  TextEditingController? numberFiveController;
+  TextEditingController? numberSixController;
 
   bool isButtonEnabled = false;
 
@@ -35,12 +38,14 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
       isButtonEnabled = (numberOneController?.text.isNotEmpty ?? false) &&
           (numberTwoController?.text.isNotEmpty ?? false) &&
           (numberThreeController?.text.isNotEmpty ?? false) &&
-          (numberFourController?.text.isNotEmpty ?? false);
+          (numberFourController?.text.isNotEmpty ?? false) &&
+          (numberFiveController?.text.isNotEmpty ?? false) &&
+          (numberSixController?.text.isNotEmpty ?? false);
     });
   }
 
   String getOtpCode() {
-    return '${numberOneController?.text ?? ''}${numberTwoController?.text ?? ''}${numberThreeController?.text ?? ''}${numberFourController?.text ?? ''}';
+    return '${numberOneController?.text ?? ''}${numberTwoController?.text ?? ''}${numberThreeController?.text ?? ''}${numberFourController?.text ?? ''}${numberFiveController?.text ?? ''}${numberSixController?.text ?? ''}';
   }
 
   @override
@@ -51,12 +56,16 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
     numberTwoController = TextEditingController();
     numberThreeController = TextEditingController();
     numberFourController = TextEditingController();
+    numberFiveController = TextEditingController();
+    numberSixController = TextEditingController();
 
     // Add listeners to the text fields to check when the content changes
     numberOneController?.addListener(checkFieldsFilled);
     numberTwoController?.addListener(checkFieldsFilled);
     numberThreeController?.addListener(checkFieldsFilled);
     numberFourController?.addListener(checkFieldsFilled);
+    numberFiveController?.addListener(checkFieldsFilled);
+    numberSixController?.addListener(checkFieldsFilled);
   }
 
   @override
@@ -66,6 +75,8 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
     numberTwoController?.dispose();
     numberThreeController?.dispose();
     numberFourController?.dispose();
+    numberFiveController?.dispose();
+    numberSixController?.dispose();
   }
 
   @override
@@ -103,39 +114,78 @@ class _VerifyCodeBodyState extends State<VerifyCodeBody> {
                     const ImageForgetPassword(
                         imagePath: AppImages.confirmOtpScreen),
                     const Spacer(),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                      children: [
-                        OTPTextFormField(controller: numberOneController),
-                        OTPTextFormField(controller: numberTwoController),
-                        OTPTextFormField(controller: numberThreeController),
-                        OTPTextFormField(controller: numberFourController),
-                      ],
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0.05.w),
+                      child: Wrap(
+                        alignment: WrapAlignment.center,
+                        spacing: 0.02.w,
+                        runSpacing: 0.02.h,
+                        children: [
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberOneController),
+                          ),
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberTwoController),
+                          ),
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberThreeController),
+                          ),
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberFourController),
+                          ),
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberFiveController),
+                          ),
+                          SizedBox(
+                            width: 0.12.w,
+                            child: OTPTextFormField(
+                                controller: numberSixController),
+                          ),
+                        ],
+                      ),
                     ),
                     const Spacer(),
-                    CustomElevatedButton(
-                        btnColor: (isButtonEnabled && !isLoading) == false
-                            ? AppColors.thirdColor
-                            : AppColors.primaryColor,
-                        onPress: (isButtonEnabled && !isLoading)
-                            ? () {
-                                final otpCode = getOtpCode();
-                                context
-                                    .read<ChangePassCubit>()
-                                    .saveOtpCode(otpCode);
-                                // Navigate to change password screen to enter new password
-                                NavigationManager.push(ChangePasswordScreen.id);
-                              }
-                            : () {},
-                        titleButton:
-                            isLoading ? "Loading..." : LocaleKeys.confirm.tr()),
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0.05.w),
+                      child: CustomElevatedButton(
+                          btnColor: (isButtonEnabled && !isLoading) == false
+                              ? AppColors.thirdColor
+                              : AppColors.primaryColor,
+                          onPress: (isButtonEnabled && !isLoading)
+                              ? () {
+                                  final otpCode = getOtpCode();
+                                  context
+                                      .read<ChangePassCubit>()
+                                      .saveOtpCode(otpCode);
+                                  // Navigate to change password screen to enter new password
+                                  NavigationManager.push(
+                                      ChangePasswordScreen.id);
+                                }
+                              : () {},
+                          titleButton: isLoading
+                              ? "Loading..."
+                              : LocaleKeys.confirm.tr()),
+                    ),
                     const Spacer(),
-                    TextWithActionRow(
-                      titleOnTap: LocaleKeys.resendCode.tr(),
-                      titleWithoutTap: LocaleKeys.notHaveCode.tr(),
-                      onTap: () {
-                        // TODO: Implement resend code functionality
-                      },
+                    Padding(
+                      padding: EdgeInsets.symmetric(horizontal: 0.05.w),
+                      child: TextWithActionRow(
+                        titleOnTap: LocaleKeys.resendCode.tr(),
+                        titleWithoutTap: LocaleKeys.notHaveCode.tr(),
+                        onTap: () {
+                          // TODO: Implement resend code functionality
+                        },
+                      ),
                     ),
                     const Spacer(
                       flex: 3,
